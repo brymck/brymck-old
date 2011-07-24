@@ -39,9 +39,10 @@ GEM
       addressable (~> 2.2.4)
       multipart-post (~> 1.1.0)
       rack (< 2, >= 1.1.0)
-    flickr (1.0.2)
-      xml-simple (>= 1.0.7)
+    flickraw (0.8.4)
+      json (>= 1.1.1)
     i18n (0.5.0)
+    json (1.5.3)
     mail (2.2.19)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -129,7 +130,6 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.29)
-    xml-simple (1.1.0)
 
 PLATFORMS
   ruby
@@ -137,7 +137,7 @@ PLATFORMS
 DEPENDENCIES
   RedCloth
   annotate
-  flickr
+  flickraw
   omniauth
   rails (= 3.0.9)
   simple-navigation

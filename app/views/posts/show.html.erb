@@ -1,7 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h2><%= @post.title %></h2>
-<%=raw @post.render_content %>
+<article>
+  <header>
+    <h2><%= @post.title %></h2>
+    <%=raw pubdate(@post.created_at) %>
+  </header>
+  <%=raw @post.render_content %>
+  <%= flickr_img 5966135685 %>
+  <footer>
+    metadata goes here
+  </footer>
+</article>
 
 <%= link_to t(:edit, :scope => :posts), edit_post_path(@post) %> |
 <%= link_to t(:back), posts_path %>

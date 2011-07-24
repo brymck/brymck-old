@@ -10,3 +10,7 @@ en:
   edit: "Edit"
   destroy: "Destroy"
   back: "Back"
+  time:
+    formats:
+      pubdate: "%FT%T%z"
+      article: "%B %e, %Y"
