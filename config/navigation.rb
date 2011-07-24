@@ -4,6 +4,7 @@ SimpleNavigation::Configuration.run do |navigation|
   navigation.items do |primary|
     primary.item :home, t(:home), root_path
     primary.item :about, t(:about), about_path
+    # primary.item :users, t(:users), users_path
 
     # Add an item which has a sub navigation (same params, but with block)
     # primary.item :key_2, 'name', url, options do |sub_nav|
