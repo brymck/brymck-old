@@ -1,14 +1,22 @@
+# coding: UTF-8
+
 module ApplicationHelper
   def title
     base_title = t(:brymck)
     if @title.nil?
       base_title
     else
-      "{#@title} | #{base_title}"
+      "#{@title} | #{base_title}"
     end
   end
 
   def copyright_years
-
+    base_year = 2010
+    current_year = Time.now.year
+    if current_year > base_year
+      "#{base_year}‒#{current_year}"
+    else
+      base_year
+    end
   end
 end
