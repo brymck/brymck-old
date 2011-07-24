@@ -1,13 +1,5 @@
 class Post < ActiveRecord::Base
   belongs_to :user
-
-  def name
-    user.name
-  end
-
-  def slug
-    title.downcase.gsub /[^a-z0-9]+/, "-"
-  end
 end
 
 # == Schema Information
