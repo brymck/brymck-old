@@ -1,3 +1,16 @@
+ul.inline {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+ul.inline li {
+  display: inline-block;
+}
+
+ul.inline li + li {
+  padding-left: 1em;
+}
+
 .flickr {
   margin-bottom: 1em;
 }

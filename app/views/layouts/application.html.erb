@@ -2,9 +2,11 @@
 <html>
   <%= render :partial => "layouts/head" %>
   <body>
-    <%= render :partial => "layouts/header" %>
-    <%= render :partial => "layouts/sidebar" %>
-    <%= yield %>
-    <%= render :partial => "layouts/footer" %>
+    <div class="container">
+      <%= render :partial => "layouts/header" %>
+      <%= render :partial => "layouts/sidebar" %>
+      <%= yield %>
+      <%= render :partial => "layouts/footer" %>
+    </div>
   </body>
 </html>

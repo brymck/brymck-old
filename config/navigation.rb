@@ -2,6 +2,7 @@
 SimpleNavigation::Configuration.run do |navigation|
   # Define the primary navigation
   navigation.items do |primary|
+    primary.dom_class = "inline"
     primary.item :home, t(:home), root_path
     primary.item :about, t(:about), about_path
 
@@ -13,10 +14,8 @@ SimpleNavigation::Configuration.run do |navigation|
 
       primary.item :signout, t(:signout), signout_path
     else
-      primary.item :signin, t(:signin), root_path do |sub_nav|
-        sub_nav.item :google_apps, t(:google_apps), "auth/google_apps"
-        sub_nav.item :twitter, t(:twitter), "auth/twitter"
-      end
+      primary.item :google_apps, t(:google_apps), "auth/google_apps"
+      primary.item :twitter, t(:twitter), "auth/twitter"
     end
     # primary.item :users, t(:users), users_path
 
