@@ -5,8 +5,7 @@
     <h2><%= @post.title %></h2>
     <%=raw pubdate(@post.created_at) %>
   </header>
-  <%=raw @post.render_content %>
-  <%= flickr_img 5966135685 %>
+  <%=raw render_content @post %>
   <footer>
     metadata goes here
   </footer>

@@ -5,8 +5,8 @@ class Post < ActiveRecord::Base
     user.name
   end
 
-  def render_content
-    RedCloth.new(content).to_html
+  def slug
+    title.downcase.gsub /[^a-z0-9]+/, "-"
   end
 end
 
