@@ -4,6 +4,11 @@ SimpleNavigation::Configuration.run do |navigation|
   navigation.items do |primary|
     primary.item :home, t(:home), root_path
     primary.item :about, t(:about), about_path
+    primary.item :signin, t(:signin), root_path, :unless => Proc.new { current_user } do |sub_nav|
+      sub_nav.item :google_apps, t(:google_apps), "auth/google_apps"
+      sub_nav.item :twitter, t(:twitter), "auth/twitter"
+    end
+    primary.item :signout, t(:signout), signout_path, :if => Proc.new { current_user }
     # primary.item :users, t(:users), users_path
 
     # Add an item which has a sub navigation (same params, but with block)
