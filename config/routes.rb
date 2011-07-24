@@ -1,4 +1,6 @@
 Brymck::Application.routes.draw do
+  resources :users
+
   match "about" => "page#about"
 
   match "/auth/:provider/callback" => "sessions#create"
