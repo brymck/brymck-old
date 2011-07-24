@@ -6,3 +6,11 @@ ja:
   signout: "サインアウト"
   google_apps: "Google Apps"
   twitter: "Twitter"
+  helpers:
+    submit:
+      create: "%{model}を作成"
+      update: "%{model}を更新"
+  show: "表示"
+  edit: "編集"
+  destroy: "削除"
+  back: "前へ"

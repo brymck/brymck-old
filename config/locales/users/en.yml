@@ -1,4 +1,6 @@
 en:
-  provider: "Provider"
-  uid: "UID"
-  name: "Name"
+  users:
+    index: "Users"
+    provider: "Provider"
+    uid: "UID"
+    name: "Name"

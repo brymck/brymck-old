@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   # GET /posts.xml
   def index
     @posts = Post.all
+    @title = t(:index, :scope => :posts)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,6 +26,7 @@ class PostsController < ApplicationController
   # GET /posts/new.xml
   def new
     @post = Post.new
+    @title = t(:new, :scope => :posts)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +37,14 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    @title = t(:edit, :scope => :posts)
   end
 
   # POST /posts
   # POST /posts.xml
   def create
     @post = Post.new(params[:post])
+    @post.user_id = current_user.id
 
     respond_to do |format|
       if @post.save

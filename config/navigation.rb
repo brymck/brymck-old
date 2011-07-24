@@ -7,7 +7,8 @@ SimpleNavigation::Configuration.run do |navigation|
 
     if current_user
       if current_user.admin?
-        primary.item :users, t(:users), users_path
+        primary.item :new_post, t(:new, :scope => :posts), new_post_path
+        primary.item :users, t(:index, :scope => :users), users_path
       end
 
       primary.item :signout, t(:signout), signout_path

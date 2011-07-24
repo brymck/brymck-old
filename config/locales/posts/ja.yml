@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    models:
+      post: "投稿"
+    attributes:
+      post:
+        content: "コンテンツ"
+        title: "タイトル"
+  posts:
+    index: "投稿"
+    new: "新規投稿"
+    edit: "投稿編集"
+    title: "タイトル"
+    content: "コンテンツ"

@@ -6,3 +6,7 @@ en:
   signout: "Sign out"
   google_apps: "Google Apps"
   twitter: "Twitter"
+  show: "Show"
+  edit: "Edit"
+  destroy: "Destroy"
+  back: "Back"

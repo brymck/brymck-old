@@ -1,4 +1,9 @@
 ja:
-  provider: "プロバイダ"
-  uid: "UID"
-  name: "名前"
+  activerecord:
+    models:
+      user: "ユーザ"
+  users:
+    index: "ユーザ"
+    provider: "プロバイダ"
+    uid: "UID"
+    name: "名前"
