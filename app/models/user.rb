@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
+  validates :id, :presence => true
+  validates :provider, :presence => true
+  validates :name, :presence => true
+  has_many :posts
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth["provider"]
@@ -7,6 +12,7 @@ class User < ActiveRecord::Base
     end
   end
 end
+
 
 # == Schema Information
 #
@@ -18,5 +24,6 @@ end
 #  name       :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  admin      :boolean         default(FALSE)
 #
 

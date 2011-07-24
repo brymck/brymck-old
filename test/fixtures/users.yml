@@ -10,6 +10,7 @@ two:
   uid: MyString
   name: MyString
 
+
 # == Schema Information
 #
 # Table name: users
@@ -20,5 +21,6 @@ two:
 #  name       :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  admin      :boolean         default(FALSE)
 #
 
