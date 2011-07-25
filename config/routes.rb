@@ -1,7 +1,8 @@
 Brymck::Application.routes.draw do
   scope "(:locale)", :locale => /en|ja/ do
-    resources :posts
     resources :users
+    resources :posts
+    resources :comments
 
     match "about" => "page#about"
     match "/signin" => "sessions#new", :as => :signin

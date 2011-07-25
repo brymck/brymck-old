@@ -2,6 +2,7 @@ GEM
   remote: http://rubygems.org/
   specs:
     RedCloth (4.2.7)
+    ZenTest (4.6.0)
     abstract (1.0.0)
     actionmailer (3.0.9)
       actionpack (= 3.0.9)
@@ -32,6 +33,8 @@ GEM
     addressable (2.2.4)
     annotate (2.4.0)
     arel (2.0.10)
+    autotest (4.4.6)
+      ZenTest (>= 4.4.1)
     babosa (0.3.5)
     builder (2.1.2)
     erubis (2.6.6)
@@ -138,6 +141,7 @@ PLATFORMS
 DEPENDENCIES
   RedCloth
   annotate
+  autotest
   flickraw
   friendly_id
   omniauth

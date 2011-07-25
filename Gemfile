@@ -11,3 +11,7 @@ gem 'flickraw'
 group :development do
   gem 'annotate'
 end
+
+group :development, :test do
+  gem 'autotest'
+end
