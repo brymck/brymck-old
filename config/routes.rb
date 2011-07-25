@@ -4,12 +4,12 @@ Brymck::Application.routes.draw do
     resources :users
 
     match "about" => "page#about"
-
-    match "/auth/:provider/callback" => "sessions#create"
-    match "/auth/failure" => "sessions#failure"
-    match "/signout" => "sessions#destroy", :as => :signout
     match "/signin" => "sessions#new", :as => :signin
   end
+
+  match "/auth/:provider/callback" => "sessions#create", :as => :auth
+  match "/auth/failure" => "sessions#failure"
+  match "/signout" => "sessions#destroy", :as => :signout
 
   match '/:locale' => 'page#home', :as => :home
   root :to => "page#home"
