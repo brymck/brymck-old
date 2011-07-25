@@ -1,6 +1,6 @@
 <nav>
   <ul class="left">
-    <%= nav_item :home,  root_path  %>
+    <%= nav_item :home,  home_path  %>
     <%= nav_item :about, about_path %>
     <%= nav_item :blog,  posts_path %>
     <% if admin? %>
@@ -9,7 +9,7 @@
     <% if logged_in? %>
       <%= nav_item :signout, signout_path %>
     <% else %>
-      <%= nav_item :twitter, "/auth/twitter" %>
+      <%= nav_item :signin, signin_path %>
     <% end %>
   </ul>
   <ul class="right">

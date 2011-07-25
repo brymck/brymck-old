@@ -7,4 +7,7 @@ class PageController < ApplicationController
     @title = t(:about)
   end
 
+  def signin
+    @title = t(:signin)
+  end
 end
