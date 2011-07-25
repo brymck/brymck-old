@@ -1,3 +1,18 @@
 <nav>
-  <%= render_navigation %>
+  <ul>
+    <% NAVIGATION.each do |topic| %>
+    <li class="span-3">
+      <h3><%= topic["text"] %></h3>
+      <ul>
+        <% topic["nodes"].each do |subtopic| %>
+          <% next if subtopic["logged_out"] && logged_in? %>
+          <% next if subtopic["logged_in"] && !logged_in? %>
+          <% next if subtopic["admin"] && admin? %>
+          <li><%= link_to t(subtopic["text"]), subtopic["url"] %></li>
+        <% end %>
+      </ul>
+    </li>
+    <% end %>
+  </ul>
 </nav>
+<hr>

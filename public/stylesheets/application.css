@@ -1,14 +1,11 @@
-ul.inline {
+nav ul {
   list-style-type: none;
   padding-left: 0;
 }
 
-ul.inline li {
+nav > ul > li {
   display: inline-block;
-}
-
-ul.inline li + li {
-  padding-left: 1em;
+  vertical-align: top;
 }
 
 .flickr {

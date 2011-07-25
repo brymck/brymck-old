@@ -3,8 +3,11 @@
   <%= render :partial => "layouts/head" %>
   <body>
     <div class="container">
-      <%= render :partial => "layouts/header" %>
+      <h1><%=t :brymck %></h1>
+      <hr>
       <%= render :partial => "layouts/sidebar" %>
+      <% content_tag(:h2, @title) if @title %>
+      <%= content_tag(:p, notice, :class => :success) if notice %>
       <%= yield %>
       <%= render :partial => "layouts/footer" %>
     </div>

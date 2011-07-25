@@ -7,6 +7,8 @@ class PostTest < ActiveSupport::TestCase
   end
 end
 
+
+
 # == Schema Information
 #
 # Table name: posts
@@ -17,5 +19,6 @@ end
 #  user_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  url        :string(255)
 #
 

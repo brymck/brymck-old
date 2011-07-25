@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  validates :id, :presence => true
   validates :provider, :presence => true
   validates :name, :presence => true
   has_many :posts
@@ -14,6 +13,8 @@ class User < ActiveRecord::Base
 end
 
 
+
+
 # == Schema Information
 #
 # Table name: users
@@ -25,5 +26,6 @@ end
 #  created_at :datetime
 #  updated_at :datetime
 #  admin      :boolean         default(FALSE)
+#  url        :string(255)
 #
 
