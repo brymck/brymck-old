@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_filter :authenticate, :only => [:edit, :create, :update, :destroy]
+
   # GET /posts
   # GET /posts.xml
   def index
@@ -83,5 +85,15 @@ class PostsController < ApplicationController
       format.html { redirect_to(posts_url) }
       format.xml  { head :ok }
     end
+  end
+
+  private
+
+  def deny_access
+    redirect_to signin_path, :notice => "Please sign in to access this page."
+  end
+
+  def authenticate
+    deny_access unless admin?
   end
 end

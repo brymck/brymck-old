@@ -2,7 +2,7 @@
   <tr>
     <th><%=t :title %></th>
     <th><%=t :author %></th>
-    <th colspan="3">Actions</th>
+    <th<% ' colspan="3"' if admin? %>>Actions</th>
   </tr>
 
 <% @posts.each do |post| %>
@@ -10,8 +10,10 @@
     <td><%= post.title %></td>
     <td><%= link_to post.author, post.user %></td>
     <td><%= link_to t(:show), post %></td>
-    <td><%= link_to t(:edit), edit_post_path(post) %></td>
-    <td><%= link_to t(:destroy), post, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% if admin? %>
+      <td><%= link_to t(:edit), edit_post_path(post) %></td>
+      <td><%= link_to t(:destroy), post, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

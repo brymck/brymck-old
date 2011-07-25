@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authorize
+  before_filter :authenticate, :only => [:edit, :create, :update, :destroy]
 
   def index
     @users = User.all
@@ -38,12 +38,13 @@ class UsersController < ApplicationController
     end
   end
 
-  protected
+  private
 
-  def authorize
-    unless current_user.admin?
-      flash[:notice] = "Log in please"
-      redirect_to root_path
-    end
+  def deny_access
+    redirect_to signin_path, :notice => "Please sign in to access this page."
+  end
+
+  def authenticate
+    deny_access unless admin?
   end
 end
