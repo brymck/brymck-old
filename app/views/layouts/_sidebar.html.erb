@@ -1,22 +1,21 @@
 <nav>
-  <ul>
-    <% NAVIGATION.each do |topic| %>
-    <li class="span-3">
-      <h3><%= topic["text"] %></h3>
-      <ul>
-        <% topic["nodes"].each do |subtopic| %>
-          <% next if subtopic["logged_out"] && logged_in? %>
-          <% next if subtopic["logged_in"] && !logged_in? %>
-          <% next if subtopic["admin"] && admin? %>
-          <% if current_page?(subtopic["url"]) %>
-            <li><strong><%=t subtopic["text"] %></strong></li>
-          <% else %>
-            <li><%= link_to t(subtopic["text"]), subtopic["url"] %></li>
-          <% end %>
-        <% end %>
-      </ul>
-    </li>
+  <ul class="left">
+    <%= nav_item :home,  root_path  %>
+    <%= nav_item :about, about_path %>
+    <%= nav_item :blog,  posts_path %>
+    <% if admin? %>
+      <%= nav_item :members, users_path %>
+    <% end %>
+    <% if logged_in? %>
+      <%= nav_item :signout, signout_path %>
+    <% else %>
+      <%= nav_item :twitter, "/auth/twitter" %>
     <% end %>
   </ul>
+  <ul class="right">
+    <% debug request %>
+    <% base_uri = request.request_uri.gsub(/^\/[a-z]{2}\//, '/') %>
+    <%= nav_item "English", base_uri %>
+    <%= nav_item "日本語", "/ja#{base_uri}" %>
+  </ul>
 </nav>
-<hr>

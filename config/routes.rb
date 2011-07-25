@@ -1,13 +1,15 @@
 Brymck::Application.routes.draw do
-  resources :posts
+  scope "(:locale)", :locale => /en|ja/ do
+    resources :posts
+    resources :users
 
-  resources :users
+    match "about" => "page#about"
 
-  match "about" => "page#about"
+    match "/auth/:provider/callback" => "sessions#create"
+    match "/auth/failure" => "sessions#failure"
+    match "/signout" => "sessions#destroy", :as => :signout
+  end
 
-  match "/auth/:provider/callback" => "sessions#create"
-  match "/auth/failure" => "sessions#failure"
-  match "/signout" => "sessions#destroy", :as => :signout
-
+  match '/:locale' => 'page#home'
   root :to => "page#home"
 end

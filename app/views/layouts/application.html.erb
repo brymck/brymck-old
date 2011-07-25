@@ -6,6 +6,7 @@
       <h1><%=t :brymck %></h1>
       <hr>
       <%= render :partial => "layouts/sidebar" %>
+      <hr>
       <% content_tag(:h2, @title) if @title %>
       <%= content_tag(:p, notice, :class => :success) if notice %>
       <%= yield %>

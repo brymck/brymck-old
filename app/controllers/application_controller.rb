@@ -6,7 +6,11 @@ class ApplicationController < ActionController::Base
   helper_method :admin?
 
   def set_locale
-    I18n.locale = extract_locale_from_subdomain || I18n.default_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def default_url_options(options = {})
+    { :locale => I18n.locale }
   end
 
   private
@@ -21,14 +25,5 @@ class ApplicationController < ActionController::Base
 
   def admin?
     current_user ? @current_user.admin? : false
-  end
-
-  def extract_locale_from_subdomain
-    parsed_locale = request.subdomains.first
-    if parsed_locale && I18n.available_locales.include?(parsed_locale.to_sym)
-      parsed_locale
-    else
-      nil
-    end
   end
 end

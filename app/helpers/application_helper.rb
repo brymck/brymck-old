@@ -1,6 +1,14 @@
 # coding: UTF-8
 
 module ApplicationHelper
+  def nav_item(label, path)
+    if current_page?(path)
+      content_tag :strong, t(label)
+    else
+      content_tag :li, link_to(t(label), path)
+    end
+  end
+
   def title
     base_title = t(:brymck)
     if @title.nil?
