@@ -8,7 +8,11 @@
           <% next if subtopic["logged_out"] && logged_in? %>
           <% next if subtopic["logged_in"] && !logged_in? %>
           <% next if subtopic["admin"] && admin? %>
-          <li><%= link_to t(subtopic["text"]), subtopic["url"] %></li>
+          <% if current_page?(subtopic["url"]) %>
+            <li><strong><%=t subtopic["text"] %></strong></li>
+          <% else %>
+            <li><%= link_to t(subtopic["text"]), subtopic["url"] %></li>
+          <% end %>
         <% end %>
       </ul>
     </li>
