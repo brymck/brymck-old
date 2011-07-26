@@ -15,11 +15,7 @@ module ApplicationHelper
   end
 
   def nav_item(label, path)
-    if current_page?(path)
-      content_tag :strong, t(label)
-    else
-      content_tag :li, link_to(t(label), path)
-    end
+    content_tag :li, link_to_unless_current(t(label), path)
   end
 
   def title

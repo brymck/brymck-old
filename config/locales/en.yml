@@ -1,9 +1,9 @@
 en:
   brymck: "brymck"
   home: "Home"
-  about: "About me"
-  signin: "Sign in"
-  signout: "Sign out"
+  about: "About"
+  signin: "Login"
+  signout: "Logout"
   google_apps: "Google Apps"
   twitter: "Twitter"
   show: "Show"

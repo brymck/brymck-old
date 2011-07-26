@@ -2,8 +2,8 @@ ja:
   brymck: "brymck"
   home: "ホーム"
   about: "私について"
-  signin: "サインイン"
-  signout: "サインアウト"
+  signin: "ログイン"
+  signout: "ログアウト"
   google_apps: "Google Apps"
   twitter: "Twitter"
   helpers:
