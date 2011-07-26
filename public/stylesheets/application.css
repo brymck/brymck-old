@@ -51,3 +51,12 @@ html > body > div.container p {
   font-style: italic;
   margin: 0;
 }
+
+/* Sign in */
+.provider {
+  background-image: url(/images/providers_large.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 50px;
+  width: 150px;
+}

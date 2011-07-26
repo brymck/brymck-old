@@ -14,7 +14,7 @@
   </ul>
   <ul class="right">
     <% debug request %>
-    <% base_uri = request.request_uri.gsub(/^\/[a-z]{2}[\/$]/, '/') %>
+    <% base_uri = current_page?(home_path) ? "" : request.request_uri.gsub(/^\/[a-z]{2}[\/$]/, '/') %>
     <%= nav_item "English", "/en#{base_uri}" %>
     <%= nav_item "日本語", "/ja#{base_uri}" %>
   </ul>

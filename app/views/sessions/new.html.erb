@@ -1,3 +1,2 @@
-<% %w{openid google}.each do |provider| %>
-  <%= link_to image_tag("#{provider}.png", { :alt => provider, :size => "120x32" }), auth_path(:provider => provider) %>
-<% end %>
+<%= provider_button :google %>
+<%= provider_button :twitter %>

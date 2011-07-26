@@ -26,4 +26,14 @@ class ApplicationController < ActionController::Base
   def admin?
     current_user ? @current_user.admin? : false
   end
+
+  def preferred_locale
+    return [] if request.accept_language.nil?
+
+    request.accept_language.split(",").each do |language|
+      return language if I18n.available_locales.include?(language.to_sym)
+    end
+
+    I18n.default_locale.to_s
+  end
 end
