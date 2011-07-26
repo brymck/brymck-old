@@ -4,7 +4,6 @@ class CreateCodes < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.string :url
-      t.binary :screenshot, :limit => 2.megabytes
 
       t.timestamps
     end

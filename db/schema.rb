@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(:version => 20110726160534) do
     t.string   "title"
     t.text     "description"
     t.string   "url"
-    t.binary   "screenshot",  :limit => 2097152
     t.datetime "created_at"
     t.datetime "updated_at"
   end
