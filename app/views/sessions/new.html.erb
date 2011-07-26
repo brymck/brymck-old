@@ -1,4 +1,9 @@
 <p><%=t :choose, :scope => :sessions %></p>
-<% %w{google facebook yahoo twitter}.each do |provider| %>
-  <%= link_to image_tag("#{provider}_128.png"), "/auth/#{provider}" %>
-<% end %>
+<ul class="horizontal">
+  <% %w{google facebook twitter yahoo aol github}.each do |provider| %>
+    <li>
+      <%= link_to image_tag("#{provider}_128.png"), "/auth/#{provider}" %>
+      <%= content_tag :h4, t(provider, :scope => :sessions), :class => "center quiet" %>
+    </li>
+  <% end %>
+</ul>

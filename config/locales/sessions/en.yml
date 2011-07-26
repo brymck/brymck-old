@@ -1,3 +1,9 @@
 en:
   sessions:
     choose: "Choose your provider from the list below:"
+    google: "Google"
+    facebook: "Facebook"
+    twitter: "Twitter"
+    yahoo: "Yahoo!"
+    aol: "AOL"
+    github: "GitHub"
