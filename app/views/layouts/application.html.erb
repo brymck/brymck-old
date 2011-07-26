@@ -7,7 +7,6 @@
       <hr>
       <%= render :partial => "layouts/sidebar" %>
       <hr>
-      <%= content_tag(:h2, @title) if @title %>
       <%= render_flash(flash) %>
       <%= yield %>
       <%= render :partial => "layouts/footer" %>

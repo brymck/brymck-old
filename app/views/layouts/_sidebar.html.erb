@@ -1,8 +1,9 @@
 <nav>
-  <ul class="left">
+  <ul class="horizontal left">
     <%= nav_item :home,  home_path  %>
     <%= nav_item :about, about_path %>
     <%= nav_item :blog,  posts_path %>
+    <%= nav_item :code,  codes_path %>
     <% if admin? %>
       <%= nav_item :members, users_path %>
     <% end %>
@@ -12,7 +13,7 @@
       <%= nav_item :signin, signin_path %>
     <% end %>
   </ul>
-  <ul class="right">
+  <ul class="horizontal right">
     <% debug request %>
     <% base_uri = current_page?(home_path) ? "" : request.fullpath.gsub(/^\/[a-z]{2}[\/$]/, '/') %>
     <%= nav_item "English", "/en#{base_uri}" %>

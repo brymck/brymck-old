@@ -10,7 +10,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110725070554) do
+ActiveRecord::Schema.define(:version => 20110726160534) do
+
+  create_table "codes", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "url"
+    t.binary   "screenshot",  :limit => 2097152
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "content"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", :force => true do |t|
     t.string   "title"

@@ -12,6 +12,7 @@ two:
 
 
 
+
 # == Schema Information
 #
 # Table name: posts
@@ -22,6 +23,5 @@ two:
 #  user_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
-#  url        :string(255)
 #
 

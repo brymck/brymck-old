@@ -13,6 +13,7 @@ two:
 
 
 
+
 # == Schema Information
 #
 # Table name: users
@@ -24,6 +25,5 @@ two:
 #  created_at :datetime
 #  updated_at :datetime
 #  admin      :boolean         default(FALSE)
-#  url        :string(255)
 #
 

@@ -3,6 +3,7 @@ Brymck::Application.routes.draw do
     resources :users
     resources :posts
     resources :comments
+    resources :codes
 
     # Static pages
     match "about" => "page#about"
