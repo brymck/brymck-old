@@ -1,2 +1,4 @@
-<%= provider_button :google %>
-<%= provider_button :twitter %>
+<p><%=t :choose, :scope => :sessions %></p>
+<% %w{google facebook yahoo twitter}.each do |provider| %>
+  <%= link_to image_tag("#{provider}_128.png"), "/auth/#{provider}" %>
+<% end %>
