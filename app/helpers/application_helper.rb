@@ -1,6 +1,19 @@
 # coding: UTF-8
 
 module ApplicationHelper
+  FLASH_CLASSES = {
+    :notice => :success,
+    :alert  => :alert
+  }
+
+  def render_flash(flash)
+    html = ""
+    flash.each do |key, message|
+      html << content_tag(:div, message, :class => FLASH_CLASSES[key])
+    end
+    raw html
+  end
+
   def nav_item(label, path)
     if current_page?(path)
       content_tag :strong, t(label)

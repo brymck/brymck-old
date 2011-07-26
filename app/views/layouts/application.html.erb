@@ -8,8 +8,8 @@
       <%= render :partial => "layouts/sidebar" %>
       <hr>
       <% content_tag(:h2, @title) if @title %>
-      <%= content_tag(:p, notice, :class => :success) if notice %>
-      <%= yield %>
+      <%= render_flash(flash) %>
+     <%= yield %>
       <%= render :partial => "layouts/footer" %>
     </div>
   </body>
