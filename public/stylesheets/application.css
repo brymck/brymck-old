@@ -15,14 +15,8 @@ nav ul > li + li {
 ul.horizontal { list-style-type: none; padding-left: 0; }
 ul.horizontal li { display: inline-block; }
 
-.center {
-  text-align: center;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-}
+/* Centering */
+.center { text-align: center; }
 
 /* Paragraph */
 html > body > div.container p {
@@ -34,18 +28,13 @@ a { text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 /* Blog */
-.archive ul {
-  list-style-type: none;
-}
+article h2 { margin-bottom: 0; }
+html > body > div.container article > header > p { margin: 0; }
+.archive ul { list-style-type: none; }
 
-.flickr {
-  margin-bottom: 1em;
-}
-
-.flickr p {
-  font-style: italic;
-  margin: 0;
-}
+/* Flickr */
+.flickr { margin-bottom: 1em; }
+.flickr p { font-style: italic; margin: 0; }
 
 /* Sign in */
 .provider {

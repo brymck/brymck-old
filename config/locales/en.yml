@@ -12,5 +12,5 @@ en:
   back: "Back"
   time:
     formats:
-      pubdate: "%FT%T%z"
+      pubdate: "%FT%T"
       article: "%B %e, %Y"

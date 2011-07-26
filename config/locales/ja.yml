@@ -16,5 +16,5 @@ ja:
   back: "前へ"
   time:
     formats:
-      pubdate: "%FT%T%z"
+      pubdate: "%FT%T"
       article: "%Y年%-m月%-d日 %R"
