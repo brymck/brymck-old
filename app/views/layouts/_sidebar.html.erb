@@ -1,16 +1,16 @@
 <nav>
   <ul class="horizontal left">
-    <%= nav_item :home,  home_path  %>
-    <%= nav_item :about, about_path %>
-    <%= nav_item :blog,  posts_path %>
-    <%= nav_item :code,  codes_path %>
+    <%= nav_item t(:home),  home_path  %>
+    <%= nav_item t(:about), about_path %>
+    <%= nav_item t(:blog),  posts_path %>
+    <%= nav_item t(:code),  codes_path %>
     <% if admin? %>
-      <%= nav_item :members, users_path %>
+      <%= nav_item t(:members), users_path %>
     <% end %>
     <% if logged_in? %>
-      <%= nav_item :signout, signout_path %>
+      <%= nav_item t(:signout), signout_path %>
     <% else %>
-      <%= nav_item :signin, signin_path %>
+      <%= nav_item t(:signin), signin_path %>
     <% end %>
   </ul>
   <ul class="horizontal right">

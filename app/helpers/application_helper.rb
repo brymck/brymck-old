@@ -15,7 +15,7 @@ module ApplicationHelper
   end
 
   def nav_item(label, path)
-    content_tag :li, link_to_unless_current(t(label), path)
+    content_tag :li, link_to_unless_current(label, path)
   end
 
   def title
