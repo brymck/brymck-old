@@ -1,0 +1,5 @@
+<ul>
+  <% Post.all.each do |post| %>
+    <%= content_tag :li, link_to(post.title, post) %>
+  <% end %>
+</ul>

@@ -1,4 +1,12 @@
 module RedClothExtensions
+  def en(opts)
+    I18n.locale == :en ? opts[:text] : ""
+  end
+
+  def ja(opts)
+    I18n.locale == :ja ? opts[:text] : ""
+  end
+
   def img(opts)
     photo_id, size = opts[:text].split('|').map! { |str| str.strip }
     photo = flickr.photos.getInfo  :photo_id => photo_id

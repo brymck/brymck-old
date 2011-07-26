@@ -1,10 +1,9 @@
-<article>
-  <header>
-    <h2><%= @post.title %></h2>
-    <%=raw pubdate(@post.created_at) %>
-  </header>
-  <%=raw render_content @post %>
-  <footer></footer>
-</article>
-<%= link_to t(:edit, :scope => :posts), edit_post_path(@post) %> |
-<%= link_to t(:back), posts_path %>
+<div class="span-18 colborder">
+  <%= render :partial => "post", :locals => { :post => @post } %>
+  <%= link_to t(:edit), edit_post_path(@post) %> |
+  <%= link_to t(:back), posts_path %>
+</div>
+<div class="archive">
+  <h2><%=t :archive %></h2>
+  <%= render :partial => "archive" %>
+</div>
