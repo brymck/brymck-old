@@ -3,10 +3,21 @@ class Post < ActiveRecord::Base
   has_many :comments
   has_friendly_id :title, :use_slug => true
 
+  class << self
+    def blog
+      self.where(:personal => false)
+    end
+
+    def journal
+      self.where(:personal => true)
+    end
+  end
+
   def author
     user.name
   end
 end
+
 
 # == Schema Information
 #
@@ -18,5 +29,6 @@ end
 #  user_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  personal   :boolean         default(FALSE)
 #
 

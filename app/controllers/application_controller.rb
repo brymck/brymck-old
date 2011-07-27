@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :logged_in?
   helper_method :admin?
+  helper_method :friend?
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
@@ -23,6 +24,10 @@ class ApplicationController < ActionController::Base
     deny_access unless admin?
   end
 
+  def authorize_friends
+    redirect_to friend_path unless friend?
+  end
+
   private
 
   def current_user
@@ -35,6 +40,10 @@ class ApplicationController < ActionController::Base
 
   def admin?
     current_user ? @current_user.admin? : false
+  end
+
+  def friend?
+    session[:friend] == true
   end
 
   def preferred_locale

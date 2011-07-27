@@ -1,7 +1,10 @@
 class PostsController < ApplicationController
-  before_filter :authorize, :except => [:home, :show]
+  before_filter :authorize, :except => [:home, :show, :journal]
+  before_filter :authorize_friends
 
   def home
+    @posts = Post.blog
+
     respond_to do |format|
       format.html
     end
@@ -18,10 +21,20 @@ class PostsController < ApplicationController
     end
   end
 
+  def journal
+    @posts = Post.journal
+
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @posts }
+    end
+  end
+
   # GET /posts/1
   # GET /posts/1.xml
   def show
     @post = Post.find(params[:id])
+    authorize_friends if @post.personal?
     @title = @post.title
 
     respond_to do |format|

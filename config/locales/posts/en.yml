@@ -1,4 +1,4 @@
-ja:
+en:
   activerecord:
     models:
       post: "Post"
@@ -8,6 +8,7 @@ ja:
           content: "Content"
           created_at: "Published"
           id: "ID"
+          personal: "Personal"
           title: "Title"
           updated_at: "Updated"
   helpers:
@@ -21,9 +22,16 @@ ja:
         title: "brymck"
       index:
         title: "Post"
+      journal:
+        title: "Journal"
       new:
         title: "New post"
   posts:
     archive:
       archive: "Archive"
     index: *post
+    post:
+      comments:
+        zero: "No comments yet"
+        one: "1 comment"
+        other: "%{count} comments"

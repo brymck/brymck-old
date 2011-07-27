@@ -11,9 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
+  <div class="field inline">
+    <%= f.label :title %>
     <%= f.text_field :title %>
+    <%= f.check_box :personal %>
+    <%= f.label :personal %>
   </div>
   <div class="field">
     <%= f.label :content %><br>

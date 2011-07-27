@@ -20,6 +20,4 @@
 <% end %>
 </table>
 
-<br />
-
-<%= link_to t(".new"), new_code_path %>
+<%= link_to t(:new), new_code_path if admin? %>

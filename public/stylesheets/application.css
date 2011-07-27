@@ -15,6 +15,10 @@ ul.horizontal li { display: inline-block; }
 /* Centering */
 .center { text-align: center; }
 
+/* Don't color unlinked anchors */
+a[name] { color: #222; }
+a[name]:hover { text-decoration: none; }
+
 /* Paragraph */
 html > body > div.container p {
   margin-top: 1em;
@@ -28,6 +32,7 @@ a:hover { text-decoration: underline; }
 article h2 { margin-bottom: 0; }
 html > body > div.container article > header > p { margin: 0; }
 .archive ul { list-style-type: none; }
+article table { width: auto; }
 
 /* Comments */
 article article h4 { margin-bottom: 0; }

@@ -3,10 +3,13 @@
     <%= nav_item t(".home"),  home_path  %>
     <%= nav_item t(".about"), about_path %>
     <%= nav_item t(".code"),  code_index_path %>
+    <%= nav_item t(".journal"),  journal_path %>
     <% if admin? %>
+      <li class="border">&nbsp;</li>
       <%= nav_item t(".posts"),    posts_path %>
       <%= nav_item t(".comments"), comments_path %>
       <%= nav_item t(".users"),    users_path %>
+      <li class="border">&nbsp;</li>
     <% end %>
     <% if logged_in? %>
       <%= nav_item t(".logout"), logout_path %>

@@ -2,8 +2,17 @@ ja:
   sessions:
     choose: "下記のリストからプロバイダを選択してください："
     failure: "認証に失敗しました！"
+    friend:
+      ask: "知り合いであることを確認するために、下記の質問から一つ選んで答えてください。"
+      boss_last_name: "サンフランシスコで働いたときの、僕の上司の苗字は何ですか。"
+      dog_name: "僕の犬の名前は何ですか。"
+      father_hometown: "僕のお父さんの出身地はどこですか。"
+      mother_maiden_name: "僕のお母さんの旧姓は何ですか。"
     logged_in: "ログインしました！"
     logged_out: "ログアウトしました！"
+    messages:
+      correct: "ありがとうございます。"
+      incorrect: "入力した答えが間違っています。もう一度試してみてください。"
     new:
       aol: "AOL"
       facebook: "Facebook"

@@ -51,7 +51,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
-        format.html { redirect_to(@comment, :notice => t("messages.comments.created")) }
+        format.html { redirect_to(request_referer, :notice => t("messages.comments.created")) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -67,7 +67,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to(comments_url) }
+      format.html { redirect_to(request.referer) }
       format.xml  { head :ok }
     end
   end

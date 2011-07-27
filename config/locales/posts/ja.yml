@@ -8,6 +8,7 @@ ja:
           content: "コンテンツ"
           created_at: "発表日付"
           id: "ID"
+          personal: "プライベート"
           title: "タイトル"
           updated_at: "最終更新日付"
   helpers:
@@ -21,9 +22,16 @@ ja:
         title: "brymck"
       index:
         title: "投稿"
+      journal:
+        title: "日記"
       new:
         title: "新規投稿"
   posts:
     archive:
       archive: "アーカイブ"
     index: *post
+    post:
+      comments:
+        zero: "コメントはまだありません"
+        one: "コメントが%{count}つあります"
+        other: "コメントが%{count}つあります"

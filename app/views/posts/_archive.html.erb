@@ -1,6 +1,6 @@
 <h2><%=t ".archive" %></h2>
 <ul>
-  <% Post.all.each do |post| %>
-    <%= content_tag :li, link_to(post.title, post) %>
+  <% Post.where(:personal => defined?(personal) ? personal : false).reverse.each do |post| %>
+    <%= content_tag :li, link_to_unless_current(post.title, post) %>
   <% end %>
 </ul>

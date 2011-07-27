@@ -2,6 +2,15 @@ en:
   sessions:
     choose: "Select your provider from the list below:"
     failure: "Authentication failure!"
+    friend:
+      ask: "First things first. To make sure you know me, choose one of these questions and answer it in the box below:"
+      boss_last_name: "What was the last name of my boss in San Francisco?"
+      dog_name: "What is my dog's name?"
+      father_hometown: "In which city did my father grow up?"
+      mother_maiden_name: "What is my mother's maiden name?"
+    messages:
+      correct: "Thank you!"
+      incorrect: "Your answer is incorrect."
     logged_in: "Logged in!"
     logged_out: "Logged out!"
     new:
