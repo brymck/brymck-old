@@ -17,7 +17,7 @@ Brymck::Application.routes.draw do
   match "/signout" => "sessions#destroy", :as => :signout
 
   # Default path for each language
-  match '/:locale' => 'page#home', :as => :home
+  match '/:locale' => 'posts#home', :as => :home
 
   # Redirects to appropriate home path
   root :to => "page#root"

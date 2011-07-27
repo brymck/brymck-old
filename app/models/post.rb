@@ -7,9 +7,6 @@ class Post < ActiveRecord::Base
   end
 end
 
-
-
-
 # == Schema Information
 #
 # Table name: posts

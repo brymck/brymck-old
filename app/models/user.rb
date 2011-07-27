@@ -12,10 +12,6 @@ class User < ActiveRecord::Base
   end
 end
 
-
-
-
-
 # == Schema Information
 #
 # Table name: users
@@ -28,4 +24,3 @@ end
 #  updated_at :datetime
 #  admin      :boolean         default(FALSE)
 #
-

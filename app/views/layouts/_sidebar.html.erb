@@ -2,10 +2,11 @@
   <ul class="horizontal left">
     <%= nav_item t(:home),  home_path  %>
     <%= nav_item t(:about), about_path %>
-    <%= nav_item t(:blog),  posts_path %>
     <%= nav_item t(:code),  codes_path %>
     <% if admin? %>
-      <%= nav_item t(:members), users_path %>
+      <%= nav_item t(:index, :scope => :posts),    posts_path %>
+      <%= nav_item t(:index, :scope => :comments), comments_path %>
+      <%= nav_item t(:index, :scope => :users),    users_path %>
     <% end %>
     <% if logged_in? %>
       <%= nav_item t(:signout), signout_path %>
@@ -14,9 +15,7 @@
     <% end %>
   </ul>
   <ul class="horizontal right">
-    <% debug request %>
-    <% base_uri = current_page?(home_path) ? "" : request.fullpath.gsub(/^\/[a-z]{2}[\/$]/, '/') %>
-    <%= nav_item "English", "/en#{base_uri}" %>
-    <%= nav_item "日本語", "/ja#{base_uri}" %>
+    <%= nav_item t(:english,  :locale => :en), url_for(params.merge(:locale => "en")) %>
+    <%= nav_item t(:japanese, :locale => :ja),  url_for(params.merge(:locale => "ja")) %>
   </ul>
 </nav>

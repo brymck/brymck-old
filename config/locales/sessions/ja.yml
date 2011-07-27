@@ -1,9 +1,0 @@
-ja:
-  sessions:
-    choose: "下記のリストからプロバイダを選択してください："
-    google: "Google"
-    facebook: "Facebook"
-    twitter: "Twitter"
-    yahoo: "Yahoo!"
-    aol: "AOL"
-    github: "GitHub"

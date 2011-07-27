@@ -1,10 +1,8 @@
-<h1>Listing codes</h1>
-
 <table>
   <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Url</th>
+    <th><%=t :title %></th>
+    <th><%=t :description %></th>
+    <th><%=t :url %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,13 +13,13 @@
     <td><%= code.title %></td>
     <td><%= code.description %></td>
     <td><%= code.url %></td>
-    <td><%= link_to 'Show', code %></td>
-    <td><%= link_to 'Edit', edit_code_path(code) %></td>
-    <td><%= link_to 'Destroy', code, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to t(:show), code %></td>
+    <td><%= link_to t(:edit), edit_code_path(code) %></td>
+    <td><%= link_to t(:destroy), code, :confirm => t(:confirm), :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Code', new_code_path %>
+<%= link_to t(:new, :scope => :code), new_code_path %>

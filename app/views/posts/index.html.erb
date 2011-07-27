@@ -1,7 +1,7 @@
 <table>
   <tr>
-    <th><%=t :title %></th>
-    <th><%=t :author %></th>
+    <th><%=t :title, :scope => [:activerecord, :models, :attributes, :post] %></th>
+    <th><%=t :author, :scope => [:activerecord, :models, :attributes, :post] %></th>
     <th<% ' colspan="3"' if admin? %>>Actions</th>
   </tr>
 

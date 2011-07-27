@@ -1,6 +1,14 @@
 class PostsController < ApplicationController
   before_filter :authenticate, :only => [:edit, :create, :update, :destroy]
 
+  def home
+    @title = t(:home)
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
   # GET /posts
   # GET /posts.xml
   def index
