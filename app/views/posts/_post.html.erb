@@ -13,6 +13,6 @@
       <%= render :partial => "comments/form" %>
     </aside>
   <% else %>
-    <footer><%= link_to t(".comments", :count => 1), post_path(post, :anchor => "comments") %></footer>
+    <footer><%= link_to t(".comments", :count => post.comments.count), post_path(post, :anchor => "comments") %></footer>
   <% end %>
 </article>
