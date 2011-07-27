@@ -5,12 +5,8 @@ h1 + hr { margin: 0.5em 0; }
 h3 { margin-bottom: 0.3em; }
 
 /* Navigation */
-nav ul {
-  margin: 0.3em 0;
-}
-nav ul > li + li {
-  padding-left: 0.5em;
-}
+nav ul { margin: 0.3em 0; }
+nav ul > li + li { padding-left: 0.5em; }
 
 /* Horizontal lists */
 ul.horizontal { list-style-type: none; padding-left: 0; }
@@ -32,6 +28,14 @@ a:hover { text-decoration: underline; }
 article h2 { margin-bottom: 0; }
 html > body > div.container article > header > p { margin: 0; }
 .archive ul { list-style-type: none; }
+
+/* Comments */
+article article h4 { margin-bottom: 0; }
+article article:nth-child(even) { background-color: #e5ecf9; }
+article article {
+  margin-top: 1em;
+  padding: 0.5em;
+}
 
 /* Flickr */
 .flickr { margin-bottom: 1em; }

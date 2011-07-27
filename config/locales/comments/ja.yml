@@ -11,6 +11,9 @@ ja:
   helpers:
     label:
       comment: *comment
+  messages:
+    created: "コメントの作成に成功しました。"
+    updated: "コメントの更新に成功しました。"
   meta:
     comments:
       edit:

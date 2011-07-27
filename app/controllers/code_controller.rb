@@ -1,4 +1,6 @@
 class CodeController < ApplicationController
+  before_filter :authorize, :except => [:index, :show]
+
   # GET /code
   # GET /code.xml
   def index

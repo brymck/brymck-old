@@ -11,6 +11,9 @@ en:
   helpers:
     label:
       comment: *comment
+  messages:
+    created: "Comment was successfully created."
+    updated: "Comment was successfully updated."
   meta:
     comments:
       edit:

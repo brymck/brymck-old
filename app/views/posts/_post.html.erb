@@ -1,10 +1,15 @@
 <article>
   <header>
-    <h2><%= link_to post.title, post %></h2>
+    <h2><%= link_to post.title, admin? ? edit_post_path(@post) : post %></h2>
     <p><%= post.author %></p>
     <p><%= time_tag post.created_at %></p>
   </header>
-  <%=raw render_content post %>
-  <footer></footer>
-  <%= render_comments(post.comments) if defined?(show_comments) && show_comments %>
+  <%= render_content post %>
+  <% if defined?(show_comments) %>
+    <aside>
+      <h3><%=t "layouts.sidebar.comments" %></h3>
+      <%= render_comments(post.comments) %>
+      <%= render :partial => "comments/form" %>
+    </aside>
+  <% end %>
 </article>

@@ -1,5 +1,7 @@
 <article>
   <header>
+    <%= gravatar_image_tag comment.email, :gravatar => { :size => 32 }, :class => "right" %>
+    <h4><%= link_to_if admin?, comment.name, "mailto:#{comment.email}" %></h4>
     <p><%= time_tag comment.created_at %></p>
   </header>
   <%= comment.content %>

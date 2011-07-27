@@ -7,6 +7,8 @@ gem 'omniauth'
 gem 'friendly_id'
 gem 'RedCloth'
 gem 'flickraw'
+gem 'gravatar_image_tag'
+gem 'recaptcha', :require => "recaptcha/rails"
 
 group :development do
   gem 'annotate'

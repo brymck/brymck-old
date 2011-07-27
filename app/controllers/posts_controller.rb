@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :authenticate, :only => [:edit, :create, :update, :destroy]
+  before_filter :authorize, :except => [:home, :show]
 
   def home
     respond_to do |format|

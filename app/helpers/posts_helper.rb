@@ -27,7 +27,7 @@ module PostsHelper
   def render_content(post)
     r = RedCloth.new post.content
     r.extend RedClothExtensions
-    r.to_html
+    raw r.to_html
   end
 
   def render_comments(comments)

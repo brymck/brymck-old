@@ -7,6 +7,7 @@ ja:
           author: "Author"
           content: "Content"
           created_at: "Published"
+          id: "ID"
           title: "Title"
           updated_at: "Updated"
   helpers:

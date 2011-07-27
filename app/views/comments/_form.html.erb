@@ -1,3 +1,5 @@
+<% require "recaptcha/rails" %>
+<% @comment ||= Comment.new %>
 <%= form_for(@comment) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
@@ -23,10 +25,10 @@
     <%= f.label :content %><br />
     <%= f.text_area :content %>
   </div>
-  <div class="field">
-    <%= f.label :post %><br />
-    <%= f.text_field :post %>
-  </div>
+  <% unless logged_in? %>
+    <%= recaptcha_tags %>
+  <% end %>
+  <%= f.hidden_field :post_id, :value => @post.id %>
   <div class="actions">
     <%= f.submit %>
   </div>

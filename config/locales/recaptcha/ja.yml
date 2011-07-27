@@ -1,0 +1,5 @@
+ja:
+  recaptcha:
+    errors:
+      verification_failed: ""
+      recaptcha_unavailable: ""

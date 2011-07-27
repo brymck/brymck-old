@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate, :only => [:edit, :destroy]
+  before_filter :authorize
 
   def index
     @users = User.all
@@ -36,15 +36,5 @@ class UsersController < ApplicationController
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
-  end
-
-  private
-
-  def deny_access
-    redirect_to signin_path, :notice => "Please sign in to access this page."
-  end
-
-  def authenticate
-    deny_access unless admin?
   end
 end

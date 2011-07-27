@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_filter :authorize, :except => [:show, :create]
+
   # GET /comments
   # GET /comments.xml
   def index
@@ -21,17 +23,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # GET /comments/new
-  # GET /comments/new.xml
-  def new
-    @comment = Comment.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @comment }
-    end
-  end
-
   # GET /comments/1/edit
   def edit
     @comment = Comment.find(params[:id])
@@ -43,9 +34,9 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
 
     respond_to do |format|
-      if @comment.save
-        format.html { redirect_to(@comment, :notice => 'Comment was successfully created.') }
-        format.xml  { render :xml => @comment, :status => :created, :location => @comment }
+      if (logged_in || verify_recaptcha(:model => @comment)) && @comment.save
+        format.html { redirect_to(request.referer, :notice => t("messages.comments.created"))) }
+        format.xml  { render :xml => request.referer, :status => :created, :location => @comment }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
@@ -60,7 +51,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
-        format.html { redirect_to(@comment, :notice => 'Comment was successfully updated.') }
+        format.html { redirect_to(@comment, :notice => t("messages.comments.created")) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

@@ -1,6 +1,6 @@
 <table>
   <tr>
-    <% %w{title author created_at updated_at}.each do |field| %>
+    <% %w{id title author created_at updated_at}.each do |field| %>
       <th><%=t ".#{field}" %></th>
     <% end %>
     <th colspan="2"></th>
@@ -8,6 +8,7 @@
 
 <% @posts.each do |post| %>
   <tr>
+    <td><%= post.id %></td>
     <td><%= link_to post.title, post %></td>
     <td><%= link_to post.author, post.user %></td>
     <td><%=l post.created_at, :format => :long %></td>

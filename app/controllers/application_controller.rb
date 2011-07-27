@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     redirect_to login_path, :notice => t(:deny_access)
   end
 
-  def authenticate
+  def authorize
     deny_access unless admin?
   end
 
