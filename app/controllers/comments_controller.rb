@@ -35,7 +35,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to(request.referer, :notice => t("messages.comments.created"))) }
+        format.html { redirect_to(request.referer, :notice => t("messages.comments.created")) }
         format.xml  { render :xml => request.referer, :status => :created, :location => @comment }
       else
         format.html { render :action => "new" }
