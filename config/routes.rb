@@ -2,13 +2,16 @@ Brymck::Application.routes.draw do
   scope "(:locale)", :locale => /en|ja/ do
     resources :code, :comments, :posts, :users
 
+    match "feed" => "posts#feed"
+
     # Static pages
     match "about" => "pages#about"
     match "journal" => "posts#journal", :as => :journal
 
-    match "/login" => "sessions#new", :as => :login
-    match "/friend" => "sessions#friend", :as => :friend
-    match "/friend/verify" => "sessions#verify_friend", :as => :verify_friend
+    # Authentication
+    match "login" => "sessions#new", :as => :login
+    match "friend" => "sessions#friend", :as => :friend
+    match "friend/verify" => "sessions#verify_friend", :as => :verify_friend
   end
 
   # Authentication

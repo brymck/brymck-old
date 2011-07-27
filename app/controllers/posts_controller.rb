@@ -7,8 +7,16 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html
+      format.xml { render :xml => @posts }
     end
   end
+
+  def feed
+    @posts = Post.blog.find(:all, :order => "id DESC", :limit => 10)
+    render :layout => false
+    response.headers["Content-Type"] = "application/xml; charset=utf-8"
+  end
+
 
   # GET /posts
   # GET /posts.xml
