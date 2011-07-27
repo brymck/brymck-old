@@ -1,0 +1,23 @@
+en:
+  activerecord:
+    models:
+      comment: "Comment"
+      attributes:
+        comment: &comment
+          content: "Content"
+          email: "E-mail"
+          name: "Name"
+          post: "Post"
+  helpers:
+    label:
+      comment: *comment
+  meta:
+    comments:
+      edit:
+        title: "Editing comment"
+      index:
+        title: "Comments"
+      new:
+        title: "New comment"
+  comments:
+    index: *comment

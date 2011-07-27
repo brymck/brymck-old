@@ -1,0 +1,13 @@
+ja:
+  sessions:
+    choose: "下記のリストからプロバイダを選択してください："
+    failure: "認証に失敗しました！"
+    logged_in: "ログインしました！"
+    logged_out: "ログアウトしました！"
+    new:
+      aol: "AOL"
+      facebook: "Facebook"
+      github: "GitHub"
+      google: "Google"
+      twitter: "Twitter"
+      yahoo: "Yahoo!"

@@ -3,22 +3,22 @@ Brymck::Application.routes.draw do
     resources :users
     resources :posts
     resources :comments
-    resources :codes
+    resources :code
 
     # Static pages
-    match "about" => "page#about"
+    match "about" => "pages#about"
 
-    match "/signin" => "sessions#new", :as => :signin
+    match "/login" => "sessions#new", :as => :login
   end
 
   # Authentication
   match "/auth/:provider/callback" => "sessions#create", :as => :auth
   match "/auth/failure" => "sessions#failure"
-  match "/signout" => "sessions#destroy", :as => :signout
+  match "/logout" => "sessions#destroy", :as => :logout
 
   # Default path for each language
   match '/:locale' => 'posts#home', :as => :home
 
   # Redirects to appropriate home path
-  root :to => "page#root"
+  root :to => "pages#root"
 end

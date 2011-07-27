@@ -1,9 +1,10 @@
 <article>
   <header>
-    <h2><%= post.title %></h2>
+    <h2><%= link_to post.title, post %></h2>
     <p><%= post.author %></p>
-    <p><%=raw pubdate(post.created_at) %></p>
+    <p><%= time_tag post.created_at %></p>
   </header>
   <%=raw render_content post %>
   <footer></footer>
+  <%= render_comments(post.comments) if defined?(show_comments) && show_comments %>
 </article>

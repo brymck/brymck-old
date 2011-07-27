@@ -1,8 +1,7 @@
-<div class="span-18 colborder">
-  <%= render :partial => "post", :locals => { :post => @post } %>
-  <%= link_to t(:edit), edit_post_path(@post) if admin? %>
+<div class="span-17 colborder">
+  <%= render :partial => "post", :locals => { :post => @post, :show_comments => true } %>
+  <%= link_to ".edit", edit_post_path(@post) if admin? %>
 </div>
 <div class="archive">
-  <h2><%=t :archive %></h2>
   <%= render :partial => "archive" %>
 </div>

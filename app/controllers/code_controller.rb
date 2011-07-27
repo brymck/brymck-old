@@ -1,17 +1,17 @@
-class CodesController < ApplicationController
-  # GET /codes
-  # GET /codes.xml
+class CodeController < ApplicationController
+  # GET /code
+  # GET /code.xml
   def index
-    @codes = Code.all
+    @code = Code.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @codes }
+      format.xml  { render :xml => @code }
     end
   end
 
-  # GET /codes/1
-  # GET /codes/1.xml
+  # GET /code/1
+  # GET /code/1.xml
   def show
     @code = Code.find(params[:id])
 
@@ -21,8 +21,8 @@ class CodesController < ApplicationController
     end
   end
 
-  # GET /codes/new
-  # GET /codes/new.xml
+  # GET /code/new
+  # GET /code/new.xml
   def new
     @code = Code.new
 
@@ -32,13 +32,13 @@ class CodesController < ApplicationController
     end
   end
 
-  # GET /codes/1/edit
+  # GET /code/1/edit
   def edit
     @code = Code.find(params[:id])
   end
 
-  # POST /codes
-  # POST /codes.xml
+  # POST /code
+  # POST /code.xml
   def create
     @code = Code.new(params[:code])
 
@@ -53,8 +53,8 @@ class CodesController < ApplicationController
     end
   end
 
-  # PUT /codes/1
-  # PUT /codes/1.xml
+  # PUT /code/1
+  # PUT /code/1.xml
   def update
     @code = Code.find(params[:id])
 
@@ -69,14 +69,14 @@ class CodesController < ApplicationController
     end
   end
 
-  # DELETE /codes/1
-  # DELETE /codes/1.xml
+  # DELETE /code/1
+  # DELETE /code/1.xml
   def destroy
     @code = Code.find(params[:id])
     @code.destroy
 
     respond_to do |format|
-      format.html { redirect_to(codes_url) }
+      format.html { redirect_to(code_url) }
       format.xml  { head :ok }
     end
   end

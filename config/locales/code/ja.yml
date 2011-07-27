@@ -1,0 +1,18 @@
+ja:
+  activerecord:
+    models:
+      code: "コード"
+      attributes:
+        code: &code
+          description: "説明"
+          title: "タイトル"
+          url: "URL"
+  helpers:
+    label:
+      code: *code
+  meta:
+    code:
+      index:
+        title: "コード"
+      new:
+        title: "新規コード"

@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    models:
+      comment: "コメント"
+      attributes:
+        comment: &comment
+          content: "コンテンツ"
+          email: "メール"
+          name: "名前"
+          post: "投稿"
+  helpers:
+    label:
+      comment: *comment
+  meta:
+    comments:
+      edit:
+        title: "コメント編集"
+      index:
+        title: "コメント"
+      new:
+        title: "新規コメント"
+  comments:
+    index: *comment

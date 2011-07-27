@@ -1,0 +1,13 @@
+en:
+  sessions:
+    choose: "Select your provider from the list below:"
+    failure: "Authentication failure!"
+    logged_in: "Logged in!"
+    logged_out: "Logged out!"
+    new:
+      aol: "AOL"
+      facebook: "Facebook"
+      github: "GitHub"
+      google: "Google"
+      twitter: "Twitter"
+      yahoo: "Yahoo!"

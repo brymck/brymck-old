@@ -6,6 +6,16 @@ module ApplicationHelper
     :alert  => :alert
   }
 
+  def t_meta_interpolation(name, hash)
+    instance_variable_set("@#{name}_interpolation", hash)
+  end
+
+  def t_meta(name)
+    interpolation_data = instance_variable_get("@#{name}_interpolation") || {}
+    t("meta.#{controller_path.gsub("/", ".")}.#{action_name}.#{name}",
+      interpolation_data.merge({ :default => t("meta.defaults.#{name}") }))
+  end
+
   def render_flash(flash)
     html = ""
     flash.each do |key, message|
@@ -18,15 +28,6 @@ module ApplicationHelper
     content_tag :li, link_to_unless_current(label, path)
   end
 
-  def title
-    base_title = t(:brymck)
-    if @title.nil?
-      base_title
-    else
-      "#{@title} | #{base_title}"
-    end
-  end
-
   def copyright_years
     base_year = 2010
     current_year = Time.now.year
@@ -35,5 +36,27 @@ module ApplicationHelper
     else
       base_year
     end
+  end
+
+  def time_tag(time, opts={})
+    return "" if time.nil?
+
+    opts.merge!(:pubdate => true, :show_distance_in_words => true)
+    computer_time = l time, :format => "%FT%T"
+    human_time = l time.in_time_zone(local_time_zone), :format => :long
+    
+    html  = %Q{<time datetime="#{computer_time}"#{opts[:pubdate] ? " pubdate" : ""}>#{human_time}</time>}
+    if opts[:show_distance_in_words]
+      time_in_words = t :ago, :scope => :time, :time => distance_of_time_in_words(time, Time.now)
+      html << %Q{ (#{time_in_words})}
+    end
+
+    raw html
+  end
+
+  private
+
+  def local_time_zone
+    ActiveSupport::TimeZone.new(t(:zone, :scope => :time))
   end
 end

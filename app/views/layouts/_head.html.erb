@@ -1,6 +1,8 @@
 <head>
   <meta charset="UTF-8">
-  <title><%= title %></title>
+  <title><%= @title.nil? ? t_meta(:title) : @title %></title>
+  <meta name="description" content="<%= t_meta(:description) %>">
+  <meta name="keywords" content="<%= t_meta(:keywords) %>">
   <%= stylesheet_link_tag "blueprint/screen", :media => "screen, projection" %>
   <%= stylesheet_link_tag "blueprint/print", :media => "print" %>
   <!--[if lt IE 8]>

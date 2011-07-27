@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    models:
+      post: "投稿"
+      attributes:
+        post: &post
+          author: "作者"
+          content: "コンテンツ"
+          title: "タイトル"
+  helpers:
+    label:
+      post: *post
+  meta:
+    posts:
+      edit:
+        title: "投稿編集"
+      home:
+        title: "brymck"
+      index:
+        title: "投稿"
+      new:
+        title: "新規投稿"
+  posts:
+    archive:
+      archive: "アーカイブ"
+    index: *post

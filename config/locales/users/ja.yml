@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    models:
+      user: "ユーザ"
+      attributes:
+        user: &user
+          admin: "アドミ"
+          name: "名前"
+          provider: "プロバイダ"
+          uid: "UID"
+  helpers:
+    label:
+      user: *user
+  meta:
+    users:
+      edit:
+        title: "ユーザ編集"
+      index:
+        title: "ユーザ"
+      new:
+        title: "新規ユーザ"
+  users:
+    index: *user

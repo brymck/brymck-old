@@ -1,11 +1,9 @@
-<h1>Listing comments</h1>
-
 <table>
   <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Content</th>
-    <th>Post</th>
+    <th><%=t ".name" %></th>
+    <th><%=t ".email" %></th>
+    <th><%=t ".content" %></th>
+    <th><%=t ".post" %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,10 +14,10 @@
     <td><%= comment.name %></td>
     <td><%= comment.email %></td>
     <td><%= comment.content %></td>
-    <td><%= comment.post %></td>
-    <td><%= link_to 'Show', comment %></td>
-    <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-    <td><%= link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to comment.post.title, comment.post %></td>
+    <td><%= link_to t(:show), comment %></td>
+    <td><%= link_to t(:edit), edit_comment_path(comment) %></td>
+    <td><%= link_to t(:destroy), comment, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

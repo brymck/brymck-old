@@ -30,7 +30,11 @@ module PostsHelper
     r.to_html
   end
 
-  def pubdate(time)
-    "<time pubdate datetime=\"#{l time, :format => :pubdate }\">#{l time, :format => :article }</time>"
+  def render_comments(comments)
+    html = ""
+    comments.each do |comment|
+      html << render(:partial => "comments/comment", :locals => { :comment => comment })
+    end
+    raw html
   end
 end

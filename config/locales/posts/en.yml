@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    models:
+      post: "Post"
+      attributes:
+        post: &post
+          author: "Author"
+          content: "Content"
+          title: "Title"
+  helpers:
+    label:
+      post: *post
+  meta:
+    posts:
+      edit:
+        title: "Editing post"
+      home:
+        title: "brymck"
+      index:
+        title: "Post"
+      new:
+        title: "New post"
+  posts:
+    archive:
+      archive: "Archive"
+    index: *post

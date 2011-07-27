@@ -1,0 +1,13 @@
+ja:
+  layouts:
+    sidebar:
+      about: "About"
+      code: "Code"
+      comments: "Comments"
+      english: "English"
+      home: "Home"
+      japanese: "Japanese"
+      login: "Login"
+      logout: "Logout"
+      posts: "Posts"
+      users: "Users"

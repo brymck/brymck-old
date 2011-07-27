@@ -1,0 +1,23 @@
+en:
+  activerecord:
+    models:
+      user: "User"
+      attributes:
+        user: &user
+          admin: "Admin"
+          name: "Name"
+          provider: "Provider"
+          uid: "UID"
+  helpers:
+    label:
+      user: *user
+  meta:
+    users:
+      edit:
+        title: "Editing user"
+      index:
+        title: "Users"
+      new:
+        title: "New user"
+  users:
+    index: *user

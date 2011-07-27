@@ -8,9 +8,10 @@ class CodeTest < ActiveSupport::TestCase
 end
 
 
+
 # == Schema Information
 #
-# Table name: codes
+# Table name: code
 #
 #  id          :integer         not null, primary key
 #  title       :string(255)

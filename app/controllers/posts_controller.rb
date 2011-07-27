@@ -2,8 +2,6 @@ class PostsController < ApplicationController
   before_filter :authenticate, :only => [:edit, :create, :update, :destroy]
 
   def home
-    @title = t(:home)
-
     respond_to do |format|
       format.html
     end
@@ -13,7 +11,6 @@ class PostsController < ApplicationController
   # GET /posts.xml
   def index
     @posts = Post.all
-    @title = t(:index, :scope => :posts)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,6 +22,7 @@ class PostsController < ApplicationController
   # GET /posts/1.xml
   def show
     @post = Post.find(params[:id])
+    @title = @post.title
 
     respond_to do |format|
       format.html # show.html.erb
@@ -36,7 +34,6 @@ class PostsController < ApplicationController
   # GET /posts/new.xml
   def new
     @post = Post.new
-    @title = t(:new, :scope => :posts)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -47,7 +44,6 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
-    @title = t(:edit, :scope => :posts)
   end
 
   # POST /posts

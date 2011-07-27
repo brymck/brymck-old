@@ -24,3 +24,4 @@ end
 #  updated_at :datetime
 #  admin      :boolean         default(FALSE)
 #
+

@@ -1,0 +1,11 @@
+en:
+  meta:
+    pages:
+      about:
+        title: "About me"
+  pages:
+    about:
+      carolina: "University of North Carolina"
+      resume: "Résumé"
+      todai: "University of Tokyo"
+      universities: "Universities"
