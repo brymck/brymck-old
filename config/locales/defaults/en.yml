@@ -8,9 +8,10 @@ en:
   time:
     ago: "%{time} ago"
     formats:
-      long: "%B %e, %Y %l:%M %p"
+      long: "%B %e, %Y %l:%M %p %Z"
     zone: "Eastern Time (US & Canada)"
   confirm: "Are you really sure?"
+  deny_access: "Please log in to access this page."
   destroy: "Destroy"
   edit: "Edit"
   new: "New"

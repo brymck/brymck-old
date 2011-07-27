@@ -90,14 +90,4 @@ class PostsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-
-  private
-
-  def deny_access
-    redirect_to signin_path, :notice => "Please sign in to access this page."
-  end
-
-  def authenticate
-    deny_access unless admin?
-  end
 end

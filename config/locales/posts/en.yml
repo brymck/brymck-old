@@ -6,7 +6,9 @@ ja:
         post: &post
           author: "Author"
           content: "Content"
+          created_at: "Published"
           title: "Title"
+          updated_at: "Updated"
   helpers:
     label:
       post: *post

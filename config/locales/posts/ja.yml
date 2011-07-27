@@ -6,7 +6,9 @@ ja:
         post: &post
           author: "作者"
           content: "コンテンツ"
+          created_at: "発表日付"
           title: "タイトル"
+          updated_at: "最終更新日付"
   helpers:
     label:
       post: *post

@@ -13,6 +13,16 @@ class ApplicationController < ActionController::Base
     { :locale => I18n.locale }
   end
 
+  protected
+
+  def deny_access
+    redirect_to login_path, :notice => t(:deny_access)
+  end
+
+  def authenticate
+    deny_access unless admin?
+  end
+
   private
 
   def current_user
