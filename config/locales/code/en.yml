@@ -16,4 +16,5 @@ en:
         title: "Code"
       new:
         title: "New code"
-
+  code:
+    index: *code

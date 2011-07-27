@@ -16,3 +16,5 @@ ja:
         title: "コード"
       new:
         title: "新規コード"
+  code:
+    index: *code

@@ -1,8 +1,9 @@
 <table>
   <tr>
-    <th><%=t ".title" %></th>
-    <th><%=t ".author" %></th>
-    <th<% ' colspan="3"' if admin? %>>Actions</th>
+    <% %w{title author}.each do |field| %>
+      <th><%=t ".#{field}" %></th>
+    <% end %>
+    <th colspan="3"></th>
   </tr>
 
 <% @posts.each do |post| %>
@@ -10,14 +11,12 @@
     <td><%= post.title %></td>
     <td><%= link_to post.author, post.user %></td>
     <td><%= link_to t(:show), post %></td>
-    <% if admin? %>
-      <td><%= link_to t(:edit), edit_post_path(post) %></td>
-      <td><%= link_to t(:destroy), post, :confirm => 'Are you sure?', :method => :delete %></td>
-    <% end %>
+    <td><%= link_to t(:edit), edit_post_path(post) %></td>
+    <td><%= link_to t(:destroy), post, :confirm => t(:confirm), :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to t(:new, :scope => :posts), new_post_path %>
+<%= link_to t(:new), new_post_path %>

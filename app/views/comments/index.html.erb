@@ -1,12 +1,9 @@
 <table>
   <tr>
-    <th><%=t ".name" %></th>
-    <th><%=t ".email" %></th>
-    <th><%=t ".content" %></th>
-    <th><%=t ".post" %></th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <% %w{name email content post}.each do |field| %>
+      <th><%=t ".#{field}" %></th>
+    <% end %>
+    <th colspan="3"></th>
   </tr>
 
 <% @comments.each do |comment| %>
@@ -24,4 +21,4 @@
 
 <br />
 
-<%= link_to 'New Comment', new_comment_path %>
+<%= link_to t(:new), new_comment_path %>
