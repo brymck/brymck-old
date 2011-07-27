@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
 
     respond_to do |format|
-      if (logged_in || verify_recaptcha(:model => @comment)) && @comment.save
+      if @comment.save
         format.html { redirect_to(request.referer, :notice => t("messages.comments.created"))) }
         format.xml  { render :xml => request.referer, :status => :created, :location => @comment }
       else
