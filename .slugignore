@@ -1,3 +1,6 @@
 *.xcf
 doc
 test
+public/images/*_32.png
+public/images/*_64.png
+public/stylesheets/blueprint/plugins/link-icons
