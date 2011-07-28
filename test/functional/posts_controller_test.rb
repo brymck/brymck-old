@@ -1,8 +1,11 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionController::TestCase
+  setup :login
+  
   setup do
     @post = posts(:one)
+    @post.user_id = @user.id
   end
 
   test "should get index" do
@@ -45,5 +48,12 @@ class PostsControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to posts_path
+  end
+
+  protected
+
+  def login
+    @user = User.create(:provider => "twitter", :uid => 0, :name => "Admin", :admin => true)
+    session[:user_id] = @user.id
   end
 end

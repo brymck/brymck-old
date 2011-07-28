@@ -1,14 +1,17 @@
 require 'test_helper'
 
-class CodesControllerTest < ActionController::TestCase
+class CodeControllerTest < ActionController::TestCase
   setup do
-    @code = codes(:one)
+    @code = code(:one)
+    Code.create @code.to_param
   end
+
+  setup :login
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:codes)
+    assert_not_nil assigns(:code)
   end
 
   test "should get new" do
@@ -44,6 +47,13 @@ class CodesControllerTest < ActionController::TestCase
       delete :destroy, :id => @code.to_param
     end
 
-    assert_redirected_to codes_path
+    assert_redirected_to code_index_path
+  end
+
+  protected
+
+  def login
+    @user = User.create(:provider => "twitter", :uid => 0, :name => "Admin", :admin => true)
+    session[:user_id] = @user.id
   end
 end

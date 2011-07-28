@@ -1,18 +1,16 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  provider: MyString
-  uid: MyString
-  name: MyString
+admin:
+  provider: twitter
+  uid: 0
+  name: Admin
+  admin: true
 
-two:
-  provider: MyString
-  uid: MyString
-  name: MyString
-
-
-
-
+commenter:
+  provider: facebook
+  uid: 1
+  name: Commenter
+  admin: false
 
 # == Schema Information
 #

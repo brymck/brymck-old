@@ -35,8 +35,8 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to(request.referer, :notice => t("messages.comments.created")) }
-        format.xml  { render :xml => request.referer, :status => :created, :location => @comment }
+        format.html { redirect_to(@comment.post, :notice => t("messages.comments.created")) }
+        format.xml  { render :xml => @comment.post, :status => :created, :location => @comment }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
@@ -51,7 +51,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
-        format.html { redirect_to(request_referer, :notice => t("messages.comments.created")) }
+        format.html { redirect_to(@comment.post, :notice => t("messages.comments.created")) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -67,7 +67,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to(request.referer) }
+      format.html { redirect_to comments_path }
       format.xml  { head :ok }
     end
   end

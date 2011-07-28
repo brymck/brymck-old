@@ -4,13 +4,13 @@ one:
   name: MyString
   email: MyString
   content: MyText
-  post: 
+  post_id: 0
 
 two:
   name: MyString
   email: MyString
   content: MyText
-  post: 
+  post_id: 0
 
 # == Schema Information
 #

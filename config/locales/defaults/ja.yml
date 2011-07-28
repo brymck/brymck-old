@@ -8,7 +8,9 @@ ja:
   time:
     ago: "%{time}前"
     formats:
+      default: "%Y年%-m月%-d日 %k:%M"
       long: "%Y年%-m月%-d日 %k:%M %Z"
+      short: "%Y年%-m月%-d日 %k:%M"
     zone: "Tokyo"
   confirm: "本当によろしいですか。"
   deny_access: "このページをアクセスするには、まずログインしてください。"

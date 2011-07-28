@@ -5,6 +5,7 @@ ja:
       attributes:
         post: &post
           author: "作者"
+          comments: "コメント数"
           content: "コンテンツ"
           created_at: "発表日付"
           id: "ID"

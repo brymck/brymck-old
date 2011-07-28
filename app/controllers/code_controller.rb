@@ -78,7 +78,7 @@ class CodeController < ApplicationController
     @code.destroy
 
     respond_to do |format|
-      format.html { redirect_to(code_url) }
+      format.html { redirect_to(code_index_url) }
       format.xml  { head :ok }
     end
   end

@@ -4,18 +4,16 @@ one:
   title: MyString
   description: MyText
   url: MyString
-  screenshot: 
 
 two:
   title: MyString
   description: MyText
   url: MyString
-  screenshot: 
 
 
 # == Schema Information
 #
-# Table name: codes
+# Table name: code
 #
 #  id          :integer         not null, primary key
 #  title       :string(255)

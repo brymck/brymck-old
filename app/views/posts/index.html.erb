@@ -1,6 +1,6 @@
 <table>
   <tr>
-    <% %w{id title author personal created_at updated_at}.each do |field| %>
+    <% %w{id title author personal comments created_at updated_at}.each do |field| %>
       <th><%=t ".#{field}" %></th>
     <% end %>
     <th colspan="2"></th>
@@ -12,8 +12,9 @@
     <td><%= link_to post.title, post %></td>
     <td><%= link_to post.author, post.user %></td>
     <td><%= post.personal %></td>
-    <td><%=l post.created_at, :format => :long %></td>
-    <td><%=l post.updated_at, :format => :long %></td>
+    <td><%= link_to post.comments.count, post_path(post, :anchor => :comments) %></td>
+    <td><%=l post.created_at, :format => :default %></td>
+    <td><%=l post.updated_at, :format => :default %></td>
     <td><%= link_to t(:edit), edit_post_path(post) %></td>
     <td><%= link_to t(:destroy), post, :confirm => t(:confirm), :method => :delete %></td>
   </tr>

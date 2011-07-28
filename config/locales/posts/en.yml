@@ -5,6 +5,7 @@ en:
       attributes:
         post: &post
           author: "Author"
+          comments: "Comments"
           content: "Content"
           created_at: "Published"
           id: "ID"

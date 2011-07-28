@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class CommentsControllerTest < ActionController::TestCase
+  setup :login
+
   setup do
+    @post = Post.create(:title => "Title", :content => "Content", :user_id => @user.id)
     @comment = comments(:one)
+    @comment.post_id = @post.id
   end
 
   test "should get index" do
@@ -21,12 +25,7 @@ class CommentsControllerTest < ActionController::TestCase
       post :create, :comment => @comment.attributes
     end
 
-    assert_redirected_to comment_path(assigns(:comment))
-  end
-
-  test "should show comment" do
-    get :show, :id => @comment.to_param
-    assert_response :success
+    assert_redirected_to post_path(@comment.post)
   end
 
   test "should get edit" do
@@ -36,7 +35,7 @@ class CommentsControllerTest < ActionController::TestCase
 
   test "should update comment" do
     put :update, :id => @comment.to_param, :comment => @comment.attributes
-    assert_redirected_to comment_path(assigns(:comment))
+    assert_redirected_to post_path(@comment.post)
   end
 
   test "should destroy comment" do
@@ -45,5 +44,12 @@ class CommentsControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to comments_path
+  end
+
+  protected
+
+  def login
+    @user = User.create(:provider => "twitter", :uid => 0, :name => "Admin", :admin => true)
+    session[:user_id] = @user.id
   end
 end

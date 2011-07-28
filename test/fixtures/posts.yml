@@ -3,16 +3,10 @@
 one:
   title: MyString
   content: MyText
-  user: 
 
 two:
   title: MyString
   content: MyText
-  user: 
-
-
-
-
 
 # == Schema Information
 #
