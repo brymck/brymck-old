@@ -4,8 +4,7 @@ class PostsControllerTest < ActionController::TestCase
   setup :login
   
   setup do
-    @post = posts(:one)
-    @post.user_id = @user.id
+    @post = posts(:blog_post)
   end
 
   test "should get index" do

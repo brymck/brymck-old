@@ -1,16 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
-  email: MyString
-  content: MyText
-  post_id: 0
+blog_comment:
+  name: Commenter
+  email: commenter@example.com
+  content: Nice post
+  post: blog_post
 
-two:
-  name: MyString
-  email: MyString
-  content: MyText
-  post_id: 0
 
 # == Schema Information
 #

@@ -4,20 +4,13 @@ class CommentsControllerTest < ActionController::TestCase
   setup :login
 
   setup do
-    @post = Post.create(:title => "Title", :content => "Content", :user_id => @user.id)
-    @comment = comments(:one)
-    @comment.post_id = @post.id
+    @comment = comments(:blog_comment)
   end
 
   test "should get index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:comments)
-  end
-
-  test "should get new" do
-    get :new
-    assert_response :success
   end
 
   test "should create comment" do

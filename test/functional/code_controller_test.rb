@@ -2,8 +2,7 @@ require 'test_helper'
 
 class CodeControllerTest < ActionController::TestCase
   setup do
-    @code = code(:one)
-    Code.create @code.to_param
+    @code = code(:script)
   end
 
   setup :login

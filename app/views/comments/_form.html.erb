@@ -1,4 +1,7 @@
-<% @comment ||= Comment.new %>
+<%
+  @comment ||= Comment.new
+  @post ||= @comment.post
+%>
 <%= form_for(@comment) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">

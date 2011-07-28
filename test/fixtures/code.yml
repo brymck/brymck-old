@@ -1,15 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  title: MyString
-  description: MyText
-  url: MyString
-
-two:
-  title: MyString
-  description: MyText
-  url: MyString
-
+script:
+  title: Script
+  description: Description
+  url: http://www.example.com
 
 # == Schema Information
 #
