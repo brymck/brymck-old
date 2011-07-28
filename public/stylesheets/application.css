@@ -48,6 +48,7 @@ article h2 { margin-bottom: 0; }
 html > body > div.container article > header > p { margin: 0; }
 .archive ul { list-style-type: none; }
 article table { width: auto; }
+article img { max-width: 100%; }
 
 /* Comments */
 article article h4 { margin-bottom: 0; }
