@@ -5,9 +5,11 @@ en:
       attributes:
         comment: &comment
           content: "Content"
+          created_at: "Posted"
           email: "E-mail"
           name: "Name"
           post: "Post"
+          updated_at: "Edited"
   helpers:
     label:
       comment: *comment

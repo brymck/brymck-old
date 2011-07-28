@@ -7,11 +7,11 @@ en:
           author: "Author"
           comments: "Comments"
           content: "Content"
-          created_at: "Published"
+          created_at: "Posted"
           id: "ID"
           personal: "Personal"
           title: "Title"
-          updated_at: "Updated"
+          updated_at: "Edited"
   helpers:
     label:
       post: *post

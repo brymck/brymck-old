@@ -1,4 +1,5 @@
 <%
+  edit_date ||= false
   @comment ||= Comment.new
   @post ||= @comment.post
 %>
@@ -15,14 +16,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
+  <div class="field inline">
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+  <div class="field inline">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
   </div>
+  <% if edit_date %>
+  <div class="field inline">
+    <%= f.label :created_at %>
+    <%= f.text_field :created_at %>
+  </div>
+  <% end %>
   <div class="field">
     <%= f.label :content %><br />
     <%= f.text_area :content %>

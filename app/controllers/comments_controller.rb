@@ -35,7 +35,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to(@comment.post, :notice => t("messages.comments.created")) }
+        format.html { redirect_to(@comment.post, :notice => t("messages.created")) }
         format.xml  { render :xml => @comment.post, :status => :created, :location => @comment }
       else
         format.html { render :action => "new" }
@@ -51,7 +51,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
-        format.html { redirect_to(@comment.post, :notice => t("messages.comments.created")) }
+        format.html { redirect_to(@comment.post, :notice => t("messages.updated")) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
