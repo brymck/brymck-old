@@ -5,6 +5,14 @@ blog_post:
   content: Content
   user: admin
 
+multilingual:
+  title: Multilingual
+  content: |
+    en. English
+
+    ja. Japanese
+  user: admin
+
 # == Schema Information
 #
 # Table name: posts
