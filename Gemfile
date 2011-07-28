@@ -6,7 +6,6 @@ gem 'sqlite3'
 gem 'omniauth'
 gem 'friendly_id'
 gem 'RedCloth'
-gem 'flickraw'
 gem 'gravatar_image_tag'
 
 group :development do
