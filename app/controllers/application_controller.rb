@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def deny_access
-    redirect_to login_path, :notice => t(:deny_access)
+    redirect_to login_path, :alert => t(:deny_access)
   end
 
   def authorize

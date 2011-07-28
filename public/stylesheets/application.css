@@ -19,6 +19,20 @@ ul.horizontal li { display: inline-block; }
 a[name] { color: #222; }
 a[name]:hover { text-decoration: none; }
 
+/* Flash */
+.success {
+  background-color: #e5f9ec;
+  border-color: #0c6;
+  border-width: 1px;
+  color: #093;
+}
+.alert {
+  background-color: #f9e5ec;
+  border-color: #c06;
+  border-width: 1px;
+  color: #903;
+}
+
 /* Paragraph */
 html > body > div.container p {
   margin-top: 1em;
