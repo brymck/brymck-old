@@ -5,6 +5,38 @@ class CodeControllerTest < ActionController::TestCase
     @code = code(:script)
   end
 
+  test "should fail to get new if not logged in" do
+    puts "User ID: #{session[:user_id]}"
+    get :new
+    assert_redirected_to login_path
+  end
+
+  test "should fail to create code if not logged in" do
+    assert_no_difference('Code.count') do
+      post :create, :code => @code.attributes
+    end
+
+    assert_redirected_to code_path(assigns(:code))
+  end
+
+  test "should fail to get edit if not logged in" do
+    get :edit, :id => @code.to_param
+    assert_redirected_to login_path
+  end
+
+  test "should fail to update code if not logged in" do
+    put :update, :id => @code.to_param, :code => @code.attributes
+    assert_redirected_to code_path(assigns(:code))
+  end
+
+  test "should fail to destroy code if not logged in" do
+    assert_no_difference('Code.count') do
+      delete :destroy, :id => @code.to_param
+    end
+
+    assert_redirected_to code_index_path
+  end
+
   setup :login
 
   test "should get index" do

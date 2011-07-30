@@ -1,0 +1,3 @@
+# ~.autotest
+require 'rubygems'
+require 'test_notifier/runner/autotest'

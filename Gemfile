@@ -12,7 +12,14 @@ group :development do
   gem 'annotate'
 end
 
+group :test do
+  gem 'turn'
+end
+
 group :development, :test do
   gem 'autotest'
-  gem 'turn'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'spork'
+  gem 'test_notifier'
 end

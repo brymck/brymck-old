@@ -1,5 +1,10 @@
 *.xcf
+.autotest
+.git
+.rspec
 doc
+features
+spec
 test
 public/images/*_32.png
 public/images/*_64.png
