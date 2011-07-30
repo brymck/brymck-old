@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   def new
-    session[:referer] = request.referer
     session[:locale] = params[:locale]
   end
 
@@ -13,7 +12,6 @@ class SessionsController < ApplicationController
   end
 
   def friend
-    session[:referer] = request.referer
   end
 
   def verify_friend

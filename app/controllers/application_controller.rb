@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def deny_access
+    session[:referer] = request.fullpath
     redirect_to login_path, :alert => t(:deny_access)
   end
 
@@ -25,7 +26,10 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_friends
-    redirect_to friend_path unless friend?
+    unless friend?
+      session[:referer] = request.fullpath
+      redirect_to friend_path
+    end
   end
 
   private
