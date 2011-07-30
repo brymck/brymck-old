@@ -17,7 +17,6 @@ class PostsController < ApplicationController
     response.headers["Content-Type"] = "application/xml; charset=utf-8"
   end
 
-
   # GET /posts
   # GET /posts.xml
   def index

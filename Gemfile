@@ -7,19 +7,21 @@ gem 'gravatar_image_tag'
 gem 'omniauth'
 gem 'RedCloth'
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'sqlite3'
+end
+
 group :development do
   gem 'annotate'
 end
 
 group :test do
-  gem 'turn'
-end
-
-group :development, :test do
   gem 'autotest'
-  gem 'sqlite3'
+  gem 'factory_girl_rails'
   gem 'rspec'
-  gem 'rspec-rails'
   gem 'spork'
   gem 'test_notifier'
+  gem 'turn'
+  gem 'webrat'
 end
