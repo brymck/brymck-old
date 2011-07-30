@@ -7,8 +7,11 @@ ja:
           content: "コンテンツ"
           created_at: "発表日付"
           email: "メール"
+          lft: "左"
           name: "名前"
+          parent: "上"
           post: "投稿"
+          rgt: "右"
           updated_at: "最終更新日付"
   helpers:
     label:
@@ -25,4 +28,6 @@ ja:
       new:
         title: "新規コメント"
   comments:
+    comment:
+      reply_to_this: "このコメントに返信する"
     index: *comment

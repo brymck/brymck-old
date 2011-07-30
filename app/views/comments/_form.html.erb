@@ -1,5 +1,5 @@
 <%
-  edit_date ||= false
+  edit_everything ||= false
   @comment ||= Comment.new
   @post ||= @comment.post
 %>
@@ -24,7 +24,11 @@
     <%= f.label :email %>
     <%= f.email_field :email %>
   </div>
-  <% if edit_date %>
+  <% if edit_everything %>
+  <div class="field inline">
+    <%= f.label :parent_id %>
+    <%= f.text_field :parent_id, :size => 4 %>
+  </div>
   <div class="field inline">
     <%= f.label :created_at %>
     <%= f.text_field :created_at %>
@@ -35,6 +39,7 @@
     <%= f.text_area :content %>
   </div>
   <%= f.hidden_field :post_id, :value => @post.id %>
+  <%= f.hidden_field :parent_id, :value => nil %>
   <div class="actions">
     <%= f.submit %>
   </div>

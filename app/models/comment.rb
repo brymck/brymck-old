@@ -1,8 +1,10 @@
 class Comment < ActiveRecord::Base
+  acts_as_nested_set
   belongs_to :post
   validates :name, :presence => true
   validates :content, :presence => true
 end
+
 
 # == Schema Information
 #
@@ -15,5 +17,8 @@ end
 #  post_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  parent_id  :integer
+#  lft        :integer
+#  rgt        :integer
 #
 

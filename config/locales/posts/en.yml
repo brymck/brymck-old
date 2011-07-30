@@ -36,3 +36,4 @@ en:
         zero: "No comments yet"
         one: "1 comment"
         other: "%{count} comments"
+      reply: "Reply"

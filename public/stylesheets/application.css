@@ -54,9 +54,15 @@ article img { max-width: 100%; }
 article article h4 { margin-bottom: 0; }
 article article:nth-child(even) { background-color: #e5ecf9; }
 article article {
-  margin-top: 1em;
   padding: 0.5em;
 }
+
+/* Comment indent */
+.indent-1, .indent-2, .indent-3, .indent-4 { border-left: 1px solid #eee; }
+.indent-1 { margin-left: 30px; }
+.indent-2 { margin-left: 60px; }
+.indent-3 { margin-left: 90px; }
+.indent-4 { margin-left: 120px; }
 
 /* Flickr */
 .flickr { margin-bottom: 1em; }

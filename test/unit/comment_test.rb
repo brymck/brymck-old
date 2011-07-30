@@ -7,6 +7,7 @@ class CommentTest < ActiveSupport::TestCase
   end
 end
 
+
 # == Schema Information
 #
 # Table name: comments
@@ -18,5 +19,8 @@ end
 #  post_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  parent_id  :integer
+#  lft        :integer
+#  rgt        :integer
 #
 

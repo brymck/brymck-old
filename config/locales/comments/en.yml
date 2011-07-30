@@ -7,8 +7,11 @@ en:
           content: "Content"
           created_at: "Posted"
           email: "E-mail"
+          lft: "Left"
           name: "Name"
+          parent_id: "Parent"
           post: "Post"
+          rgt: "Right"
           updated_at: "Edited"
   helpers:
     label:
@@ -25,4 +28,6 @@ en:
       new:
         title: "New comment"
   comments:
+    comment:
+      reply_to_this: "Reply to this comment"
     index: *comment
