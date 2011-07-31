@@ -30,4 +30,6 @@ ja:
   comments:
     comment:
       reply_to_this: "このコメントに返信する"
+    form:
+      replying_to: "%{name}に返信しています"
     index: *comment

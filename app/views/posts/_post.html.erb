@@ -1,3 +1,4 @@
+<% show_comments ||= false %>
 <article>
   <header>
     <h2><%= link_to post.title, post %></h2>
@@ -6,13 +7,17 @@
     <%= content_tag :p, link_to(t(:edit), edit_post_path(post)) if admin? %>
   </header>
   <%= render_content post %>
-  <% if defined?(show_comments) %>
+  <% if show_comments %>
     <aside>
-      <h3><a name="comments"><%=t "layouts.sidebar.comments" %></a></h3>
-      <%= render_comments(post.comments) %>
+      <%= content_tag :h3, t("layouts.sidebar.comments"), :id => "comments" %>
+      <% if post.comments.empty? %>
+        <%= content_tag :p, t(".comments.zero") %>
+      <% else %>
+        <%= render_comments(post.comments) %>
+      <% end %>
     </aside>
     <aside>
-      <%= content_tag :h3, link_to(t(".reply"), nil, :name => "hi") %>
+      <%= content_tag :h3, t(".reply"), :id => "reply" %>
       <%= render :partial => "comments/form" %>
     </aside>
   <% else %>

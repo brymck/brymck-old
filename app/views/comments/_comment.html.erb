@@ -1,7 +1,7 @@
 <article class="indent-<%= indent %>">
   <header>
     <%= gravatar_image_tag comment.email, :gravatar => { :alt => comment.name, :default => :identicon, :size => 32 }, :class => "right" %>
-    <h4><a name="comment_<%= comment.id %>"><%= link_to_if admin?, comment.name, "mailto:#{comment.email}" %></a></h4>
+    <%= content_tag :h4, link_to_if(admin?, comment.name, "mailto:#{comment.email}"), :id => "comment_#{comment.id}" %>
     <p><%= time_tag comment.created_at %></p>
     <% if admin? %>
       <p>
@@ -11,5 +11,5 @@
     <% end %>
   </header>
   <%= sanitize render_content(comment) %>
-  <footer><%= link_to t(".reply_to_this"), "#reply", :class => "reply", :"data-id" => comment.id %></footer>
+  <footer><%= link_to t(".reply_to_this"), "#reply", :class => "reply", :"data-id" => comment.id, :"data-name" => comment.name %></footer>
 </article>

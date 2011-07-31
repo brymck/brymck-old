@@ -2,10 +2,21 @@ jQuery.noConflict();
 (function($) {
   function addNestingHelper() {
     $("a.reply").click(function(e) {
-      $("#comment_parent_id").val($(e.target).data("id"));
+      var $target = $(e.target);
+      var id = $target.data("id");
+      $("#comment_parent_id").val(id);
+      $("#reply_name").attr("href", "#comment_" + id).text($target.data("name"));
+      $("#reply_to").slideDown("fast");
       $("#comment_name").focus();
       e.preventDefault();
     });
+    $("#clear_reply_to").click(removeReplyTo);
+  }
+  
+  function removeReplyTo(e) {
+    $("#reply_to").slideUp("fast");
+    $("#comment_parent_id").val("");
+    e.preventDefault();
   }
 
   function addPrettyPrintTags() {

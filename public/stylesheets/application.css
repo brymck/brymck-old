@@ -20,18 +20,25 @@ a[name] { color: #222; }
 a[name]:hover { text-decoration: none; }
 
 /* Flash */
-.success {
-  background-color: #e5f9ec;
-  border-color: #0c6;
-  border-width: 1px;
-  color: #093;
-}
 .alert {
   background-color: #f9e5ec;
   border-color: #c06;
   border-width: 1px;
   color: #903;
 }
+.notice {
+  background-color: #fff6bf;
+  border-color: #ffd324;
+  border-width: 1px;
+  color: #514721;
+}
+.success {
+  background-color: #e5f9ec;
+  border-color: #0c6;
+  border-width: 1px;
+  color: #093;
+}
+
 
 /* Paragraph */
 html > body > div.container p {
@@ -63,6 +70,9 @@ article article {
 .indent-2 { margin-left: 60px; }
 .indent-3 { margin-left: 90px; }
 .indent-4 { margin-left: 120px; }
+
+/* Reply to */
+#reply_to { display: none; }
 
 /* Flickr */
 .flickr { margin-bottom: 1em; }

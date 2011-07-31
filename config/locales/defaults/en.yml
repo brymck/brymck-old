@@ -12,6 +12,8 @@ en:
       long: "%B %e, %Y %l:%M %p %Z"
       short: "%-m/%-d/%Y %k:%M"
     zone: "Eastern Time (US & Canada)"
+  brackets: " [%{content}]"
+  clear: "Clear"
   confirm: "Are you really sure?"
   deny_access: "Please log in to access this page."
   destroy: "Destroy"

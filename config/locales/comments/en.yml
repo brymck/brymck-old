@@ -30,4 +30,6 @@ en:
   comments:
     comment:
       reply_to_this: "Reply to this comment"
+    form:
+      replying_to: "Replying to %{name}"
     index: *comment
