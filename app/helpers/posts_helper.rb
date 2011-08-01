@@ -4,6 +4,10 @@ module PostsHelper
     raw r.to_html
   end
 
+  def convert_internal_links(text)
+    text.gsub /href="\/(.*?)"/, %Q{href="http://brymck.heroku.com/$1"}
+  end
+
   def render_comments(comments)
     html = ""
     comments.sort { |a, b| a.lft <=> b.lft }.each do |comment|
