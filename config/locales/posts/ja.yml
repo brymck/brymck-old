@@ -33,6 +33,8 @@ ja:
   posts:
     archive:
       archive: "アーカイブ"
+    home:
+      feed: "RSSフィード"
     index: *post
     post:
       comments:

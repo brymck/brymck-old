@@ -1,10 +1,18 @@
 xml.instruct! :xml, :version => 1.0
-xml.rss :version => "2.0" do
+xml.rss :version => "2.0", :"xmlns:atom" => "http://www.w3.org/2005/Atom", :"xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
   xml.channel do
     xml.title t(:brymck)
+    xml.image {
+      xml.url "http://www.gravatar.com/avatar.php?gravatar_id=b5ce5f2f748ceefff8b6a5531d865a27&amp;s=88&amp;r=pg&amp;d=identicon"
+      xml.title t(:brymck)
+      xml.link home_url
+    }
     xml.description t("meta.defaults.description")
-    xml.link posts_url
-    xml.author { xml.name t(:bryan_mckelvey) }
+    xml.copyright "Copyright #{copyright_years} Bryan McKelvey"
+    xml.docs "http://cyber.law.harvard.edu/rss/rss.html"
+    xml.language I18n.locale.to_s
+    xml.link home_url
+    xml.send "atom:link", :href => feed_url, :rel => :self, :type => "application/rss+xml" 
 
     @posts.each do |post|
       xml.item do
@@ -12,7 +20,9 @@ xml.rss :version => "2.0" do
         xml.link post_url(post)
         xml.description render_content(post)
         xml.pubDate post.created_at.to_s(:rfc822)
-        xml.author { xml.name t(:bryan_mckelvey) }
+        xml.send "dc:creator", t(:bryan_mckelvey)
+        xml.guid "#{post.id} at #{home_url}", :isPermaLink => false
+        xml.comments post_url(post, :anchor => :comments)
       end
     end
   end

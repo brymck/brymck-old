@@ -33,6 +33,8 @@ en:
   posts:
     archive:
       archive: "Archive"
+    home:
+      feed: "RSS Feed"
     index: *post
     post:
       comments:
