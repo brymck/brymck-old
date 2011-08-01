@@ -59,7 +59,7 @@ class SessionsController < ApplicationController
 
   def get_referer
     referer, session[:referer] = session[:referer], nil
-    referer.nil? ? root_path : referer
+    referer || request.referer || root_path
   end
 
   def get_locale_and_scope
