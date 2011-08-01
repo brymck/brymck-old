@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
       'uid'      => auth["uid"]
     )
     determine_admin_status
-    raise session.to_yaml
     redirect_to get_referer, :notice => t(:logged_in, get_locale_and_scope)
   end
 
