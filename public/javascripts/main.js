@@ -27,9 +27,17 @@ jQuery.noConflict();
     });
   }
 
+  function delayRemoveNotices() {
+    $(".success, .error, .notice").filter(":visible").each(function() {
+      var $this = $(this);
+      setTimeout(function() { $this.slideUp("fast"); }, 5000);
+    });
+  }
+
   $(document).ready(function() {
     addNestingHelper();
     addPrettyPrintTags();
     prettyPrint();
+    delayRemoveNotices();
   });
 })(jQuery);
