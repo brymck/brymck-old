@@ -4,8 +4,6 @@ class PagesController < ApplicationController
   end
 
   def about
-  end
-
-  def signin
+    breadcrumbs.add t("meta.pages.about.title"), about_path
   end
 end

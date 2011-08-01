@@ -1,6 +1,5 @@
 class Post < ActiveRecord::Base
   include StringTranslator
-  belongs_to :user
   has_many :comments
   has_friendly_id :english_title, :use_slug => true
 

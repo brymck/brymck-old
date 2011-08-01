@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_filter :authorize, :except => [:show, :create]
+  before_filter :add_breadcrumbs, :only => [:index, :edit]
 
   # GET /comments
   # GET /comments.xml
@@ -12,20 +13,10 @@ class CommentsController < ApplicationController
     end
   end
 
-  # GET /comments/1
-  # GET /comments/1.xml
-  def show
-    @comment = Comment.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @comment }
-    end
-  end
-
   # GET /comments/1/edit
   def edit
     @comment = Comment.find(params[:id])
+    breadcrumbs.add t("meta.comments.edit.title"), edit_comment_path(@comment)
   end
 
   # POST /comments
@@ -70,5 +61,11 @@ class CommentsController < ApplicationController
       format.html { redirect_to comments_path }
       format.xml  { head :ok }
     end
+  end
+
+  private
+
+  def add_breadcrumbs
+    breadcrumbs.add t("meta.comments.index.title"), comments_path
   end
 end

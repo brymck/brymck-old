@@ -20,4 +20,8 @@
     <%= nav_item t(".english",  :locale => :en), url_for(params.merge(:locale => "en")) %>
     <%= nav_item t(".japanese", :locale => :ja),  url_for(params.merge(:locale => "ja")) %>
   </ul>
+  <hr>
+  <section id="breadcrumbs" class="clear">
+    <%= breadcrumbs.render(:format => :inline) %>
+  </section>
 </nav>

@@ -1,0 +1,13 @@
+<article>
+  <header>
+    <%= content_tag :h2, link_to(code.local_title, code) %>
+    <% if admin? %>
+      <p>
+        <%= link_to t(:edit), edit_code_path(code) %> | 
+        <%= link_to t(:destroy), code, :confirm => t(:confirm), :method => :delete %>
+      </p>
+    <% end %>
+  </header>
+  <%=raw RedCloth.new(code.local_description).to_html %>
+  <footer><%= link_to t(:download, :target => code.local_title), code.url %></footer>
+</article>

@@ -1,19 +1,6 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @code.title %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @code.description %>
-</p>
-
-<p>
-  <b>Url:</b>
-  <%= @code.url %>
-</p>
-
-<%= link_to t(:edit), edit_code_path(@code) %> |
-<%= link_to t(:back), code_index_path %>
+<div class="span-17 colborder">
+  <%= render :partial => "code", :locals => { :code => @code } %>
+</div>
+<div class="archive">
+  <%= render :partial => "archive" %>
+</div>

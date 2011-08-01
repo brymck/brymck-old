@@ -19,6 +19,8 @@ module StringTranslator
                (!first_iteration && language != I18n.default_locale)
               translation = t
               break
+            elsif first_iteration
+              translation = t # set default
             end
           end
           first_iteration = false

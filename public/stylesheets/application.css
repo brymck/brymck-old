@@ -7,6 +7,11 @@ h3 { margin-bottom: 0.3em; }
 /* Navigation */
 nav ul { margin: 0.3em 0; }
 nav ul > li + li { padding-left: 0.5em; }
+nav hr { margin: 0; }
+nav #breadcrumbs {
+  background-color: #eee;
+  padding-top: 0.3em;
+}
 
 /* Horizontal lists */
 ul.horizontal { list-style-type: none; padding-left: 0; }

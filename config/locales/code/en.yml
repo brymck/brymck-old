@@ -10,11 +10,19 @@ en:
   helpers:
     label:
       code: *code
+  messages:
+    code:
+      created: "Code was successfully created."
+      updated: "Code was successfully updated."
   meta:
     code:
+      edit:
+        title: "Editing code"
       index:
         title: "Code"
       new:
         title: "New code"
   code:
+    archive:
+      archive: "Code Listing"
     index: *code

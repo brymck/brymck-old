@@ -21,6 +21,7 @@ class PostsController < ApplicationController
   # GET /posts.xml
   def index
     @posts = Post.all
+    breadcrumbs.add t("meta.posts.index.title"), posts_path
 
     respond_to do |format|
       format.html # index.html.erb
@@ -30,6 +31,7 @@ class PostsController < ApplicationController
 
   def journal
     @posts = Post.journal
+    breadcrumbs.add t("meta.posts.journal.title"), journal_path
 
     respond_to do |format|
       format.html
@@ -41,14 +43,19 @@ class PostsController < ApplicationController
   # GET /posts/1.xml
   def show
     @post = Post.find(params[:id])
-    authorize_friends if @post.personal?
-    @title = @post.title
+    if @post.personal?
+      authorize_friends
+      breadcrumbs.add t("meta.posts.journal.title"), journal_path
+    end
+    @title = @post.local_title
+    breadcrumbs.add @title, post_path(@post)
   end
 
   # GET /posts/new
   # GET /posts/new.xml
   def new
     @post = Post.new
+    breadcrumbs.add t("meta.posts.new.title"), new_post_path
 
     respond_to do |format|
       format.html # new.html.erb
@@ -59,6 +66,9 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    breadcrumbs.add t("meta.posts.journal.title"), journal_path if @post.personal?
+    breadcrumbs.add @post.local_title, post_path(@post)
+    breadcrumbs.add t("meta.posts.edit.title"), edit_post_path(@post)
   end
 
   # POST /posts

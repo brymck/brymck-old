@@ -1,4 +1,8 @@
 ja:
+  meta:
+    sessions:
+      new:
+        title: "ログイン"
   sessions:
     choose: "下記のリストからプロバイダを選択してください："
     failure: "認証に失敗しました！"

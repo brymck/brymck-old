@@ -1,23 +1,10 @@
-<table>
-  <tr>
-    <% %w{title description url}.each do |field| %>
-      <th><%=t ".#{field}" %></th>
-    <% end %>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @code.each do |code| %>
-  <tr>
-    <td><%= code.title %></td>
-    <td><%= code.description %></td>
-    <td><%= code.url %></td>
-    <td><%= link_to t(:show), code %></td>
-    <td><%= link_to t(:edit), edit_code_path(code) %></td>
-    <td><%= link_to t(:destroy), code, :confirm => t(:confirm), :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<%= link_to t(:new), new_code_path if admin? %>
+<div class="span-17 colborder">
+  <%= link_to t(:new), new_code_path if admin? %>
+  <% @code.each do |code| %>
+    <%= render :partial => "code", :locals => { :code => code } %>
+    <hr>
+  <% end %>
+</div>
+<div class="archive">
+  <%= render :partial => "archive" %>
+</div>

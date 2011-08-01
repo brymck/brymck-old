@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :set_locale
+  before_filter :set_locale, :add_initial_breadcrumbs
   helper_method :admin?, :friend?, :logged_in?
 
   def set_locale
@@ -30,6 +30,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def add_initial_breadcrumbs
+    breadcrumbs.add t(:home, :scope => [:layouts, :sidebar]), home_path
+  end
 
   def logged_in?
     !session[:uid].nil?

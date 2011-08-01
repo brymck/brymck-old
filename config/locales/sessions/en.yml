@@ -1,4 +1,8 @@
 en:
+  meta:
+    sessions:
+      new:
+        title: "Login"
   sessions:
     choose: "Select your provider from the list below:"
     failure: "Authentication failure!"

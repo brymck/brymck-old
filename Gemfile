@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.9'
 
 gem 'awesome_nested_set'
+gem 'breadcrumbs'
 gem 'friendly_id'
 gem 'gravatar_image_tag'
 gem 'omniauth'

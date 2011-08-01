@@ -10,11 +10,19 @@ ja:
   helpers:
     label:
       code: *code
+  messages:
+    code:
+      created: "コードの作成に成功しました。"
+      updated: "コードの更新に成功しました。"
   meta:
     code:
+      edit:
+        title: "コード編集"
       index:
         title: "コード"
       new:
         title: "新規コード"
   code:
+    archive:
+      archive: "コードのリスト"
     index: *code
