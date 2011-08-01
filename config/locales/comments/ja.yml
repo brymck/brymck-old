@@ -9,7 +9,7 @@ ja:
           email: "メール"
           lft: "左"
           name: "名前"
-          parent: "上"
+          parent_id: "親ID"
           post: "投稿"
           rgt: "右"
           updated_at: "最終更新日付"

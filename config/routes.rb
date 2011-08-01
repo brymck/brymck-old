@@ -1,6 +1,6 @@
 Brymck::Application.routes.draw do
   scope "(:locale)", :locale => /en|ja/ do
-    resources :code, :comments, :posts, :users
+    resources :code, :comments, :posts
 
     match "feed" => "posts#feed"
 

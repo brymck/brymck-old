@@ -9,7 +9,7 @@
 <% @posts.each do |post| %>
   <tr>
     <td><%= post.id %></td>
-    <td><%= link_to exclude_other_languages(post.title), post %></td>
+    <td><%= link_to post.local_title, post %></td>
     <td><%= post.personal %></td>
     <td><%= link_to post.comments.count, post_path(post, :anchor => :comments) %></td>
     <td><%=l post.created_at %></td>

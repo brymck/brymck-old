@@ -9,10 +9,10 @@
 <% @comments.each do |comment| %>
   <tr>
     <td><%= comment.id %></td>
-    <td><%= comment.name %></td>
+    <td><%= comment.local_name %></td>
     <td><%= comment.email %></td>
-    <td><%= truncate comment.content, :length => 50, :separator => ' ' %></td>
-    <td><%= link_to comment.post.title, comment.post %></td>
+    <td><%= truncate comment.local_content, :length => 50, :separator => ' ' %></td>
+    <td><%= link_to comment.post.local_title, comment.post %></td>
     <td><%= comment.parent_id %></td>
     <td><%= comment.lft %></td>
     <td><%= comment.rgt %></td>
