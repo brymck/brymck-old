@@ -1,7 +1,6 @@
 ja:
   layouts:
     sidebar:
-      about: "私について"
       code: "コード"
       comments: "コメント"
       english: "英語"
@@ -11,3 +10,4 @@ ja:
       login: "ログイン"
       logout: "ログアウト"
       posts: "投稿"
+      resume: "レジメ"

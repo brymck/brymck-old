@@ -1,11 +1,92 @@
 ja:
   meta:
     pages:
-      about:
-        title: "私について"
+      resume:
+        title: "レジメ"
   pages:
-    about:
-      carolina: "ノースカロライナ大学"
-      resume: "レジメ"
-      todai: "東京大学"
-      universities: "大学"
+    resume:
+      resume: |
+        h3. ブライアン・リー・マッケルビー
+
+        "bryan.mckelvey@gmail.com":email
+        〒113-0033
+        東京都文京区本郷1-21-7-402
+        "+81-80-3934-3664":cell
+        "brymck.heroku.com":heroku
+        
+        h4. 職歴
+        
+        h5. ["ウェルズ・ファーゴ（元ワコビア）":wfc]、資産負債管理部門、["カリフォルニア州サンフランシスコ":sf]、2007年9月～2010年3月
+        
+        総資産 1 兆 2 千億ドルの米大手銀行、2008年12月に同じく米大手銀行のワコビアを取得
+        
+        h6. アシスタント・バイス・プレジデント、2009年3月～2010年3月
+        * FAS第133 号のヘッジ無効性によるリスクを排除するための 180 億ドル規模のヘッジを構築
+        * トレジャリーが`取引のタイミングを最適化し、トレーダーとのコミュニケーションを強化するための市場を随時観察できるシステムを開発
+        * ワコビア独自の変動金利型住宅ローン用のインデックスを残す重要性を立証し、5 年で 1.5 億ドルの損失を回避
+        
+        h6. ファイナンシャル・アナリスト、2007年9月～2009年3月
+        * 不良住宅ローンの予測及びローンの変更による影響の推定のための不良住宅ローンポートフォリオを構築し、場合によっては差し押さえよりも大幅な元本及び金利の引き下げのほうが好ましいことを立証することで、ローン変更のキャンペーンを促進
+        * 1350ドルの定期預金ポートフォリオの金利変動等に対する残高と収支の感応度を分析するためのモデルを構築
+        * 個人預金における競合に関して詳細に渡る報告書を作成し、上記モデルに加え、過剰な利率の引き上げや他の預金を蝕むことなく、2008 年 7 月に 200 億ドル分の定期預金を調達
+        
+        h5. ["ケナン民間企業研究所":kipe]、ノース・カロライナ州チャペル・ヒル、2006年6月～2007年7月
+
+        ["ノース・カロライナ大学":unc]["ケナン・フラグラー・ビジネス・スクール":kfbs]の研究機関経済発展、特に航空通商、起業家精神及びバイオベンチャーに焦点を置く
+
+        h6. 研究助手
+        * 教授と主任研究家による産業研究をまとめた週刊研究報告書を作成
+        * 空輸貨物規制環境及び移民労働者のノース・カロライナへの経済的影響の情報を収集
+
+        h4. 学歴
+        
+        h5. ["東京大学":todai]、経済学研究科、東京
+
+        h6. 文部科学省奨学金研究生、2010年4月～現在
+        
+        h5. ["ノース・カロライナ大学":unc]、["ケナン・フラグラー・ビジネス・スクール":kfbs]、ノース・カロライナ州チャペル・ヒル
+        
+        h6. 経営学学士号取得、最優等 (GPA: 3.80)、2003年8月～2007年5月
+        * 副専攻として日本語学を履修
+        * ["ファイ・ベータ・カッパ":pbk]及び["ベータ・ガンマ・シグマ":bgs]の優等学生友愛会の会員
+        * 卒業論文["「日本における移民労働政策のビジネスへの影響」":thesis]にて、マイケル・P とジーン・W・カーター研究賞受賞
+        * ナショナル・メリット奨学金、ロバート・C・バード奨学金、エドミスター家奨学金を授与
+        
+        h5. ["南山大学":nanzan]、外国人留学生別科、名古屋
+        
+        h6. 2004年度交換留学生 2004年8月～2005年5月
+        
+        h4. 資格・その他
+        * <abbr title="Chartered Financial Analyst">["CFA":cfa]</abbr>：資格申請中 全ての試験に（一回目で）合格、必須職務経験年数を勤務後に受取予定
+        * <abbr title="Graduate Management Admission Test">["GMAT":gmat]</abbr>：770点
+        * 使用可能ソフト：マイクロソフト・オフィス（アドインのプログラミングも可）、["Calypso":calypso]、["Bancware":bancware]、<abbr title="Quantitative Risk Management">["QRM":qrm]</abbr>、ALMeter
+        * プログラミング言語：<abbr title="Visual Basic for Applications">"VBA":vba</abbr>、["C#・VB .NET":dotnet]、<abbr title="HyperText Markup Language">"HTML":html</abbr>、["PHP":php]、["JavaScript":js]、["Ruby":ruby]
+        * 言語：英語（ネイティブ・レベル）、日本語（ビジネス・レベル）
+        * サウス・メックレンバーグ高等学校を首席で卒業
+
+        照会先は必要に応じてご提供致します。
+
+        [bancware]http://www.sungard.com/financialsystems.aspx
+        [bgs]http://en.wikipedia.org/wiki/Beta_Gamma_Sigma
+        [calypso]http://www.calypso.com/
+        [cell]tel:+818039343664
+        [cfa]https://www.cfainstitute.org/pages/index.aspx
+        [dotnet]http://ja.wikipedia.org/wiki/.NET
+        [email]mailto:bryan.mckelvey@gmail.com
+        [heroku]http://brymck.heroku.com
+        [html]http://ja.wikipedia.org/wiki/Html
+        [js]http://ja.wikipedia.org/wiki/JavaScript
+        [gmat]http://www.mba.com/the-gmat.aspx
+        [kfbs]http://www.kenan-flagler.unc.edu/
+        [kipe]http://www.kenan-flagler.unc.edu/ki/
+        [nanzan]http://www.nanzan-u.ac.jp/
+        [pbk]http://en.wikipedia.org/wiki/Phi_Beta_Kappa_Society
+        [php]http://ja.wikipedia.org/wiki/PHP:_Hypertext_Preprocessor
+        [qrm]http://www.qrm.com/index.html
+        [ruby]http://ja.wikipedia.org/wiki/Ruby
+        [sf]http://goo.gl/eRm9S
+        [thesis]http://www.unc.edu/honors-bin/view_honors_thesis2.pl?id=1173089767
+        [todai]http://www.u-tokyo.ac.jp/
+        [unc]http://www.unc.edu/index.htm
+        [vba]http://ja.wikipedia.org/wiki/Visual_Basic_for_Applications
+        [wfc]https://www.wellsfargo.com

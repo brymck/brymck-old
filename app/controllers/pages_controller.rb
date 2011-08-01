@@ -3,7 +3,7 @@ class PagesController < ApplicationController
     redirect_to home_path(preferred_locale)
   end
 
-  def about
-    breadcrumbs.add t("meta.pages.about.title"), about_path
+  def resume
+    breadcrumbs.add t("meta.pages.resume.title"), resume_path
   end
 end

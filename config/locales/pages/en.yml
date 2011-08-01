@@ -1,11 +1,95 @@
 en:
   meta:
     pages:
-      about:
-        title: "About me"
+      resume:
+        title: "Résumé"
   pages:
-    about:
-      carolina: "University of North Carolina"
-      resume: "Résumé"
-      todai: "University of Tokyo"
-      universities: "Universities"
+    resume:
+      resume: |
+        h3. Bryan Lee McKelvey
+
+        "bryan.mckelvey@gmail.com":email
+        1-21-7-402 Hongō, Bunkyō-ku
+        Tokyo 113-0033
+        "+81-80-3934-3664":cell
+        "brymck.heroku.com":heroku
+
+        h4. Experience
+
+        h5. "Wells Fargo-Wachovia":wfc, Asset-Liability Management, "San Francisco, CA":sf, Sep 2007 – Mar 2010
+
+        _Wells Fargo is the fourth-largest US financial services company, with $1.2 trillion in assets. Acquired Wachovia in December 2008._
+        
+        h6. Assistant Vice President, Mar 2009 – Mar 2010
+
+        * Responsible for design of $18 billion hedge to eliminate FAS 133 ineffectiveness
+        * Developed system allowing Treasury to continuously monitor market, optimizing execution timing and enhancing discussion with traders
+        * Proved importance of retaining Wachovia’s proprietary loan index for adjustable-rate mortgages, which saved $150 million of interest over 5 years
+
+        h6. Financial Analyst, Sep 2007 – Mar 2009
+        * Modeled distressed loan portfolio, forecasting nonperforming loans and loan modification impact. Demonstrated even aggressive principal and rate forgiveness was preferable to foreclosure in some cases. Basis for an initial loan modification drive.
+        * Created model analyzing balance and expense sensitivity of $135 billion consumer time deposit portfolio to interest rate changes and other market factors
+        * Wrote heavily detailed report on consumer deposit competition. Along with above model, used by management to raise $20 billion in CDs in July 2008 without overpaying or cannibalizing other deposits.
+
+        h5. "Kenan Institute of Private Enterprise":kipe, Chapel Hill, NC, Jun 2006 – Jul 2007
+
+        _KIPE is the economic development research arm of the ["University of North Carolina":unc]&#146;s "Kenan-Flagler Business School":kfbs, focusing on air commerce and entrepreneurship studies._
+        
+        h6. Research Assistant
+
+        * Issued weekly research reports to professors and senior researchers on their industries' conditions
+        * Collected data for professors' research on air cargo regulatory environment and economic impact of migrant workers in North Carolina
+
+        h4. Education
+
+        h5. ["University of Tokyo":todai], Faculty of Economics Tokyo, Japan
+
+        h6. Japan Ministry of Education Scholarship Research Student, Apr 2010 – present
+
+        h5. ["University of North Carolina":unc], ["Kenan-Flagler Business School":kfbs], Chapel Hill, NC
+
+        h6. BS in Business Administration, highest distinction (GPA: 3.80) Aug 2003 – May 2007
+        * Double major in Japanese
+        * Inducted into "Phi Beta Kappa":pbk and "Beta Gamma Sigma":bgs honor societies
+        * Wrote honors thesis entitled _"Business Effects on Migrant Labor Policy Formation in Japan":thesis_, which received the Michael P. & Jean W. Carter Research Award
+        * National Merit, Robert C. Byrd and Edmister Family Scholarships
+
+        h5. ["Nanzan University":nanzan], Center for Japanese Language Studies, Nagoya, Japan
+
+        h6. Exchange Student Aug 2004 – May 2005
+        
+        h4. Certifications & Other Data
+
+        * <abbr title="Chartered Financial Analyst">["CFA":cfa]</abbr>: Charter Pending passed all three levels of the CFA Program on first try and eligible for charter upon completion of required work experience
+        * <abbr title="Graduate Management Admission Test">["GMAT":gmat]</abbr>: 770
+        * Programs: Office (including add-in programming), ["Calypso":calypso], ["Bancware":bancware], <abbr title="Quantitative Risk Management">["QRM":qrm]</abbr>, ALMeter
+        * Programming: <abbr title="Visual Basic for Applications">"VBA":vba</abbr>, "C#/VB .NET":dotnet, <abbr title="HyperText Markup Language">"HTML":html</abbr>, "PHP":php, "JavaScript":js, "Ruby":ruby
+        * Languages: English (native), Japanese (business-level)
+        * South Mecklenburg High School valedictorian (first in class of 407 students)
+
+        References available upon request
+
+        [bancware]http://www.sungard.com/financialsystems.aspx
+        [bgs]http://en.wikipedia.org/wiki/Beta_Gamma_Sigma
+        [calypso]http://www.calypso.com/
+        [cell]tel:+818039343664
+        [cfa]https://www.cfainstitute.org/pages/index.aspx
+        [dotnet]http://en.wikipedia.org/wiki/.NET
+        [email]mailto:bryan.mckelvey@gmail.com
+        [heroku]http://brymck.heroku.com
+        [html]http://en.wikipedia.org/wiki/HTML
+        [js]http://en.wikipedia.org/wiki/JavaScript
+        [gmat]http://www.mba.com/the-gmat.aspx
+        [kfbs]http://www.kenan-flagler.unc.edu/
+        [kipe]http://www.kenan-flagler.unc.edu/ki/
+        [nanzan]http://www.nanzan-u.ac.jp/
+        [pbk]http://en.wikipedia.org/wiki/Phi_Beta_Kappa_Society
+        [php]http://en.wikipedia.org/wiki/PHP
+        [qrm]http://www.qrm.com/index.html
+        [ruby]http://en.wikipedia.org/wiki/Ruby_(programming_language)
+        [sf]http://goo.gl/eRm9S
+        [thesis]http://www.unc.edu/honors-bin/view_honors_thesis2.pl?id=1173089767
+        [todai]http://www.u-tokyo.ac.jp/
+        [unc]http://www.unc.edu/index.htm
+        [vba]http://en.wikipedia.org/wiki/Visual_Basic_for_Applications
+        [wfc]https://www.wellsfargo.com

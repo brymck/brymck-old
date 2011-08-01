@@ -5,7 +5,7 @@ Brymck::Application.routes.draw do
     match "feed" => "posts#feed"
 
     # Static pages
-    match "about" => "pages#about"
+    match "resume" => "pages#resume"
     match "journal" => "posts#journal", :as => :journal
 
     # Authentication

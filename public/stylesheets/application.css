@@ -24,6 +24,11 @@ ul.horizontal li { display: inline-block; }
 a[name] { color: #222; }
 a[name]:hover { text-decoration: none; }
 
+/* Resume */
+#resume h3, #resume h4, #resume h5 { margin-bottom: 0; }
+#resume h4 + h5, #resume h6 + h5, #resume h6 + h4, #resume h4 + ul { margin-top: 1em; }
+div.container > #resume > h5 + p { margin-top: 0; }
+
 /* Flash */
 .alert {
   background-color: #f9e5ec;

@@ -1,7 +1,6 @@
 en:
   layouts:
     sidebar:
-      about: "About"
       code: "Code"
       comments: "Comments"
       english: "English"
@@ -11,3 +10,4 @@ en:
       login: "Login"
       logout: "Logout"
       posts: "Posts"
+      resume: "Résumé"
