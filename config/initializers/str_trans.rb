@@ -15,8 +15,8 @@ module StringTranslator
               break
             end
           else
-            if ( first_iteration && I18n.locale == I18n.default_locale) ||
-               (!first_iteration && I18n.locale != I18n.default_locale)
+            if ( first_iteration && language == I18n.default_locale) ||
+               (!first_iteration && language != I18n.default_locale)
               translation = t
               break
             end
