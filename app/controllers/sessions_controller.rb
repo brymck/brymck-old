@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       'uid'      => auth["uid"]
     )
     determine_admin_status
-    puts "#{session[:name]} logged in as #{session[:admin] ? "a regular user" : "an administrator"} using #{session[:provider].titlecase} from #{request.remote_ip}"
+    puts "#{session[:name]} logged in as #{session[:admin] ? "an administrator" : "a regular user"} using #{session[:provider].titlecase} from #{request.remote_ip}"
     redirect_to get_referer, :notice => t(:logged_in, get_locale_and_scope)
   end
 
