@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
       'uid'      => auth["uid"]
     )
     determine_admin_status
+    puts "#{session[:name]} logged in as #{session[:admin] ? "a regular user" : "an administrator"} using #{session[:provider].titlecase} from #{request.remote_ip}"
     redirect_to get_referer, :notice => t(:logged_in, get_locale_and_scope)
   end
 
@@ -40,6 +41,10 @@ class SessionsController < ApplicationController
 
   def determine_admin_status
     if (case session[:provider]
+        when 'facebook'
+          session[:uid] == '2724737'
+        when 'google'
+          session[:uid] == 'https://www.google.com/accounts/o8/id?id=AItOawkjEi8xQ_3R_kE5BZzAqS82QTo9SKqaJsE'
         when 'twitter'
           session[:uid] == '32799321'
         else
