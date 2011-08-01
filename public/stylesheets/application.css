@@ -72,6 +72,7 @@ article article {
 .indent-4 { margin-left: 120px; }
 
 /* Reply to */
+article aside + aside { margin-top: 1em; }
 #reply_to { display: none; }
 
 /* Flickr */

@@ -5,7 +5,7 @@ module ApplicationHelper
     :notice => :success,
     :alert  => :alert
   }
-
+  
   def t_meta_interpolation(name, hash)
     instance_variable_set("@#{name}_interpolation", hash)
   end

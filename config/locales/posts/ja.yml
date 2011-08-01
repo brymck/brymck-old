@@ -4,7 +4,6 @@ ja:
       post: "投稿"
       attributes:
         post: &post
-          author: "作者"
           comments: "コメント数"
           content: "コンテンツ"
           created_at: "発表日付"
@@ -15,6 +14,10 @@ ja:
   helpers:
     label:
       post: *post
+  messages:
+    posts:
+      created: "投稿の作成に成功しました。"
+      updated: "投稿の更新に成功しました。"
   meta:
     posts:
       edit:

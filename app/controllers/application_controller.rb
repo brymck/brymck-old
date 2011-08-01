@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :set_locale
-  helper_method :current_user, :logged_in?, :admin?, :friend?
+  helper_method :admin?, :friend?, :logged_in?
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
@@ -24,23 +24,19 @@ class ApplicationController < ActionController::Base
 
   def authorize_friends
     unless friend?
-      session[:referer] = request.fullpath
+      session[:referer] = (request.fullpath rescue nil)
       redirect_to friend_path
     end
   end
 
   private
 
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-
   def logged_in?
-    current_user ? true : false
+    !session[:uid].nil?
   end
 
   def admin?
-    current_user ? @current_user.admin? : false
+    logged_in? && session[:admin]
   end
 
   def friend?

@@ -17,8 +17,9 @@ ja:
     label:
       comment: *comment
   messages:
-    created: "コメントの作成に成功しました。"
-    updated: "コメントの更新に成功しました。"
+    comments:
+      created: "コメントの作成に成功しました。"
+      updated: "コメントの更新に成功しました。"
   meta:
     comments:
       edit:
@@ -29,7 +30,7 @@ ja:
         title: "新規コメント"
   comments:
     comment:
-      reply_to_this: "このコメントに返信する"
+      reply_to_this: "これに返信する"
     form:
       replying_to: "%{name}に返信しています"
     index: *comment

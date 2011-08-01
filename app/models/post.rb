@@ -1,7 +1,8 @@
 class Post < ActiveRecord::Base
+  include StringTranslator
   belongs_to :user
   has_many :comments
-  has_friendly_id :title, :use_slug => true
+  has_friendly_id :english_title, :use_slug => true
 
   class << self
     def blog
@@ -13,8 +14,16 @@ class Post < ActiveRecord::Base
     end
   end
 
-  def author
-    user.name
+  def english_title
+    exclude_other_languages title, :en
+  end
+
+  def local_title
+    exclude_other_languages title
+  end
+
+  def local_content
+    exclude_other_languages content
   end
 end
 

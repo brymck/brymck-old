@@ -4,7 +4,6 @@ en:
       post: "Post"
       attributes:
         post: &post
-          author: "Author"
           comments: "Comments"
           content: "Content"
           created_at: "Posted"
@@ -15,6 +14,10 @@ en:
   helpers:
     label:
       post: *post
+  messages:
+    posts:
+      created: "Post was successfully created."
+      updated: "Post was successfully updated."
   meta:
     posts:
       edit:

@@ -5,9 +5,13 @@ class SessionsController < ApplicationController
 
   def create
     auth = request.env["omniauth.auth"]
-    user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
-    session[:user_id] = user.id
-    session[:friend] = true
+    session.merge!(
+      'email'    => (auth['extra']['user_hash']['email'] rescue ''),
+      'name'     => (auth['extra']['user_hash']['name'] rescue ''),
+      'provider' => auth["provider"],
+      'uid'      => auth["uid"]
+    )
+    determine_admin_status
     redirect_to get_referer, :notice => t(:logged_in, get_locale_and_scope)
   end
 
@@ -24,7 +28,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    session.merge!('admin' => false, 'uid' => nil)
     redirect_to get_referer, :notice => t(:logged_out, get_locale_and_scope)
   end
 
@@ -33,6 +37,19 @@ class SessionsController < ApplicationController
   end
 
   private
+
+  def determine_admin_status
+    if (case session[:provider]
+        when 'twitter'
+          session[:uid] == '32799321'
+        else
+          false
+       end)
+      session.merge! 'admin' => true, 'friend' => true
+    else
+      session['admin'] = false
+    end
+  end
 
   def get_referer
     referer, session[:referer] = session[:referer], nil

@@ -4,13 +4,15 @@ xml.rss :version => "2.0" do
     xml.title t(:brymck)
     xml.description t("meta.defaults.description")
     xml.link posts_url
+    xml.author { xml.name t(:bryan_mckelvey) }
 
     @posts.each do |post|
       xml.item do
         xml.title post.title
+        xml.link post_url(post)
         xml.description render_content(post)
         xml.pubDate post.created_at.to_s(:rfc822)
-        xml.link post_url(post)
+        xml.author { xml.name t(:bryan_mckelvey) }
       end
     end
   end

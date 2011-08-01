@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110730165222) do
+ActiveRecord::Schema.define(:version => 20110801132405) do
 
   create_table "code", :force => true do |t|
     t.string   "title"
@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(:version => 20110730165222) do
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "content"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "personal",   :default => false
@@ -52,14 +51,5 @@ ActiveRecord::Schema.define(:version => 20110730165222) do
 
   add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
-
-  create_table "users", :force => true do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "admin",      :default => false
-  end
 
 end

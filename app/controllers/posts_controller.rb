@@ -43,11 +43,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     authorize_friends if @post.personal?
     @title = @post.title
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @post }
-    end
   end
 
   # GET /posts/new
@@ -74,7 +69,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to(@post, :notice => 'Post was successfully created.') }
+        format.html { redirect_to(@post, :notice => t("messages.posts.created")) }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
         format.html { render :action => "new" }
@@ -90,7 +85,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
-        format.html { redirect_to(@post, :notice => 'Post was successfully updated.') }
+        format.html { redirect_to(@post, :notice => t("messages.posts.updated")) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

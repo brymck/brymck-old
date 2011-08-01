@@ -5,6 +5,6 @@
   <% end %>
 </ul>
 <%= form_tag(verify_friend_path, :method => "post") do %>
-  <%= text_field_tag :answer %>
+  <%= text_field_tag :answer, nil, :autofocus => true %>
   <%= submit_tag %>
 <% end %>

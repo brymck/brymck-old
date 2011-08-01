@@ -39,7 +39,7 @@ describe PostsController do
 
   describe "when logged in as an administrator" do
     before(:each) do
-      session[:user_id] = Factory(:admin).id
+      session.merge! 'admin' => true, 'uid' => 0
     end
 
     it "should allow access to 'index'" do

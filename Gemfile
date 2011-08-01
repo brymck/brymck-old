@@ -7,6 +7,7 @@ gem 'friendly_id'
 gem 'gravatar_image_tag'
 gem 'omniauth'
 gem 'RedCloth'
+gem 'redis'
 
 group :development, :test do
   gem 'rspec-rails'

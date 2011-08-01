@@ -130,6 +130,7 @@ GEM
       thor (~> 0.14.4)
     rake (0.9.2)
     rdoc (3.8)
+    redis (2.2.1)
     rest-client (1.6.3)
       mime-types (>= 1.16)
     rspec (2.6.0)
@@ -178,6 +179,7 @@ DEPENDENCIES
   gravatar_image_tag
   omniauth
   rails (= 3.0.9)
+  redis
   rspec
   rspec-rails
   spork

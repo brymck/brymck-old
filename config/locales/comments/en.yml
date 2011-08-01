@@ -17,8 +17,9 @@ en:
     label:
       comment: *comment
   messages:
-    created: "Comment was successfully created."
-    updated: "Comment was successfully updated."
+    comments:
+      created: "Comment was successfully posted."
+      updated: "Comment was successfully updated."
   meta:
     comments:
       edit:
@@ -29,7 +30,7 @@ en:
         title: "New comment"
   comments:
     comment:
-      reply_to_this: "Reply to this comment"
+      reply_to_this: "Reply to this"
     form:
       replying_to: "Replying to %{name}"
     index: *comment
