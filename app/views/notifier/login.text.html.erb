@@ -9,5 +9,6 @@
       <%= @session['name'] %> logged in as <%= @session['admin'] ? "an administrator" : "a regular user" %>
       using <%= @session['provider'].titlecase %> from <%= @request.remote_ip %>.
     </p>
+    <p><%= debug @auth %></p>
   </body>
 </html>
