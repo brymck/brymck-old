@@ -13,7 +13,6 @@ class SessionsController < ApplicationController
       'provider' => auth["provider"],
       'uid'      => auth["uid"]
     )
-    raise auth.to_yaml
     determine_admin_status
     Notifier.login.deliver
     redirect_to get_referer, :notice => t(:logged_in, get_locale_and_scope)
