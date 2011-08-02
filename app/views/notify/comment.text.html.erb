@@ -5,7 +5,7 @@
     <title>New Comment</title>
   </head>
   <body>
-    <h2><%= @comment.local_name %></h2>
+    <h3><%= @comment.local_name %></h3>
     <%= raw RedCloth.new(@comment.content).to_html %>
   </body>
 </html>
