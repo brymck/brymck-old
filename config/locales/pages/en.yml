@@ -1,9 +1,24 @@
 en:
   meta:
     pages:
+      contact:
+        title: "Contact"
       resume:
         title: "Résumé"
   pages:
+    contact:
+      facebook:
+        text: "Facebook"
+        url: "http://www.facebook.com/bryan.mckelvey"
+      github:
+        text: "GitHub"
+        url: "http://github.com/brymck"
+      google:
+        text: "Google+"
+        url: "http://plus.google.com/104078454666954886363"
+      linkedin:
+        text: "LinkedIn"
+        url: "http://www.linkedin.com/in/bryanmckelvey"
     resume:
       resume: |
         h3. Bryan Lee McKelvey

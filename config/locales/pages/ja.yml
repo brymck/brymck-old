@@ -1,9 +1,24 @@
 ja:
   meta:
     pages:
+      contact:
+        title: "連絡"
       resume:
         title: "レジメ"
   pages:
+    contact:
+      facebook:
+        text: "Facebook"
+        url: "http://www.facebook.com/bryan.mckelvey"
+      github:
+        text: "GitHub"
+        url: "http://github.com/brymck"
+      google:
+        text: "Google+"
+        url: "http://plus.google.com/104078454666954886363"
+      linkedin:
+        text: "LinkedIn"
+        url: "http://www.linkedin.com/in/bryanmckelvey/ja"
     resume:
       resume: |
         h3. ブライアン・リー・マッケルビー

@@ -1,8 +1,12 @@
 class PagesController < ApplicationController
-  before_filter :require_login, :only => :resume
+  before_filter :require_login, :only => [:contact, :resume]
 
   def root
     redirect_to home_path(preferred_locale)
+  end
+
+  def contact
+    breadcrumbs.add t("meta.pages.contact.title"), contact_path
   end
 
   def resume

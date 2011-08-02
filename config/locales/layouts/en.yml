@@ -2,6 +2,7 @@ en:
   layouts:
     sidebar:
       code: "Code"
+      contact: "Contact"
       comments: "Comments"
       english: "English"
       home: "Home"
