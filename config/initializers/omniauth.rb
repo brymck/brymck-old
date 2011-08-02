@@ -9,7 +9,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   provider :twitter,  ENV['TWITTER_ID'],  ENV['TWITTER_SECRET']
   
   # Dedicated OpenID
-  provider :openid, nil, :name => 'aol',    :identifier => 'openid.aol.com'
-  provider :openid, nil, :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id'
-  provider :openid, nil, :name => 'yahoo',  :identifier => 'https://me.yahoo.com'
+  provider :openid, OpenID::Store::Filesystem.new('./tmp'), :name => 'aol',    :identifier => 'openid.aol.com'
+  provider :openid, OpenID::Store::Filesystem.new('./tmp'), :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id'
+  provider :openid, OpenID::Store::Filesystem.new('./tmp'), :name => 'yahoo',  :identifier => 'https://me.yahoo.com'
 end
