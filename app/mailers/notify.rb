@@ -5,4 +5,9 @@ class Notify < ActionMailer::Base
     @auth, @session, @request = auth, session, request
     mail :from => "no-reply@brymck.heroku.com"
   end
+
+  def comment(comment)
+    @comment = comment
+    mail :from => "no-reply@brymck.heroku.com"
+  end
 end

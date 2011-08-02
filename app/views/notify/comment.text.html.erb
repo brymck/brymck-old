@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>New Comment</title>
+  </head>
+  <body>
+    <h2><%= @comment.local_name %></h2>
+    <%= raw RedCloth.new(@comment.content).to_html %>
+  </body>
+</html>

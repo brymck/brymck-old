@@ -26,6 +26,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+        Notifier.comment(@comment).deliver
         format.html { redirect_to post_path(@comment.post, :anchor => "comment_#{@comment.id}"), :notice => t("messages.comments.created") }
         format.xml  { render :xml => @comment.post, :status => :created, :location => @comment }
       else
