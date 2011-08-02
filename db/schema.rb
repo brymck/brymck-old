@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110802114032) do
+ActiveRecord::Schema.define(:version => 20110802115754) do
 
   create_table "code", :force => true do |t|
     t.string   "title"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20110802114032) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "source"
-    t.integer  "importance"
+    t.integer  "importance",  :default => 0, :null => false
   end
 
   create_table "comments", :force => true do |t|
