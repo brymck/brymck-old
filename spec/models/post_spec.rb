@@ -22,7 +22,6 @@ describe Post do
   end
 end
 
-
 # == Schema Information
 #
 # Table name: posts

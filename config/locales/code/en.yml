@@ -5,8 +5,9 @@ en:
       attributes:
         code: &code
           description: "Description"
+          download: "Download"
+          source: "Source"
           title: "Title"
-          url: "URL"
   helpers:
     label:
       code: *code

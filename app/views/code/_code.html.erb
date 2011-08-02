@@ -1,6 +1,11 @@
 <article>
   <header>
     <%= content_tag :h2, link_to(code.local_title, code) %>
+    <section class="links">
+      <%= link_to t(".download"), code.download if code.download?%>
+      <%= "|" if code.source? && code.download? %>
+      <%= link_to t(".source"), code.source if code.source? %>
+    </section>
     <% if admin? %>
       <p>
         <%= link_to t(:edit), edit_code_path(code) %> | 
@@ -9,5 +14,4 @@
     <% end %>
   </header>
   <%=raw RedCloth.new(code.local_description).to_html %>
-  <footer><%= link_to t(:download, :target => code.local_title), code.url %></footer>
 </article>

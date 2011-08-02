@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  before_filter :require_login, :only => :resume
+
   def root
     redirect_to home_path(preferred_locale)
   end

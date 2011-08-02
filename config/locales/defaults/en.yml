@@ -22,4 +22,5 @@ en:
   download: "Download %{target}"
   edit: "Edit"
   new: "New"
+  request_details: "This information is public, however, I first request that you provide details on who you are before continuing."
   show: "Show"

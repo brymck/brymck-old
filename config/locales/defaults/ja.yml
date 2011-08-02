@@ -22,4 +22,5 @@ ja:
   download: "%{target}をダウンロードする"
   edit: "編集"
   new: "新規"
+  request_details: "この情報は公開されているのですが、続ける前に個人情報を提供してください。"
   show: "表示"

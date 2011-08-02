@@ -4,6 +4,7 @@ class Comment < ActiveRecord::Base
   belongs_to :post
   validates :name, :presence => true
   validates :content, :presence => true
+  validates :post_id, :presence => true
 
   def local_name
     exclude_other_languages name

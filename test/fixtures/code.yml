@@ -5,6 +5,7 @@ script:
   description: Description
   url: http://www.example.com
 
+
 # == Schema Information
 #
 # Table name: code
@@ -15,5 +16,6 @@ script:
 #  url         :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime
+#  source      :string(255)
 #
 

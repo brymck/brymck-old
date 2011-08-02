@@ -27,7 +27,6 @@ class Post < ActiveRecord::Base
 end
 
 
-
 # == Schema Information
 #
 # Table name: posts

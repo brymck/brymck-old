@@ -14,10 +14,12 @@ Factory.define :comment do |comment|
   comment.name "Name"
   comment.email "email@example.com"
   comment.content "Content"
+  comment.association :post
 end
 
 Factory.define :multilingual_comment, :parent => :comment do |comment|
   comment.name "== Name | ja: 名前 =="
   comment.email "email@example.com"
   comment.content "en. Content\n\nja. コンテンツ"
+  comment.association :post, :factory => :multilingual_post
 end

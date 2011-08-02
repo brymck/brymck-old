@@ -5,8 +5,9 @@ ja:
       attributes:
         code: &code
           description: "説明"
+          download: "ダウンロード"
+          source: "ソース"
           title: "タイトル"
-          url: "URL"
   helpers:
     label:
       code: *code

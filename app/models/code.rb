@@ -1,5 +1,6 @@
 class Code < ActiveRecord::Base
   include StringTranslator
+  default_scope :order => 'code.importance DESC, code.created_at DESC'
   validates :title, :presence => true
   has_friendly_id :english_title, :use_slug => true
 
@@ -16,6 +17,7 @@ class Code < ActiveRecord::Base
   end
 end
 
+
 # == Schema Information
 #
 # Table name: code
@@ -26,5 +28,6 @@ end
 #  url         :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime
+#  source      :string(255)
 #
 
