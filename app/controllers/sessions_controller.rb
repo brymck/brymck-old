@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   def new
     session[:referer] ||= request.referer
+    puts "Referer set to #{session[:referer]}"
     session[:locale] = params[:locale]
     breadcrumbs.add t("meta.sessions.new.title"), login_path
   end
@@ -60,6 +61,7 @@ class SessionsController < ApplicationController
 
   def get_referer
     referer, session[:referer] = session[:referer], nil
+    puts referer
     referer || request.referer || root_path
   end
 

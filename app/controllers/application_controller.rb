@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
 
   def deny_access(message = :deny_access)
     session[:referer] = request.fullpath
+    puts "Referer set to #{session[:referer]}"
     redirect_to login_path, :alert => t(message)
   end
 
