@@ -7,7 +7,7 @@
   <body>
     <p>
       <%= @session[:name] %> logged in as <%= @session[:admin] ? "an administrator" : "a regular user" %>
-      using <%= @session[:provider].titlecase %> from <%= @ip %>.
+      using <%= @session[:provider].titlecase %> from <%= @request.remote_ip %>.
     </p>
   </body>
 </html>
