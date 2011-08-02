@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   def new
-    session[:referer] = request.referer
     session[:locale] = params[:locale]
     breadcrumbs.add t("meta.sessions.new.title"), login_path
   end
