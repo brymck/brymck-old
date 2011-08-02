@@ -9,6 +9,7 @@ gem 'gravatar_image_tag'
 gem 'omniauth'
 gem 'RedCloth'
 gem 'redis'
+gem 'sanitize'
 
 group :development, :test do
   gem 'rspec-rails'

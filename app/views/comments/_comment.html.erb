@@ -10,6 +10,6 @@
       </p>
     <% end %>
   </header>
-  <%= sanitize render_content(comment) %>
+  <%= render_content(comment, true) %>
   <footer><%= link_to t(".reply_to_this"), "#reply", :class => "reply", :"data-id" => comment.id, :"data-name" => comment.name %></footer>
 </article>
