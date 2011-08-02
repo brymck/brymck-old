@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
 
   def create
     auth = request.env["omniauth.auth"]
-    raise auth.to_yaml
     session.merge!(
       'email'    => (auth['extra']['user_hash']['email'] rescue ''),
       'name'     => (auth['extra']['user_hash']['name'] rescue ''),
@@ -15,6 +14,7 @@ class SessionsController < ApplicationController
       'uid'      => auth["uid"]
     )
     determine_admin_status
+    raise session.to_yaml
     Notifier.login(auth, session, request).deliver
     redirect_to get_referer, :notice => t(:logged_in, get_locale_and_scope)
   end
