@@ -3,5 +3,6 @@ class Notifier < ActionMailer::Base
 
   def login
     mail :from => "no-reply@brymck.heroku.com"
+    raise session.to_yaml
   end
 end
