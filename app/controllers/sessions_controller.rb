@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
 
   def create
     auth = request.env["omniauth.auth"]
+    raise auth.to_yaml
     session.merge!(
       'email'    => (auth['extra']['user_hash']['email'] rescue ''),
       'name'     => (auth['extra']['user_hash']['name'] rescue ''),
