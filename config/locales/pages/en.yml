@@ -21,13 +21,17 @@ en:
         url: "http://www.linkedin.com/in/bryanmckelvey"
     resume:
       resume: |
+        p(right). !http://www.gravatar.com/avatar/b5ce5f2f748ceefff8b6a5531d865a27?s=128!
+
         h3. Bryan Lee McKelvey
 
-        "bryan.mckelvey@gmail.com":email
+        p. "bryan.mckelvey@gmail.com":email
         1-21-7-402 Hongō, Bunkyō-ku
         Tokyo 113-0033
         "+81-80-3934-3664":cell
         "brymck.heroku.com":heroku
+
+        <hr>
 
         h4. Experience
 
@@ -55,6 +59,8 @@ en:
         * Issued weekly research reports to professors and senior researchers on their industries' conditions
         * Collected data for professors' research on air cargo regulatory environment and economic impact of migrant workers in North Carolina
 
+        <hr>
+
         h4. Education
 
         h5. ["University of Tokyo":todai], Faculty of Economics Tokyo, Japan
@@ -73,6 +79,8 @@ en:
 
         h6. Exchange Student Aug 2004 – May 2005
         
+        <hr>
+
         h4. Certifications & Other Data
 
         * <abbr title="Chartered Financial Analyst">["CFA":cfa]</abbr>: Charter Pending passed all three levels of the CFA Program on first try and eligible for charter upon completion of required work experience

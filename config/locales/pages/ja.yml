@@ -21,6 +21,8 @@ ja:
         url: "http://www.linkedin.com/in/bryanmckelvey/ja"
     resume:
       resume: |
+        p(right). !http://www.gravatar.com/avatar/b5ce5f2f748ceefff8b6a5531d865a27?s=128!
+
         h3. ブライアン・リー・マッケルビー
 
         "bryan.mckelvey@gmail.com":email
@@ -29,6 +31,8 @@ ja:
         "+81-80-3934-3664":cell
         "brymck.heroku.com":heroku
         
+        <hr>
+
         h4. 職歴
         
         h5. ["ウェルズ・ファーゴ（元ワコビア）":wfc]、資産負債管理部門、["カリフォルニア州サンフランシスコ":sf]、2007年9月～2010年3月
@@ -53,6 +57,8 @@ ja:
         * 教授と主任研究家による産業研究をまとめた週刊研究報告書を作成
         * 空輸貨物規制環境及び移民労働者のノース・カロライナへの経済的影響の情報を収集
 
+        <hr>
+
         h4. 学歴
         
         h5. ["東京大学":todai]、経済学研究科、東京
@@ -71,6 +77,8 @@ ja:
         
         h6. 2004年度交換留学生 2004年8月～2005年5月
         
+        <hr>
+
         h4. 資格・その他
         * <abbr title="Chartered Financial Analyst">["CFA":cfa]</abbr>：資格申請中 全ての試験に（一回目で）合格、必須職務経験年数を勤務後に受取予定
         * <abbr title="Graduate Management Admission Test">["GMAT":gmat]</abbr>：770点
