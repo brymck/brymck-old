@@ -6,6 +6,7 @@ ja:
         code: &code
           description: "説明"
           download: "ダウンロード"
+          importance: "重要性"
           source: "ソース"
           title: "タイトル"
   helpers:
@@ -26,4 +27,5 @@ ja:
   code:
     archive:
       archive: "コードのリスト"
+    code: *code
     index: *code

@@ -7,6 +7,7 @@ en:
           content: "Content"
           created_at: "Posted"
           email: "E-mail"
+          id: "ID"
           lft: "Left"
           name: "Name"
           parent_id: "Parent"

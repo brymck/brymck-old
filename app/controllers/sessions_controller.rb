@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       'uid'      => auth['uid']
     )
     determine_admin_status
-    Notifier.login(auth, session, request).deliver
+    Notify.login(auth, session, request).deliver
     redirect_to get_referer, :notice => t(:logged_in, get_locale_and_scope)
   end
 

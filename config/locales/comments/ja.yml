@@ -7,6 +7,7 @@ ja:
           content: "コンテンツ"
           created_at: "発表日付"
           email: "メール"
+          id: "ID"
           lft: "左"
           name: "名前"
           parent_id: "親ID"
