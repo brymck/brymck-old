@@ -1,7 +1,14 @@
 Brymck::Application.routes.draw do
   scope "(:locale)", :locale => /en|ja/ do
-    resources :code, :comments, :languages, :posts
+    # Languages (must come before resources :code)
+    scope "/code" do
+      resources :languages
+    end
 
+    # Generic resources
+    resources :code, :comments, :posts
+    
+    # RSS feed
     match "feed" => "posts#feed"
 
     # Static pages
@@ -20,7 +27,7 @@ Brymck::Application.routes.draw do
   match "/auth/failure" => "sessions#failure"
   match "/logout" => "sessions#destroy", :as => :logout
 
-  # Default path for each language
+  # Default path for each locale
   match '/:locale' => 'posts#home', :as => :home
 
   # Redirects to appropriate home path
