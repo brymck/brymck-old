@@ -2,8 +2,6 @@ class CodeController < ApplicationController
   before_filter :authorize, :except => [:index, :show]
   before_filter :add_breadcrumbs, :only => [:index, :show, :new, :edit]
 
-  # GET /code
-  # GET /code.xml
   def index
     @code = Code.find(:all, :limit => 5)
 
@@ -13,16 +11,12 @@ class CodeController < ApplicationController
     end
   end
 
-  # GET /posts/1
-  # GET /posts/1.xml
   def show
     @code = Code.find(params[:id])
     @title = @code.local_title
     breadcrumbs.add @title, code_path(@code)
   end
 
-  # GET /code/new
-  # GET /code/new.xml
   def new
     breadcrumbs.add t("meta.code.new.title"), new_code_path
     @code = Code.new
@@ -33,15 +27,12 @@ class CodeController < ApplicationController
     end
   end
 
-  # GET /code/1/edit
   def edit
     @code = Code.find(params[:id])
     breadcrumbs.add @code.local_title, code_path(@code)
     breadcrumbs.add t("meta.code.edit.title"), edit_code_path(@code)
   end
 
-  # POST /code
-  # POST /code.xml
   def create
     @code = Code.new(params[:code])
 
@@ -56,9 +47,8 @@ class CodeController < ApplicationController
     end
   end
 
-  # PUT /code/1
-  # PUT /code/1.xml
   def update
+    params[:code][:language_ids] ||= []
     @code = Code.find(params[:id])
 
     respond_to do |format|
@@ -72,8 +62,6 @@ class CodeController < ApplicationController
     end
   end
 
-  # DELETE /code/1
-  # DELETE /code/1.xml
   def destroy
     @code = Code.find(params[:id])
     @code.destroy

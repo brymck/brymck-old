@@ -1,0 +1,28 @@
+<table>
+  <tr>
+    <% %w(name url code).each do |label| %>
+      <%= content_tag :th, t(".#{label}") %>
+    <% end %>
+    <%= content_tag :th, nil, :colspan => 2 if admin? %>
+  </tr>
+
+  <% @languages.each do |language| %>
+    <tr>
+      <td><%= link_to language.name, language %></td>
+      <td><%= link_to language.local_url, language.local_url %></td>
+      <td>
+        <ul class="horizontal comma-separated">
+          <% language.code.each do |code| %>
+            <%= content_tag :li, link_to(code.local_title, code) %>
+          <% end %>
+        </ul>
+      </td>
+      <% if admin? %>
+        <td><%= link_to t(:edit), edit_language_path(language) %></td>
+        <td><%= link_to t(:destroy), language, :confirm => t(:confirm), :method => :delete %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to t(:new), new_language_path if admin? %>

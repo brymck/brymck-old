@@ -1,0 +1,28 @@
+ja:
+  activerecord:
+    models:
+      language: "言語"
+      attributes:
+        language: &language
+          code: "コード"
+          name: "名前"
+          url: "さらに詳しく"
+  helpers:
+    label:
+      language: *language
+  messages:
+    languages:
+      created: "Language was successfully created."
+      updated: "Language was successfully updated."
+  meta:
+    languages:
+      edit:
+        title: "言語編集"
+      index:
+        title: "言語"
+      new:
+        title: "新規言語"
+  languages:
+    index: *language
+    language: *language
+    show: *language

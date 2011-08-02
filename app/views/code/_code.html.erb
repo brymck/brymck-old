@@ -6,6 +6,14 @@
       <%= "|" if code.source? && code.download? %>
       <%= link_to t(".source"), code.source if code.source? %>
     </section>
+    <section class="languages">
+      <%=t ".languages" %><%=t :colon %>
+      <ul class="horizontal inline comma-separated">
+        <% code.languages.each do |language| %>
+          <%= content_tag :li, link_to(language.name, language) %>
+        <% end %>
+      </ul>
+    </section>
     <% if admin? %>
       <p>
         <%= link_to t(:edit), edit_code_path(code) %> | 

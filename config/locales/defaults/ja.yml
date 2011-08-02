@@ -16,6 +16,7 @@ ja:
   back: "前へ"
   brackets: "［%{content}］"
   clear: "クリア"
+  colon: "："
   confirm: "本当によろしいですか。"
   deny_access: "このページをアクセスするには、まずログインしてください。"
   destroy: "削除"

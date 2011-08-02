@@ -7,6 +7,7 @@ ja:
           description: "説明"
           download: "ダウンロード"
           importance: "重要性"
+          languages: "言語"
           source: "ソース"
           title: "タイトル"
   helpers:
@@ -29,3 +30,4 @@ ja:
       archive: "コードのリスト"
     code: *code
     index: *code
+    view_by_language: "言語ごとに表示"

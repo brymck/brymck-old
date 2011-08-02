@@ -1,0 +1,28 @@
+en:
+  activerecord:
+    models:
+      language: "Language"
+      attributes:
+        language: &language
+          code: "Code"
+          name: "Name"
+          url: "Learn more"
+  helpers:
+    label:
+      language: *language
+  messages:
+    languages:
+      created: "Language was successfully created."
+      updated: "Language was successfully updated."
+  meta:
+    languages:
+      edit:
+        title: "Editing language"
+      index:
+        title: "Languages"
+      new:
+        title: "New language"
+  languages:
+    index: *language
+    language: *language
+    show: *language

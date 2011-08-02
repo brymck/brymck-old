@@ -3,6 +3,9 @@ html > body {
   font-size: 11pt;
 }
 
+/* Missing translations */
+.translation_missing { background-color: #f9e5ec !important; color: #903 !important; }
+
 /* Headings */
 h1 { margin-bottom: 0; }
 h1 a, h1 a:hover { color: #000; }
@@ -18,9 +21,12 @@ nav #breadcrumbs {
   padding-top: 0.3em;
 }
 
-/* Horizontal lists */
-ul.horizontal { list-style-type: none; padding-left: 0; }
+/* Lists */
+ul.horizontal { list-style-type: none; margin-bottom: 0; padding-left: 0; }
 ul.horizontal li { display: inline-block; }
+ul.comma-separated li:after { content: ","; } 
+ul.comma-separated li:last-child:after { content: ""; }
+ul.inline { display: inline; }
 
 /* Centering */
 .center { text-align: center; }

@@ -1,8 +1,9 @@
 class Code < ActiveRecord::Base
   include StringTranslator
   default_scope :order => 'code.importance DESC, code.created_at DESC'
-  validates :title, :presence => true
+  has_and_belongs_to_many :languages
   has_friendly_id :english_title, :use_slug => true
+  validates :title, :presence => true
 
   def english_title
     exclude_other_languages title, :en
