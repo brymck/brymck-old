@@ -8,10 +8,10 @@ class SessionsController < ApplicationController
   def create
     auth = request.env["omniauth.auth"]
     session.merge!(
-      'email'    => (auth['extra']['user_hash']['email'] rescue ''),
-      'name'     => (auth['extra']['user_hash']['name'] rescue ''),
-      'provider' => auth["provider"],
-      'uid'      => auth["uid"]
+      'email'    => auth['user_info']['email'] || auth['extra']['user_hash']['email'] || '',
+      'name'     => auth['user_info']['name']  || auth['extra']['user_hash']['name']  || '',
+      'provider' => auth['provider'],
+      'uid'      => auth['uid']
     )
     determine_admin_status
     Notifier.login(auth, session, request).deliver
@@ -42,13 +42,13 @@ class SessionsController < ApplicationController
   private
 
   def determine_admin_status
-    if (case session[:provider]
+    if (case session['provider']
         when 'facebook'
-          session[:uid] == '2724737'
+          session['uid'] == '2724737'
         when 'google'
-          session[:uid] == 'https://www.google.com/accounts/o8/id?id=AItOawkjEi8xQ_3R_kE5BZzAqS82QTo9SKqaJsE'
+          session['uid'] == 'https://www.google.com/accounts/o8/id?id=AItOawkjEi8xQ_3R_kE5BZzAqS82QTo9SKqaJsE'
         when 'twitter'
-          session[:uid] == '32799321'
+          session['uid'] == '32799321'
         else
           false
        end)
