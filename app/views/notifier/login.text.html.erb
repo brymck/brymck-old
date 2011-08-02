@@ -5,6 +5,9 @@
     <title></title>
   </head>
   <body>
-    <p><%= session[:name] %> logged in as <%= session[:admin] ? "an administrator" : "a regular user" %> using <%= session[:provider].titlecase %> from <%= request.remote_ip %>.</p>
+    <p>
+      <%= @session[:name] %> logged in as <%= @session[:admin] ? "an administrator" : "a regular user" %>
+      using <%= @session[:provider].titlecase %> from <%= @ip %>.
+    </p>
   </body>
 </html>

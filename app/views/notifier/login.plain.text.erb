@@ -1,1 +1,2 @@
-Plain Text
+<%= @session[:name] %> logged in as <%= @session[:admin] ? "an administrator" : "a regular user" %>
+using <%= @session[:provider].titlecase %> from <%= @ip %>.
