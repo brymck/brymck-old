@@ -5,7 +5,7 @@ class CodeController < ApplicationController
   # GET /code
   # GET /code.xml
   def index
-    @code = Code.all
+    @code = Code.find(:all, :limit => 5)
 
     respond_to do |format|
       format.html # index.html.erb
