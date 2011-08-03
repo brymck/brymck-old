@@ -12,6 +12,10 @@ gem 'RedCloth',           '~> 4.2.7'
 gem 'redis',              '~> 2.2.1'
 gem 'sanitize',           '~> 2.0.3'
 
+group :production, :development do
+  gem 'aws-s3',           '~> 0.6'
+end
+
 group :development, :test do
   gem 'rspec-rails',      '~> 2.6.1'
   gem 'sqlite3',          '~> 1.3.4'
