@@ -2,7 +2,7 @@ require 'sanitize'
 
 module PostsHelper
   def render_content(post, needs_sanitizing = false)
-    html = RedCloth.new(post.local_content).to_html
+    html = RedCloth.new(post.content).to_html
     html = Sanitize.clean(html, Sanitize::Config::BASIC) if needs_sanitizing
     raw html
   end

@@ -5,8 +5,10 @@ require 'spec_helper'
 describe Comment do
 
   before(:each) do
-    @post = Factory(:post)
-    @attr = { :name => "Name", :content => "Comment" }
+    test_use_english
+    @post = Post.new :title => 'Title', :content => 'Content'
+    @post.save
+    @attr = { :name => 'Name', :content => 'Comment' }
   end
 
   it "should create a new comment with valid attributes" do
@@ -49,7 +51,7 @@ describe Comment do
   describe "for monolingual comments" do
 
     before(:each) do
-      @comment = Factory(:comment)
+      @comment = @post.comments.new @attr
     end
 
     it "should show the correct name" do
@@ -61,21 +63,26 @@ describe Comment do
   describe "for multilingual comments" do
 
     before(:each) do
-      @comment = Factory(:multilingual_comment)
+      test_use_english
+      @comment = @post.comments.new @attr
+      @comment.save!
+      test_use_japanese
+      @comment.update_attributes :name => '名前', :content => 'コンテンツ'
+      test_use_english
     end
 
     it "should show the correct name in English by default" do
-      @comment.local_name.should == "Name"
+      @comment.name.should == "Name"
     end
 
     it "should show the correct name in English when set" do
       test_use_english
-      @comment.local_name.should == "Name"
+      @comment.name.should == "Name"
     end
 
     it "should show the correct name in Japanese when set" do
       test_use_japanese
-      @comment.local_name.should == "名前"
+      @comment.name.should == "名前"
     end
 
   end

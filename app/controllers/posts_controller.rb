@@ -47,7 +47,7 @@ class PostsController < ApplicationController
       authorize_friends
       breadcrumbs.add t("meta.posts.journal.title"), journal_path
     end
-    @title = @post.local_title
+    @title = @post.title
     breadcrumbs.add @title, post_path(@post)
   end
 
@@ -67,7 +67,7 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     breadcrumbs.add t("meta.posts.journal.title"), journal_path if @post.personal?
-    breadcrumbs.add @post.local_title, post_path(@post)
+    breadcrumbs.add @post.title, post_path(@post)
     breadcrumbs.add t("meta.posts.edit.title"), edit_post_path(@post)
   end
 

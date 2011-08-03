@@ -9,14 +9,8 @@
   <% @languages.each do |language| %>
     <tr>
       <td><%= link_to language.name, language %></td>
-      <td><%= link_to language.local_url, language.local_url %></td>
-      <td>
-        <ul class="horizontal comma-separated">
-          <% language.code.each do |code| %>
-            <%= content_tag :li, link_to(code.local_title, code) %>
-          <% end %>
-        </ul>
-      </td>
+      <td><%= link_to language.url, language.url %></td>
+      <td><%=raw language.code.map { |code| link_to code.title, code }.join t(:separator) %></td>
       <% if admin? %>
         <td><%= link_to t(:edit), edit_language_path(language) %></td>
         <td><%= link_to t(:destroy), language, :confirm => t(:confirm), :method => :delete %></td>

@@ -86,7 +86,7 @@ en:
         * <abbr title="Chartered Financial Analyst">["CFA":cfa]</abbr>: Charter Pending passed all three levels of the CFA Program on first try and eligible for charter upon completion of required work experience
         * <abbr title="Graduate Management Admission Test">["GMAT":gmat]</abbr>: 770
         * Programs: Office (including add-in programming), ["Calypso":calypso], ["Bancware":bancware], <abbr title="Quantitative Risk Management">["QRM":qrm]</abbr>, ALMeter
-        * Programming: <abbr title="Visual Basic for Applications">"VBA":vba</abbr>, "C#/VB .NET":dotnet, <abbr title="HyperText Markup Language">"HTML":html</abbr>, "PHP":php, "JavaScript":js, "Ruby":ruby
+        * Programming: <abbr title="Visual Basic for Applications">"VBA":vba</abbr>, "C#/VB .NET":dotnet, "Ruby":ruby, "PHP":php, <abbr title="HyperText Markup Language">"HTML":html</abbr>/<abbr title="Cascading Style Sheets">"CSS":css</abbr>/"JavaScript":js 
         * Languages: English (native), Japanese (business-level)
         * South Mecklenburg High School valedictorian (first in class of 407 students)
 
@@ -97,6 +97,7 @@ en:
         [calypso]http://www.calypso.com/
         [cell]tel:+818039343664
         [cfa]https://www.cfainstitute.org/pages/index.aspx
+        [css]http://www.w3.org/Style/CSS/
         [dotnet]http://en.wikipedia.org/wiki/.NET
         [email]mailto:bryan.mckelvey@gmail.com
         [heroku]http://brymck.heroku.com

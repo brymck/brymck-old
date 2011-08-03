@@ -13,7 +13,7 @@ class CodeController < ApplicationController
 
   def show
     @code = Code.find(params[:id])
-    @title = @code.local_title
+    @title = @code.title
     breadcrumbs.add @title, code_path(@code)
   end
 
@@ -29,7 +29,7 @@ class CodeController < ApplicationController
 
   def edit
     @code = Code.find(params[:id])
-    breadcrumbs.add @code.local_title, code_path(@code)
+    breadcrumbs.add @code.title, code_path(@code)
     breadcrumbs.add t("meta.code.edit.title"), edit_code_path(@code)
   end
 

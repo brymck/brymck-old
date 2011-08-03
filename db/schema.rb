@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110802183340) do
+ActiveRecord::Schema.define(:version => 20110803125429) do
 
   create_table "code", :force => true do |t|
     t.string   "title"
@@ -27,6 +27,30 @@ ActiveRecord::Schema.define(:version => 20110802183340) do
     t.integer "language_id"
   end
 
+  add_index "code_languages", ["code_id", "language_id"], :name => "index_code_languages_on_code_id_and_language_id", :unique => true
+
+  create_table "code_translations", :force => true do |t|
+    t.integer  "code_id"
+    t.string   "locale"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "code_translations", ["code_id"], :name => "index_code_translations_on_code_id"
+
+  create_table "comment_translations", :force => true do |t|
+    t.integer  "comment_id"
+    t.string   "locale"
+    t.string   "name"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comment_translations", ["comment_id"], :name => "index_comment_translations_on_comment_id"
+
   create_table "comments", :force => true do |t|
     t.string   "name"
     t.string   "email"
@@ -39,12 +63,33 @@ ActiveRecord::Schema.define(:version => 20110802183340) do
     t.integer  "rgt"
   end
 
+  create_table "language_translations", :force => true do |t|
+    t.integer  "language_id"
+    t.string   "locale"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "language_translations", ["language_id"], :name => "index_language_translations_on_language_id"
+
   create_table "languages", :force => true do |t|
     t.string   "name"
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "post_translations", :force => true do |t|
+    t.integer  "post_id"
+    t.string   "locale"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "post_translations", ["post_id"], :name => "index_post_translations_on_post_id"
 
   create_table "posts", :force => true do |t|
     t.string   "title"

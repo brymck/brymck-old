@@ -23,7 +23,7 @@
   <% for code in Code.find(:all) %>
     <div>
       <%= check_box_tag "language[code_ids][]", code.id, @language.code.include?(code) %>
-      <%= code.local_title %>
+      <%= code.title %>
     </div>
   <% end %>
   <div class="actions clear">

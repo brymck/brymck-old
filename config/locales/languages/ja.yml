@@ -12,8 +12,8 @@ ja:
       language: *language
   messages:
     languages:
-      created: "Language was successfully created."
-      updated: "Language was successfully updated."
+      created: "言語の作成に成功しました。"
+      updated: "言語の更新に成功しました。"
   meta:
     languages:
       edit:

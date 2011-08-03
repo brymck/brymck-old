@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
-  include StringTranslator
   has_many :comments
   has_friendly_id :english_title, :use_slug => true
+  translates :title, :content
 
   class << self
     def blog
@@ -14,15 +14,11 @@ class Post < ActiveRecord::Base
   end
 
   def english_title
-    exclude_other_languages title, :en
-  end
-
-  def local_title
-    exclude_other_languages title
-  end
-
-  def local_content
-    exclude_other_languages content
+    current_locale = I18n.locale
+    I18n.locale = :en
+    en_title = title
+    I18n.locale = current_locale
+    en_title
   end
 end
 

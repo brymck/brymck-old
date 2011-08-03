@@ -6,7 +6,9 @@ describe PostsController do
   render_views
 
   before(:each) do
-    @post = Factory(:post)
+    test_use_english
+    @post = Post.new :title => 'Title', :content => 'Content'
+    @post.save
   end
 
   describe "when not logged in" do

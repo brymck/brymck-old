@@ -83,7 +83,7 @@ ja:
         * <abbr title="Chartered Financial Analyst">["CFA":cfa]</abbr>：資格申請中 全ての試験に（一回目で）合格、必須職務経験年数を勤務後に受取予定
         * <abbr title="Graduate Management Admission Test">["GMAT":gmat]</abbr>：770点
         * 使用可能ソフト：マイクロソフト・オフィス（アドインのプログラミングも可）、["Calypso":calypso]、["Bancware":bancware]、<abbr title="Quantitative Risk Management">["QRM":qrm]</abbr>、ALMeter
-        * プログラミング言語：<abbr title="Visual Basic for Applications">"VBA":vba</abbr>、["C#・VB .NET":dotnet]、<abbr title="HyperText Markup Language">"HTML":html</abbr>、["PHP":php]、["JavaScript":js]、["Ruby":ruby]
+        * プログラミング言語：<abbr title="Visual Basic for Applications">"VBA":vba</abbr>、["C#・VB .NET":dotnet]、["Ruby":ruby]、["PHP":php]、<abbr title="HyperText Markup Language">"HTML":html</abbr>/<abbr title="Cascading Style Sheets">"CSS":css</abbr>/"JavaScript":js 
         * 言語：英語（ネイティブ・レベル）、日本語（ビジネス・レベル）
         * サウス・メックレンバーグ高等学校を首席で卒業
 
@@ -94,6 +94,7 @@ ja:
         [calypso]http://www.calypso.com/
         [cell]tel:+818039343664
         [cfa]https://www.cfainstitute.org/pages/index.aspx
+        [css]http://www.a2ztutorial.com/Style/CSS/
         [dotnet]http://ja.wikipedia.org/wiki/.NET
         [email]mailto:bryan.mckelvey@gmail.com
         [heroku]http://brymck.heroku.com

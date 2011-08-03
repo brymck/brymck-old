@@ -5,8 +5,9 @@ gem 'rails', '3.0.9'
 gem 'awesome_nested_set'
 gem 'breadcrumbs'
 gem 'friendly_id'
+gem 'globalize3'
 gem 'gravatar_image_tag'
-gem 'omniauth'
+gem 'omniauth', '>= 0.1.6'
 gem 'RedCloth'
 gem 'redis'
 gem 'sanitize'
@@ -22,7 +23,6 @@ end
 
 group :test do
   gem 'autotest'
-  gem 'factory_girl_rails'
   gem 'rspec'
   gem 'spork'
   gem 'test_notifier'
