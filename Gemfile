@@ -19,6 +19,7 @@ end
 
 group :development do
   gem 'annotate',         '~> 2.4.0'
+  gem 'thin',             '~> 1.2.11'
 end
 
 group :test do
