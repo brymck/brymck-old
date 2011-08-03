@@ -173,22 +173,22 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  RedCloth
-  annotate
-  autotest
-  awesome_nested_set
-  breadcrumbs
-  friendly_id
-  globalize3
-  gravatar_image_tag
+  RedCloth (~> 4.2.7)
+  annotate (~> 2.4.0)
+  autotest (~> 4.4.6)
+  awesome_nested_set (~> 2.0.1)
+  breadcrumbs (~> 0.1.6)
+  friendly_id (~> 3.2.1.1)
+  globalize3 (~> 0.1.0)
+  gravatar_image_tag (~> 1.0.0)
   omniauth (>= 0.1.6)
   rails (= 3.0.9)
-  redis
-  rspec
-  rspec-rails
-  sanitize
-  spork
-  sqlite3
-  test_notifier
-  turn
-  webrat
+  redis (~> 2.2.1)
+  rspec (~> 2.6.0)
+  rspec-rails (~> 2.6.1)
+  sanitize (~> 2.0.3)
+  spork (~> 0.8.5)
+  sqlite3 (~> 1.3.4)
+  test_notifier (~> 0.3.6)
+  turn (~> 0.8.2)
+  webrat (~> 0.7.3)
