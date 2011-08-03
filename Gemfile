@@ -23,6 +23,7 @@ end
 
 group :development do
   gem 'annotate',         '~> 2.4.0'
+  gem 'rails-erd',        '~> 0.4.5'
   gem 'thin',             '~> 1.2.11'
 end
 
@@ -31,6 +32,5 @@ group :test do
   gem 'rspec',            '~> 2.6.0'
   gem 'spork',            '~> 0.8.5'
   gem 'test_notifier',    '~> 0.3.6'
-  gem 'turn',             '~> 0.8.2'
   gem 'webrat',           '~> 0.7.3'
 end
