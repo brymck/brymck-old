@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :authorize, :except => [:feed, :home, :journal, :show]
+  before_filter :authorize, :except => [:feed, :home, :journal, :preview, :show]
   before_filter :authorize_friends, :only => :journal
 
   def home

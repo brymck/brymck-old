@@ -35,24 +35,41 @@ jQuery.noConflict();
   }
 
   function enablePostPreview() {
-    if ($("div.preview").size() > 0) {
-      var $source = $(".preview_source");
-      var $target = $("div.preview");
-      var timeoutId = 0;
-      var PREVIEW_WAIT_MS = 500;
+    var $target = $("div.preview");
+    
+    if ($target.size() > 0) {
+      var $source  = $(".preview_source");
+      var $content = $("div.content", $target);
+      var $buttons = $("input.preview_button, button.preview_button");
+      var HOTKEY_TEXT = "Ctrl+Shift+P";
 
-      var preview = function() {
+      $buttons.each(function(index, button) {
+        var $button = $(button);
+        
+        if (button.nodeName.toUpperCase() === "BUTTON") {
+          $button.text($button.text() + " (" + HOTKEY_TEXT + ")");
+        } else {
+          $button.val($button.val() + " (" + HOTKEY_TEXT + ")");
+        }
+      });
+
+      var preview = function(e) {
         $.get("/en/posts/preview", $source.serialize(), function(data) {
-          $target.html(data);
-        })
+          $target.show();
+          $content.html(data);
+        });
+        e.preventDefault();
       };
 
-      var setPreviewWait = function() {
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(preview, PREVIEW_WAIT_MS);
-      };
+      // Allow hotkey to preview (Ctrl+Shift+P)
+      var hotKeyPreview = function(e) {
+        if (e.ctrlKey && e.shiftKey && e.which === 80) {
+          preview(e);
+        }
+      }
 
-      $(".preview_source").keyup(setPreviewWait);
+      $source.keyup(hotKeyPreview);
+      $buttons.click(preview);
     }
   }
 

@@ -5,6 +5,12 @@ module ApplicationHelper
     :notice => :success,
     :alert  => :alert
   }
+
+  def textile(text, needs_sanitizing = true)
+    html = RedCloth.new(text).to_html
+    html = Sanitize.clean(html, Sanitize::Config::BASIC) if needs_sanitizing
+    raw html
+  end
   
   def t_meta_interpolation(name, hash)
     instance_variable_set("@#{name}_interpolation", hash)

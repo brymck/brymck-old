@@ -77,6 +77,7 @@ html > body > div.container article > header > p { margin: 0; }
 .archive ul { list-style-type: none; }
 article table { width: auto; }
 article img { max-width: 100%; }
+.preview { display: none; }
 
 /* Comments */
 article article h4 { margin-bottom: 0; }

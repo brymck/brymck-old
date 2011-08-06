@@ -30,9 +30,12 @@
   </div>
   <div class="actions clear">
     <%= f.submit %>
+    <input type="button" class="preview_button" value="<%= t ".preview" %>">
   </div>
 <% end %>
 <hr>
-<h3><%= t ".preview" %></h3>
 <div class="preview">
+  <h3><%= t ".preview" %></h3>
+  <div class="content">
+  </div>
 </div>
