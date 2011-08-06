@@ -24,7 +24,7 @@ end
 group :development do
   gem 'annotate',         '~> 2.4.0'
   gem 'rails-erd',        '~> 0.4.5'
-  gem 'thin',             '~> 1.2.11'
+  gem 'thin',             '~> 1.2.11', :platforms => :ruby
 end
 
 group :test do
