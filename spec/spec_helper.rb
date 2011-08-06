@@ -39,6 +39,12 @@ Spork.prefork do
     def test_use_english
       I18n.locale = :en
     end
+
+    begin
+      system "notify-send 'Spork' 'Loaded successfully!'"
+    rescue
+      puts "notify-send failed"
+    end
   end
 end
 

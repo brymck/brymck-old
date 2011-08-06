@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110803125429) do
+ActiveRecord::Schema.define(:version => 20110806054804) do
 
   create_table "code", :force => true do |t|
     t.string   "title"
@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(:version => 20110803125429) do
     t.datetime "updated_at"
     t.string   "source"
     t.integer  "importance",  :default => 0, :null => false
+    t.string   "cached_slug"
   end
+
+  add_index "code", ["cached_slug"], :name => "index_code_on_cached_slug", :unique => true
 
   create_table "code_languages", :id => false, :force => true do |t|
     t.integer "code_id"
@@ -78,7 +81,10 @@ ActiveRecord::Schema.define(:version => 20110803125429) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cached_slug"
   end
+
+  add_index "languages", ["cached_slug"], :name => "index_languages_on_cached_slug", :unique => true
 
   create_table "post_translations", :force => true do |t|
     t.integer  "post_id"
@@ -96,8 +102,11 @@ ActiveRecord::Schema.define(:version => 20110803125429) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "personal",   :default => false
+    t.boolean  "personal",    :default => false
+    t.string   "cached_slug"
   end
+
+  add_index "posts", ["cached_slug"], :name => "index_posts_on_cached_slug", :unique => true
 
   create_table "slugs", :force => true do |t|
     t.string   "name"

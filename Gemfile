@@ -4,7 +4,7 @@ gem 'rails',                 '3.0.9'
 
 gem 'awesome_nested_set', '~> 2.0.1'
 gem 'breadcrumbs',        '~> 0.1.6'
-gem 'friendly_id',        '~> 3.2.1.1'
+gem 'friendly_id',        '~> 3.2.1'
 gem 'globalize3',         '~> 0.1.0'
 gem 'gravatar_image_tag', '~> 1.0.0'
 gem 'omniauth',           '>= 0.1.6'

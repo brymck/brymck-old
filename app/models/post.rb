@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   has_many :comments
   has_friendly_id :english_title, :use_slug => true
   translates :title, :content
+  validates_presence_of :title, :content
 
   class << self
     def blog
