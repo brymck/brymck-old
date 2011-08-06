@@ -14,7 +14,7 @@
 
   <div class="field inline">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :class => "preview_source" %>
     <%= f.check_box :personal %>
     <%= f.label :personal %>
   </div>
@@ -26,9 +26,13 @@
   <% end %>
   <div class="field">
     <%= f.label :content %><br>
-    <%= f.text_area :content, :class => "span-20" %>
+    <%= f.text_area :content, :class => "span-20 preview_source" %>
   </div>
   <div class="actions clear">
     <%= f.submit %>
   </div>
 <% end %>
+<hr>
+<h3><%= t ".preview" %></h3>
+<div class="preview">
+</div>

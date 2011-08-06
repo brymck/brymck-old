@@ -34,10 +34,33 @@ jQuery.noConflict();
     });
   }
 
+  function enablePostPreview() {
+    if ($("div.preview").size() > 0) {
+      var $source = $(".preview_source");
+      var $target = $("div.preview");
+      var timeoutId = 0;
+      var PREVIEW_WAIT_MS = 500;
+
+      var preview = function() {
+        $.get("/en/posts/preview", $source.serialize(), function(data) {
+          $target.html(data);
+        })
+      };
+
+      var setPreviewWait = function() {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(preview, PREVIEW_WAIT_MS);
+      };
+
+      $(".preview_source").keyup(setPreviewWait);
+    }
+  }
+
   $(document).ready(function() {
     addNestingHelper();
     addPrettyPrintTags();
     prettyPrint();
     delayRemoveNotices();
+    enablePostPreview();
   });
 })(jQuery);

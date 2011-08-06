@@ -1,10 +1,13 @@
-<% show_comments ||= false %>
+<%
+  show_comments ||= false
+  show_admin_tools = true if show_admin_tools.nil?
+%>
 <article>
   <header>
     <h2><%= link_to post.title, post %></h2>
     <p><%=t :bryan_mckelvey %></p>
     <p><%= time_tag post.created_at %></p>
-    <%= content_tag :p, link_to(t(:edit), edit_post_path(post)) if admin? %>
+    <%= content_tag :p, link_to(t(:edit), edit_post_path(post)) if show_admin_tools && admin? %>
   </header>
   <%= render_content post %>
   <% if show_comments %>
@@ -21,6 +24,6 @@
       <%= render :partial => "comments/form" %>
     </aside>
   <% else %>
-    <footer><%= link_to t(".comments", :count => post.comments.count), post_path(post, :anchor => "comments") %></footer>
+    <footer><%= link_to t(".comments", :count => post.comments.count), post_path(post, :anchor => "comments") if show_admin_tools %></footer>
   <% end %>
 </article>

@@ -35,7 +35,17 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.xml { render :xml => @posts }
+      format.xml  { render :xml => @posts }
+    end
+  end
+
+  def preview
+    @post = Post.new params[:post]
+    @post.created_at = Time.now
+
+    respond_to do |format|
+      format.html { render :layout => false }
+      format.xml  { render :xml => @post }
     end
   end
 
