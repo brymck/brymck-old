@@ -11,7 +11,6 @@ gem 'jquery-rails'
 gem 'omniauth', '>= 0.1.6'
 gem 'RedCloth'
 gem 'sanitize'
-gem 'thin'
 
 group :assets do
   gem 'sass-rails', '~> 3.1.0.rc'
@@ -30,6 +29,7 @@ end
 group :development do
   gem 'annotate'
   gem 'rails-erd'
+  gem 'thin', :platforms => :ruby
 end
 
 group :development, :test do
