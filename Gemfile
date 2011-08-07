@@ -24,12 +24,12 @@ end
 
 group :production, :development do
   gem 'aws-s3'
+  gem 'thin'
 end
 
 group :development do
   gem 'annotate'
   gem 'rails-erd'
-  gem 'thin', :platforms => :ruby
 end
 
 group :development, :test do
