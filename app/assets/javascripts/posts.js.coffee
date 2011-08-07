@@ -5,10 +5,6 @@ addPrettyPrintTags = ->
     $target = if $parent.size() is 0 then $code else $parent
     $target.addClass "prettyprint"
 
-delayRemoveNotices = ->
-  $(".success, .error, .notice").filter(":visible").each ->
-    setTimeout (=> $(this).slideUp "fast"), 5000
-
 enablePostPreview = ->
   $target = $ "div.preview"
 
@@ -40,5 +36,4 @@ enablePostPreview = ->
 $ ->
   addPrettyPrintTags()
   prettyPrint()
-  delayRemoveNotices()
   enablePostPreview()
