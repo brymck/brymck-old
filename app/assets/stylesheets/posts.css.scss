@@ -1,0 +1,17 @@
+html > body > div.container article > header > p { margin: 0; }
+
+article {
+  header {
+    margin-bottom: 1em; }
+  h2 {
+    margin-bottom: 0; }
+  table {
+    width: auto; }
+  img {
+    max-width: 100%; } }
+
+.archive ul {
+  list-style-type: none; }
+.preview {
+  display: none; }
+

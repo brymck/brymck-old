@@ -1,0 +1,10 @@
+nav {
+  #breadcrumbs {
+    background-color: #eee;
+    padding-top: 0.3em; }
+  hr {
+    margin: 0; }
+  ul {
+    margin: 0.3em 0;
+    > li + li {
+      padding-left: 0.5em; } } }

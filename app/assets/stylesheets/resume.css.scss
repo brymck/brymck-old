@@ -1,0 +1,10 @@
+/* Resume */
+#resume {
+  h3, h4, h5 {
+    margin-bottom: 0; }
+  h4 + h5, h6 + h5, h6 + h4, h4 + ul, h6 + hr {
+    margin-top: 1em; } }
+
+div.container > #resume > h5 + p {
+  margin-top: 0; }
+

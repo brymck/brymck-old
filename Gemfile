@@ -1,36 +1,45 @@
 source 'http://rubygems.org'
 
-gem 'rails',                 '3.0.9'
+gem 'rails', '~> 3.1.0.rc'
 
-gem 'awesome_nested_set', '~> 2.0.1'
-gem 'breadcrumbs',        '~> 0.1.6'
-gem 'friendly_id',        '~> 3.2.1'
-gem 'globalize3',         '~> 0.1.0'
-gem 'gravatar_image_tag', '~> 1.0.0'
-gem 'omniauth',           '>= 0.1.6'
-gem 'RedCloth',           '~> 4.2.7'
-gem 'redis',              '~> 2.2.1'
-gem 'sanitize',           '~> 2.0.3'
+gem 'awesome_nested_set'
+gem 'breadcrumbs'
+gem 'execjs'
+gem 'friendly_id'
+gem 'globalize3'
+gem 'gravatar_image_tag'
+gem 'jquery-rails'
+gem 'omniauth', '>= 0.1.6'
+gem 'RedCloth'
+gem 'redis'
+gem 'sanitize'
+gem 'therubyracer'
+
+group :assets do
+  gem 'sass-rails', '~> 3.1.0.rc'
+  gem 'coffee-rails', '~> 3.1.0.rc'
+  gem 'uglifier'
+end
 
 group :production, :development do
-  gem 'aws-s3',           '~> 0.6'
+  gem 'aws-s3'
 end
 
 group :development, :test do
-  gem 'rspec-rails',      '~> 2.6.1'
-  gem 'sqlite3',          '~> 1.3.4'
+  gem 'rspec-rails'
+  gem 'sqlite3'
 end
 
 group :development do
-  gem 'annotate',         '~> 2.4.0'
-  gem 'rails-erd',        '~> 0.4.5'
-  gem 'thin',             '~> 1.2.11', :platforms => :ruby
+  gem 'annotate'
+  gem 'rails-erd'
+  gem 'thin', :platforms => :ruby
 end
 
 group :test do
-  gem 'autotest',         '~> 4.4.6'
-  gem 'rspec',            '~> 2.6.0'
-  gem 'spork',            '~> 0.8.5'
-  gem 'test_notifier',    '~> 0.3.6'
-  gem 'webrat',           '~> 0.7.3'
+  gem 'autotest'
+  gem 'rspec'
+  gem 'spork'
+  gem 'test_notifier'
+  gem 'webrat'
 end
