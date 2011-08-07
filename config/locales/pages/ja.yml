@@ -29,7 +29,7 @@ ja:
         〒113-0033
         東京都文京区本郷1-21-7-402
         "+81-80-3934-3664":cell
-        "brymck.heroku.com":heroku
+        "brymck.herokuapp.com/ja":heroku
         
         <hr>
 
@@ -97,7 +97,7 @@ ja:
         [css]http://www.a2ztutorial.com/Style/CSS/
         [dotnet]http://ja.wikipedia.org/wiki/.NET
         [email]mailto:bryan.mckelvey@gmail.com
-        [heroku]http://brymck.heroku.com
+        [heroku]http://brymck.herokuapp.com/ja
         [html]http://ja.wikipedia.org/wiki/Html
         [js]http://ja.wikipedia.org/wiki/JavaScript
         [gmat]http://www.mba.com/the-gmat.aspx

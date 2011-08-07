@@ -29,7 +29,7 @@ en:
         1-21-7-402 Hongō, Bunkyō-ku
         Tokyo 113-0033
         "+81-80-3934-3664":cell
-        "brymck.heroku.com":heroku
+        "brymck.herokuapp.com":heroku
 
         <hr>
 
@@ -100,7 +100,7 @@ en:
         [css]http://www.w3.org/Style/CSS/
         [dotnet]http://en.wikipedia.org/wiki/.NET
         [email]mailto:bryan.mckelvey@gmail.com
-        [heroku]http://brymck.heroku.com
+        [heroku]http://brymck.herokuapp.com
         [html]http://en.wikipedia.org/wiki/HTML
         [js]http://en.wikipedia.org/wiki/JavaScript
         [gmat]http://www.mba.com/the-gmat.aspx
