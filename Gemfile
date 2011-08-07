@@ -8,7 +8,7 @@ gem 'friendly_id'
 gem 'globalize3'
 gem 'gravatar_image_tag'
 gem 'jquery-rails'
-# gem 'omniauth', '>= 0.1.6'
+gem 'omniauth', '>= 0.1.6'
 gem 'RedCloth'
 gem 'sanitize'
 
