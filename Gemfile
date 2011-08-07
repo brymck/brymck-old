@@ -10,9 +10,7 @@ gem 'gravatar_image_tag'
 gem 'jquery-rails'
 gem 'omniauth', '>= 0.1.6'
 gem 'RedCloth'
-gem 'redis'
 gem 'sanitize'
-gem 'therubyracer'
 
 group :assets do
   gem 'sass-rails', '~> 3.1.0.rc'
@@ -38,6 +36,7 @@ group :development, :test do
   gem 'execjs'
   gem 'rspec-rails'
   gem 'sqlite3'
+  gem 'therubyracer'
 end
 
 group :test do
