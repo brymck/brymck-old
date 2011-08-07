@@ -10,7 +10,7 @@ gem 'gravatar_image_tag'
 gem 'jquery-rails'
 # gem 'omniauth', '>= 0.1.6'
 gem 'RedCloth'
-# gem 'sanitize'
+gem 'sanitize'
 
 group :assets do
   gem 'sass-rails', '~> 3.1.0.rc'

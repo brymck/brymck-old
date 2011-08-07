@@ -124,6 +124,8 @@ GEM
       railties (~> 3.0)
       rspec (~> 2.6.0)
     ruby-graphviz (0.9.21)
+    sanitize (2.0.3)
+      nokogiri (< 1.6, >= 1.4.4)
     sass (3.1.7)
     sass-rails (3.1.0.rc.5)
       actionpack (~> 3.1.0.rc1)
@@ -178,6 +180,7 @@ DEPENDENCIES
   rails-erd
   rspec
   rspec-rails
+  sanitize
   sass-rails (~> 3.1.0.rc)
   spork
   sqlite3
