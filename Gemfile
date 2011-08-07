@@ -2,29 +2,29 @@ source 'http://rubygems.org'
 
 gem 'rails', '~> 3.1.0.rc'
 
-gem 'awesome_nested_set'
-gem 'breadcrumbs'
-gem 'friendly_id'
-gem 'globalize3'
-gem 'gravatar_image_tag'
-gem 'jquery-rails'
-gem 'omniauth', '>= 0.1.6'
-gem 'RedCloth'
-gem 'sanitize'
+# gem 'awesome_nested_set'
+# gem 'breadcrumbs'
+# gem 'friendly_id'
+# gem 'globalize3'
+# gem 'gravatar_image_tag'
+# gem 'jquery-rails'
+# gem 'omniauth', '>= 0.1.6'
+# gem 'RedCloth'
+# gem 'sanitize'
 
 group :assets do
-  gem 'sass-rails', '~> 3.1.0.rc'
-  gem 'coffee-rails', '~> 3.1.0.rc'
-  gem 'uglifier'
+#   gem 'sass-rails', '~> 3.1.0.rc'
+#   gem 'coffee-rails', '~> 3.1.0.rc'
+#   gem 'uglifier'
 end
 
 group :production do
-  gem 'pg'
+#   gem 'pg'
 end
 
 group :production, :development do
-  gem 'aws-s3'
-  gem 'thin'
+#   gem 'aws-s3'
+#   gem 'thin'
 end
 
 group :development do
