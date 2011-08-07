@@ -3,4 +3,5 @@
 .sasscache
 *.log
 db/*.sqlite3
+log/*.log
 tmp/
