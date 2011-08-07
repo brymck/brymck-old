@@ -35,7 +35,12 @@ GEM
     arel (2.1.4)
     autotest (4.4.6)
       ZenTest (>= 4.4.1)
+    awesome_nested_set (2.0.1)
+      activerecord (>= 3.0.0)
+    babosa (0.3.5)
     bcrypt-ruby (2.1.4)
+    breadcrumbs (0.1.6)
+      i18n
     builder (3.0.0)
     coffee-rails (3.1.0.rc.5)
       actionpack (~> 3.1.0.rc1)
@@ -50,6 +55,12 @@ GEM
     erubis (2.7.0)
     execjs (1.2.4)
       multi_json (~> 1.0)
+    friendly_id (3.2.1.1)
+      babosa (~> 0.3.0)
+    globalize3 (0.1.0)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+    gravatar_image_tag (1.0.0)
     hike (1.2.0)
     i18n (0.6.0)
     libv8 (3.3.10.2)
@@ -143,8 +154,13 @@ PLATFORMS
 DEPENDENCIES
   annotate
   autotest
+  awesome_nested_set
+  breadcrumbs
   coffee-rails (~> 3.1.0.rc)
   execjs
+  friendly_id
+  globalize3
+  gravatar_image_tag
   pg
   rails (~> 3.1.0.rc)
   rails-erd
