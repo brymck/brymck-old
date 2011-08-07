@@ -13,13 +13,13 @@ gem 'rails', '~> 3.1.0.rc'
 # gem 'sanitize'
 
 group :assets do
-#   gem 'sass-rails', '~> 3.1.0.rc'
-#   gem 'coffee-rails', '~> 3.1.0.rc'
-#   gem 'uglifier'
+  gem 'sass-rails', '~> 3.1.0.rc'
+  gem 'coffee-rails', '~> 3.1.0.rc'
+  gem 'uglifier'
 end
 
 group :production do
-#   gem 'pg'
+  gem 'pg'
 end
 
 group :production, :development do
