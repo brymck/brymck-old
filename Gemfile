@@ -4,7 +4,6 @@ gem 'rails', '~> 3.1.0.rc'
 
 gem 'awesome_nested_set'
 gem 'breadcrumbs'
-gem 'execjs'
 gem 'friendly_id'
 gem 'globalize3'
 gem 'gravatar_image_tag'
@@ -36,6 +35,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'execjs'
   gem 'rspec-rails'
   gem 'sqlite3'
 end
