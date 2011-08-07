@@ -24,7 +24,7 @@ end
 
 group :production, :development do
 #   gem 'aws-s3'
-#   gem 'thin'
+  gem 'thin'
 end
 
 group :development do
