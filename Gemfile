@@ -21,19 +21,23 @@ group :assets do
   gem 'uglifier'
 end
 
-group :production, :development do
-  gem 'aws-s3'
+group :production do
+  gem 'pg'
 end
 
-group :development, :test do
-  gem 'rspec-rails'
-  gem 'sqlite3'
+group :production, :development do
+  gem 'aws-s3'
 end
 
 group :development do
   gem 'annotate'
   gem 'rails-erd'
   gem 'thin', :platforms => :ruby
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'sqlite3'
 end
 
 group :test do
