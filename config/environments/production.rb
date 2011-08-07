@@ -15,7 +15,7 @@ Brymck::Application.configure do
   # config.action_controller.perform_caching             = false
 
   # Specifies the header that your server uses for sending files
-  config.action_dispatch.x_sendfile_header = "X-Sendfile"
+  config.action_dispatch.x_sendfile_header = "X-Accel-Redirect"
   config.serve_static_assets = false
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
