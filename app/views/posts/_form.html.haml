@@ -1,0 +1,29 @@
+- edit_date ||= false
+= form_for(@post) do |f|
+  - if @post.errors.any?
+    #error_explanation
+      %h2 #{pluralize @post.errors.count, "error"} prohibited this post from being saved:
+      %ul
+        - @post.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field.inline
+    = f.label :title
+    = f.text_field :title, :class => "preview_source"
+    = f.check_box :personal
+    = f.label :personal
+  - if edit_date
+    .field.inline
+      = f.label :created_at
+      = f.text_field :created_at
+  .field
+    = f.label :content
+    %br
+    = f.text_area :content, :class => "span-20 preview_source"
+  .actions.clear
+    = f.submit
+    %input.preview_button{:type => "button", :value => t(".preview")}
+%hr
+.preview
+  %h3= t ".preview"
+  .content

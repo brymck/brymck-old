@@ -1,0 +1,22 @@
+- show_comments ||= false
+- show_admin_tools = true if show_admin_tools.nil?
+%article
+  %header
+    %h2= link_to post.title, post
+    %p=t :bryan_mckelvey
+    %p= time_tag post.created_at
+    = content_tag :p, link_to(t(:edit), edit_post_path(post)) if show_admin_tools && admin?
+  ~ textile post.content, :safe => true
+  - if show_comments
+    %aside>
+      = content_tag :h3, t("layouts.sidebar.comments"), :id => "comments"
+      - if post.comments.empty?
+        = content_tag :p, t(".comments.zero")
+      - else
+        = render_comments post.comments
+    %aside
+      %h3#reply= t ".reply"
+      = render :partial => "comments/form"
+  - else
+    %footer
+      = link_to t(".comments", :count => post.comments.count), post_path(post, :anchor => "comments") if show_admin_tools

@@ -1,0 +1,8 @@
+.span-17.colborder
+  = link_to t(:new), new_code_path if admin?
+  - @language.code.each do |code|
+    = render :partial => "code/code", :locals => { :code => code }
+    %hr
+.archive
+  = render :partial => "code/archive", :locals => { :all_code => @language.code }
+  %p= link_to t(".url"), @language.url

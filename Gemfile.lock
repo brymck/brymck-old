@@ -48,6 +48,7 @@ GEM
     breadcrumbs (0.1.6)
       i18n
     builder (3.0.0)
+    coderay (0.9.8)
     coffee-rails (3.1.0.rc.5)
       actionpack (~> 3.1.0.rc1)
       coffee-script (>= 2.2.0)
@@ -73,6 +74,7 @@ GEM
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
     gravatar_image_tag (1.0.0)
+    haml (3.1.2)
     hike (1.2.0)
     i18n (0.6.0)
     jquery-rails (1.0.12)
@@ -230,11 +232,13 @@ DEPENDENCIES
   awesome_nested_set
   aws-s3
   breadcrumbs
+  coderay
   coffee-rails (~> 3.1.0.rc)
   execjs
   friendly_id
   globalize3
   gravatar_image_tag
+  haml
   jquery-rails
   omniauth (>= 0.1.6)
   pg

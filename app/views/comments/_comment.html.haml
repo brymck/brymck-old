@@ -1,0 +1,14 @@
+%article{:class => "indent-#{indent}"}
+  %header
+    = gravatar_image_tag comment.email, :gravatar => { :alt => comment.name, :default => :identicon, :size => 32 }, :class => "right" %>
+    %h4{:id => "comment_#{comment.id}"}
+      = link_to_if admin?, comment.name, "mailto:#{comment.email}"
+    %p= time_tag comment.created_at
+    - if admin?
+      %p
+        = link_to t(:edit), edit_comment_path(comment)
+        |
+        = link_to t(:destroy), comment, :confirm => t(:confirm), :method => :delete
+  ~ textile comment.content
+  %footer
+    = link_to t(".reply_to_this"), "#reply", :class => "reply", :"data-id" => comment.id, :"data-name" => comment.name

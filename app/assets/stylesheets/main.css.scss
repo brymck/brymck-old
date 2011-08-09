@@ -5,6 +5,11 @@ html > body {
     margin-top: 1em;
     text-indent: 0; } }
 
+article > div.CodeRay {
+  font-size: 10pt;
+  padding: 0.5em;
+}
+
 /* Headings */
 h1 {
   margin-bottom: 0;

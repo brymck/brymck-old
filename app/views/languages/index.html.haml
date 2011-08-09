@@ -1,0 +1,15 @@
+%table
+  %tr
+    - %w(name url code).each do |label|
+      = content_tag :th, t(".#{label}")
+    = content_tag :th, nil, :colspan => 2 if admin?
+  - @languages.each do |language|
+    %tr
+      %td= link_to language.name, language
+      %td= link_to language.url, language.url
+      %td= raw language.code.map { |code| link_to code.title, code }.join t(:separator)
+      - if admin?
+        %td= link_to t(:edit), edit_language_path(language)
+        %td= link_to t(:destroy), language, :confirm => t(:confirm), :method => :delete
+
+= link_to t(:new), new_language_path if admin?

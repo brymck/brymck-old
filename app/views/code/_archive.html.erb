@@ -1,7 +1,0 @@
-<% all_code ||= Code.find(:all) %>
-<h2><%=t ".archive" %></h2>
-<ul>
-  <% all_code.each do |code| %>
-    <%= content_tag :li, link_to_unless_current(code.title, code) %>
-  <% end %>
-</ul>

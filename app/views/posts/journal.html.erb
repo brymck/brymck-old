@@ -1,9 +1,0 @@
-<div class="span-17 colborder">
-  <% @posts.reverse[0..2].each do |post| %>
-    <%= render :partial => "posts/post", :locals => { :post => post } %>
-    <hr>
-  <% end %>
-</div>
-<div class="archive">
-  <%= render :partial => "archive", :locals => { :personal => true } %>
-</div>

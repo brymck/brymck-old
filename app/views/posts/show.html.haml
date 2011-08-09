@@ -1,0 +1,4 @@
+.span-17.colborder
+  = render :partial => "post", :locals => { :post => @post, :show_comments => true }
+.archive
+  = render :partial => "archive", :locals => { :personal => @post.personal }

@@ -4,9 +4,11 @@ gem 'rails', '~> 3.1.0.rc'
 
 gem 'awesome_nested_set'
 gem 'breadcrumbs'
+gem 'coderay'
 gem 'friendly_id'
 gem 'globalize3'
 gem 'gravatar_image_tag'
+gem 'haml'
 gem 'jquery-rails'
 gem 'omniauth', '>= 0.1.6' # 1.2MB
 gem 'RedCloth'

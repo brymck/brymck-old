@@ -1,0 +1,18 @@
+%table
+  %tr
+    - %w{id name email content post parent_id lft rgt created_at}.each do |field|
+      %th= t ".#{field}"
+    %th{:colspan => "2"}
+  - @comments.each do |comment|
+    %tr
+      %td= comment.id
+      %td= comment.name
+      %td= comment.email
+      %td= truncate comment.content, :length => 50, :separator => ' '
+      %td= link_to comment.post.title, comment.post
+      %td= comment.parent_id
+      %td= comment.lft
+      %td= comment.rgt
+      %td= l comment.created_at
+      %td= link_to t(:edit), edit_comment_path(comment)
+      %td= link_to t(:destroy), comment, :confirm => 'Are you sure?', :method => :delete

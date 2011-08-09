@@ -1,0 +1,16 @@
+%table
+  %tr
+    - %w{id title personal comments created_at updated_at}.each do |field|
+      %th= t ".#{field}"
+    %th{:colspan => "2"}
+  - @posts.each do |post|
+    %tr
+      %td= post.id
+      %td= link_to post.title, post
+      %td= post.personal
+      %td= link_to post.comments.count, post_path(post, :anchor => :comments)
+      %td= l post.created_at
+      %td= l post.updated_at
+      %td= link_to t(:edit), edit_post_path(post)
+      %td= link_to t(:destroy), post, :confirm => t(:confirm), :method => :delete
+= link_to t(:new), new_post_path

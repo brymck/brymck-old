@@ -1,0 +1,5 @@
+- all_code ||= Code.find(:all)
+%h2= t ".archive"
+%ul
+  - all_code.each do |code|
+    %li= link_to_unless_current(code.title, code)

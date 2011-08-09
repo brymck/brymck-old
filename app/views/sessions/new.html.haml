@@ -1,0 +1,6 @@
+%p= t :choose, :scope => :sessions
+%ul.horizontal
+  - %w{google facebook twitter yahoo}.each do |provider|
+    %li
+      = link_to image_tag("#{provider}_128.png", :size => "128x128"), "/auth/#{provider}"
+      %h4.center.quiet= t ".#{provider}"

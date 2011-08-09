@@ -1,0 +1,7 @@
+%p= t ".ask"
+%ul
+  - %w{boss_last_name dog_name father_hometown mother_maiden_name}.each do |question|
+    %li= t ".#{question}"
+= form_tag(verify_friend_path, :method => "post") do
+  = text_field_tag :answer, nil, :autofocus => true
+  = submit_tag

@@ -1,4 +1,5 @@
 # coding: UTF-8
+require 'coderay'
 
 module ApplicationHelper
   FLASH_CLASSES = {
@@ -6,9 +7,13 @@ module ApplicationHelper
     :alert  => :alert
   }
 
-  def textile(text, needs_sanitizing = true)
+  def textile(text, opts)
+    safe = opts[:safe] || false
     html = RedCloth.new(text).to_html
-    html = Sanitize.clean(html, Sanitize::Config::BASIC) if needs_sanitizing
+    html = Sanitize.clean(html, Sanitize::Config::BASIC) unless opts[:safe]
+    html.gsub!(/<pre( lang="(.+?)")?><code[^>]+>(.+?)<\/code><\/pre>/m) do
+      CodeRay.scan($3, $2).div(:css => :class)
+    end
     raw html
   end
   
