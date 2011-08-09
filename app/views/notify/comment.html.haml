@@ -1,0 +1,8 @@
+!!! 5
+%html
+  %head
+    %meta{:charset => "utf-8"}
+    %title New Comment
+  %body
+    %h3= @comment.name
+    ~ textile @comment.content
