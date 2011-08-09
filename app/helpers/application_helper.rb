@@ -7,7 +7,7 @@ module ApplicationHelper
     :alert  => :alert
   }
 
-  def textile(text, opts)
+  def textile(text, opts = {})
     safe = opts[:safe] || false
     html = RedCloth.new(text).to_html
     html = Sanitize.clean(html, Sanitize::Config::BASIC) unless opts[:safe]
