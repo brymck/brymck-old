@@ -31,6 +31,7 @@ end
 
 group :development do
   gem 'annotate'
+  gem 'albino'
   gem 'rails-erd'
 end
 
