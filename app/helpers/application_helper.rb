@@ -36,7 +36,11 @@ module ApplicationHelper
   end
 
   def nav_item(label, path)
-    content_tag :li, link_to_unless_current(label, path)
+    if current_page?(path)
+      content_tag :li, content_tag(:span, label, :"data-href" => path)
+    else
+      content_tag :li, link_to(label, path)
+    end
   end
 
   def copyright_years
