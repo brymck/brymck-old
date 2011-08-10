@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '~> 3.1.0.rc'
 
+gem 'albino'
 gem 'awesome_nested_set'
 gem 'breadcrumbs'
 gem 'coderay'
@@ -31,7 +32,6 @@ end
 
 group :development do
   gem 'annotate'
-  gem 'albino'
   gem 'rails-erd'
 end
 
