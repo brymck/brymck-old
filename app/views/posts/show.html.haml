@@ -1,4 +1,5 @@
 #posts.span-17.colborder
   = render :partial => "post", :locals => { :post => @post, :show_comments => true }
-.archive.delink-current{:"data-pjax" => "#posts"}
-  = render :partial => "archive", :locals => { :personal => @post.personal }
+- content_for :archive do
+  .archive.delink-current{:"data-pjax" => "#posts"}
+    = render :partial => "archive", :locals => { :personal => @post.personal }

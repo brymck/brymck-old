@@ -3,6 +3,7 @@
   - @code.each do |code|
     = render :partial => "code", :locals => { :code => code }
     %hr
-.archive.delink-current{:"data-pjax" => "#code"}
-  = render :partial => "archive"
-  = content_tag :p, link_to(t(:view_by_language, :scope => :code), languages_path)
+- content_for :archive do
+  .archive.delink-current{:"data-pjax" => "#code"}
+    = render :partial => "archive"
+    = content_tag :p, link_to(t(:view_by_language, :scope => :code), languages_path)

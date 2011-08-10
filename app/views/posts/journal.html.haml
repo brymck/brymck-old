@@ -3,5 +3,6 @@
   - @posts.reverse[0..2].each do |post|
     = render :partial => "posts/post", :locals => { :post => post }
     %hr
-.archive.delink-current{:"data-pjax" => "#posts"}
-  = render :partial => "archive", :locals => { :personal => true }
+- content_for :archive do
+  .archive.delink-current{:"data-pjax" => "#posts"}
+    = render :partial => "archive", :locals => { :personal => true }
