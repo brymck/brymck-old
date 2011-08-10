@@ -100,6 +100,9 @@ $.pjax = function( options ) {
     beforeSend: function(xhr){
       $container.trigger('start.pjax')
       xhr.setRequestHeader('X-PJAX', 'true')
+      if (options.header) {                          //
+        xhr.setRequestHeader(options.header, 'true') // These lines added
+      }                                              //
     },
     error: function() {
       window.location = options.url

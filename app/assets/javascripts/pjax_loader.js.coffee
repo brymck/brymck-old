@@ -25,7 +25,10 @@ pjaxBindClick = (context = document) ->
     $list = $(@)
     container = $list.data "pjax"
 
-    $list.find("a:not([data-nopjax])").pjax(container, timeout: PJAX_TIMEOUT_MS)
+    options = { timeout: PJAX_TIMEOUT_MS }
+    options.header = "X-PJAX-NOARCHIVE" if $list.hasClass "archive"
+
+    $list.find("a:not([data-nopjax])").pjax(container, options)
       .live "click", -> pjaxClickHandler $(@), container
 
 pjaxBindEnd = ->

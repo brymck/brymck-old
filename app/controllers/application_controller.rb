@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   def render(options = nil, extra_options = {}, &block)
     if request.headers["X-PJAX"]
       options ||= {}
-      options[:layout] = "pjax" 
+      options[:layout] = "pjax#{request.headers["X-PJAX-NOARCHIVE"] ? "_noarchive" : ""}"
     end
     super(options, extra_options, &block)
   end
