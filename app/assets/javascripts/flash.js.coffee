@@ -1,6 +1,6 @@
-delayRemoveNotices = ->
-  $notices = $(".success, .error, .notice").filter(":visible")
+delayRemoveSuccess = ->
+  $notices = $(".success").filter(":visible")
   setTimeout (-> $notices.slideUp "fast"), 5000
 
 $ ->
-  delayRemoveNotices()
+  delayRemoveSuccess()

@@ -40,6 +40,8 @@ pjaxBindEnd = ->
       $(currentContainer).fadeTo "fast", 1
       currentContainer = null
 
+    delayRemoveSuccess() # in flash.js.coffee
+
 $ ->
   # Implements PJAX if supported, otherwise degrades
   # Incidentally, this should help with IE if any font-smoothing issues exist
