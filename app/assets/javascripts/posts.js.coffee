@@ -21,7 +21,7 @@ enablePostPreview = ->
       event.preventDefault()
 
     hotKeyPreview = (event) ->
-      preview event if e.ctrlKey and e.shiftKey and e.which is 80
+      preview event if event.ctrlKey and event.shiftKey and event.which is 80
 
     $source.keyup  hotKeyPreview
     $buttons.click preview
