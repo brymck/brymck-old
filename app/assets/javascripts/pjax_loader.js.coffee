@@ -1,21 +1,20 @@
 PJAX_TIMEOUT_MS = 2000
 currentContainer = null
 
-pjaxClickHandler = ($link, $list, container) ->
+pjaxClickHandler = ($link, container) ->
   # Fade out container if it exists
   unless currentContainer?
     $(container).fadeTo "fast", 0.01
     currentContainer = container
 
   # Replace existing delinked links in lists that request the feature
-  if $list.hasClass "delink-current"
-    $spans = $list.find "span[data-href]"
-    $spans.each ->
-      $span = $(@)
-      linkHTML = "<a href='#{$span.data "href"}'>#{$span.text()}</a>"
-      $span.replaceWith linkHTML
+  $(".delink-current span[data-href]").each ->
+    $span = $(@)
+    linkHTML = "<a href='#{$span.data "href"}'>#{$span.text()}</a>"
+    $span.replaceWith linkHTML
 
-    # Delink current link
+  # Delink current link if an ancestor is so disposed
+  if $link.closest(".delink-current").size() > 0
     spanHTML = "<span data-href='#{$link.attr "href"}'>#{$link.text()}</span>"
     $link.replaceWith spanHTML
 
@@ -27,7 +26,7 @@ pjaxBindClick = (context = document) ->
     container = $list.data "pjax"
 
     $list.find("a:not([data-nopjax])").pjax(container, timeout: PJAX_TIMEOUT_MS)
-      .live "click", -> pjaxClickHandler $(@), $list, container
+      .live "click", -> pjaxClickHandler $(@), container
 
 pjaxBindEnd = ->
   $(document).bind "end.pjax", ->
