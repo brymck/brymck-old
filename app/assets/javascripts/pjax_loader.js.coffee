@@ -11,7 +11,6 @@ bindPjax = ->
       # Replace existing spanned out links
       if $list.hasClass "delink-current"
         $spans = $list.find "span[data-href]"
-        console.log $spans.size()
         $spans.each ->
           $span = $(@)
           linkHTML = "<a href='#{$span.data "href"}'>#{$span.text()}</a>"
