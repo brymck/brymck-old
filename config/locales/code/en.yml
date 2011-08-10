@@ -1,15 +1,15 @@
 en:
   activerecord:
+    attributes:
+      code: &code
+        description: "Description"
+        download: "Download"
+        importance: "Importance"
+        languages: "Language(s)"
+        source: "Source"
+        title: "Title"
     models:
       code: "Code"
-      attributes:
-        code: &code
-          description: "Description"
-          download: "Download"
-          importance: "Importance"
-          languages: "Language(s)"
-          source: "Source"
-          title: "Title"
   helpers:
     label:
       code: *code

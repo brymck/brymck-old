@@ -1,12 +1,12 @@
 ja:
   activerecord:
+    attributes:
+      language: &language
+        code: "コード"
+        name: "名前"
+        url: "さらに詳しく"
     models:
       language: "言語"
-      attributes:
-        language: &language
-          code: "コード"
-          name: "名前"
-          url: "さらに詳しく"
   helpers:
     label:
       language: *language

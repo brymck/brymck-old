@@ -1,12 +1,12 @@
 en:
   activerecord:
+    attributes:
+      language: &language
+        code: "Code"
+        name: "Name"
+        url: "Learn more"
     models:
       language: "Language"
-      attributes:
-        language: &language
-          code: "Code"
-          name: "Name"
-          url: "Learn more"
   helpers:
     label:
       language: *language

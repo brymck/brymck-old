@@ -1,19 +1,19 @@
 en:
   activerecord:
+    attributes:
+      comment: &comment
+        content: "Content"
+        created_at: "Posted"
+        email: "E-mail"
+        id: "ID"
+        lft: "Left"
+        name: "Name"
+        parent_id: "Parent"
+        post: "Post"
+        rgt: "Right"
+        updated_at: "Edited"
     models:
       comment: "Comment"
-      attributes:
-        comment: &comment
-          content: "Content"
-          created_at: "Posted"
-          email: "E-mail"
-          id: "ID"
-          lft: "Left"
-          name: "Name"
-          parent_id: "Parent"
-          post: "Post"
-          rgt: "Right"
-          updated_at: "Edited"
   helpers:
     label:
       comment: *comment

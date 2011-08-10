@@ -1,15 +1,15 @@
 ja:
   activerecord:
+    attributes:
+      code: &code
+        description: "説明"
+        download: "ダウンロード"
+        importance: "重要性"
+        languages: "言語"
+        source: "ソース"
+        title: "タイトル"
     models:
       code: "コード"
-      attributes:
-        code: &code
-          description: "説明"
-          download: "ダウンロード"
-          importance: "重要性"
-          languages: "言語"
-          source: "ソース"
-          title: "タイトル"
   helpers:
     label:
       code: *code

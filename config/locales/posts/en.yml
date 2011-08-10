@@ -1,16 +1,16 @@
 en:
   activerecord:
+    attributes:
+      post: &post
+        comments: "Comments"
+        content: "Content"
+        created_at: "Posted"
+        id: "ID"
+        personal: "Personal"
+        title: "Title"
+        updated_at: "Edited"
     models:
       post: "Post"
-      attributes:
-        post: &post
-          comments: "Comments"
-          content: "Content"
-          created_at: "Posted"
-          id: "ID"
-          personal: "Personal"
-          title: "Title"
-          updated_at: "Edited"
   helpers:
     label:
       post: *post

@@ -1,19 +1,19 @@
 ja:
   activerecord:
+    attributes:
+      comment: &comment
+        content: "コンテンツ"
+        created_at: "発表日付"
+        email: "メール"
+        id: "ID"
+        lft: "左"
+        name: "名前"
+        parent_id: "親ID"
+        post: "投稿"
+        rgt: "右"
+        updated_at: "最終更新日付"
     models:
       comment: "コメント"
-      attributes:
-        comment: &comment
-          content: "コンテンツ"
-          created_at: "発表日付"
-          email: "メール"
-          id: "ID"
-          lft: "左"
-          name: "名前"
-          parent_id: "親ID"
-          post: "投稿"
-          rgt: "右"
-          updated_at: "最終更新日付"
   helpers:
     label:
       comment: *comment

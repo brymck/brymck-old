@@ -2,7 +2,7 @@
 %h2= t ".archive"
 %ul
   - all_code.each do |code|
-    %li
+    %li<
       - if current_page?(code)
         %span{:"data-href" => code_path(code)}= code.title
       - else

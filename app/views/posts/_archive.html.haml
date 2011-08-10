@@ -1,7 +1,7 @@
 %h2= t ".archive"
 %ul
   - Post.where(:personal => defined?(personal) ? personal : false).reverse.each do |post|
-    %li
+    %li<
       - if current_page?(post)
         %span{:"data-href" => post_path(post)}= post.title
       - else
