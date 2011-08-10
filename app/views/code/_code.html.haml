@@ -13,5 +13,6 @@
     - if admin?
       %p
         = link_to t(:edit), edit_code_path(code)
+        |
         = link_to t(:destroy), code, :confirm => t(:confirm), :method => :delete
   ~ textile code.description, :safe => true
