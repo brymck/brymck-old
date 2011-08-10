@@ -1,4 +1,4 @@
-.span-17.colborder
+#code.span-17.colborder
   = render :partial => "code", :locals => { :code => @code }
-.archive
+.archive.delink-current{:"data-pjax" => "#code"}
   = render :partial => "archive"

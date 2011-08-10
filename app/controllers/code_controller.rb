@@ -3,11 +3,9 @@ class CodeController < ApplicationController
   before_filter :add_breadcrumbs, :only => [:index, :show, :new, :edit]
 
   def index
-
     @code = Code.find(:all, :limit => 5)
 
     respond_to do |format|
-      format.html { render :layout => false } if request.headers["X-PJAX"]
       format.html
       format.xml  { render :xml => @code }
     end

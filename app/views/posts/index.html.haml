@@ -1,4 +1,4 @@
-%table
+%table{:"data-pjax" => "#page"}
   %tr
     - %w{id title personal comments created_at updated_at}.each do |field|
       %th= t ".#{field}"

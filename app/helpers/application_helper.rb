@@ -35,11 +35,11 @@ module ApplicationHelper
     raw html
   end
 
-  def nav_item(label, path)
+  def nav_item(label, path, disable_pjax = nil)
     if current_page?(path)
-      content_tag :li, content_tag(:span, label, :"data-href" => path)
+      content_tag :li, content_tag(:span, label, :"data-href" => path, :"data-nopjax" => disable_pjax)
     else
-      content_tag :li, link_to(label, path)
+      content_tag :li, link_to(label, path, :"data-nopjax" => disable_pjax)
     end
   end
 

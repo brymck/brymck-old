@@ -1,7 +1,7 @@
-.span-17.colborder
+#posts.span-17.colborder
   - @posts.reverse[0..2].each do |post|
     = render :partial => "posts/post", :locals => { :post => post }
     %hr
-.archive
+.archive.delink-current{:"data-pjax" => "#posts"}
   = render :partial => "archive"
   = link_to t(".feed"), feed_path

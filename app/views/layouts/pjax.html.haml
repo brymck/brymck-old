@@ -1,0 +1,5 @@
+= render :partial => "layouts/title"
+%body
+  %div#crumbs_under_rug
+    = breadcrumbs.render :format => :inline
+  = yield

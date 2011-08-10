@@ -1,4 +1,8 @@
 %h2= t ".archive"
 %ul
   - Post.where(:personal => defined?(personal) ? personal : false).reverse.each do |post|
-    = content_tag :li, link_to_unless_current(post.title, post)
+    %li
+      - if current_page?(post)
+        %span{:"data-href" => post_path(post)}= post.title
+      - else
+        = link_to post.title, post

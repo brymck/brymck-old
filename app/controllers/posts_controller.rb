@@ -6,7 +6,6 @@ class PostsController < ApplicationController
     @posts = Post.blog
 
     respond_to do |format|
-      format.html { render :layout => false } if request.headers["X-PJAX"]
       format.html
       format.xml { render :xml => @posts }
     end

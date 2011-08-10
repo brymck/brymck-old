@@ -13,6 +13,14 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def render(options = nil, extra_options = {}, &block)
+    if request.headers["X-PJAX"]
+      options ||= {}
+      options[:layout] = "pjax" 
+    end
+    super(options, extra_options, &block)
+  end
+  
   def deny_access(message = :deny_access)
     session[:referer] = request.fullpath
     redirect_to login_path, :alert => t(message)

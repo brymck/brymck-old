@@ -1,7 +1,6 @@
 %head
   %meta{:charset => "UTF-8"}
-  %title
-    = @title.nil? ? t_meta(:title) : @title
+  = render :partial => "layouts/title"
   %meta{:name => "description", :content => t_meta(:description)}
   %meta{:name => "keywords",    :content => t_meta(:keywords)}
   = auto_discovery_link_tag :rss, feed_path
