@@ -17,7 +17,7 @@ gem 'sanitize'             # 2.8MB
 group :assets do           # 3.3MB
   gem 'sass-rails', '~> 3.1.0.rc'
   gem 'coffee-rails', '~> 3.1.0.rc'
-  # gem 'uglifier'
+  gem 'uglifier'
 end
 
 group :production do
