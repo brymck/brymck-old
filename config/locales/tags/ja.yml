@@ -10,6 +10,7 @@ ja:
       tag: *tag
   messages:
     tags:
+      created: "タグの作成に成功しました。"
       updated: "タグの更新に成功しました。"
   meta:
     tags:
@@ -17,5 +18,10 @@ ja:
         title: "タグ編集"
       index:
         title: "タグ"
+      new:
+        title: "新規タグ"
   tags:
     index: *tag
+    show:
+      code: "コード"
+      posts: "投稿"

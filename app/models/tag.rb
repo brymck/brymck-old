@@ -1,4 +1,6 @@
 class Tag < ActiveRecord::Base
+  has_and_belongs_to_many :code,  uniq: true
+  has_and_belongs_to_many :posts, uniq: true
   has_friendly_id :english_name, use_slug: true
   translates :name
 

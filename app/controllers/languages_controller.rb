@@ -39,7 +39,7 @@ class LanguagesController < ApplicationController
     respond_to do |format|
       if @language.save
         format.html { redirect_to(@language, :notice => t("messages.languages.created")) }
-        format.xml  { render :xml => @language, :status => :created, :location => @code }
+        format.xml  { render :xml => @language, :status => :created, :location => @language }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @language.errors, :status => :unprocessable_entity }

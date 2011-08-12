@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  acts_as_taggable
+  has_and_belongs_to_many :tags, :uniq => true
   has_many :comments
   has_friendly_id :english_title, :use_slug => true
   translates :title, :content

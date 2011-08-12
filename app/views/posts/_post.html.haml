@@ -7,6 +7,10 @@
     %p= time_tag post.created_at
     = content_tag :p, link_to(t(:edit), edit_post_path(post)) if show_admin_tools && admin?
   ~ textile post.content, :safe => true
+  - unless post.tags.empty?
+    %aside
+      %h3= t ".tags"
+      %p!= post.tags.map { |tag| link_to tag.name, tag }.join t :separator
   - if show_comments
     %aside>
       = content_tag :h3, t("layouts.sidebar.comments"), :id => "comments"

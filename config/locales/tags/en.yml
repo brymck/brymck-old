@@ -10,6 +10,7 @@ en:
       tag: *tag
   messages:
     tags:
+      created: "Tag was successfully created."
       updated: "Tag was successfully updated."
   meta:
     tags:
@@ -17,5 +18,10 @@ en:
         title: "Editing tag"
       index:
         title: "Tags"
+      new:
+        title: "New tag"
   tags:
     index: *tag
+    show:
+      code: "Code"
+      posts: "Posts"

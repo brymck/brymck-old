@@ -1,5 +1,6 @@
 class Code < ActiveRecord::Base
   default_scope :order => 'code.importance DESC, code.created_at DESC'
+  has_and_belongs_to_many :tags, :uniq => true
   has_and_belongs_to_many :languages
   has_friendly_id :english_title, :use_slug => true
   translates :title, :description

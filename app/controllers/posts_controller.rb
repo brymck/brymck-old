@@ -97,8 +97,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # PUT /posts/1
-  # PUT /posts/1.xml
   def update
     @post = Post.find(params[:id])
 

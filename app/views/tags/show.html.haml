@@ -1,2 +1,11 @@
 = link_to t(:edit), edit_tag_path(@tag)
-= debug @tag
+- unless @tag.posts.empty?
+  %h3= t(".posts")
+  %ul{:"data-pjax" => "#page"}
+    - @tag.posts.each do |post|
+      %li= link_to post.title, post
+- unless @tag.code.empty?
+  %h3= t(".code")
+  %ul{:"data-pjax" => "#page"}
+    - @tag.code.each do |code|
+      %li= link_to code.title, code

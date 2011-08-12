@@ -7,6 +7,7 @@ ja:
         created_at: "発表日付"
         id: "ID"
         personal: "プライベート"
+        tags: "タグ"
         title: "タイトル"
         updated_at: "最終更新日付"
     models:
@@ -44,3 +45,4 @@ ja:
         one: "コメントが%{count}つあります"
         other: "コメントが%{count}つあります"
       reply: "返信"
+      tags: "タグ"

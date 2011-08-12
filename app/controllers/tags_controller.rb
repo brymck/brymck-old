@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
   before_filter :authorize, except: [:index, :show]
-  before_filter :add_breadcrumbs, only: [:index, :show, :edit]
+  before_filter :add_breadcrumbs, only: [:index, :show, :new, :edit]
 
   def index
     @tags = Tag.find(:all)
@@ -12,10 +12,34 @@ class TagsController < ApplicationController
     @title = @tag.name
   end
 
+  def new
+    breadcrumbs.add t("meta.tags.new.title"), new_tag_path
+    @tag = Tag.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @tag }
+    end
+  end
+
   def edit
     @tag = Tag.find(params[:id])
     breadcrumbs.add @tag.name.titlecase, tag_path(@tag) unless @tag.name.nil?
     breadcrumbs.add t("meta.tags.edit.title"), edit_tag_path(@tag)
+  end
+
+  def create
+    @tag = Tag.new(params[:tag])
+
+    respond_to do |format|
+      if @tag.save
+        format.html { redirect_to(@tag, :notice => t("messages.tags.created")) }
+        format.xml  { render :xml => @tag, :status => :created, :location => @tag }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @tag.errors, :status => :unprocessable_entity }
+      end
+    end
   end
 
   def update

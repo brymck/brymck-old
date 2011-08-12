@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110812023924) do
+ActiveRecord::Schema.define(:version => 20110812051344) do
 
   create_table "code", :force => true do |t|
     t.string   "title"
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(:version => 20110812023924) do
   end
 
   add_index "code_languages", ["code_id", "language_id"], :name => "index_code_languages_on_code_id_and_language_id", :unique => true
+
+  create_table "code_tags", :id => false, :force => true do |t|
+    t.integer "code_id"
+    t.integer "tag_id"
+  end
+
+  add_index "code_tags", ["code_id", "tag_id"], :name => "index_code_tags_on_code_id_and_tag_id", :unique => true
 
   create_table "code_translations", :force => true do |t|
     t.integer  "code_id"
@@ -108,6 +115,13 @@ ActiveRecord::Schema.define(:version => 20110812023924) do
 
   add_index "posts", ["cached_slug"], :name => "index_posts_on_cached_slug", :unique => true
 
+  create_table "posts_tags", :id => false, :force => true do |t|
+    t.integer "post_id"
+    t.integer "tag_id"
+  end
+
+  add_index "posts_tags", ["post_id", "tag_id"], :name => "index_posts_tags_on_post_id_and_tag_id", :unique => true
+
   create_table "slugs", :force => true do |t|
     t.string   "name"
     t.integer  "sluggable_id"
@@ -130,24 +144,12 @@ ActiveRecord::Schema.define(:version => 20110812023924) do
 
   add_index "tag_translations", ["tag_id"], :name => "index_tag_translations_on_tag_id"
 
-  create_table "taggings", :force => true do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
-    t.string   "taggable_type"
-    t.integer  "tagger_id"
-    t.string   "tagger_type"
-    t.string   "context"
-    t.datetime "created_at"
-  end
-
-  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
-
   create_table "tags", :force => true do |t|
     t.string "name"
     t.string "cached_slug"
   end
 
   add_index "tags", ["cached_slug"], :name => "index_tags_on_cached_slug", :unique => true
+  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
 
 end

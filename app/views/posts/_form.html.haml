@@ -20,9 +20,10 @@
     = f.label :content
     %br
     = f.text_area :content, class: "span-20 preview_source"
-  .field.inline.clear
-    = f.label :tag_list
-    = f.text_field :tag_list
+  - Tag.find(:all).each do |tag|
+    .field.inline.clear
+      = check_box_tag "post[tag_ids][]", tag.id, @post.tags.include?(tag)
+      = tag.name
   .actions.clear
     = f.submit
     %input.preview_button{type: :button, value: t(".preview")}

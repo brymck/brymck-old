@@ -2,7 +2,6 @@ source 'http://rubygems.org'
 
 gem 'rails', '~> 3.1.0.rc'
 
-gem 'acts-as-taggable-on'
 gem 'awesome_nested_set'
 gem 'breadcrumbs'
 gem 'coderay'
