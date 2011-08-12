@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.xml
   def index
-    @comments = Comment.all
+    @comments = Comment.find(:all).reverse
 
     respond_to do |format|
       format.html # index.html.erb

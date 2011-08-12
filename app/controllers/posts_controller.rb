@@ -20,7 +20,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.all
+    @posts = Post.find(:all).reverse
     breadcrumbs.add t("meta.posts.index.title"), posts_path
 
     respond_to do |format|
