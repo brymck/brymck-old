@@ -10,7 +10,7 @@
   - unless post.tags.empty?
     %aside
       %h3= t ".tags"
-      %p!= post.tags.map { |tag| link_to tag.name, tag }.join t :separator
+      %p!= post.tags.sort { |a, b| b.count <=> a.count }.map { |tag| link_to tag.name, tag }.join t :separator
   - if show_comments
     %aside>
       = content_tag :h3, t("layouts.sidebar.comments"), :id => "comments"

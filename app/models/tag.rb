@@ -4,6 +4,10 @@ class Tag < ActiveRecord::Base
   has_friendly_id :english_name, use_slug: true
   translates :name
 
+  def count
+    code.count + posts.count
+  end
+
   def english_name
     current_locale = I18n.locale
     I18n.locale = :en

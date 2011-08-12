@@ -3,7 +3,7 @@ class TagsController < ApplicationController
   before_filter :add_breadcrumbs, only: [:index, :show, :new, :edit]
 
   def index
-    @tags = Tag.find(:all)
+    @tags = Tag.find(:all).sort { |a, b| b.count <=> a.count }
   end
 
   def show
