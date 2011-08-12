@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    attributes:
+      tag: &tag
+        name: "名前"
+    models:
+      tag: "タグ"
+  helpers:
+    label:
+      tag: *tag
+  messages:
+    tags:
+      updated: "タグの更新に成功しました。"
+  meta:
+    tags:
+      edit:
+        title: "タグ編集"
+      index:
+        title: "タグ"
+  tags:
+    index: *tag

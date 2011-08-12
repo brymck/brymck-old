@@ -1,0 +1,21 @@
+en:
+  activerecord:
+    attributes:
+      tag: &tag
+        name: "Name"
+    models:
+      tag: "Tag"
+  helpers:
+    label:
+      tag: *tag
+  messages:
+    tags:
+      updated: "Tag was successfully updated."
+  meta:
+    tags:
+      edit:
+        title: "Editing tag"
+      index:
+        title: "Tags"
+  tags:
+    index: *tag

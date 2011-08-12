@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  acts_as_taggable
   has_many :comments
   has_friendly_id :english_title, :use_slug => true
   translates :title, :content
@@ -24,15 +25,17 @@ class Post < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: posts
 #
-#  id         :integer         not null, primary key
-#  title      :string(255)
-#  content    :text
-#  created_at :datetime
-#  updated_at :datetime
-#  personal   :boolean         default(FALSE)
+#  id          :integer         not null, primary key
+#  title       :string(255)
+#  content     :text
+#  created_at  :datetime
+#  updated_at  :datetime
+#  personal    :boolean         default(FALSE)
+#  cached_slug :string(255)
 #
 

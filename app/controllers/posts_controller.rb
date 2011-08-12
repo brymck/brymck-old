@@ -1,19 +1,19 @@
 class PostsController < ApplicationController
-  before_filter :authorize, :except => [:feed, :home, :journal, :preview, :show]
-  before_filter :authorize_friends, :only => :journal
+  before_filter :authorize, except: [:feed, :home, :journal, :preview, :show]
+  before_filter :authorize_friends, only: :journal
 
   def home
     @posts = Post.blog
 
     respond_to do |format|
       format.html
-      format.xml { render :xml => @posts }
+      format.xml { render xml: @posts }
     end
   end
 
   def feed
-    @posts = Post.blog.find(:all, :order => "id DESC", :limit => 10)
-    render :layout => false
+    @posts = Post.blog.find(:all, order: "id DESC", limit: 10)
+    render layout: false
     response.headers["Content-Type"] = "application/xml; charset=utf-8"
   end
 

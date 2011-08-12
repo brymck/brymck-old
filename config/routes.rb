@@ -6,11 +6,11 @@ Brymck::Application.routes.draw do
     end
 
     # Generic resources
-    resources :code, :comments
+    resources :code, :comments, :tags
 
     # Post resources
     resources :posts do
-      get :preview, :on => :collection
+      get :preview, on: :collection
     end
    
     # RSS feed
@@ -24,16 +24,16 @@ Brymck::Application.routes.draw do
     # Authentication
     match "login" => "sessions#new"
     match "friend" => "sessions#friend"
-    match "friend/verify" => "sessions#verify_friend", :as => :verify_friend
+    match "friend/verify" => "sessions#verify_friend", as: :verify_friend
   end
 
   # Authentication
-  match "/auth/:provider/callback" => "sessions#create", :as => :auth
+  match "/auth/:provider/callback" => "sessions#create", as: :auth
   match "/auth/failure" => "sessions#failure"
   match "/logout" => "sessions#destroy"
 
   # Default path for each locale
-  match '/:locale' => 'posts#home', :as => :home
+  match '/:locale' => 'posts#home', as: :home
 
   # Redirects to appropriate home path
   root :to => "pages#root"

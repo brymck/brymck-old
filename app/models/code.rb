@@ -16,6 +16,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: code
@@ -28,5 +29,6 @@ end
 #  updated_at  :datetime
 #  source      :string(255)
 #  importance  :integer         default(0), not null
+#  cached_slug :string(255)
 #
 

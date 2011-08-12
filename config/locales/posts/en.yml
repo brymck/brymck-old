@@ -7,6 +7,8 @@ en:
         created_at: "Posted"
         id: "ID"
         personal: "Personal"
+        tag_list: "Tag list"
+        tags: "Tags"
         title: "Title"
         updated_at: "Edited"
     models:

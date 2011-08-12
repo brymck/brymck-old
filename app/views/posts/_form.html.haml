@@ -9,7 +9,7 @@
 
   .field.inline
     = f.label :title
-    = f.text_field :title, :class => "preview_source"
+    = f.text_field :title, class: "preview_source"
     = f.check_box :personal
     = f.label :personal
   - if edit_date
@@ -19,10 +19,13 @@
   .field
     = f.label :content
     %br
-    = f.text_area :content, :class => "span-20 preview_source"
+    = f.text_area :content, class: "span-20 preview_source"
+  .field.inline.clear
+    = f.label :tag_list
+    = f.text_field :tag_list
   .actions.clear
     = f.submit
-    %input.preview_button{:type => "button", :value => t(".preview")}
+    %input.preview_button{type: :button, value: t(".preview")}
 %hr
 .preview
   %h3= t ".preview"

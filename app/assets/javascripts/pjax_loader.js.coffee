@@ -42,7 +42,8 @@ pjaxBindEnd = ->
       $(currentContainer).fadeTo "fast", 1
       currentContainer = null
 
-    delayRemoveSuccess() # in flash.js.coffee
+    delayRemoveSuccess()     # in flash.js.coffee
+    updateLanguageSelector() # in language.js.coffee
 
 $ ->
   # Implements PJAX if supported, otherwise degrades

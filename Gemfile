@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '~> 3.1.0.rc'
 
+gem 'acts-as-taggable-on'
 gem 'awesome_nested_set'
 gem 'breadcrumbs'
 gem 'coderay'
@@ -26,6 +27,9 @@ end
 
 group :production, :development do
   gem 'aws-s3'
+  platforms :mswin, :mingw do 
+    # gem 'eventmachine', git: "git://github.com/eventmachine/eventmachine"
+  end
   gem 'thin'               # 4.8MB
 end
 
@@ -38,7 +42,7 @@ group :development, :test do
   gem 'execjs'
   gem 'rspec-rails'
   gem 'sqlite3'
-  gem 'therubyracer'
+  gem 'therubyracer', platforms: :ruby
 end
 
 group :test do
