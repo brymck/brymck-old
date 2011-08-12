@@ -13,7 +13,6 @@ gem 'jquery-rails'
 gem 'omniauth', '>= 0.1.6' # 1.2MB
 gem 'RedCloth'
 gem 'sanitize'             # 2.8MB
-gem 'uglifier'
 
 group :assets do           # 3.3MB
   gem 'sass-rails', '~> 3.1.0.rc'
