@@ -44,6 +44,7 @@ pjaxBindEnd = ->
 
     delayRemoveSuccess()     # in flash.js.coffee
     updateLanguageSelector() # in language.js.coffee
+    $("table").headifier().tablesorter()
 
 $ ->
   # Implements PJAX if supported, otherwise degrades

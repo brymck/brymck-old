@@ -28,3 +28,4 @@ enablePostPreview = ->
 
 $ ->
   enablePostPreview()
+  $("table").headifier().tablesorter()
