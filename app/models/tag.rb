@@ -1,19 +1,21 @@
 class Tag < ActiveRecord::Base
+  translates :name
   has_and_belongs_to_many :code,  uniq: true
   has_and_belongs_to_many :posts, uniq: true
-  has_friendly_id :english_name, use_slug: true
-  translates :name
+  has_friendly_id :english_name, use_slug: true, allow_nil: true
+  prevent_no_slug
 
   def count
     code.count + posts.count
   end
 
   def english_name
-    current_locale = I18n.locale
-    I18n.locale = :en
-    en_name = name
-    I18n.locale = current_locale
-    en_name
+    translation = translations.find_by_locale("en")
+    if translation.nil?
+      name || attributes[:name]
+    else
+      translation.name
+    end
   end
 end
 

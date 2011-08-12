@@ -1,7 +1,7 @@
 class Language < ActiveRecord::Base
   default_scope order("name")
   has_and_belongs_to_many :code
-  has_friendly_id :name, use_slug: true
+  has_friendly_id :name, use_slug: true, allow_nil: true
   translates :url
 end
 

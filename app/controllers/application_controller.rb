@@ -68,4 +68,16 @@ class ApplicationController < ActionController::Base
 
     I18n.default_locale.to_s
   end
+
+  def parse_tags(tag_list, &block)
+    # Accept both arrays and comma-delimited strings
+    tag_list = tag_list.split(/,\s/) if tag_list.kind_of?(String)
+
+    # Map an array containing the equivalent tag or a new one if necessary
+    tag_list.collect do |tag_name|
+      tag = Tag.find :first, conditions: { name: tag_name }
+      tag = Tag.create(name: tag_name) if tag.nil?
+      block.call tag
+    end
+  end
 end

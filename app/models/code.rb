@@ -1,17 +1,19 @@
 class Code < ActiveRecord::Base
-  default_scope :order => 'code.importance DESC, code.created_at DESC'
-  has_and_belongs_to_many :tags, :uniq => true
-  has_and_belongs_to_many :languages
-  has_friendly_id :english_title, :use_slug => true
+  default_scope order: 'code.importance DESC, code.created_at DESC'
   translates :title, :description
-  validates :title, :presence => true
+  has_and_belongs_to_many :tags, uniq: true
+  has_and_belongs_to_many :languages
+  validates :title, presence: true
+  has_friendly_id :english_title, use_slug: true, allow_nil: true
+  prevent_no_slug
 
   def english_title
-    current_locale = I18n.locale
-    I18n.locale = :en
-    en_title = title
-    I18n.locale = current_locale
-    en_title
+    translation = translations.find_by_locale("en")
+    if translation.nil?
+      title || attributes[:title]
+    else
+      translation.title
+    end
   end
 end
 

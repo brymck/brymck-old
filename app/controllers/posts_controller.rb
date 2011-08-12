@@ -49,8 +49,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # GET /posts/1
-  # GET /posts/1.xml
   def show
     @post = Post.find(params[:id])
     if @post.personal?
@@ -61,19 +59,16 @@ class PostsController < ApplicationController
     breadcrumbs.add @title, post_path(@post)
   end
 
-  # GET /posts/new
-  # GET /posts/new.xml
   def new
     @post = Post.new
     breadcrumbs.add t("meta.posts.new.title"), new_post_path
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @post }
+      format.xml  { render xml: @post }
     end
   end
 
-  # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
     breadcrumbs.add t("meta.posts.journal.title"), journal_path if @post.personal?
@@ -81,18 +76,17 @@ class PostsController < ApplicationController
     breadcrumbs.add t("meta.posts.edit.title"), edit_post_path(@post)
   end
 
-  # POST /posts
-  # POST /posts.xml
   def create
-    @post = Post.new(params[:post])
+    @post = Post.new(params[:post].except(:tags))
+    parse_tags params[:post][:tags] { |tag| @post.tags << tag }
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to(@post, :notice => t("messages.posts.created")) }
-        format.xml  { render :xml => @post, :status => :created, :location => @post }
+        format.html { redirect_to(@post, notice: t("messages.posts.created")) }
+        format.xml  { render xml: @post, status: :created, location: @post }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
+        format.html { render action: "new" }
+        format.xml  { render xml: @post.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -101,18 +95,16 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     respond_to do |format|
-      if @post.update_attributes(params[:post])
-        format.html { redirect_to(@post, :notice => t("messages.posts.updated")) }
+      if @post.update_attributes(params[:post].except(:tags))
+        format.html { redirect_to(@post, notice: t("messages.posts.updated")) }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
+        format.html { render action: "edit" }
+        format.xml  { render xml: @post.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.xml
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
