@@ -6,7 +6,7 @@ Brymck::Application.routes.draw do
     end
 
     # Generic resources
-    resources :code, :comments, :tags
+    resources :code, :comments, :locations, :tags
 
     # Post resources
     resources :posts do

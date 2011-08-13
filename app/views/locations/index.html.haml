@@ -1,0 +1,16 @@
+= link_to t(:new), new_location_path
+%table{:"data-pjax" => "#page"}
+  %thead
+    %tr
+      - %w{id name business_hours address}.each do |field|
+        %th= t ".#{field}"
+      %th{:colspan => "2"}
+  %tbody
+    - @locations.each do |location|
+      %tr
+        %td= location.id
+        %td= link_to location.name, location
+        %td= location.business_hours
+        %td= location.address
+        %td= link_to t(:edit), edit_location_path(location)
+        %td= link_to t(:destroy), location, :confirm => t(:confirm), :method => :delete

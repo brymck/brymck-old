@@ -89,17 +89,18 @@ describe Comment do
 
 end
 
+
 # == Schema Information
 #
 # Table name: comments
 #
-#  id         :integer         not null, primary key
+#  id         :integer         primary key
 #  name       :string(255)
 #  email      :string(255)
 #  content    :text
 #  post_id    :integer
-#  created_at :datetime
-#  updated_at :datetime
+#  created_at :timestamp
+#  updated_at :timestamp
 #  parent_id  :integer
 #  lft        :integer
 #  rgt        :integer

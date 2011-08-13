@@ -1,0 +1,27 @@
+en:
+  activerecord:
+    attributes:
+      location: &location
+        address: "Address"
+        business_hours: "Business hours"
+        id: "ID"
+        name: "Name"
+    models:
+      location: "Location"
+  helpers:
+    label:
+      location: *location
+  messages:
+    locations:
+      created: "Location was successfully created."
+      updated: "Location was successfully updated."
+  meta:
+    locations:
+      edit:
+        title: "Editing location"
+      index:
+        title: "Locations"
+      new:
+        title: "New location"
+  locations:
+    index: *location

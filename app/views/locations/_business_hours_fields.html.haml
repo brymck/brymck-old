@@ -1,0 +1,14 @@
+%table
+  %tbody
+    %tr
+      %td= f.label :day
+      %td= f.select :day, Date::DAYNAMES.each_with_index.map { |d, i| [d, i] }
+    %tr
+      %td= f.label :opening
+      %td= f.text_field :opening
+    %tr
+      %td= f.label :closing
+      %td= f.text_field :closing
+    %tr
+      %td= f.label :time_zone
+      %td= f.time_zone_select :time_zone

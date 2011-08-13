@@ -1,0 +1,27 @@
+ja:
+  activerecord:
+    attributes:
+      location: &location
+        address: "住所"
+        business_hours: "営業時間"
+        id: "ID"
+        name: "名前"
+    models:
+      location: "場所"
+  helpers:
+    label:
+      location: *location
+  messages:
+    locations:
+      created: "場所の作成に成功しました。"
+      updated: "場所の更新に成功しました。"
+  meta:
+    locations:
+      edit:
+        title: "場所編集"
+      index:
+        title: "場所"
+      new:
+        title: "新規場所"
+  locations:
+    index: *location

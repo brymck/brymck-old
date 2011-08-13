@@ -1,13 +1,10 @@
-class Tag < ActiveRecord::Base
+class Location < ActiveRecord::Base
+  has_many :business_hours, dependent: :destroy
+  has_one :address, dependent: :destroy
   translates :name
-  has_and_belongs_to_many :code,  uniq: true
-  has_and_belongs_to_many :posts, uniq: true
   has_friendly_id :english_name, use_slug: true, allow_nil: true
   prevent_no_slug
-
-  def count
-    code.count + posts.count
-  end
+  accepts_nested_attributes_for :business_hours, reject_if: lambda { |a| a[:opening].blank? }, allow_destroy: true
 
   def english_name
     translation = translations.find_by_locale("en")
@@ -19,12 +16,11 @@ class Tag < ActiveRecord::Base
   end
 end
 
-
 # == Schema Information
 #
-# Table name: tags
+# Table name: locations
 #
-#  id          :integer         primary key
+#  id          :integer         not null, primary key
 #  name        :string(255)
 #  cached_slug :string(255)
 #
