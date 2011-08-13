@@ -7,12 +7,12 @@ describe PostsController do
 
   before(:each) do
     test_use_english
-    @post = Post.new :title => 'Title', :content => 'Content'
+    @post = Post.new title: 'Title', content: 'Content'
     @post.save
   end
 
   def valid_attributes
-    { :title => "Taitoru", :content => "Kontentsu" }
+    { title: "Taitoru", content: "Kontentsu", tags: "" }
   end
 
   describe "when not logged in" do
@@ -128,18 +128,18 @@ describe PostsController do
       describe "with valid parameters" do
         it "creates a new Post'" do
           expect {
-            post :create, :post => valid_attributes
+            post :create, post: valid_attributes
           }.to change(Post, :count).by(1)
         end
 
         it "assigns a newly created post as @post" do
-          post :create, :post => valid_attributes
+          post :create, post: valid_attributes
           assigns(:post).should be_a(Post)
           assigns(:post).should be_persisted
         end
 
         it "redirects to the created post" do
-          post :create, :post => valid_attributes
+          post :create, post: valid_attributes
           response.should redirect_to(Post.last)
         end
       end
@@ -147,15 +147,15 @@ describe PostsController do
 
     describe "DELETEing a post" do
       it "destroys the requested post" do
-        post = Post.create! valid_attributes
+        post = Post.create! valid_attributes.except :tags
         expect {
-          delete :destroy, :id => post.id.to_s
+          delete :destroy, id: post.id.to_s
         }.to change(Post, :count).by(-1)
       end
 
       it "redirects to the testings list" do
-        post = Post.create! valid_attributes
-        delete :destroy, :id => post.id.to_s
+        post = Post.create! valid_attributes.except :tags
+        delete :destroy, id: post.id.to_s
         response.should redirect_to(posts_url)
       end
     end
