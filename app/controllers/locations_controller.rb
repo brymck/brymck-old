@@ -9,16 +9,21 @@ class LocationsController < ApplicationController
   def new
     @location = Location.new
     3.times { @location.business_hours.build }
+    breadcrumbs.add t("meta.locations.new.title"), new_location_path
   end
 
   def edit
     @location = Location.find(params[:id])
     3.times { @location.business_hours.build }
     @location.build_address if @location.address.nil?
+    breadcrumbs.add @location.name, location_path(@location)
+    breadcrumbs.add t("meta.locations.edit.title"), edit_location_path(@location)
   end
 
   def show
     @location = Location.find(params[:id])
+    @title = @location.name
+    breadcrumbs.add @title, location_path(@location)
   end
 
   def create

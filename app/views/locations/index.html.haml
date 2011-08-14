@@ -10,7 +10,7 @@
       %tr
         %td= location.id
         %td= link_to location.name, location
-        %td= location.address
+        %td= link_to_unless location.address.nil?, location.address, "http://maps.google.com/maps?q=#{location.address}", :"data-nopjax" => true
         %td= location.open?
         %td= link_to t(:edit), edit_location_path(location)
         %td= link_to t(:destroy), location, :confirm => t(:confirm), :method => :delete
