@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110813030505) do
+ActiveRecord::Schema.define(:version => 20110814025337) do
 
   create_table "addresses", :force => true do |t|
     t.string  "country"
@@ -25,11 +25,17 @@ ActiveRecord::Schema.define(:version => 20110813030505) do
   add_index "addresses", ["location_id"], :name => "index_addresses_on_location_id"
 
   create_table "business_hours", :force => true do |t|
-    t.integer "day"
     t.string  "opening"
     t.string  "closing"
     t.string  "time_zone"
     t.integer "location_id"
+    t.boolean "sunday",      :default => false
+    t.boolean "monday",      :default => false
+    t.boolean "tuesday",     :default => false
+    t.boolean "wednesday",   :default => false
+    t.boolean "thursday",    :default => false
+    t.boolean "friday",      :default => false
+    t.boolean "saturday",    :default => false
   end
 
   add_index "business_hours", ["location_id"], :name => "index_business_hours_on_location_id"

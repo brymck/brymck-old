@@ -11,7 +11,9 @@ ja:
     formats:
       default: "%Y年%-m月%-d日 %k:%M"
       long: "%Y年%-m月%-d日 %k:%M %Z"
+      range: "%{from}～%{to}（%{day}）"
       short: "%Y年%-m月%-d日 %k:%M"
+      tiny: "%k:%M"
     zone: "Tokyo"
   back: "前へ"
   brackets: "［%{content}］"

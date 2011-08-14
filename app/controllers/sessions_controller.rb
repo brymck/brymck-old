@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
   end
 
   def verify_friend
-    if %w{alban columbus sandy zelnick}.include? params[:answer]
+    if %w{alban columbus sandy zelnick}.include?(params[:answer].to_s.downcase)
       session[:friend] = true
       redirect_to get_referer, :notice => t(:correct, :scope => [:sessions, :messages])
     else

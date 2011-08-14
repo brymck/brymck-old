@@ -11,7 +11,9 @@ en:
     formats:
       default: "%-m/%-d/%Y %k:%M"
       long: "%B %e, %Y %l:%M %p %Z"
+      range: "%{day} %{from}-%{to}"
       short: "%-m/%-d/%Y %k:%M"
+      tiny: "%k:%M"
     zone: "Eastern Time (US & Canada)"
   back: "Back"
   brackets: " [%{content}]"

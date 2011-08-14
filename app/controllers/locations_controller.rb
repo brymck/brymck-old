@@ -11,6 +11,11 @@ class LocationsController < ApplicationController
     3.times { @location.business_hours.build }
   end
 
+  def edit
+    @location = Location.find(params[:id])
+    3.times { @location.business_hours.build }
+  end
+
   def show
     @location = Location.find(params[:id])
   end

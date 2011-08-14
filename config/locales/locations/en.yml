@@ -4,8 +4,19 @@ en:
       location: &location
         address: "Address"
         business_hours: "Business hours"
+        closed: "Closed"
+        closed?: "Closed?"
+        friday: "Friday"
         id: "ID"
+        monday: "Monday"
         name: "Name"
+        open: "Open"
+        open?: "Open?"
+        saturday: "Saturday"
+        sunday: "Sunday"
+        thursday: "Thursday"
+        tuesday: "Tuesday"
+        wednesday: "Wednesday"
     models:
       location: "Location"
   helpers:

@@ -6,6 +6,27 @@ class Location < ActiveRecord::Base
   prevent_no_slug
   accepts_nested_attributes_for :business_hours, reject_if: lambda { |a| a[:opening].blank? }, allow_destroy: true
 
+  def open?(time = Time.now)
+    business_hours.each do |hours|
+      return true if hours.open?(time)
+    end
+    false
+  end
+
+  def closed?(time = Time.now)
+    !open?(time)
+  end
+
+  def combined_business_hours
+    arr = []
+    business_hours.each do |hours|
+      hours.to_a.each_with_index do |day, index|
+        arr[index] = day unless day.nil?
+      end
+    end
+    arr
+  end
+
   def english_name
     translation = translations.find_by_locale("en")
     if translation.nil?
