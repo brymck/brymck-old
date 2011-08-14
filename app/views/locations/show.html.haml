@@ -1,0 +1,7 @@
+%h2= @location.name
+%div.left= google_map @location
+%div.push-1
+  %p= link_to @location.address.to_s(delim: "<br>"), "http://maps.google.com/maps?q=#{url_encode @location.address.to_s}"
+  %ul.no-bullet
+    - business_hours_in_words(@location).each do |hour|
+      %li= hour

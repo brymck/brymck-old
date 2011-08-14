@@ -14,6 +14,7 @@ class LocationsController < ApplicationController
   def edit
     @location = Location.find(params[:id])
     3.times { @location.business_hours.build }
+    @location.build_address if @location.address.nil?
   end
 
   def show

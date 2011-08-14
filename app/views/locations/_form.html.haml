@@ -10,6 +10,8 @@
     = f.label :name
     %br
     = f.text_field :name, autofocus: true
+  = f.fields_for :address do |builder|
+    = render "address_fields", f: builder
   = f.fields_for :business_hours do |builder|
     = render "business_hours_fields", f: builder
   .actions.clear

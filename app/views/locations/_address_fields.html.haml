@@ -1,0 +1,6 @@
+%hr
+%table
+  - %w(country zip state city street extra).each do |part|
+    %tr
+      %td= f.label part
+      %td= f.text_field part

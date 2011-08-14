@@ -13,6 +13,17 @@ module LocationsHelper
     results
   end
 
+  def google_map(location)
+    content_tag :iframe, nil,
+      width: 425,
+      height: 350,
+      frameborder: 0,
+      scrolling: "no",
+      marginheight: 0,
+      marginwidth: 0,
+      src: "http://maps.google.com/maps?q=#{location.address.to_s}&output=embed"
+  end
+
   private
 
   def time_from_hours(hours)

@@ -2,7 +2,7 @@
 %table{:"data-pjax" => "#page"}
   %thead
     %tr
-      - %w{id name business_hours address open?}.each do |field|
+      - %w(id name address open?).each do |field|
         %th= t ".#{field}"
       %th{:colspan => "2"}
   %tbody
@@ -10,10 +10,6 @@
       %tr
         %td= location.id
         %td= link_to location.name, location
-        %td
-          %ul.no-bullet
-            - business_hours_in_words(location).each do |hour|
-              %li= hour
         %td= location.address
         %td= location.open?
         %td= link_to t(:edit), edit_location_path(location)
