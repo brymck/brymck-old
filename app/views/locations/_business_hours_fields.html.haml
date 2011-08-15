@@ -1,14 +1,10 @@
-%hr
-.field
-  = f.label :opening
-  = f.text_field :opening
-.field
-  = f.label :closing
-  = f.text_field :closing
-.field
-  = f.label :time_zone
-  = f.time_zone_select :time_zone
-%ul.no-bullet
+%hr.clear
+.left
+  - %w(opening closing time_zone).each do |field|
+    .field
+      = f.label field, class: "span-3"
+      = f.text_field field
+%ul.no-bullet.push-1
   - %w(sunday monday tuesday wednesday thursday friday saturday).each do |day|
     %li
       = f.check_box day

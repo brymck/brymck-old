@@ -2,6 +2,7 @@
 
 class Address < ActiveRecord::Base
   belongs_to :location
+  validates_presence_of :country, :state, :city, :street
 
   def to_s(opts = {})
     opts  = { delim: nil }.merge opts

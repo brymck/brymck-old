@@ -4,6 +4,7 @@ class Location < ActiveRecord::Base
   translates :name
   has_friendly_id :english_name, use_slug: true, allow_nil: true
   prevent_no_slug
+  validates_presence_of :name
   accepts_nested_attributes_for :business_hours, reject_if: lambda { |a| a[:opening].blank? }, allow_destroy: true
   accepts_nested_attributes_for :address, reject_if: lambda { |a| a[:city].blank? }, allow_destroy: true
 

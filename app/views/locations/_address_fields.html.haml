@@ -1,6 +1,5 @@
 %hr
-%table
-  - %w(country zip state city street extra).each do |part|
-    %tr
-      %td= f.label part
-      %td= f.text_field part
+- %w(country zip state city street extra).each do |part|
+  .field
+    %td= f.label part, class: "span-3"
+    %td= f.text_field part

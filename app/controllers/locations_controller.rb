@@ -9,6 +9,7 @@ class LocationsController < ApplicationController
   def new
     @location = Location.new
     3.times { @location.business_hours.build }
+    @location.build_address
     breadcrumbs.add t("meta.locations.new.title"), new_location_path
   end
 
@@ -29,24 +30,20 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new(params[:location])
 
-    respond_to do |format|
-      if @location.save
-        redirect_to @location, notice: t("messages.locations.created")
-      else
-        render action: "new"
-      end
+    if @location.save
+      redirect_to @location, notice: t("messages.locations.created")
+    else
+      render action: "new"
     end
   end
 
   def update
     @location = Location.find(params[:id])
 
-    respond_to do |format|
-      if @location.update_attributes(params[:location].except(:tags))
-        redirect_to @location, notice: t("messages.locations.updated")
-      else
-        render action: "edit"
-      end
+    if @location.update_attributes(params[:location].except(:tags))
+      redirect_to @location, notice: t("messages.locations.updated")
+    else
+      render action: "edit"
     end
   end
 
@@ -54,9 +51,7 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
     @location.destroy
 
-    respond_to do |format|
-      redirect_to locations_url
-    end
+    redirect_to locations_url
   end
 
   private

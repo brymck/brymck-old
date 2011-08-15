@@ -7,8 +7,7 @@
           %li= msg
 
   .field
-    = f.label :name
-    %br
+    = f.label :name, class: "span-3"
     = f.text_field :name, autofocus: true
   = f.fields_for :address do |builder|
     = render "address_fields", f: builder
