@@ -2,13 +2,12 @@
 %table{:"data-pjax" => "#page"}
   %thead
     %tr
-      - %w(id name address open?).each do |field|
+      - %w(name address open?).each do |field|
         %th= t ".#{field}"
       %th{:colspan => "2"}
   %tbody
     - @locations.each do |location|
       %tr
-        %td= location.id
         %td= link_to location.name, location
         %td= link_to_unless location.address.nil?, location.address, "http://maps.google.com/maps?q=#{location.address}", :"data-nopjax" => true
         %td= location.open?

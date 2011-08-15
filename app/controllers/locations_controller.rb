@@ -3,7 +3,7 @@ class LocationsController < ApplicationController
   before_filter :add_breadcrumbs
 
   def index
-    @locations = Location.find(:all)
+    @locations = Location.find(:all).sort_by(&:name)
   end
 
   def new

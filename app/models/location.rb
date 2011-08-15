@@ -1,6 +1,6 @@
 class Location < ActiveRecord::Base
   has_many :business_hours, dependent: :destroy
-  has_one :address, dependent: :destroy
+  has_one :address,         dependent: :destroy
   translates :name
   has_friendly_id :english_name, use_slug: true, allow_nil: true
   prevent_no_slug
