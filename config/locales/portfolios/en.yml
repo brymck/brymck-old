@@ -1,0 +1,29 @@
+en:
+  activerecord:
+    attributes:
+      portfolio: &portfolio
+        name: "Name"
+        ticker: "Ticker"
+        value: "Value"
+    models:
+      portfolio: "Portfolio"
+  helpers:
+    label:
+      portfolio: *portfolio
+  messages:
+    portfolios:
+      created: "Portfolio was successfully created."
+      updated: "Portfolio was successfully updated."
+  meta:
+    portfolios:
+      edit:
+        title: "Editing portfolio"
+      index:
+        title: "Portfolios"
+      new:
+        title: "New portfolio"
+  portfolios:
+    form:
+      quotes: "Quotes"
+    index: *portfolio
+    portfolio: *portfolio

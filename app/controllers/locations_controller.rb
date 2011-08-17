@@ -1,9 +1,15 @@
 class LocationsController < ApplicationController
   before_filter :authorize
-  before_filter :add_breadcrumbs
+  before_filter :add_breadcrumbs, only: [:index, :show, :new, :edit]
 
   def index
     @locations = Location.find(:all).sort_by(&:name)
+  end
+
+  def show
+    @location = Location.find(params[:id])
+    @title = @location.name
+    breadcrumbs.add @title, location_path(@location)
   end
 
   def new
@@ -19,12 +25,6 @@ class LocationsController < ApplicationController
     @location.build_address if @location.address.nil?
     breadcrumbs.add @location.name, location_path(@location)
     breadcrumbs.add t("meta.locations.edit.title"), edit_location_path(@location)
-  end
-
-  def show
-    @location = Location.find(params[:id])
-    @title = @location.name
-    breadcrumbs.add @title, location_path(@location)
   end
 
   def create

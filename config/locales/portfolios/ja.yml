@@ -1,0 +1,29 @@
+ja:
+  activerecord:
+    attributes:
+      portfolio: &portfolio
+        name: "名前"
+        ticker: "ティッカー"
+        value: "価格"
+    models:
+      portfolio: "ポートフォリオ"
+  helpers:
+    label:
+      portfolio: *portfolio
+  messages:
+    portfolios:
+      created: "ポートフォリオの作成に成功しました。"
+      updated: "ポートフォリオの更新に作成しました。"
+  meta:
+    portfolios:
+      edit:
+        title: "ポートフォリオ編集"
+      index:
+        title: "ポートフォリオ"
+      new:
+        title: "新規ポートフォリオ"
+  portfolios:
+    form:
+      quotes: "クオート"
+    index: *portfolio
+    portfolio: *portfolio

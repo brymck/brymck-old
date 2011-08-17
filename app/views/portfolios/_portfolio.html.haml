@@ -1,0 +1,12 @@
+%h3= link_to portfolio.name, portfolio, :"data-pjax" => "#page"
+%table
+  %thead
+    %tr
+      - %w(name ticker value).each do |field|
+        %th= t ".#{field}"
+  %tbody
+    - portfolio.quotes.each do |quote|
+      %tr.quote
+        %td= link_to quote.name, quote, class: "link"
+        %td= quote.ticker
+        %td.lookup
