@@ -67,11 +67,12 @@ class BusinessHours < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: business_hours
 #
-#  id          :integer         not null, primary key
+#  id          :integer         primary key
 #  opening     :string(255)
 #  closing     :string(255)
 #  time_zone   :string(255)

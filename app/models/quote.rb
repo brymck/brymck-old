@@ -2,10 +2,15 @@ require 'net/http'
 require 'uri'
 
 class Quote < ActiveRecord::Base
-  has_and_belongs_to_many :exchanges,  uniq: true
+  # Relationships
+  has_and_belongs_to_many :sources,    uniq: true
   has_and_belongs_to_many :portfolios, uniq: true
-  translates :name
+
+  # Validations
   validates_presence_of :name, :ticker
+
+  # Gems
+  translates :name
   has_friendly_id :ticker, use_slug: true, allow_nil: true
   prevent_no_slug
 
@@ -13,9 +18,10 @@ class Quote < ActiveRecord::Base
   FIRST_BACKREF = 1
 
   def lookup
-    url = URI.parse("http://www.bloomberg.com/")
-    response = Net::HTTP.start(url.host, url.port) do |http|
-      http.get "/apps/quote?ticker=#{ticker}"
+    uri = URI.parse sources.first.url.sub("%s", ticker)
+    puts uri
+    response = Net::HTTP.start(uri.host, uri.port) do |http|
+      http.get uri.request_uri
     end
     match = response.body.match PRICE_REGEX
     if match.nil?
@@ -25,3 +31,14 @@ class Quote < ActiveRecord::Base
     end
   end
 end
+
+# == Schema Information
+#
+# Table name: quotes
+#
+#  id          :integer         primary key
+#  name        :string(255)     not null
+#  ticker      :string(255)     not null
+#  cached_slug :string(255)
+#
+

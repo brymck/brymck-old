@@ -14,7 +14,7 @@ class PortfoliosController < ApplicationController
 
   def new
     @portfolio = Portfolio.new
-    3.times { @portfolio.quotes.build }
+    @portfolio.quotes.build
   end
 
   def edit

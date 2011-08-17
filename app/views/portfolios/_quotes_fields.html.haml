@@ -3,3 +3,7 @@
     .field
       = f.label field
       = f.text_field field
+  .field
+    - Source.find(:all).each do |source|
+      = f.check_box "source_ids", {}, source.id, ""
+      = f.label "source_ids", source.name

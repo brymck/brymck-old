@@ -24,3 +24,13 @@ class Portfolio < ActiveRecord::Base
     end
   end
 end
+
+# == Schema Information
+#
+# Table name: portfolios
+#
+#  id          :integer         primary key
+#  name        :string(255)     not null
+#  cached_slug :string(255)
+#
+

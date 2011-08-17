@@ -1,0 +1,29 @@
+ja:
+  activerecord:
+    attributes:
+      source: &source
+        name: "名前"
+        regex: "正規表現"
+        url: "URL"
+    models:
+      source: "ソース"
+  helpers:
+    label:
+      source: *source
+  messages:
+    sources:
+      created: "ソースの作成に成功しました。"
+      updated: "ソースの更新に成功しました。"
+  meta:
+    sources:
+      edit:
+        title: "ソース編集"
+      index:
+        title: "ソース"
+      new:
+        title: "新規ソース"
+  sources:
+    form:
+      metrics: "統計"
+    index: *source
+    source: *source

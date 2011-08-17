@@ -18,11 +18,12 @@ class Address < ActiveRecord::Base
   end
 end
 
+
 # == Schema Information
 #
 # Table name: addresses
 #
-#  id          :integer         not null, primary key
+#  id          :integer         primary key
 #  country     :string(255)
 #  zip         :string(255)
 #  state       :string(255)

@@ -39,11 +39,12 @@ class Location < ActiveRecord::Base
   end
 end
 
+
 # == Schema Information
 #
 # Table name: locations
 #
-#  id          :integer         not null, primary key
+#  id          :integer         primary key
 #  name        :string(255)
 #  cached_slug :string(255)
 #
