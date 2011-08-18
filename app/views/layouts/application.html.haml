@@ -4,8 +4,7 @@
   %body
     #header
       %h1= link_to highlighted_title, home_path
-      %hr
-      = render :partial => "layouts/sidebar"
+    = render :partial => "layouts/sidebar"
     #main.container
       #page
         = render_flash flash
