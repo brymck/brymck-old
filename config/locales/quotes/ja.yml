@@ -1,0 +1,29 @@
+en:
+  activerecord:
+    attributes:
+      quote: &quote
+        name: "名前"
+        sources: "ソース"
+        ticker: "ティッカー"
+        value: "価格"
+    models:
+      quote: "クオート"
+  helpers:
+    label:
+      quote: *quote
+  messages:
+    quotes:
+      created: "クオートの作成に成功しました。"
+      updated: "クオートの更新に製作しました。"
+  meta:
+    quotes:
+      edit:
+        title: "クオート編集"
+      index:
+        title: "クオート"
+      new:
+        title: "新規クオート"
+  quotes:
+    home: *quote
+    index: *quote
+    quote: *quote

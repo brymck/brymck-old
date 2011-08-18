@@ -3,6 +3,9 @@ ja:
     attributes:
       portfolio: &portfolio
         name: "名前"
+        portfolios: "ポートフォリオ"
+        quotes: "クオート"
+        sources: "ソース"
         ticker: "ティッカー"
         value: "価格"
     models:
@@ -25,5 +28,6 @@ ja:
   portfolios:
     form:
       quotes: "クオート"
+    home: *portfolio
     index: *portfolio
     portfolio: *portfolio

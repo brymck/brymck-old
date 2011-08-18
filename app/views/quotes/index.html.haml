@@ -1,0 +1,13 @@
+%table
+  %thead
+    %tr
+      - %w(ticker name).each do |field|
+        %th= t ".#{field}"
+      %th{colspan: 2}
+  %tbody
+    - @quotes.each do |quote|
+      %tr
+        %td= link_to quote.name, quote
+        %td= quote.ticker
+        %td= link_to t(:edit), edit_quote_path(quote)
+        %td= link_to t(:destroy), quote, confirm: t(:confirm), method: :delete

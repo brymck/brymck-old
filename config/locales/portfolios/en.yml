@@ -3,6 +3,9 @@ en:
     attributes:
       portfolio: &portfolio
         name: "Name"
+        portfolios: "Portfolios"
+        quotes: "Quotes"
+        sources: "Sources"
         ticker: "Ticker"
         value: "Value"
     models:
@@ -25,5 +28,6 @@ en:
   portfolios:
     form:
       quotes: "Quotes"
+    home: *portfolio
     index: *portfolio
     portfolio: *portfolio

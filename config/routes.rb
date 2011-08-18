@@ -5,8 +5,13 @@ Brymck::Application.routes.draw do
       resources :languages
     end
 
+    scope "/market" do
+      match "/" => "portfolios#home", as: :market
+      resources :metrics, :portfolios, :quotes, :sources
+    end
+
     # Generic resources
-    resources :code, :comments, :locations, :metrics, :portfolios, :quotes, :sources, :tags
+    resources :code, :comments, :locations, :tags
 
     # Post resources
     resources :posts do

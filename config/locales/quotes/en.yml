@@ -1,0 +1,29 @@
+en:
+  activerecord:
+    attributes:
+      quote: &quote
+        name: "Name"
+        sources: "Sources"
+        ticker: "Ticker"
+        value: "Value"
+    models:
+      quote: "Quote"
+  helpers:
+    label:
+      quote: *quote
+  messages:
+    quotes:
+      created: "Quote was successfully created."
+      updated: "Quote was successfully updated."
+  meta:
+    quotes:
+      edit:
+        title: "Editing quote"
+      index:
+        title: "Quotes"
+      new:
+        title: "New quote"
+  quotes:
+    home: *quote
+    index: *quote
+    quote: *quote

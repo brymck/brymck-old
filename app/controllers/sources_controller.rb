@@ -52,6 +52,7 @@ class SourcesController < ApplicationController
   private
 
   def add_breadcrumbs
+    breadcrumbs.add t(:market, scope: [:layouts, :sidebar]), market_path
     breadcrumbs.add t(:sources, scope: [:layouts, :sidebar]), sources_path
   end
 end

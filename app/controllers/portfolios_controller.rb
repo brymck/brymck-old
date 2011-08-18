@@ -1,6 +1,10 @@
 class PortfoliosController < ApplicationController
   before_filter :authorize
+  before_filter :add_market_breadcrumbs, only: :home
   before_filter :add_breadcrumbs, only: [:index, :show, :new, :edit]
+
+  def home
+  end
 
   def index
     @portfolios = Portfolio.find(:all)
@@ -51,7 +55,12 @@ class PortfoliosController < ApplicationController
 
   private
 
+  def add_market_breadcrumbs
+    breadcrumbs.add t(:market, scope: [:layouts, :sidebar]), market_path
+  end
+
   def add_breadcrumbs
+    add_market_breadcrumbs
     breadcrumbs.add t(:portfolios, scope: [:layouts, :sidebar]), portfolios_path
   end
 end
