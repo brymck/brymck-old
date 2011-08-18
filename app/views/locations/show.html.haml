@@ -1,6 +1,6 @@
 %h2= @location.name
-%div.left= google_map @location
-%div.push-1{:"data-pjax" => "#page"}
+.left= google_map @location
+.push-1{:"data-pjax" => "#page"}
   - if admin?
     %p= link_to t(:edit), edit_location_path(@location)
   %p= link_to @location.address.to_s(delim: "<br>"), "http://maps.google.com/maps?q=#{@location.address}", :"data-nopjax" => true

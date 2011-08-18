@@ -15,11 +15,14 @@ class SourcesController < ApplicationController
   def new
     @source = Source.new
     @source.metrics.build
+    breadcrumbs.add t("meta.sources.new.title"), new_source_path
   end
 
   def edit
     @source = Source.find(params[:id])
     @source.metrics.build
+    breadcrumbs.add @source.name, @source
+    breadcrumbs.add t("meta.sources.edit.title"), edit_source_path(@source)
   end
 
   def create

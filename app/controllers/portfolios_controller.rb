@@ -19,11 +19,14 @@ class PortfoliosController < ApplicationController
   def new
     @portfolio = Portfolio.new
     @portfolio.quotes.build
+    breadcrumbs.add t("meta.portfolios.new.title"), new_portfolio_path
   end
 
   def edit
     @portfolio = Portfolio.find(params[:id])
     @portfolio.quotes.build
+    breadcrumbs.add @portfolio.name, @portfolio
+    breadcrumbs.add t("meta.portfolios.edit.title"), edit_portfolio_path(@portfolio)
   end
 
   def create

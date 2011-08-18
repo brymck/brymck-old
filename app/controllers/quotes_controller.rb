@@ -8,6 +8,8 @@ class QuotesController < ApplicationController
 
   def show
     @quote = Quote.find(params[:id])
+    @title = @quote.name
+    breadcrumbs.add @title, quote_path(@quote)
     respond_to do |format|
       format.html
       format.json { render layout: false }
@@ -16,10 +18,13 @@ class QuotesController < ApplicationController
 
   def new
     @quote = Quote.new
+    breadcrumbs.add t("meta.quotes.new.title"), new_post_path
   end
 
   def edit
     @quote = Quote.find(params[:id])
+    breadcrumbs.add @quote.name, quote_path(@quote)
+    breadcrumbs.add t("meta.quotes.edit.title"), edit_post_path(@quote)
   end
 
   def create

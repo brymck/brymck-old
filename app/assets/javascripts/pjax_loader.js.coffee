@@ -44,6 +44,7 @@ pjaxBindEnd = ->
 
     delayRemoveSuccess()     # in flash.js.coffee
     updateLanguageSelector() # in language.js.coffee
+    quoteLookup()            # in portfolio.js.coffee
     $("table").headifier().tablesorter()
 
 $ ->

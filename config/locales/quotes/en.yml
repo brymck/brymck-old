@@ -27,3 +27,4 @@ en:
     home: *quote
     index: *quote
     quote: *quote
+    show: *quote

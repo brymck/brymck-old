@@ -1,4 +1,4 @@
-quoteLookup = ->
+window.quoteLookup = ->
   $(".quote").each ->
     $quote = $(@)
     link = $quote.find(".link").attr "href"

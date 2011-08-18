@@ -5,4 +5,5 @@
 //= require table_headifier
 //= require flash
 //= require language
+//= require portfolio
 //= require_tree .
