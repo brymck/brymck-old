@@ -1,5 +1,5 @@
 class SourcesController < ApplicationController
-  before_filter :authorize
+  before_filter :authorize, except: [:index, :show]
   before_filter :add_breadcrumbs, only: [:index, :show, :new, :edit]
 
   def index

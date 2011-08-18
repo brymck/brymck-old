@@ -1,5 +1,5 @@
 class PortfoliosController < ApplicationController
-  before_filter :authorize
+  before_filter :authorize, except: [:home, :index, :show]
   before_filter :add_market_breadcrumbs, only: :home
   before_filter :add_breadcrumbs, only: [:index, :show, :new, :edit]
 

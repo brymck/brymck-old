@@ -5,13 +5,13 @@
     = nav_item   t(".contact"),   contact_path
     = nav_item   t(".resume"),    resume_path
     = nav_item   t(".journal"),   journal_path
+    = nav_item   t(".market"),    market_path
     - if admin?
       %li.border &nbsp;
       = nav_item t(".posts"),     posts_path
       = nav_item t(".comments"),  comments_path
       = nav_item t(".languages"), languages_path
       = nav_item t(".locations"), locations_path
-      = nav_item t(".market"),    market_path
       = nav_item t(".tags"),      tags_path
       %li.border &nbsp;
     - if logged_in?
