@@ -1,12 +1,7 @@
 - if admin?
   = link_to t(:new), new_source_path
-%table
-  %thead
-    %tr
-      - %w(name url).each do |field|
-        %th= t ".#{field}"
-  %tbody
-    - @sources.each do |source|
-      %tr
-        %td= link_to source.name, source, :"data-pjax" => "#page"
-        %td= source.url
+- last_id = @sources.last.id
+- @sources.each do |source|
+  = render partial: "source", locals: { source: source }
+  - unless source.id == last_id
+    %hr

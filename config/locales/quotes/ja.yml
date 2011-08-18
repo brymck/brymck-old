@@ -5,7 +5,7 @@ ja:
         name: "名前"
         sources: "ソース"
         ticker: "ティッカー"
-        value: "価格"
+        value: "時価"
     models:
       quote: "クオート"
   helpers:

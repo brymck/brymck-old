@@ -2,9 +2,13 @@ ja:
   activerecord:
     attributes:
       source: &source
+        metrics: "統計"
         name: "名前"
+        quotes: "クオート"
         regex: "正規表現"
+        ticker: "ティッカー"
         url: "URL"
+        value: "時価"
     models:
       source: "ソース"
   helpers:

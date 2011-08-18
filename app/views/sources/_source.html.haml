@@ -1,0 +1,25 @@
+%h3= link_to source.name, source, :"data-pjax" => "#page"
+%h4= t(".metrics")
+%table
+  %thead
+    %tr
+      - %w(name regex).each do |field|
+        %th= t ".#{field}"
+  %tbody
+    - source.metrics.each do |metric|
+      %tr
+        %td= metric.name
+        %td= metric.regex
+%h4= t(".quotes")
+= link_to t(:lookup), sources_path, class: :quote_lookup
+%table
+  %thead
+    %tr
+      - %w(name ticker value).each do |field|
+        %th= t ".#{field}"
+  %tbody
+    - source.quotes.each do |quote|
+      %tr
+        %td= quote.name
+        %td= quote.ticker
+        %td.quote

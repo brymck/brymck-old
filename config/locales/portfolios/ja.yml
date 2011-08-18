@@ -7,7 +7,7 @@ ja:
         quotes: "クオート"
         sources: "ソース"
         ticker: "ティッカー"
-        value: "価格"
+        value: "時価"
     models:
       portfolio: "ポートフォリオ"
   helpers:

@@ -2,9 +2,13 @@ en:
   activerecord:
     attributes:
       source: &source
+        metrics: "Metrics"
         name: "Name"
+        quotes: "Quotes"
         regex: "RegEx"
+        ticker: "Ticker"
         url: "URL"
+        value: "Value"
     models:
       source: "Source"
   helpers:

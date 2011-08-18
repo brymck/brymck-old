@@ -1,4 +1,3 @@
 - if admin?
   = link_to t(:edit), edit_source_path(@source)
-%h3= @source.name
-%p= link_to @source.url, @source.url.sub("%s", "")
+= render partial: "source", locals: { source: @source }

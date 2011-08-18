@@ -25,6 +25,7 @@ en:
   download: "Download %{target}"
   edit: "Edit"
   loading: "Loading..."
+  lookup: "Pull quote information"
   new: "New"
   request_details: "This information is public, however, I first request that you provide details on who you are before continuing."
   separator: ", "

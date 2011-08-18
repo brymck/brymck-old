@@ -25,6 +25,7 @@ ja:
   download: "%{target}をダウンロードする"
   edit: "編集"
   loading: "読み込み中"
+  lookup: "時価を表示する"
   new: "新規"
   request_details: "この情報は公開されているのですが、続ける前に個人情報を提供してください。"
   separator: "、"
