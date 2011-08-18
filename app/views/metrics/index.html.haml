@@ -1,0 +1,15 @@
+%table
+  %thead
+    %tr
+      - %w(name regex).each do |field|
+        %th= t(".#{field}")
+      - if admin?
+        %th{colspan: 2}
+  %tbody
+    - @metrics.each do |metric|
+      %tr
+        %td= link_to metric.name, metric
+        %td= metric.regex
+        - if admin?
+          %td= link_to t(:edit), edit_metric_path(metric)
+          %td= link_to t(:destroy), metric, confirm: t(:confirm), method: :delete

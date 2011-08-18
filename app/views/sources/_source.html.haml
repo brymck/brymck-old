@@ -8,7 +8,7 @@
   %tbody
     - source.metrics.each do |metric|
       %tr
-        %td= metric.name
+        %td= link_to metric.name, metric
         %td= metric.regex
 %h4= t(".quotes")
 = link_to t(:lookup), sources_path, class: :quote_lookup
@@ -20,6 +20,6 @@
   %tbody
     - source.quotes.each do |quote|
       %tr
-        %td= quote.name
+        %td= link_to quote.name, quote
         %td= quote.ticker
         %td.quote

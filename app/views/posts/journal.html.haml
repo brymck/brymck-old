@@ -1,7 +1,7 @@
 #posts.span-17.colborder
   = link_to t(:new), new_post_path if admin?
   - last_id = @posts.last.id
-  - @posts.reverse[0..2].each do |post|
+  - @posts.each do |post|
     = render :partial => "posts/post", :locals => { :post => post }
     - unless post.id == last_id
       %hr

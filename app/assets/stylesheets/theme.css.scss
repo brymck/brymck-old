@@ -8,12 +8,16 @@ $very_dark:  darken($main_color, 20%);
 body {
   background-color: #f5f5f5;
   > footer {
-    padding-top: 1.5em; } }
+    padding-top: 1.5em;
+  }
+}
+
 .container {
   background-color: #fff;
   border: 1px solid #e5e5e5;
   margin-top: 0.7em;
-  padding: 1em; }
+  padding: 1em;
+}
 
 a {
   color: $main_color; }
@@ -22,24 +26,36 @@ a {
   background: $dark;
   background: -moz-linear-gradient(top, $dark, $darker);
   background: -webkit-gradient(linear, left top, left bottom, from($dark), to($darker));
-  padding-left: 4px; }
+  padding-left: 4px;
+}
 
 #header, nav ul {
   color: #fff;
   .border {
-    border-right-color: $dark; }
+    border-right-color: $dark;
+  }
   a {
-    color: $light; }
+    color: $light;
+  }
   h1 {
     .first {
-      color: #fff; } }
+      color: #fff;
+    }
+  }
   hr {
-    background-color: $dark; } }
+    background-color: $dark;
+  }
+}
 
 html > body > nav {
   #links, #languages, #breadcrumbs {
     padding-left: 4px;
-    padding-right: 4px; } }
+    padding-right: 4px;
+  }
+  > ul a:hover {
+    color: #fff;
+  }
+}
 
 nav {
   background: $dark;

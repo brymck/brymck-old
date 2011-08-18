@@ -2,6 +2,7 @@ ja:
   activerecord:
     attributes:
       portfolio: &portfolio
+        metrics: "統計"
         name: "名前"
         portfolios: "ポートフォリオ"
         quotes: "クオート"

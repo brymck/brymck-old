@@ -2,6 +2,7 @@ en:
   activerecord:
     attributes:
       portfolio: &portfolio
+        metrics: "Metrics"
         name: "Name"
         portfolios: "Portfolios"
         quotes: "Quotes"

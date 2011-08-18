@@ -13,6 +13,7 @@ en:
       login: "Login"
       logout: "Logout"
       market: "Market"
+      metrics: "Metrics"
       portfolios: "Portfolios"
       posts: "Posts"
       quotes: "Quotes"

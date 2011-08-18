@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_filter :authorize_friends, only: :journal
 
   def home
-    @posts = Post.blog
+    @posts = Post.blog.reverse[0..2]
 
     respond_to do |format|
       format.html
@@ -30,13 +30,8 @@ class PostsController < ApplicationController
   end
 
   def journal
-    @posts = Post.journal
+    @posts = Post.journal.reverse[0..2]
     breadcrumbs.add t("meta.posts.journal.title"), journal_path
-
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @posts }
-    end
   end
 
   def preview

@@ -1,0 +1,4 @@
+- if admin?
+  = link_to t(:edit), edit_metric_path(@metric)
+%h2= @metric.name
+%p= @metric.regex
