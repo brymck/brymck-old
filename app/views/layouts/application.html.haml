@@ -2,15 +2,14 @@
 %html
   = render :partial => "layouts/head"
   %body
-    #main.container
-      %h1
-        = link_to t(:brymck), home_path
+    #header
+      %h1= link_to highlighted_title, home_path
       %hr
       = render :partial => "layouts/sidebar"
-      %hr
+    #main.container
       #page
         = render_flash flash
         = yield
         = yield :archive
-      = render :partial => "layouts/footer"
+    = render :partial => "layouts/footer"
     = javascript_include_tag :application

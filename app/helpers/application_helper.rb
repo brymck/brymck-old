@@ -27,6 +27,13 @@ module ApplicationHelper
       interpolation_data.merge({ :default => t("meta.defaults.#{name}") }))
   end
 
+  def highlighted_title
+    title = t(:brymck)
+    html  = content_tag :span, title[0], class: :first
+    html << title[1..-1]
+    html.html_safe
+  end
+
   def render_flash(flash)
     html = ""
     flash.each do |key, message|
