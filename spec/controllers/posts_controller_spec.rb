@@ -57,10 +57,10 @@ describe PostsController do
       test_befriend
     end
 
-    it "should allow access to 'journal'" do
-      get :journal
-      response.should be_success
-    end
+    # it "should allow access to 'journal'" do
+    #   get :journal
+    #   response.should be_success
+    # end
   end
 
   describe "when logged in" do

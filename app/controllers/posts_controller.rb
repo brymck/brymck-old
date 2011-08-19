@@ -17,16 +17,9 @@ class PostsController < ApplicationController
     response.headers["Content-Type"] = "application/xml; charset=utf-8"
   end
 
-  # GET /posts
-  # GET /posts.xml
   def index
     @posts = Post.find(:all).reverse
     breadcrumbs.add t("meta.posts.index.title"), posts_path
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @posts }
-    end
   end
 
   def journal
@@ -37,11 +30,6 @@ class PostsController < ApplicationController
   def preview
     @post = Post.new params[:post]
     @post.created_at = Time.now
-
-    respond_to do |format|
-      format.html { render :layout => false }
-      format.xml  { render :xml => @post }
-    end
   end
 
   def show
@@ -57,11 +45,6 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     breadcrumbs.add t("meta.posts.new.title"), new_post_path
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render xml: @post }
-    end
   end
 
   def edit
@@ -104,9 +87,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(posts_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to posts_url
   end
 end
