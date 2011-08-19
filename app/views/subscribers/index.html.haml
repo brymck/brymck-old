@@ -1,7 +1,7 @@
 %table
   %thead
     %tr
-      - %w(name email approved? active? unsubscribed?).each do |field|
+      - %w(name email approved? active? unsubscribed? wants_email? test?).each do |field|
         %th= t(".#{field}")
   %tbody
     - @subscribers.each do |subscriber|
@@ -11,3 +11,5 @@
         %td= subscriber.approved?
         %td= subscriber.active?
         %td= subscriber.unsubscribed?
+        %td= subscriber.wants_email?
+        %td= subscriber.test?

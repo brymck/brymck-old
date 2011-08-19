@@ -48,12 +48,10 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    return true if Rails.env == "development"
     !session[:uid].nil?
   end
 
   def admin?
-    return true if Rails.env == "development"
     logged_in? && session[:admin]
   end
 

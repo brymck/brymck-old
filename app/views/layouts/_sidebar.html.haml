@@ -7,15 +7,6 @@
     = nav_item   t(".journal"),     journal_path
     = nav_item   t(".subscribe"),   subscribe_path
     = nav_item   t(".market"),      market_path
-    - if admin?
-      %li.border &nbsp;
-      = nav_item t(".posts"),       posts_path
-      = nav_item t(".comments"),    comments_path
-      = nav_item t(".languages"),   languages_path
-      = nav_item t(".locations"),   locations_path
-      = nav_item t(".subscribers"), subscribers_path
-      = nav_item t(".tags"),        tags_path
-      %li.border &nbsp;
     - if logged_in?
       = nav_item t(".logout"),      logout_path, :"data-nopjax" => true
     - else
@@ -23,6 +14,13 @@
   %ul#languages.horizontal.right
     = nav_item   t(".english",  :locale => :en), url_for(params.merge(:locale => "en")), lang: :en
     = nav_item   t(".japanese", :locale => :ja), url_for(params.merge(:locale => "ja")), lang: :ja
-  %hr
+  - if admin?
+    %ul#admin.horizontal.clear.left.delink-current{:"data-pjax" => "#page"}
+      = nav_item t(".posts"),       posts_path
+      = nav_item t(".comments"),    comments_path
+      = nav_item t(".languages"),   languages_path
+      = nav_item t(".locations"),   locations_path
+      = nav_item t(".subscribers"), subscribers_path
+      = nav_item t(".tags"),        tags_path
   %section#breadcrumbs.clear{:"data-pjax" => "#page"}
     = breadcrumbs.render :format => :inline

@@ -1,9 +1,17 @@
-$main_color: #3648d1;
-$very_light: lighten($main_color, 40%);
-$light:      lighten($main_color, 30%);
-$dark:       darken($main_color, 15%);
-$darker:     darken($main_color, 18%);
-$very_dark:  darken($main_color, 20%);
+$primary:      #3648d0;
+$very_light:   lighten($primary, 40%);
+$light:        lighten($primary, 30%);
+$dark:         darken($primary, 12%);
+$darker:       darken($primary, 18%);
+$very_dark:    darken($primary, 20%);
+
+$adjustment:   120deg;
+$secondary:    adjust-hue($primary, $adjustment);
+$very_light_2: adjust-hue($very_light, $adjustment);
+$light_2:      adjust-hue($light, $adjustment);
+$dark_2:       adjust-hue($dark, $adjustment);
+$darker_2:     adjust-hue($darker, $adjustment); 
+$very_dark_2:  adjust-hue($very_dark, $adjustment);
 
 body {
   background-color: #f5f5f5;
@@ -20,7 +28,7 @@ body {
 }
 
 a {
-  color: $main_color; }
+  color: $primary; }
 
 #header {
   background: $dark;
@@ -47,22 +55,29 @@ a {
   }
 }
 
-html > body > nav {
-  #links, #languages, #breadcrumbs {
+nav {
+  background: $dark;
+  background: -moz-linear-gradient(top, $darker, $very_dark);
+  background: -webkit-gradient(linear, left top, left bottom, from($darker), to($very_dark));
+  #admin {
+    background: $dark_2;
+    background: -moz-linear-gradient(top, $darker_2, $very_dark_2);
+    background: -webkit-gradient(linear, left top, left bottom, from($darker_2), to($very_dark_2));
+    border-top: 1px solid $very_dark_2;
+    a {
+      color: $light_2;
+    }
+    width: 100%;
+  }
+  #breadcrumbs {
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  ul.horizontal, section {
     padding-left: 4px;
     padding-right: 4px;
   }
   > ul a:hover {
     color: #fff;
-  }
-}
-
-nav {
-  background: $dark;
-  background: -moz-linear-gradient(top, $darker, $very_dark);
-  background: -webkit-gradient(linear, left top, left bottom, from($darker), to($very_dark));
-  #breadcrumbs {
-    background-color: #fff;
-    border-bottom: 1px solid #e5e5e5;
   }
 }
