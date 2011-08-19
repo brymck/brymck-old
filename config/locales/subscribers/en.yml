@@ -2,10 +2,20 @@ en:
   activerecord:
     attributes:
       subscriber: &subscriber
-        email: "Email"
-        name: "Name"
+        activate: Activate
+        active: Active
+        approve: Approve
+        deactivate: Deactivate
+        email: Email
+        inactive: Inactive
+        name: Name
+        status: Status
+        test?: Test"
+        unapproved: Unapproved
+        unsubscribed: Unsubscribed
+        wants_email?: "Wants email?"
     models:
-      subscriber: "Subscriber"
+      subscriber: Subscriber
   helpers:
     label:
       subscriber: *subscriber
@@ -18,7 +28,7 @@ en:
       edit:
         title: "Editing subscriber"
       index:
-        title: "Subscribers"
+        title: Subscribers
       new:
         title: "Subscribe to mailing list"
   subscribers:

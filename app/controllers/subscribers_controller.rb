@@ -2,6 +2,24 @@ class SubscribersController < ApplicationController
   before_filter :authorize, except: [:new, :create]
   before_filter :add_breadcrumbs, only: [:index, :show, :new, :edit]
 
+  def activate
+    @subscriber = Subscriber.find(params[:id])
+    @subscriber.activate!
+    redirect_to subscribers_path
+  end
+
+  def deactivate
+    @subscriber = Subscriber.find(params[:id])
+    @subscriber.deactivate!
+    redirect_to subscribers_path
+  end
+
+  def approve
+    @subscriber = Subscriber.find(params[:id])
+    @subscriber.approve!
+    redirect_to subscribers_path
+  end
+
   def index
     @subscribers = Subscriber.find(:all)
   end

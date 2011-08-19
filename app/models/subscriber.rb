@@ -7,8 +7,32 @@ class Subscriber < ActiveRecord::Base
     approved? && active? && !unsubscribed?
   end
 
-  def approve
+  def approve!
     update_attribute :approved, true
+  end
+
+  def activate!
+    update_attribute :active, true
+  end
+
+  def deactivate!
+    update_attribute :active, false
+  end
+
+  def status
+    if unsubscribed?
+      :unsubscribed
+    else
+      if approved?
+        if active?
+          :active
+        else
+          :inactive
+        end
+      else
+        :unapproved
+      end
+    end
   end
 end
 

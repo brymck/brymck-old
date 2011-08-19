@@ -11,7 +11,13 @@ Brymck::Application.routes.draw do
     end
 
     match "subscribe" => "subscribers#new"
-    resources :subscribers
+    resources :subscribers do
+      member do
+        put :activate
+        put :deactivate
+        put :approve
+      end
+    end
 
     # Generic resources
     resources :code, :comments, :locations, :tags

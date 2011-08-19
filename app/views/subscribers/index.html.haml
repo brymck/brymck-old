@@ -1,15 +1,18 @@
 %table
   %thead
     %tr
-      - %w(name email approved? active? unsubscribed? wants_email? test?).each do |field|
+      - %w(name email status wants_email? test?).each do |field|
         %th= t(".#{field}")
+      %th{colspan: 3}
   %tbody
     - @subscribers.each do |subscriber|
       %tr
         %td= subscriber.name
         %td= subscriber.email
-        %td= subscriber.approved?
-        %td= subscriber.active?
-        %td= subscriber.unsubscribed?
+        %td= t(".#{subscriber.status}")
         %td= subscriber.wants_email?
         %td= subscriber.test?
+        - if admin?
+          %td= subscriber_action_tag subscriber
+          %td= link_to t(:edit), edit_subscriber_path(subscriber)
+          %td= link_to t(:destroy), subscriber, confirm: t(:confirm), method: :delete

@@ -2,8 +2,18 @@ ja:
   activerecord:
     attributes:
       subscriber: &subscriber
+        activate: "アクティブ化"
+        active: "アクティブ"
+        approve: "承認"
+        deactivate: "非アクティブ化"
         email: "メール"
+        inactive: "非アクティブ"
         name: "名前"
+        status: "ステータス"
+        test?: "テスト？"
+        unapproved: "未承認"
+        unsubscribed: "配信停止希望"
+        wants_email?: "メールがほしい？"
     models:
       subscriber: "加入者"
   helpers:
