@@ -1,0 +1,25 @@
+ja:
+  activerecord:
+    attributes:
+      subscriber: &subscriber
+        email: "メール"
+        name: "名前"
+    models:
+      subscriber: "加入者"
+  helpers:
+    label:
+      subscriber: *subscriber
+  messages:
+    subscribers:
+      created: "加入者の作成に成功しました。"
+      updated: "加入者の更新に成功しました。"
+  meta:
+    subscribers:
+      edit:
+        title: "加入者編集"
+      index:
+        title: "加入者"
+      new:
+        title: "メーリスに登録"
+  subscribers:
+    index: *subscriber

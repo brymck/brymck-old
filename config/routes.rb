@@ -10,6 +10,9 @@ Brymck::Application.routes.draw do
       resources :metrics, :portfolios, :quotes, :sources
     end
 
+    match "subscribe" => "subscribers#new"
+    resources :subscribers
+
     # Generic resources
     resources :code, :comments, :locations, :tags
 

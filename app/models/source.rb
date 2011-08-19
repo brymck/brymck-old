@@ -13,13 +13,14 @@ class Source < ActiveRecord::Base
   prevent_no_slug
 end
 
+
 # == Schema Information
 #
-# Table name: exchanges
+# Table name: sources
 #
-#  id          :integer         primary key
+#  id          :integer         not null, primary key
 #  name        :string(255)     not null
 #  cached_slug :string(255)
-#  abbr        :string(255)     default(""), not null
+#  url         :string(255)     not null
 #
 

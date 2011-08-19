@@ -1,0 +1,25 @@
+en:
+  activerecord:
+    attributes:
+      subscriber: &subscriber
+        email: "Email"
+        name: "Name"
+    models:
+      subscriber: "Subscriber"
+  helpers:
+    label:
+      subscriber: *subscriber
+  messages:
+    subscribers:
+      created: "Subscriber was successfully created."
+      updated: "Subscriber was successfully updated."
+  meta:
+    subscribers:
+      edit:
+        title: "Editing subscriber"
+      index:
+        title: "Subscribers"
+      new:
+        title: "Subscribe to mailing list"
+  subscribers:
+    index: *subscriber

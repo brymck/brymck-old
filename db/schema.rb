@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110817070429) do
+ActiveRecord::Schema.define(:version => 20110819082848) do
 
   create_table "addresses", :force => true do |t|
     t.string  "country"
@@ -270,6 +271,21 @@ ActiveRecord::Schema.define(:version => 20110817070429) do
   add_index "sources", ["cached_slug"], :name => "index_sources_on_cached_slug", :unique => true
   add_index "sources", ["name"], :name => "index_sources_on_name"
   add_index "sources", ["url"], :name => "index_sources_on_url", :unique => true
+
+  create_table "subscribers", :force => true do |t|
+    t.string   "name",                            :null => false
+    t.string   "email",                           :null => false
+    t.boolean  "approved",     :default => false, :null => false
+    t.boolean  "active",       :default => true,  :null => false
+    t.boolean  "unsubscribed", :default => false, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "test",         :default => false, :null => false
+  end
+
+  add_index "subscribers", ["email"], :name => "index_subscribers_on_email", :unique => true
+  add_index "subscribers", ["name"], :name => "index_subscribers_on_name"
+  add_index "subscribers", ["test"], :name => "index_subscribers_on_test"
 
   create_table "tag_translations", :force => true do |t|
     t.integer   "tag_id"
