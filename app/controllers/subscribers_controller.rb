@@ -28,13 +28,13 @@ class SubscribersController < ApplicationController
   def unsubscribe
     @subscriber = Subscriber.find(params[:id])
     if @subscriber.nil?
-      redirect_to new_subscriber_path, alert: t("messages.subscribers.bad_id", id: params[:id])
+      redirect_to subscribe_path, alert: t("messages.subscribers.bad_id", id: params[:id])
     end
     if @subscriber.hash == params[:hash]
       @subscriber.unsubscribe!
-      redirect_to new_subscriber_path, notice: t("messages.subscribers.unsubscribed", email: @subscriber.email)
+      redirect_to subscribe_path, notice: t("messages.subscribers.unsubscribed", email: @subscriber.email)
     end
-    redirect_to new_subscriber_path, alert: t("messages.subscribers.bad_hash", id: @subscriber.id)
+    redirect_to subscribe_path, alert: t("messages.subscribers.bad_hash", id: @subscriber.id)
   end
 
   def index
@@ -49,7 +49,7 @@ class SubscribersController < ApplicationController
 
   def new
     @subscriber = Subscriber.new
-    breadcrumbs.add t("meta.subscribers.new.title"), new_subscriber_path
+    breadcrumbs.add t("meta.subscribers.new.title"), subscribe_path
   end
 
   def edit
@@ -62,7 +62,7 @@ class SubscribersController < ApplicationController
     @subscriber = Subscriber.new(params[:subscriber])
 
     if @subscriber.save
-      redirect_to new_subscriber_path, notice: t("messages.subscribers.created", email: @subscriber.email)
+      redirect_to subscribe_path, notice: t("messages.subscribers.created", email: @subscriber.email)
     else
       render action: "new"
     end
