@@ -11,7 +11,7 @@
     - @subscribers.each do |subscriber|
       %tr
         %td= link_to subscriber.name, subscriber
-        %td= mail_to subscriber.email, nil, encode: "javascript"
+        %td= mail_to subscriber.email
         %td= t(".#{subscriber.status}")
         %td= subscriber.wants_email?
         %td= subscriber.test?

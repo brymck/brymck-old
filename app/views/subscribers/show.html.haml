@@ -1,6 +1,6 @@
 = link_to t(:edit), edit_subscriber_path(@subscriber)
 %h3= @subscriber.name
-= mail_to @subscriber.email, nil, encode: "javascript"
+= mail_to @subscriber.email
 %p
   - if @subscriber.active?
     = link_to t(".deactivate"), deactivate_subscriber_path(@subscriber)
