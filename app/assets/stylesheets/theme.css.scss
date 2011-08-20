@@ -64,20 +64,26 @@ nav {
     background: -moz-linear-gradient(top, $darker_2, $very_dark_2);
     background: -webkit-gradient(linear, left top, left bottom, from($darker_2), to($very_dark_2));
     border-top: 1px solid $very_dark_2;
+    display: block;
     a {
       color: $light_2;
     }
-    width: 100%;
+    a:hover {
+      color: #fff;
+    }
+    ul {
+      margin-top: 0;
+    }
   }
   #breadcrumbs {
     background-color: #fff;
     border-bottom: 1px solid #e5e5e5;
   }
-  ul.horizontal, section {
+  ul.horizontal, #breadcrumbs {
     padding-left: 4px;
     padding-right: 4px;
   }
-  > ul a:hover {
+  #main_nav a:hover {
     color: #fff;
   }
 }
