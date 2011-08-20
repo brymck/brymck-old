@@ -1,6 +1,6 @@
 - all_code ||= Code.find(:all)
 %h2= t ".archive"
-%ul
+%ul{:"data-pjax" => "#code"}
   - all_code.each do |code|
     %li<
       - if current_page?(code)

@@ -6,6 +6,6 @@
     - unless code.id == last_id
       %hr
 - content_for :archive do
-  .archive.delink-current{:"data-pjax" => "#code"}
+  .archive.delink-current
     = render :partial => "archive"
-    = content_tag :p, link_to(t(:view_by_language, :scope => :code), languages_path)
+    %p{:"data-pjax" => "#page"}= link_to t(:view_by_language, :scope => :code), languages_path
