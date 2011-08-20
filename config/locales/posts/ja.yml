@@ -2,14 +2,18 @@ ja:
   activerecord:
     attributes:
       post: &post
-        comments: "コメント数"
-        content: "コンテンツ"
-        created_at: "発表日付"
-        id: "ID"
-        personal: "プライベート"
-        tags: "タグ"
-        title: "タイトル"
-        updated_at: "最終更新日付"
+        comments: コメント数
+        content: コンテンツ
+        created_at: 発表日付
+        draft: 初稿
+        final: 最終稿
+        id: ID
+        personal: プライベート
+        published: 公開された
+        status: ステータス
+        tags: タグ
+        title: タイトル
+        updated_at: 最終更新日付
     models:
       post: "投稿"
   helpers:

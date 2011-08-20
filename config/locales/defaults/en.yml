@@ -1,9 +1,9 @@
 en:
-  brymck: "brymck"
+  brymck: brymck
   bryan_mckelvey: "Bryan McKelvey"
   meta:
     defaults:
-      title: "brymck"
+      title: brymck
       description: "brymck.com is a collection of Bryan McKelvey's writings, research and professional documents on finance, banking and Japan."
       keywords: "brymck, banking, finance, japan, bryan, mckelvey"
   time:
@@ -15,18 +15,21 @@ en:
       short: "%-m/%-d/%Y %k:%M"
       tiny: "%k:%M"
     zone: "Eastern Time (US & Canada)"
-  back: "Back"
+  back: Back
   brackets: " [%{content}]"
-  clear: "Clear"
+  clear: Clear
   colon: ": "
   confirm: "Are you really sure?"
   deny_access: "Please log in to access this page."
-  destroy: "Destroy"
+  destroy: Destroy
+  development: Development
   download: "Download %{target}"
-  edit: "Edit"
+  edit: Edit
   loading: "Loading..."
   lookup: "Pull quote information"
-  new: "New"
+  new: New
+  production: Production
   request_details: "This information is public, however, I first request that you provide details on who you are before continuing."
   separator: ", "
-  show: "Show"
+  show: Show
+  test: Test

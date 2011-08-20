@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110819082848) do
+ActiveRecord::Schema.define(:version => 20110820052320) do
 
   create_table "addresses", :force => true do |t|
     t.string  "country"
@@ -196,12 +196,13 @@ ActiveRecord::Schema.define(:version => 20110819082848) do
   add_index "post_translations", ["post_id"], :name => "index_post_translations_on_post_id"
 
   create_table "posts", :force => true do |t|
-    t.string    "title"
-    t.text      "content"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.boolean   "personal",    :default => false
-    t.string    "cached_slug"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "personal",    :default => false
+    t.string   "cached_slug"
+    t.boolean  "published",   :default => false, :null => false
   end
 
   add_index "posts", ["cached_slug"], :name => "index_posts_on_cached_slug", :unique => true

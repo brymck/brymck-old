@@ -11,12 +11,14 @@ Brymck::Application.routes.draw do
     end
 
     match "subscribe" => "subscribers#new"
+    match "unsubscribe/:id/:hash" => "subscribers#unsubscribe", as: :unsubscribe
     resources :subscribers do
       member do
         put :activate
         put :deactivate
         put :approve
       end
+      match "environment/:env" => "subscribers#environment", as: :environment, on: :collection
     end
 
     # Generic resources
@@ -25,6 +27,7 @@ Brymck::Application.routes.draw do
     # Post resources
     resources :posts do
       get :preview, on: :collection
+      get :mail_preview, on: :member
     end
    
     # RSS feed

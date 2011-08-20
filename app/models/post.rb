@@ -8,12 +8,16 @@ class Post < ActiveRecord::Base
 
   class << self
     def blog
-      self.where(personal: false)
+      self.all.keep_if(&:published?).keep_if(&:professional?)
     end
 
     def journal
-      self.where(personal: true)
+      self.all.keep_if(&:published?).keep_if(&:personal?)
     end
+  end
+
+  def publish!
+    update_attribute :published, true
   end
 
   def english_title
@@ -24,21 +28,36 @@ class Post < ActiveRecord::Base
       translation.title
     end
   end
+
+  def status
+    published? ? :final : :draft
+  end
+
+  def professional?
+    !personal?
+  end
+
+  def draft?
+    !published?
+  end
+
+  def final?
+    # No luck with alias
+    published?
+  end
 end
-
-
-
 
 # == Schema Information
 #
 # Table name: posts
 #
-#  id          :integer         primary key
+#  id          :integer         not null, primary key
 #  title       :string(255)
 #  content     :text
-#  created_at  :timestamp
-#  updated_at  :timestamp
+#  created_at  :datetime
+#  updated_at  :datetime
 #  personal    :boolean         default(FALSE)
 #  cached_slug :string(255)
+#  published   :boolean         default(FALSE), not null
 #
 

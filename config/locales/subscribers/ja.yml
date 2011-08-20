@@ -12,6 +12,7 @@ ja:
         status: "ステータス"
         test?: "テスト？"
         unapproved: "未承認"
+        unsubscribe: "配信停止"
         unsubscribed: "配信停止希望"
         wants_email?: "メールがほしい？"
     models:
@@ -21,7 +22,10 @@ ja:
       subscriber: *subscriber
   messages:
     subscribers:
-      created: "加入者の作成に成功しました。"
+      bad_id: "%{id}は見つかりませんでした。"
+      bad_id: "%{id}のハッシュが無効です。"
+      created: "%{email}のメーリス追加に成功しました。連絡先にlistserv@brymck.heroku.comを追加してください。"
+      unsubscribed: "%{email}の登録解除に成功しました。さよなら！"
       updated: "加入者の更新に成功しました。"
   meta:
     subscribers:
@@ -33,3 +37,7 @@ ja:
         title: "メーリスに登録"
   subscribers:
     index: *subscriber
+    new:
+      greeting: |
+        hi
+    show: *subscriber

@@ -2,14 +2,18 @@ en:
   activerecord:
     attributes:
       post: &post
-        comments: "Comments"
-        content: "Content"
-        created_at: "Posted"
-        id: "ID"
-        personal: "Personal"
-        tags: "Tags"
-        title: "Title"
-        updated_at: "Edited"
+        comments: Comments
+        content: Content
+        created_at: Posted
+        draft: Draft
+        final: Final
+        id: ID
+        personal: Personal
+        published: Published
+        status: Status
+        tags: Tags
+        title: Title
+        updated_at: Edited
     models:
       post: "Post"
   helpers:

@@ -32,6 +32,11 @@ class PostsController < ApplicationController
     @post.created_at = Time.now
   end
 
+  def mail_preview
+    @post = Post.find(params[:id])
+    @subscribers = Subscriber.active_list
+  end
+
   def show
     @post = Post.find(params[:id])
     if @post.personal?

@@ -24,16 +24,18 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: posts
 #
-#  id          :integer         primary key
+#  id          :integer         not null, primary key
 #  title       :string(255)
 #  content     :text
-#  created_at  :timestamp
-#  updated_at  :timestamp
+#  created_at  :datetime
+#  updated_at  :datetime
 #  personal    :boolean         default(FALSE)
 #  cached_slug :string(255)
+#  published   :boolean         default(FALSE), not null
 #
 

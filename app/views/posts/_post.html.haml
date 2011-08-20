@@ -6,7 +6,7 @@
     %p=t :bryan_mckelvey
     %p= time_tag post.created_at
     = content_tag :p, link_to(t(:edit), edit_post_path(post)) if show_admin_tools && admin?
-  ~ textile post.content, :safe => true
+  ~ textile post.content, safe: true
   - unless post.tags.empty?
     %aside
       %h3= t ".tags"

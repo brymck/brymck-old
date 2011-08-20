@@ -12,6 +12,7 @@ en:
         status: Status
         test?: Test?
         unapproved: Unapproved
+        unsubscribe: Unsubscribe
         unsubscribed: Unsubscribed
         wants_email?: "Wants email?"
     models:
@@ -21,7 +22,10 @@ en:
       subscriber: *subscriber
   messages:
     subscribers:
-      created: "Subscriber was successfully created."
+      bad_id: "Subscription for ID %{id} not found."
+      bad_hash: "Invalid hash for subscription ID %{id}."
+      created: "%{email} added to the listserv. To make sure you receive mailings, add listserv@brymck.heroku.com to your contacts list."
+      unsubscribed: "%{email} removed from the listserv. Happy trails!"
       updated: "Subscriber was successfully updated."
   meta:
     subscribers:
@@ -33,3 +37,7 @@ en:
         title: Subscribe
   subscribers:
     index: *subscriber
+    new:
+      greeting: |
+        hi
+    show: *subscriber

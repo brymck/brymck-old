@@ -1,3 +1,6 @@
+= link_to_unless Subscriber.env == "production", t(:production), environment_subscribers_path(env: :production)
+|
+= link_to_unless Subscriber.env == "test",       t(:test),       environment_subscribers_path(env: :test)
 %table
   %thead
     %tr
@@ -7,8 +10,8 @@
   %tbody
     - @subscribers.each do |subscriber|
       %tr
-        %td= subscriber.name
-        %td= subscriber.email
+        %td= link_to subscriber.name, subscriber
+        %td= mail_to subscriber.email, nil, encode: "javascript"
         %td= t(".#{subscriber.status}")
         %td= subscriber.wants_email?
         %td= subscriber.test?

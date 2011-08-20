@@ -1,6 +1,11 @@
 class SubscribersController < ApplicationController
-  before_filter :authorize, except: [:new, :create]
+  before_filter :authorize, except: [:new, :create, :unsubscribe]
   before_filter :add_breadcrumbs, only: [:index, :show, :edit]
+
+  def environment
+    Subscriber.env = params[:env]
+    redirect_to subscribers_path
+  end
 
   def activate
     @subscriber = Subscriber.find(params[:id])
@@ -20,8 +25,26 @@ class SubscribersController < ApplicationController
     redirect_to subscribers_path
   end
 
+  def unsubscribe
+    @subscriber = Subscriber.find(params[:id])
+    if @subscriber.nil?
+      redirect_to new_subscriber_path, alert: t("messages.subscribers.bad_id", id: params[:id])
+    end
+    if @subscriber.hash == params[:hash]
+      @subscriber.unsubscribe!
+      redirect_to new_subscriber_path, notice: t("messages.subscribers.unsubscribed", email: @subscriber.email)
+    end
+    redirect_to new_subscriber_path, alert: t("messages.subscribers.bad_hash", id: @subscriber.id)
+  end
+
   def index
     @subscribers = Subscriber.find(:all)
+  end
+
+  def show
+    @subscriber = Subscriber.find(params[:id])
+    @title = @subscriber.name
+    breadcrumbs.add @title, subscriber_path(@subscriber)
   end
 
   def new
@@ -39,7 +62,7 @@ class SubscribersController < ApplicationController
     @subscriber = Subscriber.new(params[:subscriber])
 
     if @subscriber.save
-      redirect_to new_subscriber_path, notice: t("messages.subscribers.created")
+      redirect_to new_subscriber_path, notice: t("messages.subscribers.created", email: @subscriber.email)
     else
       render action: "new"
     end

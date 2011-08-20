@@ -4,8 +4,8 @@ class Subscriber < ActiveRecord::Base
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create
 
   class << self
-    def address_list
-      Subscriber.all.keep_if(&:wants_email?).map(&:header).join(", ")
+    def active_list
+      Subscriber.all.keep_if(&:wants_email?)
     end
 
     def env
@@ -59,6 +59,10 @@ class Subscriber < ActiveRecord::Base
 
   def wants_email?
     approved? && active? && subscribed?
+  end
+
+  def hash
+    Digest::MD5.hexdigest "#{ENV['SALT']}#{email}#{created_at.to_i}"
   end
 
   def approve!
