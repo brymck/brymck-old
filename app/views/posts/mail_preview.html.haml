@@ -1,9 +1,18 @@
-- last_id = @subscribers.last.id
-- @subscribers.each do |subscriber|
-  = link_to_unless subscriber.id == @subscriber.id, subscriber.name, mail_preview_post_path(@post, subscriber)
-  = "|" unless subscriber.id == last_id
-%ul
-  %li= "To: #{@subscriber.header}"
-  %li= "From: listserv@brymck.herokuapp.com"
-  %li= "Subject: #{@post.title}"
-= render partial: "notify/post", locals: { post: @post }
+#mail.span-17.colborder
+  %ul
+    %li= "To: #{@subscriber.header}"
+    %li= "From: listserv@brymck.herokuapp.com"
+    %li= "Subject: #{@post.title}"
+  = render partial: "notify/post", locals: { post: @post }
+- content_for :archive do
+  .archive.delink-current{:"data-pjax" => "#mail"}
+    %h2= t(".active_list")
+    %ul
+      - @subscribers.each do |subscriber|
+        %li<
+          - target = mail_preview_post_path(@post, subscriber)
+          - if current_page?(target)
+            %span{:"data-href" => target}= subscriber.name
+          - else
+            = link_to subscriber.name, target
+    %p= link_to t(".mail_all"), mail_post_path(@post), method: :post

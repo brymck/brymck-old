@@ -27,7 +27,11 @@ Brymck::Application.routes.draw do
     # Post resources
     resources :posts do
       get :preview, on: :collection
-      match "mail_preview/:subscriber_id" => "posts#mail_preview", as: :mail_preview, on: :member, via: :get
+      member do
+        put :publish
+        match "mail_preview/:subscriber_id" => "posts#mail_preview", as: :mail_preview, via: :get
+        post :mail
+      end
     end
    
     # RSS feed

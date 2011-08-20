@@ -5,7 +5,11 @@
     %h2= link_to post.title, post
     %p=t :bryan_mckelvey
     %p= time_tag post.created_at
-    = content_tag :p, link_to(t(:edit), edit_post_path(post)) if show_admin_tools && admin?
+    - if show_admin_tools && admin?
+      %p
+        = link_to t(:edit), edit_post_path(post)
+        |
+        = link_to t(:mail), mail_preview_post_path(post, subscriber_id: 1)
   ~ textile post.content, safe: true
   - unless post.tags.empty?
     %aside

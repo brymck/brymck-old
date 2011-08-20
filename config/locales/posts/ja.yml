@@ -22,6 +22,7 @@ ja:
   messages:
     posts:
       created: "投稿の作成に成功しました。"
+      mailed: "投稿のメールを送ることに成功しました。"
       updated: "投稿の更新に成功しました。"
   meta:
     posts:
@@ -43,6 +44,9 @@ ja:
     home:
       feed: "RSSフィード"
     index: *post
+    mail_preview:
+      active_list: "メーリス"
+      mail_all: "全員にメールを送る"
     post:
       comments:
         zero: "コメントはまだありません"

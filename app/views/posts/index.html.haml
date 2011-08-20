@@ -12,7 +12,7 @@
         %td= link_to post.title, post
         %td= post.personal
         %td= link_to post.comments.count, post_path(post, :anchor => :comments)
-        %td= t ".#{post.status}"
+        %td= link_to_unless post.published?, t(".#{post.status}"), publish_post_path(post)
         %td= l post.created_at
         %td= l post.updated_at
         %td= link_to t(:edit), edit_post_path(post)

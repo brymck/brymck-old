@@ -22,6 +22,7 @@ en:
   messages:
     posts:
       created: "Post was successfully created."
+      mailed: "Post was successfully mailed."
       updated: "Post was successfully updated."
   meta:
     posts:
@@ -43,6 +44,9 @@ en:
     home:
       feed: "RSS Feed"
     index: *post
+    mail_preview:
+      active_list: "Active List"
+      mail_all: "Mail all"
     post:
       comments:
         zero: "No comments yet"

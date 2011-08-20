@@ -38,6 +38,14 @@ class PostsController < ApplicationController
     @subscribers = Subscriber.active_list
   end
 
+  def mail
+    @post = Post.find(params[:id])
+    Subscriber.active_list.each do |subscriber|
+      Notify.post(@post, subscriber).deliver
+    end
+    redirect_to @post, notice: t("messages.posts.mailed")
+  end
+
   def show
     @post = Post.find(params[:id])
     if @post.personal?
@@ -87,6 +95,12 @@ class PostsController < ApplicationController
         format.xml  { render xml: @post.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def publish
+    @post = Post.find(params[:id])
+    @post.publish!
+    redirect_to posts_path
   end
 
   def destroy
