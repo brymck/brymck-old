@@ -20,6 +20,9 @@ en:
   helpers:
     label:
       subscriber: *subscriber
+    submit:
+      subscriber:
+        create: Subscribe
   messages:
     subscribers:
       bad_id: "Subscription for ID %{id} not found."
@@ -39,5 +42,7 @@ en:
     index: *subscriber
     new:
       greeting: |
-        hi
+        Want the lowdown on my travels and studies in Japan? Just let me know your name and email address and I'll keep you updated!
+
+        Alternately, you could see historical content "on my blog":/en/journal.
     show: *subscriber

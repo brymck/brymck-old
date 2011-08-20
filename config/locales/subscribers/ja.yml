@@ -20,6 +20,9 @@ ja:
   helpers:
     label:
       subscriber: *subscriber
+    submit:
+      subscriber:
+        create: 登録
   messages:
     subscribers:
       bad_id: "%{id}は見つかりませんでした。"
@@ -39,5 +42,7 @@ ja:
     index: *subscriber
     new:
       greeting: |
-        hi
+        希望される方には、ブログの更新をメールでお知らせします。以下にお名前とメールアドレスを入力してください。
+
+        ["こちらのウェブサイト":/ja/journal]でもご覧いただけます。
     show: *subscriber
