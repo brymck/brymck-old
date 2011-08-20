@@ -13,19 +13,22 @@ class Subscriber < ActiveRecord::Base
 
       Subscriber.all.each do |subscriber|
         if subscriber.test?
+          # Test accounts should always be active
           return "unknown" if subscriber.inactive?
         else
           if send_to_all.nil?
+            # Get whether a non-test account is active
             send_to_all = subscriber.active?
           else
+            # Give up if non-test accounts fail to match
             return "unknown" if subscriber.active? != send_to_all
           end
         end
       end
 
       case send_to_all
-      when nil then "unknown"
-      when true then "production"
+      when nil   then "unknown"
+      when true  then "production"
       when false then "test"
       end
     end
@@ -41,7 +44,11 @@ class Subscriber < ActiveRecord::Base
       end
 
       Subscriber.all.each do |subscriber|
-        subscriber.update_attribute :active, subscriber.test? || send_to_all
+        if send_to_all || subscriber.test?
+          subscriber.activate!
+        else
+          subscriber.deactivate!
+        end
       end
     end
   end
@@ -58,12 +65,24 @@ class Subscriber < ActiveRecord::Base
     update_attribute :approved, true
   end
 
+  def unapprove!
+    update_attribute :approved, false
+  end
+
   def activate!
     update_attribute :active, true
   end
 
   def deactivate!
     update_attribute :active, false
+  end
+
+  def subscribe!
+    update_attribute :unsubscribed, false
+  end
+
+  def unsubscribe!
+    update_attribute :unsubscribed, true
   end
 
   def unapproved?
