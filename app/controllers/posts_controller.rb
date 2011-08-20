@@ -34,6 +34,7 @@ class PostsController < ApplicationController
 
   def mail_preview
     @post = Post.find(params[:id])
+    @subscriber = Subscriber.find(params[:subscriber_id])
     @subscribers = Subscriber.active_list
   end
 

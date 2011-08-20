@@ -1,1 +1,9 @@
+- last_id = @subscribers.last.id
+- @subscribers.each do |subscriber|
+  = link_to_unless subscriber.id == @subscriber.id, subscriber.name, mail_preview_post_path(@post, subscriber)
+  = "|" unless subscriber.id == last_id
+%ul
+  %li= "To: #{@subscriber.header}"
+  %li= "From: listserv@brymck.herokuapp.com"
+  %li= "Subject: #{@post.title}"
 = render partial: "notify/post", locals: { post: @post }

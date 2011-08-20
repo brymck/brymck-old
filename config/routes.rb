@@ -12,7 +12,7 @@ Brymck::Application.routes.draw do
 
     match "subscribe" => "subscribers#new"
     match "unsubscribe/:id/:hash" => "subscribers#unsubscribe", as: :unsubscribe
-    resources :subscribers do
+    resources :subscribers, except: :new do
       member do
         put :activate
         put :deactivate
@@ -27,11 +27,11 @@ Brymck::Application.routes.draw do
     # Post resources
     resources :posts do
       get :preview, on: :collection
-      get :mail_preview, on: :member
+      match "mail_preview/:subscriber_id" => "posts#mail_preview", as: :mail_preview, on: :member, via: :get
     end
    
     # RSS feed
-    match "feed" => "posts#feed"
+    match "feed(/:hash)" => "posts#feed", as: :feed
 
     # Static pages
     match "contact" => "pages#contact"
