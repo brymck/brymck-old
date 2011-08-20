@@ -1,0 +1,19 @@
+!!! XML
+%urlset{xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9"}
+  - @entries.each do |entry|
+    %url
+      %loc= entry
+  - post_last_id = Post.last.id
+  - Post.blog.each do |post|
+    %url
+      %loc= post_url(post)
+      %lastmod= post.updated_at.to_date
+      %changefreq monthly
+      %priority= (post.id.to_f / post_last_id).round(3)
+  - code_last_id = Code.all.sort_by(&:id).last.id
+  - Code.all.each do |code|
+    %url
+      %loc= code_url(code)
+      %lastmod= code.updated_at.to_date
+      %changefreq monthly
+      %priority= (code.id.to_f / code_last_id).round(3)

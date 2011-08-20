@@ -40,6 +40,7 @@ Brymck::Application.routes.draw do
     # Static pages
     match "contact" => "pages#contact"
     match "resume" => "pages#resume"
+    match "sitemap" => "pages#sitemap"
     match "journal" => "posts#journal"
 
     # Authentication

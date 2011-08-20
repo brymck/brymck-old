@@ -3,3 +3,6 @@
 # To ban all spiders from the entire site uncomment the next two lines:
 # User-Agent: *
 # Disallow: /
+
+Sitemap: http://brymck.herokuapp.com/en/sitemap
+Sitemap: http://brymck.herokuapp.com/ja/sitemap

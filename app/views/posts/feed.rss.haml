@@ -1,0 +1,24 @@
+!!! XML
+%rss{version: "2.0", :"xmlns:atom" => "http://www.w3.org/2005/Atom", :"xmlns:dc" => "http://purl.org/dc/elements/1.1/"}
+  %channel
+    %title= t(:brymck)
+    %image
+      %url http://www.gravatar.com/avatar.php?gravatar_id=b5ce5f2f748ceefff8b6a5531d865a27&amp;s=88&amp;r=pg&amp;d=identicon
+      %title= t(:brymck)
+      %link= home_url
+    %description= t("meta.defaults.description")
+    %copyright Copyright #{copyright_years} Bryan McKelvey
+    %docs http://cyber.law.harvard.edu/rss/rss.html
+    %language= I18n.locale.to_s
+    %link= home_url
+    %atom:link{href: feed_url, rel: :self, type: "application/rss+xml"}
+
+    - @posts.each do |post|
+      %item
+        %title= post.title
+        %link= post_url(post)
+        %description= convert_internal_links render_content(post)
+        %pubDate= post.created_at.to_s(:rfc822)
+        %dc:creator= t(:bryan_mckelvey)
+        %guid{isPermaLink:false}= "#{post.id} at #{home_url}"
+        %comments= post_url(post, :anchor => :comments)

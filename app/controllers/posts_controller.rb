@@ -12,9 +12,8 @@ class PostsController < ApplicationController
   end
 
   def feed
-    @posts = Post.blog.find(:all, order: "id DESC", limit: 10)
-    render layout: false
-    response.headers["Content-Type"] = "application/xml; charset=utf-8"
+    @posts = Post.blog
+    render "feed.rss.haml", layout: false
   end
 
   def index

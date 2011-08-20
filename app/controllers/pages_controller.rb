@@ -12,4 +12,9 @@ class PagesController < ApplicationController
   def resume
     breadcrumbs.add t("meta.pages.resume.title"), resume_path
   end
+
+  def sitemap
+    @entries = []
+    render "sitemap.xml.haml", layout: false
+  end
 end
