@@ -2,6 +2,6 @@
 %html
   %head
     %meta{:charset => "utf-8"}
-    %title= @post.title
+    %title= @opts[:title]
   %body
-    = render partial: "post", locals: { post: @post, subscriber: @subscriber }
+    = render partial: "notify/post", locals: { opts: @opts }

@@ -1,4 +1,4 @@
-require 'sanitize'
+autoload :Sanitize, 'sanitize'
 
 module PostsHelper
   def render_content(post, needs_sanitizing = false)
@@ -9,6 +9,14 @@ module PostsHelper
 
   def convert_internal_links(text)
     text.gsub /href="\/(.*?)"/, %Q{href="http://brymck.heroku.com/$1"}
+  end
+
+  def notify_opts(post, subscriber)
+    {
+      content: RedCloth.new(post.content).to_html,
+      post_link: post_url(post),
+      unsubscribe_link: unsubscribe_url(subscriber, hash: subscriber.hash)
+    }
   end
 
   def render_comments(comments)

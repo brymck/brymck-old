@@ -27,7 +27,7 @@ ja:
     subscribers:
       bad_id: "%{id}は見つかりませんでした。"
       bad_id: "%{id}のハッシュが無効です。"
-      created: "%{email}のメーリス追加に成功しました。連絡先にlistserv@brymck.heroku.comを追加してください。"
+      created: "%{email}のメーリス追加に成功しました。連絡先にlistserv@brymck.herokuapp.comを追加してください。"
       unsubscribed: "%{email}の登録解除に成功しました。さよなら！"
       updated: "加入者の更新に成功しました。"
   meta:

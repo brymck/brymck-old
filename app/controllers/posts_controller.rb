@@ -41,7 +41,13 @@ class PostsController < ApplicationController
   def mail
     @post = Post.find(params[:id])
     Subscriber.active_list.each do |subscriber|
-      Notify.post(@post, subscriber).deliver
+      Notify.post(
+        to: subscriber.header,
+        title: @post.title,
+        content: RedCloth.new(@post.content).to_html,
+        post_link: post_url(@post),
+        unsubscribe_link: unsubscribe_url(subscriber, subscriber.hash)
+      ).deliver
     end
     redirect_to @post, notice: t("messages.posts.mailed")
   end

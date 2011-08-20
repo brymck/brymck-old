@@ -1,6 +1,6 @@
-%p Original post: #{link_to nil, post_url(post)}
+%p Original post: <a href="#{opts[:post_link]}">#{opts[:post_link]}</a>
 %p Hey y'all,
-~ textile post.content, safe: true
+!= opts[:content]
 %p Cheers,
 %p Bryan
 %div{style: "color:#888"}
@@ -9,8 +9,6 @@
     %br
     You received this message as a member of Bryan's Japan updates listserv.
     %br
-    To unsubscribe, go to #{link_to nil, unsubscribe_url(@subscriber.id, hash: @subscriber.hash)}.
+    To unsubscribe, go to <a href="#{opts[:unsubscribe_link]}">#{opts[:unsubscribe_link]}</a>.
     %br
-    To subscribe to an RSS feed, add <a href="http://www.brymck.com/feed?me=intokyo">http://www.brymck.com/feed?me=intokyo</a> to your favorite RSS parser.
-    %br
-    To prevent emails from being classified as spam, add <a href="mailto:listserv@brymck.com">listserv@brymck.com</a> to your contact list. If you can't see any pictures, in most email clients there's an option at the top of the message to display them.
+    To prevent emails from being classified as spam, add <a href="mailto:listserv@brymck.herokuapp.com">listserv@brymck.herokuapp.com</a> to your contact list. If you can't see any pictures, in most email clients there's an option at the top of the message to display them.

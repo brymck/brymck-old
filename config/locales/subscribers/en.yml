@@ -27,7 +27,7 @@ en:
     subscribers:
       bad_id: "Subscription for ID %{id} not found."
       bad_hash: "Invalid hash for subscription ID %{id}."
-      created: "%{email} added to the listserv. To make sure you receive mailings, add listserv@brymck.heroku.com to your contacts list."
+      created: "%{email} added to the listserv. To make sure you receive mailings, add listserv@brymck.herokuapp.com to your contacts list."
       unsubscribed: "%{email} removed from the listserv. Happy trails!"
       updated: "Subscriber was successfully updated."
   meta:

@@ -11,9 +11,8 @@ class Notify < ActionMailer::Base
     mail from: "no-reply@brymck.herokuapp.com"
   end
 
-  def post(post, subscriber)
-    @post = post
-    @subscriber = subscriber
-    mail to: @subscriber.header, from: "listserv@brymck.herokuapp.com", subject: @post.title, reply_to: ENV['EMAIL_ADDRESS']
+  def post(opts = {})
+    @opts = opts
+    mail to: @opts[:to], from: "listserv@brymck.herokuapp.com", subject: @opts[:title], reply_to: ENV['EMAIL_ADDRESS']
   end
 end
