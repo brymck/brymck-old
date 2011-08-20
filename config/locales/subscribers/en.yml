@@ -10,7 +10,7 @@ en:
         inactive: Inactive
         name: Name
         status: Status
-        test?: Test"
+        test?: Test?
         unapproved: Unapproved
         unsubscribed: Unsubscribed
         wants_email?: "Wants email?"
@@ -30,6 +30,6 @@ en:
       index:
         title: Subscribers
       new:
-        title: "Subscribe to mailing list"
+        title: Subscribe
   subscribers:
     index: *subscriber

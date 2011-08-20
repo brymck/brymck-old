@@ -3,6 +3,16 @@ class Subscriber < ActiveRecord::Base
   validates_presence_of :name
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create
 
+  class << self
+    def address_list
+      Subscriber.all.keep_if(&:wants_email?).map(&:header).join(", ")
+    end
+  end
+
+  def header
+    "#{name} <#{email}>"
+  end
+
   def wants_email?
     approved? && active? && !unsubscribed?
   end
