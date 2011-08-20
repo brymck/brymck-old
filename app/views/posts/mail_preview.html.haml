@@ -15,4 +15,4 @@
             %span{:"data-href" => target}= subscriber.name
           - else
             = link_to subscriber.name, target
-    %p= link_to t(".mail_all"), mail_post_path(@post)
+    %p= link_to t(".mail_all"), mail_post_path(@post), method: :put

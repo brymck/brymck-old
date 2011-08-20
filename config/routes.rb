@@ -30,7 +30,7 @@ Brymck::Application.routes.draw do
       member do
         put :publish
         match "mail_preview/:subscriber_id" => "posts#mail_preview", as: :mail_preview, via: :get
-        get :mail
+        put :mail
       end
     end
    
