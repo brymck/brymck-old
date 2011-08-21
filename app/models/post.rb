@@ -47,15 +47,16 @@ class Post < ActiveRecord::Base
   end
 end
 
+
 # == Schema Information
 #
 # Table name: posts
 #
-#  id          :integer         not null, primary key
+#  id          :integer         primary key
 #  title       :string(255)
 #  content     :text
-#  created_at  :datetime
-#  updated_at  :datetime
+#  created_at  :timestamp
+#  updated_at  :timestamp
 #  personal    :boolean         default(FALSE)
 #  cached_slug :string(255)
 #  published   :boolean         default(FALSE), not null

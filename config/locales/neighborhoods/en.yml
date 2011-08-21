@@ -1,0 +1,35 @@
+en:
+  activerecord:
+    attributes:
+      neighborhood: &neighborhood
+        apartments: Apartments
+        name: Name
+        percent: Percent
+        rank: Rank
+        ranking: Ranking
+        rating: Rating
+        ratings: Ratings
+        sum_of_percents: "Sum of percents"
+        value: Value
+        year: Year
+    models:
+      neighborhood: Neighborhood
+  helpers:
+    label:
+      neighborhood: *neighborhood
+  messages:
+    neighborhoods:
+      created: "Neighborhood was successfully created."
+      updated: "Neighborhood was successfully updated."
+  meta:
+    neighborhoods:
+      edit:
+        title: "Editing neighborhood"
+      index:
+        title: Neighborhoods
+      new:
+        title: "New neighborhood"
+  neighborhoods:
+    form: *neighborhood
+    index: *neighborhood
+    show: *neighborhood

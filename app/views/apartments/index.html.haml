@@ -1,0 +1,17 @@
+= link_to t(:lookup), apartments_path, class: :apartment_lookup
+%table
+  %thead
+    %tr
+      - %w(ticker name value).each do |field|
+        %th= t ".#{field}"
+      - if admin?
+        %th{colspan: 2}
+  %tbody
+    - @apartments.each do |apartment|
+      %tr
+        %td= link_to apartment.name, apartment
+        %td= apartment.ticker
+        %td.apartment
+        - if admin?
+          %td= link_to t(:edit), edit_apartment_path(apartment)
+          %td= link_to t(:destroy), apartment, confirm: t(:confirm), method: :delete

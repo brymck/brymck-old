@@ -1,0 +1,14 @@
+= link_to t(:edit), edit_neighborhood_path(@neighborhood)
+%h2= @neighborhood.name
+%table
+  %thead
+    %tr
+      - %w(year rank value percent).each do |field|
+        %th= t(".#{field}")
+  %tbody
+    - @neighborhood.ratings.each do |rating|
+      %tr
+        %td= rating.year
+        %td= rating.rank
+        %td= rating.value
+        %td= "%.01f" % (rating.percent * 100)

@@ -14,11 +14,12 @@ class Source < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: sources
 #
-#  id          :integer         not null, primary key
+#  id          :integer         primary key
 #  name        :string(255)     not null
 #  cached_slug :string(255)
 #  url         :string(255)     not null

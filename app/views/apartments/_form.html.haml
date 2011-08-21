@@ -1,0 +1,20 @@
+= form_for(@apartment) do |f|
+  - if @apartment.errors.any?
+    #error_explanation
+      %h2 #{pluralize @apartment.errors.count, "error"} prohibited this apartment from being saved:
+      %ul
+        - @apartment.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name, class: "span-3"
+    = f.text_field :name
+  .field
+    = f.label :ticker, class: "span-3"
+    = f.text_field :ticker
+  .field
+    - Source.find(:all).each do |source|
+      = f.check_box "source_ids", {}, source.id, ""
+      = f.label "source_ids", source.name
+  .actions.clear
+    = f.submit

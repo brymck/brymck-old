@@ -1,0 +1,24 @@
+en:
+  activerecord:
+    attributes:
+      apartment: &apartment
+        name: "Name"
+    models:
+      apartment: "Apartment"
+  helpers:
+    label:
+      apartment: *apartment
+  messages:
+    apartments:
+      created: "Apartment was successfully created."
+      updated: "Apartment was successfully updated."
+  meta:
+    apartments:
+      edit:
+        title: "Editing apartment"
+      index:
+        title: "Apartments"
+      new:
+        title: "New apartment"
+  apartments:
+    index: *apartment

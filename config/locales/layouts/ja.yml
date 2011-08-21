@@ -1,24 +1,26 @@
 ja:
   layouts:
     sidebar:
-      code: "コード"
-      contact: "連絡"
-      comments: "コメント"
-      english: "英語"
-      home: "ホーム"
-      japanese: "日本語"
-      journal: "日記"
-      languages: "言語"
-      locations: "場所"
-      login: "ログイン"
-      logout: "ログアウト"
-      market: "市場"
-      metrics: "統計"
-      portfolios: "ポートフォリオ"
-      posts: "投稿"
-      quotes: "クオート"
-      resume: "レジメ"
-      sources: "ソース"
-      subscribe: "メーリスに登録"
-      subscribers: "加入者"
-      tags: "タグ"
+      apartments: アパート
+      code: コード
+      contact: 連絡
+      comments: コメント
+      english: 英語
+      home: ホーム
+      japanese: 日本語
+      journal: 日記
+      languages: 言語
+      locations: 場所
+      login: ログイン
+      logout: ログアウト
+      market: 市場
+      metrics: 統計
+      neighborhoods: 街
+      portfolios: ポートフォリオ
+      posts: 投稿
+      quotes: クオート
+      resume: レジメ
+      sources: ソース
+      subscribe: メーリスに登録
+      subscribers: 加入者
+      tags: タグ

@@ -1,0 +1,17 @@
+= form_for(@neighborhood) do |f|
+  - if @neighborhood.errors.any?
+    #error_explanation
+      %h2 #{pluralize @neighborhood.errors.count, "error"} prohibited this neighborhood from being saved:
+      %ul
+        - @neighborhood.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name, class: "span-3", autofocus: true
+    = f.text_field :name
+  %hr
+  %h4= t ".ratings"
+  = f.fields_for :ratings do |builder|
+    = render "ratings_fields", f: builder
+  .actions.clear
+    = f.submit

@@ -1,0 +1,24 @@
+ja:
+  activerecord:
+    attributes:
+      apartment: &apartment
+        name: "名前"
+    models:
+      apartment: "アパート"
+  helpers:
+    label:
+      apartment: *apartment
+  messages:
+    apartments:
+      created: "アパートの作成に成功しました。"
+      updated: "アパートの更新に成功しました。"
+  meta:
+    apartments:
+      edit:
+        title: "アパート編集"
+      index:
+        title: "アパート"
+      new:
+        title: "新規アパート"
+  apartments:
+    index: *apartment

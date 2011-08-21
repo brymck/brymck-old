@@ -119,18 +119,19 @@ class Subscriber < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: subscribers
 #
-#  id           :integer         not null, primary key
+#  id           :integer         primary key
 #  name         :string(255)     not null
 #  email        :string(255)     not null
 #  approved     :boolean         default(FALSE), not null
 #  active       :boolean         default(TRUE), not null
 #  unsubscribed :boolean         default(FALSE), not null
-#  created_at   :datetime
-#  updated_at   :datetime
+#  created_at   :timestamp
+#  updated_at   :timestamp
 #  test         :boolean         default(FALSE), not null
 #
 

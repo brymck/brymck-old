@@ -22,7 +22,7 @@ Brymck::Application.routes.draw do
     end
 
     # Generic resources
-    resources :code, :comments, :locations, :tags
+    resources :apartments, :code, :comments, :locations, :neighborhoods, :tags
 
     # Post resources
     resources :posts do

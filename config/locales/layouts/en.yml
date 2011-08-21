@@ -1,6 +1,7 @@
 en:
   layouts:
     sidebar:
+      apartments: "Apartments"
       code: "Code"
       contact: "Contact"
       comments: "Comments"
@@ -14,6 +15,7 @@ en:
       logout: "Logout"
       market: "Market"
       metrics: "Metrics"
+      neighborhoods: "Neighborhoods"
       portfolios: "Portfolios"
       posts: "Posts"
       quotes: "Quotes"

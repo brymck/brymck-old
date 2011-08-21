@@ -1,0 +1,17 @@
+= link_to t(:new), new_neighborhood_path
+%table
+  %thead
+    %tr
+      - %w(name apartments rating sum_of_percents).each do |field|
+        %th= t ".#{field}"
+      %th{colspan: admin? ? 2 : 1}
+  %tbody
+    - @neighborhoods.each do |neighborhood|
+      %tr
+        %td= link_to neighborhood.name, neighborhood
+        %td= neighborhood.apartments.count
+        %td= neighborhood.rating
+        %td= "%.01f" % (neighborhood.sum_of_percents * 100)
+        %td= link_to t(:edit), edit_neighborhood_path(neighborhood)
+        - if admin?
+          %td= link_to t(:destroy), neighborhood, confirm: t(:confirm), method: :delete
