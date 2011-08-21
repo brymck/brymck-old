@@ -58,7 +58,6 @@ class ApartmentsController < ApplicationController
   private
 
   def add_breadcrumbs
-    breadcrumbs.add t(:market, scope: [:layouts, :sidebar]), market_path
     breadcrumbs.add t(:apartments, scope: [:layouts, :sidebar]), apartments_path
   end
 end

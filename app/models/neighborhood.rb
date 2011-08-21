@@ -7,6 +7,12 @@ class Neighborhood < ActiveRecord::Base
   # Validations
   validates_presence_of :name
 
+  class << self
+    def all_by_rating
+      self.all.sort_by { |n| [-(n.rating || 0), n.name] }
+    end
+  end
+
   # Gems
   translates :name
   has_friendly_id :english_name, use_slug: true, allow_nil: true, approximate_ascii: true

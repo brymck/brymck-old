@@ -2,6 +2,7 @@ en:
   activerecord:
     attributes:
       neighborhood: &neighborhood
+        all_apartments: "All apartments"
         apartments: Apartments
         name: Name
         percent: Percent

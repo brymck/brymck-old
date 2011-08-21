@@ -4,9 +4,7 @@ class NeighborhoodsController < ApplicationController
   before_filter :add_breadcrumbs, only: [:index, :show, :new, :edit]
 
   def index
-    @neighborhoods = Neighborhood.find(:all).sort_by do |neighborhood|
-      [-(neighborhood.rating || 0), neighborhood.name]
-    end
+    @neighborhoods = Neighborhood.all_by_rating
   end
 
   def show
@@ -58,7 +56,6 @@ class NeighborhoodsController < ApplicationController
   private
 
   def add_breadcrumbs
-    breadcrumbs.add t(:market, scope: [:layouts, :sidebar]), market_path
     breadcrumbs.add t(:neighborhoods, scope: [:layouts, :sidebar]), neighborhoods_path
   end
 end

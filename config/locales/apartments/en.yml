@@ -2,9 +2,30 @@ en:
   activerecord:
     attributes:
       apartment: &apartment
-        name: "Name"
+        address: Address
+        city: City
+        construction_date: "Construction date"
+        country: Country
+        dining_room: "Dining room"
+        district: District
+        house: House
+        key_money: "Key money"
+        key_money_months: "Key money months"
+        kitchen: Kitchen
+        layout: Layout
+        living_room: "Living room"
+        name: Name
+        neighborhood: Neighborhood
+        prefecture: Prefecture
+        rent: Rent
+        room_number: "Room #"
+        rooms: Rooms
+        town: Town
+        url: URL
+        ward: Ward
+        zip: "Postal code"
     models:
-      apartment: "Apartment"
+      apartment: Apartment
   helpers:
     label:
       apartment: *apartment
@@ -17,8 +38,9 @@ en:
       edit:
         title: "Editing apartment"
       index:
-        title: "Apartments"
+        title: Apartments
       new:
         title: "New apartment"
   apartments:
     index: *apartment
+    list: *apartment

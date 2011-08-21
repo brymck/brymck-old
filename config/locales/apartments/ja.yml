@@ -2,7 +2,29 @@ ja:
   activerecord:
     attributes:
       apartment: &apartment
-        name: "名前"
+        address: 住所
+        block: 番
+        city: 市
+        construction_date: 築年月
+        country: 国
+        dining_room: ダイニング
+        district: 丁目
+        house: 号
+        key_money: 敷金
+        key_money_months: 敷金月
+        kitchen: キッチン
+        layout: 間取り
+        living_room: リビング
+        name: 名前
+        neighborhood: 街
+        prefecture: 都道府県
+        rent: 賃料
+        room_number: 室
+        rooms: 部屋数
+        town: 町村
+        url: URL
+        ward: 区
+        zip: 郵便番号
     models:
       apartment: "アパート"
   helpers:
@@ -22,3 +44,4 @@ ja:
         title: "新規アパート"
   apartments:
     index: *apartment
+    list: *apartment

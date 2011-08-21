@@ -1,8 +1,13 @@
-- if admin?
-  = link_to t(:edit), edit_apartment_path(@apartment)
-%h2= @apartment.name
-%p= @apartment.ticker
-%h3= t(".sources")
-%ul
-  - @apartment.sources.each do |source|
-    %li= link_to source.name, source
+.left= google_map @apartment
+.push-1{:"data-pjax" => "#page"}
+  %h2= @apartment.name
+  %p
+    %small= link_to nil, @apartment.url, target: "_blank", :"data-nopjax" => true
+  %p
+    = link_to @apartment.neighborhood.name, @apartment.neighborhood
+    %br
+    = @apartment.layout
+    %br
+    = number_to_currency @apartment.rent, unit: t(:yen), precision: 0
+  %p= link_to @apartment.address(:long), "http://maps.google.com/maps?q=#{@apartment.address}", :"data-nopjax" => true
+  %p= link_to t(:edit), edit_apartment_path(@apartment)
