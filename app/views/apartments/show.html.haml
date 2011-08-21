@@ -4,7 +4,7 @@
   %p= link_to @apartment.address(:long), "http://maps.google.com/maps?q=#{@apartment.address}", :"data-nopjax" => true
   %p= link_to nil, @apartment.url, target: "_blank", :"data-nopjax" => true
   %ul
-    %li #{t(".neighborhood")}: #{link_to @apartment.neighborhood.name, @apartment.neighborhood}
+    %li #{t(".neighborhood")}: #{link_to @apartment.neighborhood.name, @apartment.neighborhood, target: :_blank}
     %li #{t(".layout")}: #{@apartment.layout}
     %li #{t(".rent")}: #{number_to_currency @apartment.rent, unit: t(:yen), precision: 0}
     %li #{t(".management_fee")}: #{number_to_currency @apartment.management_fee || 0, unit: t(:yen), precision: 0}
