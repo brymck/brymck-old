@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110821064620) do
+ActiveRecord::Schema.define(:version => 20110821085356) do
 
   create_table "addresses", :force => true do |t|
     t.string  "country"
@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(:version => 20110821064620) do
 
   create_table "apartments", :force => true do |t|
     t.integer  "zip"
-    t.string   "country",                                         :default => "日本",  :null => false
-    t.string   "prefecture",                                      :default => "東京都", :null => false
+    t.string   "country",           :default => "日本",  :null => false
+    t.string   "prefecture",        :default => "東京都", :null => false
     t.string   "city"
     t.string   "ward"
     t.string   "town"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20110821064620) do
     t.integer  "room_number"
     t.string   "url"
     t.integer  "rent"
-    t.decimal  "key_money_months",  :precision => 3, :scale => 1
+    t.integer  "key_money_months"
     t.integer  "rooms"
     t.boolean  "living_room"
     t.boolean  "dining_room"
