@@ -4,7 +4,7 @@
 %table
   %thead
     %tr
-      - %w(name apartments rating sum_of_percents).each do |field|
+      - %w(name apartments rating sum_of_percents memo).each do |field|
         %th= t ".#{field}"
       %th{colspan: admin? ? 2 : 1}
   %tbody
@@ -12,8 +12,9 @@
       %tr
         %td= link_to neighborhood.name, neighborhood
         %td= neighborhood.apartments.count
-        %td= neighborhood.rating
-        %td= "%.01f" % (neighborhood.sum_of_percents * 100)
+        %td= number_with_delimiter neighborhood.rating
+        %td= number_to_percentage neighborhood.sum_of_percents * 100, precision: 1
+        %td= truncate neighborhood.memo, :length => 50, :separator => ' '
         %td= link_to t(:edit), edit_neighborhood_path(neighborhood)
         - if admin?
           %td= link_to t(:destroy), neighborhood, confirm: t(:confirm), method: :delete

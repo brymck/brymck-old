@@ -7,7 +7,7 @@
       %th= t ".name"
       - if show_neighborhoods
         %th= t ".neighborhood"
-      - %w(address layout rent).each do |field|
+      - %w(address layout rent memo).each do |field|
         %th= t ".#{field}"
       %th{colspan: admin? ? 2 : 1}
   %tbody
@@ -19,6 +19,7 @@
         %td= link_to apartment.address, "http://maps.google.com/maps?q=#{apartment.address}", target: :_blank
         %td= apartment.layout
         %td= number_to_currency apartment.rent, unit: t(:yen), precision: 0
+        %td= truncate apartment.memo, :length => 50, :separator => ' '
         %td= link_to t(:edit), edit_apartment_path(apartment)
         - if admin?
           %td= link_to t(:destroy), apartment, confirm: t(:confirm), method: :delete

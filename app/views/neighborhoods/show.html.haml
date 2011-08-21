@@ -12,5 +12,5 @@
       %tr
         %td= rating.year
         %td= rating.rank
-        %td= rating.value
-        %td= "%.01f" % (rating.percent * 100)
+        %td= number_with_delimiter rating.value
+        %td= number_to_percentage rating.percent * 100, precision: 1
