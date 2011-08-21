@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110821085356) do
+ActiveRecord::Schema.define(:version => 20110821092031) do
 
   create_table "addresses", :force => true do |t|
     t.string  "country"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20110821085356) do
     t.boolean  "dining_room"
     t.boolean  "kitchen"
     t.date     "construction_date"
+    t.text     "memo"
   end
 
   add_index "apartments", ["neighborhood_id"], :name => "index_apartments_on_neighborhood_id"
@@ -227,6 +228,7 @@ ActiveRecord::Schema.define(:version => 20110821085356) do
     t.float  "lat"
     t.float  "lng"
     t.string "cached_slug"
+    t.text   "memo"
   end
 
   create_table "portfolio_translations", :force => true do |t|

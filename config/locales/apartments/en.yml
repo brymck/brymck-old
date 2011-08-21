@@ -3,6 +3,7 @@ en:
     attributes:
       apartment: &apartment
         address: Address
+        block: Block
         city: City
         construction_date: "Construction date"
         country: Country
@@ -14,6 +15,7 @@ en:
         kitchen: Kitchen
         layout: Layout
         living_room: "Living room"
+        memo: Memo
         name: Name
         neighborhood: Neighborhood
         prefecture: Prefecture

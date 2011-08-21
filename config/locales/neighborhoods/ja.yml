@@ -4,6 +4,7 @@ ja:
       neighborhood: &neighborhood
         all_apartments: 全部のアパート
         apartments: アパート
+        memo: メモ
         name: 名前
         percent: 率
         rank: 順位

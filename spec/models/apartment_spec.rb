@@ -5,6 +5,7 @@ describe Apartment do
 end
 
 
+
 # == Schema Information
 #
 # Table name: apartments
@@ -25,11 +26,12 @@ end
 #  room_number       :integer
 #  url               :string(255)
 #  rent              :integer
-#  key_money_months  :decimal(3, 1)
+#  key_money_months  :integer
 #  rooms             :integer
 #  living_room       :boolean
 #  dining_room       :boolean
 #  kitchen           :boolean
 #  construction_date :date
+#  memo              :text
 #
 

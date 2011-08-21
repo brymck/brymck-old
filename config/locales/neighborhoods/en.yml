@@ -4,6 +4,7 @@ en:
       neighborhood: &neighborhood
         all_apartments: "All apartments"
         apartments: Apartments
+        memo: Memo
         name: Name
         percent: Percent
         rank: Rank

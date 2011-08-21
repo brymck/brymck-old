@@ -56,6 +56,11 @@
   .field.left.prepend-1
     = f.check_box  :kitchen
     = f.label      :kitchen
+  %hr
+  .field
+    = f.label :memo
+    %br
+    = f.text_area :memo
 
   .actions.clear
     = f.submit

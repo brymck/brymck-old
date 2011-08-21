@@ -8,6 +8,7 @@ module ApplicationHelper
   }
 
   def textile(text, opts = {})
+    return nil if text.nil?
     safe = opts[:safe] || false
     html = RedCloth.new(text).to_html
     html = Sanitize.clean(html, Sanitize::Config::BASIC) unless opts[:safe]

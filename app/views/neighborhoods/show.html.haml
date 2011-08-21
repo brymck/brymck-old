@@ -1,5 +1,6 @@
 = link_to t(:edit), edit_neighborhood_path(@neighborhood)
 %h2= @neighborhood.name
+= textile @neighborhood.memo
 = render partial: "apartments/list", locals: { apartments: @neighborhood.apartments, neighborhood_id: @neighborhood.id  }
 %table
   %thead

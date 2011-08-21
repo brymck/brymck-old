@@ -11,3 +11,4 @@
     = number_to_currency @apartment.rent, unit: t(:yen), precision: 0
   %p= link_to @apartment.address(:long), "http://maps.google.com/maps?q=#{@apartment.address}", :"data-nopjax" => true
   %p= link_to t(:edit), edit_apartment_path(@apartment)
+  = textile @apartment.memo
