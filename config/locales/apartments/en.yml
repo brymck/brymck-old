@@ -14,7 +14,9 @@ en:
         key_money_months: "Key money months"
         kitchen: Kitchen
         layout: Layout
+        living_area: "Living area"
         living_room: "Living room"
+        management_fee: "Management fee"
         memo: Memo
         name: Name
         neighborhood: Neighborhood
@@ -46,3 +48,4 @@ en:
   apartments:
     index: *apartment
     list: *apartment
+    show: *apartment

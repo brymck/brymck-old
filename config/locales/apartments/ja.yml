@@ -14,7 +14,9 @@ ja:
         key_money_months: 敷金月
         kitchen: キッチン
         layout: 間取り
+        living_area: 専用面積
         living_room: リビング
+        management_fee: 管理費
         memo: メモ
         name: 名前
         neighborhood: 街
@@ -46,3 +48,4 @@ ja:
   apartments:
     index: *apartment
     list: *apartment
+    show: *apartment

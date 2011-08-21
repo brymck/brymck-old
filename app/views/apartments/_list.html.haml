@@ -19,6 +19,7 @@
         %td= link_to apartment.address, "http://maps.google.com/maps?q=#{apartment.address}", target: :_blank
         %td= apartment.layout
         %td= number_to_currency apartment.rent, unit: t(:yen), precision: 0
+        %td= "#{apartment.living_area}m²"
         %td= truncate apartment.memo, :length => 50, :separator => ' '
         %td= link_to t(:edit), edit_apartment_path(apartment)
         - if admin?

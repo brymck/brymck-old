@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110821092031) do
+ActiveRecord::Schema.define(:version => 20110821101342) do
 
   create_table "addresses", :force => true do |t|
     t.string  "country"
@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(:version => 20110821092031) do
 
   create_table "apartments", :force => true do |t|
     t.integer  "zip"
-    t.string   "country",           :default => "日本",  :null => false
-    t.string   "prefecture",        :default => "東京都", :null => false
+    t.string   "country",                                         :default => "日本",  :null => false
+    t.string   "prefecture",                                      :default => "東京都", :null => false
     t.string   "city"
     t.string   "ward"
     t.string   "town"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(:version => 20110821092031) do
     t.boolean  "kitchen"
     t.date     "construction_date"
     t.text     "memo"
+    t.integer  "management_fee"
+    t.decimal  "living_area",       :precision => 5, :scale => 2
   end
 
   add_index "apartments", ["neighborhood_id"], :name => "index_apartments_on_neighborhood_id"
