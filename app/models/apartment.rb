@@ -20,6 +20,10 @@ class Apartment < ActiveRecord::Base
     text.html_safe
   end
 
+  def all_in_cost
+    rent + (rent * key_money_months || 0) / 24 + (management_fee || 0)
+  end
+
   def layout
     text  = rooms.to_s
     text << "L" if living_room?

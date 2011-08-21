@@ -3,6 +3,7 @@ en:
     attributes:
       apartment: &apartment
         address: Address
+        all_in_cost: "All-in cost"
         block: Block
         city: City
         construction_date: "Construction date"

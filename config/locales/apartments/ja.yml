@@ -3,6 +3,7 @@ ja:
     attributes:
       apartment: &apartment
         address: 住所
+        all_in_cost: めやす賃料
         block: 番
         city: 市
         construction_date: 築年月
