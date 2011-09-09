@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.1.0.rc'
+gem 'rails', '~> 3.1.0'
 
 gem 'awesome_nested_set'
 gem 'breadcrumbs'
@@ -15,8 +15,8 @@ gem 'RedCloth'
 gem 'sanitize'             # 2.8MB
 
 group :assets do           # 3.3MB
-  gem 'sass-rails', '~> 3.1.0.rc'
-  gem 'coffee-rails', '~> 3.1.0.rc'
+  gem 'sass-rails', '~> 3.1.0'
+  gem 'coffee-rails', '~> 3.1.0'
   gem 'uglifier'
 end
 
@@ -38,10 +38,8 @@ group :development do
 end
 
 group :development, :test do
-  gem 'execjs'
   gem 'rspec-rails'
   gem 'sqlite3'
-  gem 'therubyracer', platforms: :ruby
 end
 
 group :test do
