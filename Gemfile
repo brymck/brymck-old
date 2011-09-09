@@ -25,7 +25,7 @@ group :production do
 end
 
 group :production, :development do
-  gem 'aws-s3'
+  # gem 'aws-s3'
   platforms :mswin, :mingw do 
     # gem 'eventmachine', git: "git://github.com/eventmachine/eventmachine"
   end
