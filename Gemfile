@@ -12,6 +12,7 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'omniauth', '>= 0.1.6' # 1.2MB
 gem 'RedCloth'
+gem 'rupee'
 gem 'sanitize'             # 2.8MB
 
 group :assets do           # 3.3MB
