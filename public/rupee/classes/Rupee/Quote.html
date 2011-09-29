@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Rupee::Quote</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Rupee::Quote 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/rupee/quote_rb.html">lib/rupee/quote.rb</a></li>
+            
+            <li><a href="../../files/lib/rupee/quote/source_rb.html">lib/rupee/quote/source.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>An object representing a security quote from an online source. With a <a
+href="Quote.html">Rupee::Quote</a> object, you can retrieve the most recent
+information on a particular security using either the <tt>get</tt> method
+or the helper methods for each parameter (e.g. <tt>price</tt>,
+<tt>change</tt>):</p>
+
+<pre>require &quot;rupee/quote&quot;
+
+wfc = Rupee::Quote.new(&quot;WFC&quot;)
+
+wfc.get :price, :change, :pct_change
+#=&gt; {:price=&gt;24.96, :change=&gt;0.17, :pct_change =&gt;0.686}
+
+wfc.price
+#=&gt; 24.96
+
+wfc.change
+#=&gt; 0.17</pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Quote/Source.html">Rupee::Quote::Source</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-build_sources">build_sources</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-get">get</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>default_source</td>
+            <td class='attr-desc'><p>The default source to use when making generic requests</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>sources</td>
+            <td class='attr-desc'><p>A holder for the sources available</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>frequency</td>
+            <td class='attr-desc'><p>The frequency in seconds that a quote’s information should be updated</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>next_pull</td>
+            <td class='attr-desc'><p>The time at which the next pull from the online quote source will occur</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>source</td>
+            <td class='attr-desc'><p>The name of the quote source</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>ticker</td>
+            <td class='attr-desc'><p>A ticker symbol</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-build_sources">
+            
+              <a name="method-c-build_sources"></a><b>build_sources</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Build the default sources that come with <a href="../Rupee.html">Rupee</a></p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-build_sources_source')" id="l_method-c-build_sources_source">show</a>
+                
+                  | <a href="https://github.com/brymck/rupee/blob/489193f743512663ae0cccf6ca6012d6f29ecbe9/lib/rupee/quote/source.rb#L26" target="_blank" class="github_url">on GitHub</a>
+                
+              </p>
+              <div id="method-c-build_sources_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rupee/quote/source.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">build_sources</span>
+  <span class="ruby-ivar">@sources</span> <span class="ruby-operator">||=</span> {}
+
+  <span class="ruby-comment"># Bloomberg</span>
+  <span class="ruby-ivar">@sources</span>[<span class="ruby-value">:bloomberg</span>] = <span class="ruby-constant">Source</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:bloomberg</span>,
+    <span class="ruby-string">&quot;http://www.bloomberg.com/apps/quote?ticker=%s&quot;</span>,
+    <span class="ruby-value">:price</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/(?:PRICE|VALUE): &lt;span class=&quot;amount&quot;&gt;([0-9.,NA-]{1,})/</span>,
+    <span class="ruby-value">:change</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/Change&lt;\/td&gt;\n&lt;td class=&quot;value[^&gt;]+&gt;([0-9.,NA-]{1,})/</span>,
+    <span class="ruby-value">:pct_change</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/Change&lt;\/td&gt;\n&lt;td class=&quot;value[^&gt;]+&gt;[0-9.,NA-]{1,} \(([0-9NA.,-]{1,})\%/</span>,
+    <span class="ruby-value">:date</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/&quot;date&quot;&gt;(.*?)&lt;/</span>,
+    <span class="ruby-value">:time</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/&quot;time&quot;&gt;(.*?)&lt;/</span>,
+    <span class="ruby-value">:bid</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/Bid&lt;\/td&gt;\n&lt;td class=&quot;value[^&gt;]+&gt;([0-9.,NA-]{1,})/</span>,
+    <span class="ruby-value">:ask</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/Ask&lt;\/td&gt;\n&lt;td class=&quot;value[^&gt;]+&gt;([0-9.,NA-]{1,})/</span>,
+    <span class="ruby-value">:open</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/Open&lt;\/td&gt;\n&lt;td class=&quot;value[^&gt;]+&gt;([0-9.,NA-]{1,})/</span>,
+    <span class="ruby-value">:high</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/High&lt;\/td&gt;\n&lt;td class=&quot;value[^&gt;]+&gt;([0-9.,NA-]{1,})/</span>,
+    <span class="ruby-value">:low</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/Low&lt;\/td&gt;\n&lt;td class=&quot;value[^&gt;]+&gt;([0-9.,NA-]{1,})/</span>,
+    <span class="ruby-value">:volume</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/Volume&lt;\/td&gt;\n&lt;td class=&quot;value[^&gt;]+&gt;([0-9.,NA-]{1,})/</span>,
+    <span class="ruby-value">:mkt_cap</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/Market Cap[^&lt;]+&lt;\/td&gt;\n&lt;td class=&quot;value&quot;&gt;([0-9.,NA-]{1,})/</span>,
+    <span class="ruby-value">:p_e</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/Price\/Earnings[^&lt;]+&lt;\/td&gt;\n&lt;td class=&quot;value&quot;&gt;([0-9.,NA-]{1,})/</span>)
+  <span class="ruby-ivar">@sources</span>[<span class="ruby-value">:yahoo</span>] = <span class="ruby-constant">Source</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:yahoo</span>, <span class="ruby-string">&quot;yahoo.com&quot;</span>)
+  <span class="ruby-ivar">@sources</span>[<span class="ruby-value">:google</span>] = <span class="ruby-constant">Source</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:google</span>, <span class="ruby-string">&quot;google.com&quot;</span>)
+  <span class="ruby-ivar">@default_source</span> = <span class="ruby-value">:bloomberg</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <a name="method-c-new"></a><b>new</b>(ticker, opts = {})
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Creates a new <a href="Quote.html">Rupee::Quote</a> object.</p>
+
+<pre>wfc = Rupee::Quote.new(&quot;WFC&quot;)</pre>
+
+<p>is equivalent to</p>
+
+<pre>wfc = Rupee::Quote.new(&quot;WFC&quot;, :source =&gt; :bloomberg, :frequency =&gt; 15)</pre>
+
+<p>Configuration options</p>
+<ul><li>
+<p><tt>:source</tt> - The name of the source (default is <tt>:bloomberg</tt>).</p>
+</li><li>
+<p><tt>:frequency</tt> - How often the quote will seek new values from the
+quote source, in seconds (default is <tt>15</tt>).</p>
+</li></ul>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+                  | <a href="https://github.com/brymck/rupee/blob/489193f743512663ae0cccf6ca6012d6f29ecbe9/lib/rupee/quote.rb#L49" target="_blank" class="github_url">on GitHub</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rupee/quote.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">ticker</span>, <span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-identifier">opts</span> = { <span class="ruby-value">:source</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:bloomberg</span>, <span class="ruby-value">:frequency</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-number">15</span> }.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">opts</span>
+  <span class="ruby-ivar">@ticker</span> = <span class="ruby-identifier">ticker</span>
+  <span class="ruby-ivar">@source</span> = <span class="ruby-constant">Quote</span>.<span class="ruby-identifier">sources</span>[<span class="ruby-identifier">opts</span>[<span class="ruby-value">:source</span>]]
+  <span class="ruby-ivar">@frequency</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:frequency</span>]
+  <span class="ruby-ivar">@next_pull</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-get">
+            
+              <a name="method-i-get"></a><b>get</b>(*params)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Retrieves the current price of a security</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-get_source')" id="l_method-i-get_source">show</a>
+                
+                  | <a href="https://github.com/brymck/rupee/blob/489193f743512663ae0cccf6ca6012d6f29ecbe9/lib/rupee/quote.rb#L58" target="_blank" class="github_url">on GitHub</a>
+                
+              </p>
+              <div id="method-i-get_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rupee/quote.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">get</span>(*<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">now</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+  <span class="ruby-identifier">params</span> = [<span class="ruby-value">:price</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">now</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-ivar">@next_pull</span>
+    <span class="ruby-ivar">@next_pull</span> = <span class="ruby-identifier">now</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@frequency</span>
+    <span class="ruby-ivar">@results</span> = {}
+    <span class="ruby-identifier">url</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-ivar">@source</span>.<span class="ruby-identifier">url</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">ticker</span>)
+    <span class="ruby-identifier">html</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">start</span>(<span class="ruby-identifier">url</span>.<span class="ruby-identifier">host</span>, <span class="ruby-identifier">url</span>.<span class="ruby-identifier">port</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">http</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">http</span>.<span class="ruby-identifier">get</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">request_uri</span>
+    <span class="ruby-keyword">end</span>.<span class="ruby-identifier">body</span>
+
+    <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">params</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">param</span>, <span class="ruby-identifier">regex</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-ivar">@results</span>[<span class="ruby-identifier">param</span>] = <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">regex</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">html</span>)[<span class="ruby-number">1</span>])
+      <span class="ruby-keyword">rescue</span>
+        <span class="ruby-ivar">@results</span>[<span class="ruby-identifier">param</span>] = <span class="ruby-keyword">nil</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-number">1</span>
+    <span class="ruby-ivar">@results</span>[<span class="ruby-identifier">params</span>[<span class="ruby-number">0</span>]]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@results</span>.<span class="ruby-identifier">keep_if</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">r</span>) }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+    </div>
+  </body>
+</html>    

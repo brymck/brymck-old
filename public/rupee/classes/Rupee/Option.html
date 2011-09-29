@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Rupee::Option</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Rupee::Option 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="Security.html">Rupee::Security</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/ext/rupee/statistics_c.html">ext/rupee/statistics.c</a></li>
+            
+            <li><a href="../../files/ext/rupee/option_c.html">ext/rupee/option.c</a></li>
+            
+            <li><a href="../../files/lib/rupee/option_rb.html">lib/rupee/option.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-black76">black76</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-black_scholes">black_scholes</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-black_scholes">black_scholes</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-bs">bs</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-gbs">gbs</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-generalized_black_scholes">generalized_black_scholes</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>div_yield</td>
+            <td class='attr-desc'><p>The dividend yield</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>price</td>
+            <td class='attr-desc'><p>The price of the option</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>rate</td>
+            <td class='attr-desc'><p>The risk-free rate</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>strike</td>
+            <td class='attr-desc'><p>The strike price of the underlying security</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>time</td>
+            <td class='attr-desc'><p>The remaining time to maturity</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>type</td>
+            <td class='attr-desc'><p>The type of the option. Accepts <tt>&quot;call&quot;</tt> and
+<tt>&quot;put&quot;</tt>.</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>underlying</td>
+            <td class='attr-desc'><p>The price of the underlying security</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>volatility</td>
+            <td class='attr-desc'><p>The annualized price volatility</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-black76">
+            
+              <a name="method-c-black76"></a><b>black76(call_put_flag, forward, strike_price, time_to_expiry,
+risk_free_rate, volatility)
+ </b>
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>The Black-76 valuation for options on futures and forwards</p>
+
+<h4>Arguments</h4>
+<ul><li>
+<p><tt>call_put_flag</tt> - Whether the instrument is a call (c) or a put (p)</p>
+</li><li>
+<p><tt>forward</tt> - The current forward value</p>
+</li><li>
+<p><tt>strike_price</tt> - The option's strike price</p>
+</li><li>
+<p><tt>time_to_expiry</tt> - The time to maturity in years</p>
+</li><li>
+<p><tt>risk_free_rate</tt> - The risk-free rate through expiry</p>
+</li><li>
+<p><tt>volatility</tt> - The implied volatility at expiry</p>
+</li></ul>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-black76_source')" id="l_method-c-black76_source">show</a>
+                
+              </p>
+              <div id="method-c-black76_source" class="dyn-source">
+                <pre>static VALUE
+rupee_black76(self, rcall_put_flag, rF, rX, rT, rr, rv)
+  VALUE self, rcall_put_flag, rF, rX, rT, rr, rv;
+{
+  const char *call_put_flag;
+  double F, X, T, r, v;
+
+  call_put_flag = StringValuePtr(rcall_put_flag);
+  F = NUM2DBL(rF);
+  X = NUM2DBL(rX);
+  T = NUM2DBL(rT);
+  r = NUM2DBL(rr);
+  v = NUM2DBL(rv);
+
+  return rb_float_new(black76(call_put_flag, F, X, T, r, v));
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-black_scholes">
+            
+              <a name="method-c-black_scholes"></a><b>black_scholes(call_put_flag, forward, strike_price, time_to_expiry,
+risk_free_rate, volatility)
+ </b>
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>The Black-Scholes European call/put valuation</p>
+
+<h4>Arguments</h4>
+<ul><li>
+<p><tt>call_put_flag</tt> - Whether the instrument is a call (c) or a put (p)</p>
+</li><li>
+<p><tt>forward</tt> - The current forward value</p>
+</li><li>
+<p><tt>strike_price</tt> - The option's strike price</p>
+</li><li>
+<p><tt>time_to_expiry</tt> - The time to maturity in years</p>
+</li><li>
+<p><tt>risk_free_rate</tt> - The risk-free rate through expiry</p>
+</li><li>
+<p><tt>dividend_yield</tt> - The annual dividend yield</p>
+</li><li>
+<p><tt>volatility</tt> - The implied volatility at expiry</p>
+</li></ul>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="Option.html#method-c-bs">bs</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-black_scholes_source')" id="l_method-c-black_scholes_source">show</a>
+                
+              </p>
+              <div id="method-c-black_scholes_source" class="dyn-source">
+                <pre>static VALUE
+rupee_black_scholes(self, rcall_put_flag, rF, rX, rT, rr, rq, rv)
+  VALUE self, rcall_put_flag, rF, rX, rT, rr, rq, rv;
+{
+  const char *call_put_flag;
+  double F, X, T, r, q, v;
+
+  call_put_flag = StringValuePtr(rcall_put_flag);
+  F = NUM2DBL(rF);
+  X = NUM2DBL(rX);
+  T = NUM2DBL(rT);
+  r = NUM2DBL(rr);
+  q = NUM2DBL(rq);
+  v = NUM2DBL(rv);
+
+  return rb_float_new(bs(call_put_flag, F, X, T, r, q, v));
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-bs">
+            
+              <a name="method-c-bs"></a><b>bs</b>(p1, p2, p3, p4, p5, p6, p7)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-gbs">
+            
+              <a name="method-c-gbs"></a><b>gbs</b>(p1, p2, p3, p4, p5, p6, p7)
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-generalized_black_scholes">
+            
+              <a name="method-c-generalized_black_scholes"></a><b>generalized_black_scholes(call_put_flag, forward, strike_price,
+time_to_expiry, risk_free_rate, volatility)
+ </b>
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>The generalized Black-Scholes European call/put valuation</p>
+
+<h4>Arguments</h4>
+<ul><li>
+<p><tt>call_put_flag</tt> - Whether the instrument is a call (c) or a put (p)</p>
+</li><li>
+<p><tt>forward</tt> - The current forward value</p>
+</li><li>
+<p><tt>strike_price</tt> - The option's strike price</p>
+</li><li>
+<p><tt>time_to_expiry</tt> - The time to maturity in years</p>
+</li><li>
+<p><tt>risk_free_rate</tt> - The risk-free rate through expiry</p>
+</li><li>
+<p><tt>cost_of_carry</tt> - The annualized cost of carry</p>
+</li><li>
+<p><tt>volatility</tt> - The implied volatility at expiry</p>
+</li></ul>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="Option.html#method-c-gbs">gbs</a>
+            </div>
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-generalized_black_scholes_source')" id="l_method-c-generalized_black_scholes_source">show</a>
+                
+              </p>
+              <div id="method-c-generalized_black_scholes_source" class="dyn-source">
+                <pre>static VALUE
+rupee_generalized_black_scholes(self, rcall_put_flag, rF, rX, rT, rr, rb, rv)
+  VALUE self, rcall_put_flag, rF, rX, rT, rr, rb, rv;
+{
+  const char *call_put_flag;
+  double F, X, T, r, b, v;
+
+  call_put_flag = StringValuePtr(rcall_put_flag);
+  F = NUM2DBL(rF);
+  X = NUM2DBL(rX);
+  T = NUM2DBL(rT);
+  r = NUM2DBL(rr);
+  b = NUM2DBL(rb);
+  v = NUM2DBL(rv);
+
+  return rb_float_new(gbs(call_put_flag, F, X, T, r, b, v));
+}</pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-black_scholes">
+            
+              <a name="method-i-black_scholes"></a><b>black_scholes</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-black_scholes_source')" id="l_method-i-black_scholes_source">show</a>
+                
+                  | <a href="https://github.com/brymck/rupee/blob/163dde1256e54200da7d6360308030a64740718b/lib/rupee/option.rb#L26" target="_blank" class="github_url">on GitHub</a>
+                
+              </p>
+              <div id="method-i-black_scholes_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rupee/option.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">black_scholes</span>
+  <span class="ruby-ivar">@value</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">black_scholes</span> <span class="ruby-ivar">@type</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-ivar">@underlying</span>, <span class="ruby-ivar">@strike</span>,
+    <span class="ruby-ivar">@time</span>, <span class="ruby-ivar">@rate</span>, <span class="ruby-ivar">@div_yield</span>, <span class="ruby-ivar">@volatility</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+    </div>
+  </body>
+</html>    

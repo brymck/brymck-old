@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>README.rdoc</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            README.rdoc
+        </h1>
+        <ul class="files">
+            
+            <li>
+                README.rdoc
+                
+                    <a href="https://github.com/brymck/rupee/blob/dd2e1649a0fa7c9485bd8ecf46dbd10b0ebb7634/README.rdoc" target="_blank" class="github_url">on GitHub</a>
+                
+            </li>
+            <li>Last modified: 2011-09-29 17:19:07 +0900</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h1><a href="../classes/Rupee.html">Rupee</a> - financial tools for Ruby</h1>
+<table class="rdoc-list"><tr><td class="rdoc-term"><p>Homepage</p></td>
+<td>
+<p><a href="http://www.brymck.com">www.brymck.com</a></p>
+</td></tr><tr><td class="rdoc-term"><p>Author</p></td>
+<td>
+<p>Bryan McKelvey</p>
+</td></tr><tr><td class="rdoc-term"><p>Copyright</p></td>
+<td>
+<p>© 2011 Bryan McKelvey</p>
+</td></tr><tr><td class="rdoc-term"><p>License</p></td>
+<td>
+<p>MIT</p>
+</td></tr><tr><td class="rdoc-term"><p>Documentation</p></td>
+<td>
+<p><a
+href="http://rdoc.info/github/brymck/rupee/master/frames">rdoc.info/github/brymck/rupee/master/frames</a></p>
+</td></tr></table>
+
+<pre>    /|\
+   / | \
+  /  |  \
+ /_ / \ _\    RU       PE      E
+|  |   |  |   _ _      _
+|  |   |  |  | | |    | |__o  ____
+|  |   |  |  | | | _  |  __| |____|
+| _|   |_ |  | | |/ / | |___
+ \  \ /  /  /_/|___/   \____|
+  \  |  /
+   \ | /
+    \|/</pre>
+
+<h2>Installing</h2>
+
+<p>Note that you must have Ruby 1.8.7+ installed and the ability to compile
+native extensions (standard on most platforms and available on Windows via
+<a href="http://rubyinstaller.org/downloads/">DevKit</a>).</p>
+
+<pre>gem install rupee</pre>
+
+<p>You can also do things the hard way if you want to keep track of the repo:</p>
+
+<pre>git clone git://github.com/brymck/rupee.git
+cd rupee
+bundle update
+rake install</pre>
+
+<p>After all that hard work, you can take a test drive by running something
+like this in the Ruby console (i.e. <tt>irb</tt> in a command prompt):</p>
+
+<pre>require &quot;rupee&quot;
+Rupee::Option.black_scholes &quot;c&quot;, 60, 65, 0.25, 0.08, 0, 0.3
+Rupee::Call.new(
+  :underlying =&gt; 60,
+  :strike     =&gt; 65,
+  :time       =&gt;  0.25,
+  :rate       =&gt;  0.08,
+  :div_yield  =&gt;  0.00,
+  :volatility =&gt;  0.3
+).black_scholes</pre>
+
+<p>both of which should return <tt>2.1334</tt>.</p>
+
+<p>You should also be able to get the latest stock info for, for example,
+Wells Fargo using the following (note that you only need to
+<tt>require</tt> the <tt>quote</tt> module):</p>
+
+<pre>require &quot;rupee/quote&quot;
+wfc = Rupee::Quote.new(&quot;WFC&quot;)
+wfc.get :price, :change, :pct_change
+#=&gt; {:price=&gt;24.96, :change=&gt;0.17, :pct_change =&gt;0.686}
+wfc.price
+#=&gt; 24.96
+wfc.change
+#=&gt; 0.17</pre>
+
+<p><tt>wfc.get</tt> will return a hash of the requested information for the
+security. Each valid parameter will also have its own utility method. The
+results will update every <tt>wfc.frequency</tt> seconds (defaults to 15).</p>
+
+<p>Got it? Good. This will surely help you collect some rupees in real life.</p>
+
+<h2>Performance</h2>
+
+<p>This is just a simple benchmark I ran on my own laptop, where I value a
+simple call option with Black-Scholes 100,000 times. You can test the same
+on yours with rake, but in any case it makes the point that for the
+mathematical side of finance a native extension has substantial benefits:</p>
+
+<pre>rake benchmark</pre>
+
+<p>Results for Black-Scholes:</p>
+
+<pre>                          user     system      total        real
+Rupee (class):        0.190000   0.000000   0.190000 (  0.194001)
+Rupee (one object):   0.180000   0.000000   0.180000 (  0.183091)
+Rupee (new object):   2.210000   0.000000   2.210000 (  2.213351)
+Pure Ruby:            2.320000   0.000000   2.320000 (  2.324259)</pre>
+
+<p>In words, for math-intensive operations, using a C implementation is
+clearly faster than the same thing in Ruby.</p>
+
+<p>Also, if you’re doing a valuation on a one-off set of examples (e.g. in a
+Monte Carlo simulation), you probably don’t want to create an object every
+time. Something like <tt>Rupee::Option.black_scholes ...</tt> should work
+just fine. Creating a <tt>Rupee::Option</tt> object takes roughly the same
+amount of time as running <tt>Rupee::Option.black_scholes</tt> a dozen
+times.</p>
+
+<p>However, if you’re creating and reusing an object, I strongly recommend
+preserving the object orientation of Ruby: the penalty for using a new
+instance rather than calling the class method directly is almost entirely
+in the object initialization itself.</p>
+
+<h2>License</h2>
+
+<p>Copyright © 2011 Bryan McKelvey</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the “Software”),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+    </div>
+  </body>
+</html>
