@@ -127,7 +127,13 @@ methods. For example,</p>
 attr_alias :value, :price</pre>
 
 <p>would add both a <tt>value</tt> and a <tt>value=</tt> that are equivalent
-to their <tt>price</tt> counterparts.</p>
+to their <tt>price</tt> counterparts and would modify the <tt>@price</tt>
+instance variable. On the other hand,</p>
+
+<pre>attr :price
+attr_alias :value, :price</pre>
+
+<p>would only add  <tt>value</tt> method that’s equivalent to <tt>price</tt>.</p>
             </div>
           
           
@@ -141,11 +147,11 @@ to their <tt>price</tt> counterparts.</p>
                 Source: 
                 <a href="javascript:toggleSource('method-c-attr_alias_source')" id="l_method-c-attr_alias_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/116e0b9f3c98d9dad2c7ee89ce67ee68a473c354/lib/rupee/security.rb#L45" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/116e0b9f3c98d9dad2c7ee89ce67ee68a473c354/lib/rupee/security.rb#L52" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-attr_alias_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/security.rb, line 45</span>
+                <pre><span class="ruby-comment"># File lib/rupee/security.rb, line 52</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">attr_alias</span>(<span class="ruby-identifier">new_read</span>, <span class="ruby-identifier">old_read</span>)
   <span class="ruby-identifier">alias_method</span>(<span class="ruby-identifier">new_read</span>, <span class="ruby-identifier">old_read</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">method_defined?</span>(<span class="ruby-identifier">old_read</span>)
   <span class="ruby-identifier">new_write</span> = <span class="ruby-node">&quot;#{new_read}=&quot;</span>
