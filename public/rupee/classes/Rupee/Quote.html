@@ -97,6 +97,11 @@ wfc.change
             
               
               <li>
+                <a href="#method-i-bid_ask">bid_ask</a>,
+              </li>
+            
+              
+              <li>
                 <a href="#method-c-build_sources">build_sources</a>
               </li>
             
@@ -227,7 +232,7 @@ wfc.change
                 Source: 
                 <a href="javascript:toggleSource('method-c-build_sources_source')" id="l_method-c-build_sources_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/489193f743512663ae0cccf6ca6012d6f29ecbe9/lib/rupee/quote/source.rb#L26" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/436a47a078195b678fc91226b4d39391044eeb92/lib/rupee/quote/source.rb#L26" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-build_sources_source" class="dyn-source">
@@ -326,7 +331,7 @@ quote source, in seconds (default is <tt>15</tt>).</p>
                 Source: 
                 <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/489193f743512663ae0cccf6ca6012d6f29ecbe9/lib/rupee/quote.rb#L49" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/b002df6d2ef980a8fdb14b56ce61f1a25f83ddf5/lib/rupee/quote.rb#L49" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
@@ -345,6 +350,48 @@ quote source, in seconds (default is <tt>15</tt>).</p>
                   
       <div class="sectiontitle">Instance Public methods</div>
       
+        <div class="method">
+          <div class="title method-title" id="method-i-bid_ask">
+            
+              <a name="method-i-bid_ask"></a><b>bid_ask</b>()
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>The bid-ask spread</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-bid_ask_source')" id="l_method-i-bid_ask_source">show</a>
+                
+                  | <a href="https://github.com/brymck/rupee/blob/b002df6d2ef980a8fdb14b56ce61f1a25f83ddf5/lib/rupee/quote.rb#L97" target="_blank" class="github_url">on GitHub</a>
+                
+              </p>
+              <div id="method-i-bid_ask_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rupee/quote.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">bid_ask</span>
+  <span class="ruby-identifier">b</span>, <span class="ruby-identifier">a</span> = <span class="ruby-identifier">bid</span>, <span class="ruby-identifier">ask</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">else</span>
+    (<span class="ruby-identifier">a</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">b</span>).<span class="ruby-identifier">round</span> <span class="ruby-identifier">precision</span>(<span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
         <div class="method">
           <div class="title method-title" id="method-i-get">
             
@@ -368,7 +415,7 @@ quote source, in seconds (default is <tt>15</tt>).</p>
                 Source: 
                 <a href="javascript:toggleSource('method-i-get_source')" id="l_method-i-get_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/489193f743512663ae0cccf6ca6012d6f29ecbe9/lib/rupee/quote.rb#L58" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/b002df6d2ef980a8fdb14b56ce61f1a25f83ddf5/lib/rupee/quote.rb#L58" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-get_source" class="dyn-source">
