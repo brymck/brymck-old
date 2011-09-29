@@ -29,7 +29,7 @@
                     <a href="https://github.com/brymck/rupee/blob/1c18b2a16e0c17336e368931ca0550c8bbe7e6e6/README.rdoc" target="_blank" class="github_url">on GitHub</a>
                 
             </li>
-            <li>Last modified: 2011-09-29 18:09:09 +0900</li>
+            <li>Last modified: 2011-09-29 18:47:04 +0900</li>
         </ul>
     </div>
 
@@ -107,8 +107,8 @@ Wells Fargo using the following (note that you only need to
 
 <pre>require &quot;rupee/quote&quot;
 wfc = Rupee::Quote.new(&quot;WFC&quot;)
-wfc.get :price, :change, :pct_change
-#=&gt; {:price=&gt;24.96, :change=&gt;0.17, :pct_change =&gt;0.686}
+wfc.get :price, :change, :pct_chg
+#=&gt; {:price=&gt;24.96, :change=&gt;0.17, :pct_chg =&gt;0.686}
 wfc.price
 #=&gt; 24.96
 wfc.change

@@ -1,5 +1,5 @@
-Thu, 29 Sep 2011 18:29:07 +0900
-README.rdoc	Thu, 29 Sep 2011 18:09:09 +0900
+Thu, 29 Sep 2011 19:05:18 +0900
+README.rdoc	Thu, 29 Sep 2011 18:47:04 +0900
 ext/rupee/util.c	Thu, 29 Sep 2011 14:45:14 +0900
 ext/rupee/statistics.c	Thu, 29 Sep 2011 18:29:03 +0900
 ext/rupee/rupee.c	Wed, 28 Sep 2011 16:24:58 +0900
@@ -8,8 +8,8 @@ ext/rupee/future.c	Wed, 28 Sep 2011 16:27:26 +0900
 ext/rupee/bond.c	Thu, 29 Sep 2011 12:08:27 +0900
 lib/rupee.rb	Wed, 28 Sep 2011 16:29:51 +0900
 lib/rupee/option.rb	Thu, 29 Sep 2011 12:59:17 +0900
-lib/rupee/version.rb	Thu, 29 Sep 2011 17:35:33 +0900
+lib/rupee/version.rb	Thu, 29 Sep 2011 19:05:06 +0900
 lib/rupee/benchmark.rb	Thu, 29 Sep 2011 12:32:52 +0900
-lib/rupee/quote.rb	Thu, 29 Sep 2011 12:18:13 +0900
+lib/rupee/quote.rb	Thu, 29 Sep 2011 18:43:53 +0900
 lib/rupee/security.rb	Thu, 29 Sep 2011 18:25:43 +0900
-lib/rupee/quote/source.rb	Thu, 29 Sep 2011 12:00:43 +0900
+lib/rupee/quote/source.rb	Thu, 29 Sep 2011 19:04:37 +0900
