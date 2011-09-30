@@ -1,4 +1,4 @@
-Fri, 30 Sep 2011 18:40:27 +0900
+Fri, 30 Sep 2011 19:02:50 +0900
 README.rdoc	Thu, 29 Sep 2011 21:08:11 +0900
 ext/rupee/util.c	Thu, 29 Sep 2011 21:08:11 +0900
 ext/rupee/statistics.c	Fri, 30 Sep 2011 12:31:39 +0900
@@ -14,5 +14,5 @@ lib/rupee/version.rb	Fri, 30 Sep 2011 13:58:15 +0900
 lib/rupee/benchmark.rb	Thu, 29 Sep 2011 21:08:11 +0900
 lib/rupee/quote.rb	Fri, 30 Sep 2011 11:32:10 +0900
 lib/rupee/security.rb	Thu, 29 Sep 2011 21:08:11 +0900
-lib/rupee/calendar.rb	Fri, 30 Sep 2011 18:40:17 +0900
+lib/rupee/calendar.rb	Fri, 30 Sep 2011 19:02:31 +0900
 lib/rupee/quote/source.rb	Thu, 29 Sep 2011 21:08:11 +0900
