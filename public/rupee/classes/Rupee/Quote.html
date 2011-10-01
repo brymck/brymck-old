@@ -386,7 +386,7 @@ quote source, in seconds (default is <tt>15</tt>).</p>
                 Source: 
                 <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/9cca8e39a807a6f99797369e7e05bc28d5f0f118/lib/rupee/quote.rb#L52" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/9cce4337a901b76988f018e7488341e93aefbc86/lib/rupee/quote.rb#L52" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
@@ -449,11 +449,11 @@ quote source, in seconds (default is <tt>15</tt>).</p>
                 Source: 
                 <a href="javascript:toggleSource('method-i-bid_ask_source')" id="l_method-i-bid_ask_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/9cca8e39a807a6f99797369e7e05bc28d5f0f118/lib/rupee/quote.rb#L109" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/9cce4337a901b76988f018e7488341e93aefbc86/lib/rupee/quote.rb#L114" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-bid_ask_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/quote.rb, line 109</span>
+                <pre><span class="ruby-comment"># File lib/rupee/quote.rb, line 114</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">bid_ask</span>
   <span class="ruby-identifier">diff</span> <span class="ruby-identifier">bid</span>, <span class="ruby-identifier">ask</span>
 <span class="ruby-keyword">end</span></pre>
@@ -487,11 +487,11 @@ such that if you change <tt>frequency</tt> from <tt>15</tt> to <tt>5</tt>,
                 Source: 
                 <a href="javascript:toggleSource('method-i-frequency-3D_source')" id="l_method-i-frequency-3D_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/9cca8e39a807a6f99797369e7e05bc28d5f0f118/lib/rupee/quote.rb#L124" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/9cce4337a901b76988f018e7488341e93aefbc86/lib/rupee/quote.rb#L129" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-frequency-3D_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/quote.rb, line 124</span>
+                <pre><span class="ruby-comment"># File lib/rupee/quote.rb, line 129</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">frequency=</span>(<span class="ruby-identifier">x</span>)
   <span class="ruby-ivar">@next_pull</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">x</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@frequency</span>)
   <span class="ruby-ivar">@frequency</span> = <span class="ruby-identifier">x</span>
@@ -531,7 +531,7 @@ such that if you change <tt>frequency</tt> from <tt>15</tt> to <tt>5</tt>,
                 Source: 
                 <a href="javascript:toggleSource('method-i-get_source')" id="l_method-i-get_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/9cca8e39a807a6f99797369e7e05bc28d5f0f118/lib/rupee/quote.rb#L64" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/9cce4337a901b76988f018e7488341e93aefbc86/lib/rupee/quote.rb#L64" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-get_source" class="dyn-source">
@@ -544,16 +544,21 @@ such that if you change <tt>frequency</tt> from <tt>15</tt> to <tt>5</tt>,
     <span class="ruby-ivar">@next_pull</span> = <span class="ruby-identifier">now</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@frequency</span>
     <span class="ruby-ivar">@results</span> = {}
     <span class="ruby-identifier">url</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-ivar">@source</span>.<span class="ruby-identifier">url</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">ticker</span>)
-    <span class="ruby-identifier">html</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">start</span>(<span class="ruby-identifier">url</span>.<span class="ruby-identifier">host</span>, <span class="ruby-identifier">url</span>.<span class="ruby-identifier">port</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">http</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">res</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">start</span>(<span class="ruby-identifier">url</span>.<span class="ruby-identifier">host</span>, <span class="ruby-identifier">url</span>.<span class="ruby-identifier">port</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">http</span><span class="ruby-operator">|</span>
       <span class="ruby-identifier">http</span>.<span class="ruby-identifier">get</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">request_uri</span>
-    <span class="ruby-keyword">end</span>.<span class="ruby-identifier">body</span>
+    <span class="ruby-keyword">end</span>
 
-    <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">params</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">param</span>, <span class="ruby-identifier">regex</span><span class="ruby-operator">|</span>
-      <span class="ruby-keyword">begin</span>
-        <span class="ruby-ivar">@results</span>[<span class="ruby-identifier">param</span>] = <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">regex</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">html</span>)[<span class="ruby-number">1</span>])
-      <span class="ruby-keyword">rescue</span>
-        <span class="ruby-ivar">@results</span>[<span class="ruby-identifier">param</span>] = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">res</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPSuccess</span>
+      <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">params</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">param</span>, <span class="ruby-identifier">regex</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">begin</span>
+          <span class="ruby-ivar">@results</span>[<span class="ruby-identifier">param</span>] = <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">regex</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">res</span>.<span class="ruby-identifier">body</span>)[<span class="ruby-number">1</span>])
+        <span class="ruby-keyword">rescue</span>
+          <span class="ruby-ivar">@results</span>[<span class="ruby-identifier">param</span>] = <span class="ruby-keyword">nil</span>
+        <span class="ruby-keyword">end</span>
       <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">res</span>.<span class="ruby-identifier">error!</span>
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
 
@@ -595,11 +600,11 @@ such that if you change <tt>frequency</tt> from <tt>15</tt> to <tt>5</tt>,
                 Source: 
                 <a href="javascript:toggleSource('method-i-range_source')" id="l_method-i-range_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/9cca8e39a807a6f99797369e7e05bc28d5f0f118/lib/rupee/quote.rb#L114" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/9cce4337a901b76988f018e7488341e93aefbc86/lib/rupee/quote.rb#L119" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-range_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/quote.rb, line 114</span>
+                <pre><span class="ruby-comment"># File lib/rupee/quote.rb, line 119</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">range</span>
   <span class="ruby-identifier">diff</span> <span class="ruby-identifier">low</span>, <span class="ruby-identifier">high</span>
 <span class="ruby-keyword">end</span></pre>
