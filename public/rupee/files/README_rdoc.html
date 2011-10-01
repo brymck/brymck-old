@@ -26,10 +26,10 @@
             <li>
                 README.rdoc
                 
-                    <a href="https://github.com/brymck/rupee/blob/436a47a078195b678fc91226b4d39391044eeb92/README.rdoc" target="_blank" class="github_url">on GitHub</a>
+                    <a href="https://github.com/brymck/rupee/blob/adf12e173e3620af96eb9a02a985494107ac07f0/README.rdoc" target="_blank" class="github_url">on GitHub</a>
                 
             </li>
-            <li>Last modified: 2011-09-29 21:08:11 +0900</li>
+            <li>Last modified: 2011-10-01 14:43:28 +0900</li>
         </ul>
     </div>
 
@@ -106,7 +106,7 @@ Wells Fargo using the following (note that you only need to
 <tt>require</tt> the <tt>quote</tt> module):</p>
 
 <pre>require &quot;rupee/quote&quot;
-wfc = Rupee::Quote.new(&quot;WFC&quot;)
+wfc = Rupee::Quote.new(:wfc)
 wfc.get :price, :change, :pct_chg
 #=&gt; {:price=&gt;24.96, :change=&gt;0.17, :pct_chg =&gt;0.686}
 wfc.price

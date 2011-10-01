@@ -206,6 +206,11 @@ Rupee::Calendar::US.day_off?(Time.new(2011, 10, 10))
             
               
               <li>
+                <a href="#method-c-next_monday_if_sunday">next_monday_if_sunday</a>,
+              </li>
+            
+              
+              <li>
                 <a href="#method-c-next_weekday">next_weekday</a>
               </li>
             
@@ -490,7 +495,7 @@ Rupee::Calendar::US.day_off?(Time.new(2011, 10, 10))
                 Source: 
                 <a href="javascript:toggleSource('method-c-last_week-3F_source')" id="l_method-c-last_week-3F_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/86dde24ff41c9eb1e9943522f057337be4abed63/lib/rupee/calendar.rb#L180" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L180" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-last_week-3F_source" class="dyn-source">
@@ -539,7 +544,7 @@ provided day of the month</p>
                 Source: 
                 <a href="javascript:toggleSource('method-c-nearest_weekday_source')" id="l_method-c-nearest_weekday_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/86dde24ff41c9eb1e9943522f057337be4abed63/lib/rupee/calendar.rb#L198" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L198" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-nearest_weekday_source" class="dyn-source">
@@ -584,7 +589,7 @@ provided day of the month</p>
                 Source: 
                 <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/86dde24ff41c9eb1e9943522f057337be4abed63/lib/rupee/calendar.rb#L110" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L110" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
@@ -592,6 +597,50 @@ provided day of the month</p>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">description</span>)
   <span class="ruby-ivar">@description</span> = <span class="ruby-identifier">description</span>
   <span class="ruby-ivar">@days_off</span> = {}
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-next_monday_if_sunday">
+            
+              <a name="method-c-next_monday_if_sunday"></a><b>next_monday_if_sunday</b>(date, day)
+            
+          </div>
+          
+          
+            <div class="description">
+              <p>Calculates whether the provided date is the day requested or, if the day
+requested falls on a Sunday, the following Monday</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-next_monday_if_sunday_source')" id="l_method-c-next_monday_if_sunday_source">show</a>
+                
+                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L239" target="_blank" class="github_url">on GitHub</a>
+                
+              </p>
+              <div id="method-c-next_monday_if_sunday_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 239</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">next_monday_if_sunday</span>(<span class="ruby-identifier">date</span>, <span class="ruby-identifier">day</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">wday</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-number">1</span>     <span class="ruby-comment"># Monday</span>
+    <span class="ruby-identifier">date</span>.<span class="ruby-identifier">day</span>.<span class="ruby-identifier">between?</span>(<span class="ruby-identifier">day</span>, <span class="ruby-identifier">day</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-number">0</span>, <span class="ruby-number">6</span>  <span class="ruby-comment"># Weekends</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">else</span>       <span class="ruby-comment"># Tuesday - Friday</span>
+    <span class="ruby-identifier">date</span>.<span class="ruby-identifier">day</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">day</span>
+  <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>
@@ -622,7 +671,7 @@ provided day of the month</p>
                 Source: 
                 <a href="javascript:toggleSource('method-c-next_weekday_source')" id="l_method-c-next_weekday_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/86dde24ff41c9eb1e9943522f057337be4abed63/lib/rupee/calendar.rb#L213" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L213" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-next_weekday_source" class="dyn-source">
@@ -666,7 +715,7 @@ provided day of the month</p>
                 Source: 
                 <a href="javascript:toggleSource('method-c-previous_weekday_source')" id="l_method-c-previous_weekday_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/86dde24ff41c9eb1e9943522f057337be4abed63/lib/rupee/calendar.rb#L226" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L226" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-previous_weekday_source" class="dyn-source">
@@ -709,7 +758,7 @@ provided day of the month</p>
                 Source: 
                 <a href="javascript:toggleSource('method-c-week_of_source')" id="l_method-c-week_of_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/86dde24ff41c9eb1e9943522f057337be4abed63/lib/rupee/calendar.rb#L175" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L175" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-week_of_source" class="dyn-source">
@@ -747,7 +796,7 @@ provided day of the month</p>
                 Source: 
                 <a href="javascript:toggleSource('method-i-copy_source')" id="l_method-i-copy_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/86dde24ff41c9eb1e9943522f057337be4abed63/lib/rupee/calendar.rb#L116" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L116" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-copy_source" class="dyn-source">
@@ -789,7 +838,7 @@ provided day of the month</p>
                 Source: 
                 <a href="javascript:toggleSource('method-i-day_off-3F_source')" id="l_method-i-day_off-3F_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/86dde24ff41c9eb1e9943522f057337be4abed63/lib/rupee/calendar.rb#L165" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L165" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-day_off-3F_source" class="dyn-source">
@@ -849,7 +898,7 @@ end</pre>
                 Source: 
                 <a href="javascript:toggleSource('method-i-has_day_off_on_source')" id="l_method-i-has_day_off_on_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/86dde24ff41c9eb1e9943522f057337be4abed63/lib/rupee/calendar.rb#L145" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L145" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-has_day_off_on_source" class="dyn-source">
@@ -888,7 +937,7 @@ weekends are not workdays or trading days:</p>
                 Source: 
                 <a href="javascript:toggleSource('method-i-has_weekends_off_source')" id="l_method-i-has_weekends_off_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/86dde24ff41c9eb1e9943522f057337be4abed63/lib/rupee/calendar.rb#L158" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L158" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-has_weekends_off_source" class="dyn-source">
@@ -926,7 +975,7 @@ weekends are not workdays or trading days:</p>
                 Source: 
                 <a href="javascript:toggleSource('method-i-remove_day_off_for_source')" id="l_method-i-remove_day_off_for_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/86dde24ff41c9eb1e9943522f057337be4abed63/lib/rupee/calendar.rb#L150" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L150" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-remove_day_off_for_source" class="dyn-source">

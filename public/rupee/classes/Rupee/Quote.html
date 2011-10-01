@@ -50,16 +50,16 @@ or the helper methods for each parameter (e.g. <tt>price</tt>,
 
 <pre>require &quot;rupee/quote&quot;
 
-wfc = Rupee::Quote.new(&quot;WFC&quot;)
+wfc = Rupee::Quote.new(:wfc)
 
 wfc.get :price, :change, :pct_chg
-#=&gt; {:price=&gt;24.96, :change=&gt;0.17, :pct_chg =&gt;0.686}
+# =&gt; {:price=&gt;24.96, :change=&gt;0.17, :pct_chg =&gt;0.686}
 
 wfc.price
-#=&gt; 24.96
+# =&gt; 24.96
 
 wfc.change
-#=&gt; 0.17</pre>
+# =&gt; 0.17</pre>
 
     </div>
   
@@ -353,11 +353,11 @@ wfc.change
             <div class="description">
               <p>Creates a new <a href="Quote.html">Rupee::Quote</a> object.</p>
 
-<pre>wfc = Rupee::Quote.new(&quot;WFC&quot;)</pre>
+<pre>wfc = Rupee::Quote.new(:wfc)</pre>
 
 <p>is equivalent to</p>
 
-<pre>wfc = Rupee::Quote.new(&quot;WFC&quot;, :source =&gt; :bloomberg, :frequency =&gt; 15)</pre>
+<pre>wfc = Rupee::Quote.new(:wfc, :source =&gt; :bloomberg, :frequency =&gt; 15)</pre>
 
 <p>Configuration options</p>
 <ul><li>
@@ -386,14 +386,14 @@ quote source, in seconds (default is <tt>15</tt>).</p>
                 Source: 
                 <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/ec2de27bf5a0228a84125991697aa12d8c56849d/lib/rupee/quote.rb#L52" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/9cca8e39a807a6f99797369e7e05bc28d5f0f118/lib/rupee/quote.rb#L52" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
                 <pre><span class="ruby-comment"># File lib/rupee/quote.rb, line 52</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">ticker</span>, <span class="ruby-identifier">opts</span> = {})
   <span class="ruby-identifier">opts</span> = { <span class="ruby-value">:source</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:bloomberg</span>, <span class="ruby-value">:frequency</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-number">15</span> }.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">opts</span>
-  <span class="ruby-ivar">@ticker</span> = <span class="ruby-identifier">ticker</span>
+  <span class="ruby-ivar">@ticker</span> = <span class="ruby-identifier">ticker</span>.<span class="ruby-identifier">upcase</span>
   <span class="ruby-ivar">@source</span> = <span class="ruby-constant">Quote</span>.<span class="ruby-identifier">sources</span>[<span class="ruby-identifier">opts</span>[<span class="ruby-value">:source</span>]]
   <span class="ruby-ivar">@frequency</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:frequency</span>]
   <span class="ruby-ivar">@next_pull</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
@@ -416,8 +416,8 @@ quote source, in seconds (default is <tt>15</tt>).</p>
             <div class="description">
               <p>Retrieves the current information for a security</p>
 
-<pre>Rupee::Quote.new(&quot;WFC&quot;)[:price, :change, :pct_chg]
-#=&gt; {:price=&gt;24.96, :change=&gt;0.17, :pct_chg =&gt;0.686}</pre>
+<pre>Rupee::Quote.new(:wfc)[:price, :change, :pct_chg]
+# =&gt; {:price=&gt;24.96, :change=&gt;0.17, :pct_chg =&gt;0.686}</pre>
             </div>
           
           
@@ -449,7 +449,7 @@ quote source, in seconds (default is <tt>15</tt>).</p>
                 Source: 
                 <a href="javascript:toggleSource('method-i-bid_ask_source')" id="l_method-i-bid_ask_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/ec2de27bf5a0228a84125991697aa12d8c56849d/lib/rupee/quote.rb#L109" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/9cca8e39a807a6f99797369e7e05bc28d5f0f118/lib/rupee/quote.rb#L109" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-bid_ask_source" class="dyn-source">
@@ -487,7 +487,7 @@ such that if you change <tt>frequency</tt> from <tt>15</tt> to <tt>5</tt>,
                 Source: 
                 <a href="javascript:toggleSource('method-i-frequency-3D_source')" id="l_method-i-frequency-3D_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/ec2de27bf5a0228a84125991697aa12d8c56849d/lib/rupee/quote.rb#L124" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/9cca8e39a807a6f99797369e7e05bc28d5f0f118/lib/rupee/quote.rb#L124" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-frequency-3D_source" class="dyn-source">
@@ -512,8 +512,8 @@ such that if you change <tt>frequency</tt> from <tt>15</tt> to <tt>5</tt>,
             <div class="description">
               <p>Retrieves the current information for a security</p>
 
-<pre>Rupee::Quote.new(&quot;WFC&quot;).get :price, :change, :pct_chg
-#=&gt; {:price=&gt;24.96, :change=&gt;0.17, :pct_chg =&gt;0.686}</pre>
+<pre>Rupee::Quote.new(:wfc).get :price, :change, :pct_chg
+# =&gt; {:price=&gt;24.96, :change=&gt;0.17, :pct_chg =&gt;0.686}</pre>
             </div>
           
           
@@ -531,7 +531,7 @@ such that if you change <tt>frequency</tt> from <tt>15</tt> to <tt>5</tt>,
                 Source: 
                 <a href="javascript:toggleSource('method-i-get_source')" id="l_method-i-get_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/ec2de27bf5a0228a84125991697aa12d8c56849d/lib/rupee/quote.rb#L64" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/9cca8e39a807a6f99797369e7e05bc28d5f0f118/lib/rupee/quote.rb#L64" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-get_source" class="dyn-source">
@@ -595,7 +595,7 @@ such that if you change <tt>frequency</tt> from <tt>15</tt> to <tt>5</tt>,
                 Source: 
                 <a href="javascript:toggleSource('method-i-range_source')" id="l_method-i-range_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/ec2de27bf5a0228a84125991697aa12d8c56849d/lib/rupee/quote.rb#L114" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/9cca8e39a807a6f99797369e7e05bc28d5f0f118/lib/rupee/quote.rb#L114" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-range_source" class="dyn-source">
