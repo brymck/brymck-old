@@ -97,6 +97,20 @@
   
 
   
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="FindInstance.html">
+              Rupee::FindInstance
+            </a>
+          
+        </li>
+      
+    </ul>
+  
 
 
 
@@ -287,11 +301,11 @@
                 Source: 
                 <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/4b099425bc6a6e3d44f1d76ab027793084fcf3fb/lib/rupee/currency.rb#L26" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/e14acc3b8bda07f28e82e326be64cd267734a252/lib/rupee/currency.rb#L28" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/currency.rb, line 26</span>
+                <pre><span class="ruby-comment"># File lib/rupee/currency.rb, line 28</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">description</span>, <span class="ruby-identifier">opts</span> = {})
   <span class="ruby-identifier">opts</span> = {
     <span class="ruby-value">:symbol</span>         =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;$&quot;</span>,
@@ -336,11 +350,11 @@
                 Source: 
                 <a href="javascript:toggleSource('method-i-format_source')" id="l_method-i-format_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/4b099425bc6a6e3d44f1d76ab027793084fcf3fb/lib/rupee/currency.rb#L42" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/e14acc3b8bda07f28e82e326be64cd267734a252/lib/rupee/currency.rb#L44" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-format_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/currency.rb, line 42</span>
+                <pre><span class="ruby-comment"># File lib/rupee/currency.rb, line 44</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">format</span>(<span class="ruby-identifier">number</span>)
   <span class="ruby-identifier">parts</span> = <span class="ruby-identifier">number</span>.<span class="ruby-identifier">round</span>(<span class="ruby-ivar">@decimal_places</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;.&quot;</span>)
   <span class="ruby-identifier">parts</span>[<span class="ruby-number">0</span>].<span class="ruby-identifier">gsub!</span> <span class="ruby-regexp">/(\d)(?=(\d\d\d)+(?!\d))/</span>, <span class="ruby-node">&quot;\\1#{@delimiter}&quot;</span>

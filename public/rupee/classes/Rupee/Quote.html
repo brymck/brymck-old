@@ -33,8 +33,6 @@
             
             <li><a href="../../files/lib/rupee/quote_rb.html">lib/rupee/quote.rb</a></li>
             
-            <li><a href="../../files/lib/rupee/quote/source_rb.html">lib/rupee/quote/source.rb</a></li>
-            
         </ul>
     </div>
     <div id="bodyContent">
@@ -73,17 +71,6 @@ wfc.change
 
 
   
-    <!-- Namespace -->
-    <div class="sectiontitle">Namespace</div>
-    <ul>
-      
-        <li>
-          <span class="type">CLASS</span>
-          <a href="Quote/Source.html">Rupee::Quote::Source</a>
-        </li>
-      
-    </ul>
-  
 
 
   
@@ -109,12 +96,7 @@ wfc.change
             
               
               <li>
-                <a href="#method-i-bid_ask">bid_ask</a>,
-              </li>
-            
-              
-              <li>
-                <a href="#method-c-build_sources">build_sources</a>
+                <a href="#method-i-bid_ask">bid_ask</a>
               </li>
             
           </ul>
@@ -203,22 +185,6 @@ wfc.change
         
           <tr valign='top'>
             <td class='attr-rw'>
-              [R]
-            </td>
-            <td class='attr-name'>default_source</td>
-            <td class='attr-desc'><p>The default source to use when making generic requests</p></td>
-          </tr>
-        
-          <tr valign='top'>
-            <td class='attr-rw'>
-              [R]
-            </td>
-            <td class='attr-name'>sources</td>
-            <td class='attr-desc'><p>A holder for the sources available</p></td>
-          </tr>
-        
-          <tr valign='top'>
-            <td class='attr-rw'>
               [RW]
             </td>
             <td class='attr-name'>frequency</td>
@@ -257,91 +223,6 @@ wfc.change
     
       <div class="sectiontitle">Class Public methods</div>
       
-        <div class="method">
-          <div class="title method-title" id="method-c-build_sources">
-            
-              <a name="method-c-build_sources"></a><b>build_sources</b>()
-            
-          </div>
-          
-          
-            <div class="description">
-              <p>Build the default sources that come with <a href="../Rupee.html">Rupee</a></p>
-            </div>
-          
-          
-          
-          
-          
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source: 
-                <a href="javascript:toggleSource('method-c-build_sources_source')" id="l_method-c-build_sources_source">show</a>
-                
-                  | <a href="https://github.com/brymck/rupee/blob/436a47a078195b678fc91226b4d39391044eeb92/lib/rupee/quote/source.rb#L26" target="_blank" class="github_url">on GitHub</a>
-                
-              </p>
-              <div id="method-c-build_sources_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/quote/source.rb, line 26</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">build_sources</span>
-  <span class="ruby-ivar">@sources</span> <span class="ruby-operator">||=</span> {}
-
-  <span class="ruby-comment"># Bloomberg</span>
-  <span class="ruby-ivar">@sources</span>[<span class="ruby-value">:bloomberg</span>] = <span class="ruby-constant">Source</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:bloomberg</span>,
-    <span class="ruby-string">&quot;http://www.bloomberg.com/apps/quote?ticker=%s&quot;</span>,
-    <span class="ruby-value">:price</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/(?:PRICE|VALUE): &lt;span class=&quot;amount&quot;&gt;([0-9.,NA-]{1,})/</span>,
-    <span class="ruby-value">:change</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/Change&lt;\/td&gt;\n&lt;td class=&quot;value[^&gt;]+&gt;([0-9.,NA-]{1,})/</span>,
-    <span class="ruby-value">:pct_chg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/Change&lt;\/td&gt;\n&lt;td class=&quot;value[^&gt;]+&gt;[0-9.,NA-]{1,} \(([0-9NA.,-]{1,})\%/</span>,
-    <span class="ruby-value">:date</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/&quot;date&quot;&gt;(.*?)&lt;/</span>,
-    <span class="ruby-value">:time</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/&quot;time&quot;&gt;(.*?)&lt;/</span>,
-    <span class="ruby-value">:bid</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/Bid&lt;\/td&gt;\n&lt;td class=&quot;value[^&gt;]+&gt;([0-9.,NA-]{1,})/</span>,
-    <span class="ruby-value">:ask</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/Ask&lt;\/td&gt;\n&lt;td class=&quot;value[^&gt;]+&gt;([0-9.,NA-]{1,})/</span>,
-    <span class="ruby-value">:open</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/Open&lt;\/td&gt;\n&lt;td class=&quot;value[^&gt;]+&gt;([0-9.,NA-]{1,})/</span>,
-    <span class="ruby-value">:high</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/High&lt;\/td&gt;\n&lt;td class=&quot;value[^&gt;]+&gt;([0-9.,NA-]{1,})/</span>,
-    <span class="ruby-value">:low</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/Low&lt;\/td&gt;\n&lt;td class=&quot;value[^&gt;]+&gt;([0-9.,NA-]{1,})/</span>,
-    <span class="ruby-value">:volume</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/Volume&lt;\/td&gt;\n&lt;td class=&quot;value[^&gt;]+&gt;([0-9.,NA-]{1,})/</span>,
-    <span class="ruby-value">:mkt_cap</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/Market Cap[^&lt;]+&lt;\/td&gt;\n&lt;td class=&quot;value&quot;&gt;([0-9.,NA-]{1,})/</span>,
-    <span class="ruby-value">:p_e</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/Price\/Earnings[^&lt;]+&lt;\/td&gt;\n&lt;td class=&quot;value&quot;&gt;([0-9.,NA-]{1,})/</span>)
-
-  <span class="ruby-comment"># Yahoo! Finance</span>
-  <span class="ruby-ivar">@sources</span>[<span class="ruby-value">:yahoo</span>] = <span class="ruby-constant">Source</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:yahoo</span>,
-    <span class="ruby-string">&quot;http://finance.yahoo.com/q?s=%s&quot;</span>,
-    <span class="ruby-value">:price</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/(?:&lt;\/a&gt; |&quot;yfnc_tabledata1&quot;&gt;&lt;big&gt;&lt;b&gt;)&lt;span id=&quot;yfs_l[19]0_[^&gt;]+&gt;([0-9,.-]{1,})/</span>,
-    <span class="ruby-value">:change</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/&gt;&lt;span id=&quot;yfs_c[16]0_.*?(?:\n[\s\w\-]*\n[\s&quot;&gt;\(]*?)?([0-9.,-]{1,})/</span>,
-    <span class="ruby-value">:pct_chg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/yfs_p[24]0_.*?(?:\n[\s\w\-]*\n[\s&quot;&gt;\(]*?)?([0-9.,-]{1,})%\)(?:&lt;\/span&gt;|&lt;\/b&gt;&lt;\/span&gt;&lt;\/td&gt;)/</span>,
-    <span class="ruby-value">:date</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/&lt;span id=&quot;yfs_market_time&quot;&gt;.*?, (.*?20[0-9]{1,2})/</span>,
-    <span class="ruby-value">:time</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/(?:&quot;time&quot;|&quot;yfnc_tabledata1&quot;)&gt;&lt;span id=&quot;yfs_t[51]0_[^&gt;]+&gt;(.*?)&lt;/</span>,
-    <span class="ruby-value">:bid</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/yfs_b00_[^&gt;]+&gt;([0-9,.-]{1,})/</span>,
-    <span class="ruby-value">:ask</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/yfs_a00_[^&gt;]+&gt;([0-9,.-]{1,})/</span>,
-    <span class="ruby-value">:open</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/Open:&lt;\/th&gt;&lt;td class=&quot;yfnc_tabledata1&quot;&gt;([0-9,.-]{1,})/</span>,
-    <span class="ruby-value">:high</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/yfs_h00_[^&gt;]+&gt;([0-9,.-]{1,})/</span>,
-    <span class="ruby-value">:low</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/yfs_g00_[^&gt;]+&gt;([0-9,.-]{1,})/</span>,
-    <span class="ruby-value">:volume</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/yfs_v00_[^&gt;]+&gt;([0-9,.-]{1,})/</span>,
-    <span class="ruby-value">:mkt_cap</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/yfs_j10_[^&gt;]+&gt;([0-9,.-]{1,}[KMBT]?)/</span>)
-
-  <span class="ruby-comment"># Google Finance</span>
-  <span class="ruby-ivar">@sources</span>[<span class="ruby-value">:google</span>] = <span class="ruby-constant">Source</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:google</span>,
-    <span class="ruby-string">&quot;http://www.google.com/ig/api?stock=%s&quot;</span>,
-    <span class="ruby-value">:price</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/&lt;last data=&quot;([0-9.-]*)&quot;/</span>,
-    <span class="ruby-value">:change</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/&lt;change data=&quot;([0-9.-]*)&quot;/</span>,
-    <span class="ruby-value">:pct_chg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/&lt;perc_change data=&quot;([0-9.-]*)&quot;/</span>,
-    <span class="ruby-value">:date</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/&lt;trade_date_utc data=&quot;([0-9.-]*)&quot;/</span>,
-    <span class="ruby-value">:time</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/&lt;trade_date_utc data=&quot;([0-9.-]*)&quot;/</span>,
-    <span class="ruby-value">:open</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/&lt;open data=&quot;([0-9.-]*)&quot;/</span>,
-    <span class="ruby-value">:high</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/&lt;high data=&quot;([0-9.-]*)&quot;/</span>,
-    <span class="ruby-value">:low</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/&lt;low data=&quot;([0-9.-]*)&quot;/</span>,
-    <span class="ruby-value">:volume</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/&lt;volume data=&quot;([0-9.-]*)&quot;/</span>,
-    <span class="ruby-value">:mkt_cap</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-regexp">/&lt;market_cap data=&quot;([0-9.-]*)&quot;/</span>)
-
-  <span class="ruby-ivar">@default_source</span> = <span class="ruby-value">:bloomberg</span>
-<span class="ruby-keyword">end</span></pre>
-              </div>
-            </div>
-            
-          </div>
-        
         <div class="method">
           <div class="title method-title" id="method-c-new">
             
@@ -386,15 +267,15 @@ quote source, in seconds (default is <tt>15</tt>).</p>
                 Source: 
                 <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/9cce4337a901b76988f018e7488341e93aefbc86/lib/rupee/quote.rb#L52" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/e14acc3b8bda07f28e82e326be64cd267734a252/lib/rupee/quote.rb#L48" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/quote.rb, line 52</span>
+                <pre><span class="ruby-comment"># File lib/rupee/quote.rb, line 48</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">ticker</span>, <span class="ruby-identifier">opts</span> = {})
   <span class="ruby-identifier">opts</span> = { <span class="ruby-value">:source</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:bloomberg</span>, <span class="ruby-value">:frequency</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-number">15</span> }.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">opts</span>
   <span class="ruby-ivar">@ticker</span> = <span class="ruby-identifier">ticker</span>.<span class="ruby-identifier">upcase</span>
-  <span class="ruby-ivar">@source</span> = <span class="ruby-constant">Quote</span>.<span class="ruby-identifier">sources</span>[<span class="ruby-identifier">opts</span>[<span class="ruby-value">:source</span>]]
+  <span class="ruby-ivar">@source</span> = <span class="ruby-constant">Source</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">opts</span>[<span class="ruby-value">:source</span>])
   <span class="ruby-ivar">@frequency</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:frequency</span>]
   <span class="ruby-ivar">@next_pull</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
 <span class="ruby-keyword">end</span></pre>
@@ -449,11 +330,11 @@ quote source, in seconds (default is <tt>15</tt>).</p>
                 Source: 
                 <a href="javascript:toggleSource('method-i-bid_ask_source')" id="l_method-i-bid_ask_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/9cce4337a901b76988f018e7488341e93aefbc86/lib/rupee/quote.rb#L114" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/e14acc3b8bda07f28e82e326be64cd267734a252/lib/rupee/quote.rb#L110" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-bid_ask_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/quote.rb, line 114</span>
+                <pre><span class="ruby-comment"># File lib/rupee/quote.rb, line 110</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">bid_ask</span>
   <span class="ruby-identifier">diff</span> <span class="ruby-identifier">bid</span>, <span class="ruby-identifier">ask</span>
 <span class="ruby-keyword">end</span></pre>
@@ -487,11 +368,11 @@ such that if you change <tt>frequency</tt> from <tt>15</tt> to <tt>5</tt>,
                 Source: 
                 <a href="javascript:toggleSource('method-i-frequency-3D_source')" id="l_method-i-frequency-3D_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/9cce4337a901b76988f018e7488341e93aefbc86/lib/rupee/quote.rb#L129" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/e14acc3b8bda07f28e82e326be64cd267734a252/lib/rupee/quote.rb#L125" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-frequency-3D_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/quote.rb, line 129</span>
+                <pre><span class="ruby-comment"># File lib/rupee/quote.rb, line 125</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">frequency=</span>(<span class="ruby-identifier">x</span>)
   <span class="ruby-ivar">@next_pull</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">x</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@frequency</span>)
   <span class="ruby-ivar">@frequency</span> = <span class="ruby-identifier">x</span>
@@ -531,11 +412,11 @@ such that if you change <tt>frequency</tt> from <tt>15</tt> to <tt>5</tt>,
                 Source: 
                 <a href="javascript:toggleSource('method-i-get_source')" id="l_method-i-get_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/9cce4337a901b76988f018e7488341e93aefbc86/lib/rupee/quote.rb#L64" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/e14acc3b8bda07f28e82e326be64cd267734a252/lib/rupee/quote.rb#L60" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-get_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/quote.rb, line 64</span>
+                <pre><span class="ruby-comment"># File lib/rupee/quote.rb, line 60</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">get</span>(*<span class="ruby-identifier">params</span>)
   <span class="ruby-identifier">now</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
   <span class="ruby-identifier">params</span> = [<span class="ruby-value">:price</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">empty?</span>
@@ -600,11 +481,11 @@ such that if you change <tt>frequency</tt> from <tt>15</tt> to <tt>5</tt>,
                 Source: 
                 <a href="javascript:toggleSource('method-i-range_source')" id="l_method-i-range_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/9cce4337a901b76988f018e7488341e93aefbc86/lib/rupee/quote.rb#L119" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/e14acc3b8bda07f28e82e326be64cd267734a252/lib/rupee/quote.rb#L115" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-range_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/quote.rb, line 119</span>
+                <pre><span class="ruby-comment"># File lib/rupee/quote.rb, line 115</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">range</span>
   <span class="ruby-identifier">diff</span> <span class="ruby-identifier">low</span>, <span class="ruby-identifier">high</span>
 <span class="ruby-keyword">end</span></pre>

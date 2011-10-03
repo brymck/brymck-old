@@ -257,6 +257,20 @@ Rupee::Calendar::US.day_off?(Time.new(2011, 10, 10))
   
 
   
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="FindInstance.html">
+              Rupee::FindInstance
+            </a>
+          
+        </li>
+      
+    </ul>
+  
 
 
 
@@ -495,11 +509,11 @@ Rupee::Calendar::US.day_off?(Time.new(2011, 10, 10))
                 Source: 
                 <a href="javascript:toggleSource('method-c-last_week-3F_source')" id="l_method-c-last_week-3F_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L180" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/49ad7b08fa53f6ec70a9c93a987a8c1282eac614/lib/rupee/calendar.rb#L184" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-last_week-3F_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 180</span>
+                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 184</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">last_week?</span>(<span class="ruby-identifier">date</span>)
   <span class="ruby-keyword">case</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">month</span>
   <span class="ruby-keyword">when</span> <span class="ruby-number">9</span>, <span class="ruby-number">4</span>, <span class="ruby-number">6</span>, <span class="ruby-number">11</span>
@@ -512,7 +526,7 @@ Rupee::Calendar::US.day_off?(Time.new(2011, 10, 10))
   <span class="ruby-keyword">when</span> <span class="ruby-number">2</span>
     <span class="ruby-comment"># Save February, with twenty-eight days clear</span>
     <span class="ruby-comment"># And twenty-nine each leap year ;)</span>
-    <span class="ruby-identifier">date</span>.<span class="ruby-identifier">day</span> <span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">date</span>.<span class="ruby-identifier">year</span> <span class="ruby-operator">%</span> <span class="ruby-number">4</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">year</span> <span class="ruby-operator">%</span> <span class="ruby-number">100</span> <span class="ruby-operator">!=</span> <span class="ruby-number">0</span>) <span class="ruby-operator">?</span> <span class="ruby-number">22</span> <span class="ruby-operator">:</span> <span class="ruby-number">21</span>
+    <span class="ruby-identifier">date</span>.<span class="ruby-identifier">day</span> <span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">date</span>.<span class="ruby-identifier">year</span> <span class="ruby-operator">%</span> <span class="ruby-number">4</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">date</span>.<span class="ruby-identifier">year</span> <span class="ruby-operator">%</span> <span class="ruby-number">100</span> <span class="ruby-operator">!=</span> <span class="ruby-number">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">year</span> <span class="ruby-operator">%</span> <span class="ruby-number">400</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span>)) <span class="ruby-operator">?</span> <span class="ruby-number">22</span> <span class="ruby-operator">:</span> <span class="ruby-number">21</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
               </div>
@@ -544,11 +558,11 @@ provided day of the month</p>
                 Source: 
                 <a href="javascript:toggleSource('method-c-nearest_weekday_source')" id="l_method-c-nearest_weekday_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L198" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/49ad7b08fa53f6ec70a9c93a987a8c1282eac614/lib/rupee/calendar.rb#L202" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-nearest_weekday_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 198</span>
+                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 202</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">nearest_weekday</span>(<span class="ruby-identifier">date</span>, <span class="ruby-identifier">day</span>)
   <span class="ruby-keyword">case</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">wday</span>
   <span class="ruby-keyword">when</span> <span class="ruby-number">1</span>     <span class="ruby-comment"># Monday</span>
@@ -589,11 +603,11 @@ provided day of the month</p>
                 Source: 
                 <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L110" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/49ad7b08fa53f6ec70a9c93a987a8c1282eac614/lib/rupee/calendar.rb#L112" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 110</span>
+                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 112</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">description</span>)
   <span class="ruby-ivar">@description</span> = <span class="ruby-identifier">description</span>
   <span class="ruby-ivar">@days_off</span> = {}
@@ -627,11 +641,11 @@ requested falls on a Sunday, the following Monday</p>
                 Source: 
                 <a href="javascript:toggleSource('method-c-next_monday_if_sunday_source')" id="l_method-c-next_monday_if_sunday_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L239" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/49ad7b08fa53f6ec70a9c93a987a8c1282eac614/lib/rupee/calendar.rb#L243" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-next_monday_if_sunday_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 239</span>
+                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 243</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">next_monday_if_sunday</span>(<span class="ruby-identifier">date</span>, <span class="ruby-identifier">day</span>)
   <span class="ruby-keyword">case</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">wday</span>
   <span class="ruby-keyword">when</span> <span class="ruby-number">1</span>     <span class="ruby-comment"># Monday</span>
@@ -671,11 +685,11 @@ provided day of the month</p>
                 Source: 
                 <a href="javascript:toggleSource('method-c-next_weekday_source')" id="l_method-c-next_weekday_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L213" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/49ad7b08fa53f6ec70a9c93a987a8c1282eac614/lib/rupee/calendar.rb#L217" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-next_weekday_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 213</span>
+                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 217</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">next_weekday</span>(<span class="ruby-identifier">date</span>, <span class="ruby-identifier">day</span>)
   <span class="ruby-keyword">case</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">wday</span>
   <span class="ruby-keyword">when</span> <span class="ruby-number">1</span>     <span class="ruby-comment"># Monday</span>
@@ -715,11 +729,11 @@ provided day of the month</p>
                 Source: 
                 <a href="javascript:toggleSource('method-c-previous_weekday_source')" id="l_method-c-previous_weekday_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L226" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/49ad7b08fa53f6ec70a9c93a987a8c1282eac614/lib/rupee/calendar.rb#L230" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-previous_weekday_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 226</span>
+                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 230</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">previous_weekday</span>(<span class="ruby-identifier">date</span>, <span class="ruby-identifier">day</span>)
   <span class="ruby-keyword">case</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">wday</span>
   <span class="ruby-keyword">when</span> <span class="ruby-number">5</span>     <span class="ruby-comment"># Friday</span>
@@ -758,11 +772,11 @@ provided day of the month</p>
                 Source: 
                 <a href="javascript:toggleSource('method-c-week_of_source')" id="l_method-c-week_of_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L175" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/49ad7b08fa53f6ec70a9c93a987a8c1282eac614/lib/rupee/calendar.rb#L179" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-week_of_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 175</span>
+                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 179</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">week_of</span>(<span class="ruby-identifier">date</span>)
   (<span class="ruby-identifier">date</span>.<span class="ruby-identifier">day</span> <span class="ruby-operator">-</span> <span class="ruby-number">1</span>) <span class="ruby-operator">/</span> <span class="ruby-number">7</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span>
 <span class="ruby-keyword">end</span></pre>
@@ -796,11 +810,11 @@ provided day of the month</p>
                 Source: 
                 <a href="javascript:toggleSource('method-i-copy_source')" id="l_method-i-copy_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L116" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/49ad7b08fa53f6ec70a9c93a987a8c1282eac614/lib/rupee/calendar.rb#L118" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-copy_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 116</span>
+                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 118</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">copy</span>
   <span class="ruby-identifier">new_cal</span> = <span class="ruby-constant">Calendar</span>.<span class="ruby-identifier">new</span> <span class="ruby-ivar">@description</span>.<span class="ruby-identifier">dup</span>
   
@@ -838,11 +852,11 @@ provided day of the month</p>
                 Source: 
                 <a href="javascript:toggleSource('method-i-day_off-3F_source')" id="l_method-i-day_off-3F_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L165" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/49ad7b08fa53f6ec70a9c93a987a8c1282eac614/lib/rupee/calendar.rb#L167" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-day_off-3F_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 165</span>
+                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 167</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">day_off?</span>(<span class="ruby-identifier">date</span>)
   <span class="ruby-ivar">@days_off</span>.<span class="ruby-identifier">each_value</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">day_off</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">day_off</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">date</span>)
@@ -898,11 +912,11 @@ end</pre>
                 Source: 
                 <a href="javascript:toggleSource('method-i-has_day_off_on_source')" id="l_method-i-has_day_off_on_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L145" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/49ad7b08fa53f6ec70a9c93a987a8c1282eac614/lib/rupee/calendar.rb#L147" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-has_day_off_on_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 145</span>
+                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 147</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">has_day_off_on</span>(<span class="ruby-identifier">key</span>, &amp;<span class="ruby-identifier">block</span>)
   <span class="ruby-ivar">@days_off</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">block</span>
 <span class="ruby-keyword">end</span></pre>
@@ -937,11 +951,11 @@ weekends are not workdays or trading days:</p>
                 Source: 
                 <a href="javascript:toggleSource('method-i-has_weekends_off_source')" id="l_method-i-has_weekends_off_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L158" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/49ad7b08fa53f6ec70a9c93a987a8c1282eac614/lib/rupee/calendar.rb#L160" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-has_weekends_off_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 158</span>
+                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 160</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">has_weekends_off</span>
   <span class="ruby-ivar">@days_off</span>[<span class="ruby-value">:weekends</span>] = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">date</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">date</span>.<span class="ruby-identifier">saturday?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">date</span>.<span class="ruby-identifier">sunday?</span>
@@ -975,11 +989,11 @@ weekends are not workdays or trading days:</p>
                 Source: 
                 <a href="javascript:toggleSource('method-i-remove_day_off_for_source')" id="l_method-i-remove_day_off_for_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/c414575bc40bef304e2dce3572fe81816157f1e7/lib/rupee/calendar.rb#L150" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/49ad7b08fa53f6ec70a9c93a987a8c1282eac614/lib/rupee/calendar.rb#L152" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-remove_day_off_for_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 150</span>
+                <pre><span class="ruby-comment"># File lib/rupee/calendar.rb, line 152</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">remove_day_off_for</span>(<span class="ruby-identifier">key</span>)
   <span class="ruby-ivar">@days_off</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">key</span>
 <span class="ruby-keyword">end</span></pre>

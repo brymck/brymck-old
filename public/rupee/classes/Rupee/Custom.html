@@ -103,7 +103,7 @@ conventions, etc.</p>
               [R]
             </td>
             <td class='attr-name'>calendar</td>
-            <td class='attr-desc'><p>The <a href="Calendar.html">Calendar</a> object</p></td>
+            <td class='attr-desc'><p>The calendar used for determining holidays</p></td>
           </tr>
         
           <tr valign='top'>
@@ -111,7 +111,15 @@ conventions, etc.</p>
               [R]
             </td>
             <td class='attr-name'>currency</td>
-            <td class='attr-desc'><p>The security’s <a href="Currency.html">Currency</a></p></td>
+            <td class='attr-desc'><p>The security’s currency</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>day_count</td>
+            <td class='attr-desc'><p>The day count convention for determining payment and accrual dates</p></td>
           </tr>
         
       </table>
@@ -132,6 +140,45 @@ conventions, etc.</p>
           
             <div class="description">
               <p>Build a custom security</p>
+
+<p>Configuration options</p>
+<ul><li>
+<p><tt>:calendar</tt> - The calendar to use for determining holidays and days
+off (default is <tt>:us</tt>)</p>
+<ul><li>
+<p><tt>:us</tt> - The US Federal Reserve <a href="Calendar.html">Calendar</a></p>
+</li><li>
+<p><tt>:japan</tt> - The Japanese calendar</p>
+</li></ul>
+</li><li>
+<p><tt>:currency</tt> - (default is <tt>:usd</tt>)</p>
+<ul><li>
+<p><tt>:eur</tt> or <tt>:euro</tt> - The euro</p>
+</li><li>
+<p><tt>:jpy</tt> or <tt>:yen</tt> - The Japanese yen</p>
+</li><li>
+<p><tt>:gbp</tt> or <tt>:pound</tt> - The British pound sterling</p>
+</li><li>
+<p><tt>:usd</tt> or <tt>:dollar</tt> - The US dollar</p>
+</li></ul>
+</li><li>
+<p><tt>:day_count</tt> - (default is <tt>:thirty_360</tt>)</p>
+<ul><li>
+<p><tt>:thirty_360</tt> - 30/360</p>
+</li><li>
+<p><tt>:thirty_e_360</tt> - 30E/360</p>
+</li><li>
+<p><tt>:thirty_e_360_isda</tt> - 30E/360 ISDA</p>
+</li><li>
+<p><tt>:thirty_e_plus_360</tt> - 30E+/360</p>
+</li><li>
+<p><tt>:act_360</tt> - Act/360</p>
+</li><li>
+<p><tt>:act_365</tt> - Act/365</p>
+</li><li>
+<p><tt>:act_act</tt> - Act/Act</p>
+</li></ul>
+</li></ul>
             </div>
           
           
@@ -145,19 +192,15 @@ conventions, etc.</p>
                 Source: 
                 <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/d8744b3d20fe7a8f687862c39c07f810ab3eb011/lib/rupee/custom.rb#L14" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/8a9fb78ed5b9500fd7702fbf166f4271740596fd/lib/rupee/custom.rb#L36" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/custom.rb, line 14</span>
+                <pre><span class="ruby-comment"># File lib/rupee/custom.rb, line 36</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">opts</span> = {})
-  <span class="ruby-identifier">opts</span> = {
-    <span class="ruby-value">:calendar</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:us</span>,
-    <span class="ruby-value">:currency</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:usd</span>
-  }.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">opts</span>
-
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">calendar</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:calendar</span>]
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">currency</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:currency</span>]
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">calendar</span>  = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:calendar</span>]  <span class="ruby-operator">||</span> <span class="ruby-value">:us</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">currency</span>  = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:currency</span>]  <span class="ruby-operator">||</span> <span class="ruby-value">:usd</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">day_count</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:day_count</span>] <span class="ruby-operator">||</span> <span class="ruby-value">:thirty_360</span>
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>
