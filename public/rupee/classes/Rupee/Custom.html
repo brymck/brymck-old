@@ -203,19 +203,20 @@ off (default is <tt>:us</tt>)</p>
 <p><tt>:act_365</tt> - Act/365</p>
 </li><li>
 <p><tt>:act_act</tt> - Act/Act</p>
-
-<p>require “rupee”</p>
-
-<p># A typical pay-fixed bond bond = <a
-href="Custom.html#method-c-new">Rupee::Custom.new</a></p>
-
-<p># A typical yen LIBOR security bond = <a
-href="Custom.html#method-c-new">Rupee::Custom.new</a> :calendar =&gt;
-:japan, :currency =&gt; :yen,</p>
-
-<pre>:day_count =&gt; :act_365</pre>
 </li></ul>
 </li></ul>
+
+<p>For example, the following security types can be created (although not
+currently priced or anything useful like that):</p>
+
+<pre>require &quot;rupee&quot;
+
+# A typical pay-fixed bond
+bond = Rupee::Custom.new
+
+# A typical yen LIBOR security
+bond = Rupee::Custom.new :calendar =&gt; :japan, :currency =&gt; :yen,
+  :day_count =&gt; :act_365</pre>
             </div>
           
           
@@ -229,11 +230,11 @@ href="Custom.html#method-c-new">Rupee::Custom.new</a> :calendar =&gt;
                 Source: 
                 <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/8d7c388c97dfb7666164c04ba1e02c6868e4d26c/lib/rupee/custom.rb#L60" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/8d7c388c97dfb7666164c04ba1e02c6868e4d26c/lib/rupee/custom.rb#L63" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/custom.rb, line 60</span>
+                <pre><span class="ruby-comment"># File lib/rupee/custom.rb, line 63</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">opts</span> = {})
   <span class="ruby-identifier">opts</span> = {
     <span class="ruby-value">:business_day</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:modified_following</span>,

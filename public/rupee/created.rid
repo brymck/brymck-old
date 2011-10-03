@@ -1,4 +1,4 @@
-Mon, 03 Oct 2011 22:00:51 +0900
+Mon, 03 Oct 2011 22:02:32 +0900
 README.rdoc	Sat, 01 Oct 2011 14:43:28 +0900
 ext/rupee/util.c	Thu, 29 Sep 2011 21:08:11 +0900
 ext/rupee/statistics.c	Fri, 30 Sep 2011 12:31:39 +0900
@@ -10,7 +10,7 @@ lib/rupee.rb	Mon, 03 Oct 2011 20:06:09 +0900
 lib/rupee/calendar/us.rb	Fri, 30 Sep 2011 18:33:33 +0900
 lib/rupee/calendar/japan.rb	Sun, 02 Oct 2011 20:50:37 +0900
 lib/rupee/option.rb	Fri, 30 Sep 2011 13:54:34 +0900
-lib/rupee/custom.rb	Mon, 03 Oct 2011 22:00:47 +0900
+lib/rupee/custom.rb	Mon, 03 Oct 2011 22:02:29 +0900
 lib/rupee/business_day.rb	Mon, 03 Oct 2011 21:40:37 +0900
 lib/rupee/currency.rb	Mon, 03 Oct 2011 21:11:59 +0900
 lib/rupee/version.rb	Mon, 03 Oct 2011 21:40:49 +0900
