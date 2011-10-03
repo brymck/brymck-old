@@ -100,6 +100,14 @@ conventions, etc.</p>
             <td class='attr-rw'>
               [R]
             </td>
+            <td class='attr-name'>accrual_dates</td>
+            <td class='attr-desc'><p>The dates on which accruals start and end</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
             <td class='attr-name'>business_day</td>
             <td class='attr-desc'><p>The security’s business day convention</p></td>
           </tr>
@@ -126,6 +134,72 @@ conventions, etc.</p>
             </td>
             <td class='attr-name'>day_count</td>
             <td class='attr-desc'><p>The day count convention for determining payment and accrual dates</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>first_coupon</td>
+            <td class='attr-desc'><p>The date of the first coupon payment, if the security has irregular cash
+flows</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>frequency</td>
+            <td class='attr-desc'><p>The frequency of payment periods</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>last_coupon</td>
+            <td class='attr-desc'><p>The date of the last coupon payment, if the security has irregular cash
+flows</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>maturity</td>
+            <td class='attr-desc'><p>The maturity date of the security</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>payment_dates</td>
+            <td class='attr-desc'><p>The dates on which payments occur</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>periods</td>
+            <td class='attr-desc'><p>The periods in years between accrual dates</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>settlement</td>
+            <td class='attr-desc'><p>The settlement or issuance date of the security</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>start_date</td>
+            <td class='attr-desc'><p>The start date for accruals</p></td>
           </tr>
         
       </table>
@@ -228,23 +302,38 @@ bond = Rupee::FixedIncome.new :calendar =&gt; :japan, :currency =&gt; :yen,
                 Source: 
                 <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/c64c7ec6d064c3f279c47029abb82215af1a1efb/lib/rupee/fixed_income.rb#L61" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/d872d87b0763ae1592fcb705a58471cf29e37bc1/lib/rupee/fixed_income.rb#L81" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/fixed_income.rb, line 61</span>
+                <pre><span class="ruby-comment"># File lib/rupee/fixed_income.rb, line 81</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">opts</span> = {})
   <span class="ruby-identifier">opts</span> = {
     <span class="ruby-value">:business_day</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:modified_following</span>,
     <span class="ruby-value">:calendar</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:us</span>,
     <span class="ruby-value">:currency</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:usd</span>,
-    <span class="ruby-value">:day_count</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:thirty_360</span>
+    <span class="ruby-value">:day_count</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:thirty_360</span>,
+    <span class="ruby-value">:first_coupon</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">nil</span>,
+    <span class="ruby-value">:frequency</span>    =<span class="ruby-operator">&gt;</span> [<span class="ruby-number">6</span>, <span class="ruby-value">:months</span>],  <span class="ruby-comment"># hands off Rails monkey-patching</span>
+    <span class="ruby-value">:last_coupon</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">nil</span>,
+    <span class="ruby-value">:maturity</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>.<span class="ruby-identifier">next_year</span>,
+    <span class="ruby-value">:settlement</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>,
+    <span class="ruby-value">:start_date</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">nil</span>
   }.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">opts</span>
 
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">business_day</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:business_day</span>]
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">calendar</span>     = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:calendar</span>]
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">currency</span>     = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:currency</span>]
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">day_count</span>    = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:day_count</span>]
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">frequency</span>    = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:frequency</span>]
+
+  <span class="ruby-ivar">@first_coupon</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:first_coupon</span>]
+  <span class="ruby-ivar">@last_coupon</span>  = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:last_coupon</span>]
+  <span class="ruby-ivar">@maturity</span>     = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:maturity</span>]
+  <span class="ruby-ivar">@settlement</span>   = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:settlement</span>]
+  <span class="ruby-ivar">@start_date</span>   = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:start_date</span>]
+
+  <span class="ruby-identifier">build_dates</span>
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>

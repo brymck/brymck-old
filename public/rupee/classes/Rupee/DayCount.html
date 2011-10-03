@@ -76,30 +76,6 @@ accrual dates for fixed income products</p>
     <div class="sectiontitle">Methods</div>
     <dl class="methods">
       
-        <dt>F</dt>
-        <dd>
-          <ul>
-            
-              
-              <li>
-                <a href="#method-i-factor">factor</a>
-              </li>
-            
-          </ul>
-        </dd>
-      
-        <dt>L</dt>
-        <dd>
-          <ul>
-            
-              
-              <li>
-                <a href="#method-c-leap_year-3F">leap_year?</a>
-              </li>
-            
-          </ul>
-        </dd>
-      
         <dt>N</dt>
         <dd>
           <ul>
@@ -107,6 +83,18 @@ accrual dates for fixed income products</p>
               
               <li>
                 <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-period">period</a>
               </li>
             
           </ul>
@@ -143,19 +131,6 @@ accrual dates for fixed income products</p>
       <!-- Section constants -->
       <div class="sectiontitle">Constants</div>
       <table border='0' cellpadding='5'>
-        
-          <tr valign='top'>
-            <td class="attr-name">SECONDS_PER_DAY</td>
-            <td>=</td>
-            <td class="attr-value">86_400.0</td>
-          </tr>
-          
-            <tr valign='top'>
-              <td>&nbsp;</td>
-              <td colspan="2" class="attr-desc"><p>The number of seconds in a day (a difference of <tt>1</tt> between two
-dates in Ruby indicates a difference of one second)</p></td>
-            </tr>
-          
         
           <tr valign='top'>
             <td class="attr-name">THIRTY_E_360_ISDA</td>
@@ -220,7 +195,7 @@ end</td>
             <td class="attr-name">ACT_360</td>
             <td>=</td>
             <td class="attr-value">DayCount.new &quot;Actual/360, typical LIBOR convention&quot; do |from, to|
-days(from, to) / 360.0
+(to - from) / 360.0
 end</td>
           </tr>
           
@@ -254,7 +229,7 @@ end</td>
             <td class="attr-name">ACT_365</td>
             <td>=</td>
             <td class="attr-value">DayCount.new &quot;Actual/365&quot; do |from, to|
-days(from, to) / 365.0
+(to - from) / 365.0
 end</td>
           </tr>
           
@@ -346,7 +321,7 @@ end</td>
                 Source: 
                 <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/c64c7ec6d064c3f279c47029abb82215af1a1efb/lib/rupee/day_count.rb#L21" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/d872d87b0763ae1592fcb705a58471cf29e37bc1/lib/rupee/day_count.rb#L21" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
@@ -359,65 +334,20 @@ end</td>
             </div>
             
           </div>
-              
-      <div class="sectiontitle">Class Private methods</div>
-      
-        <div class="method">
-          <div class="title method-title" id="method-c-leap_year-3F">
-            
-              <a name="method-c-leap_year-3F"></a><b>leap_year?</b>(date)
-            
-          </div>
-          
-          
-            <div class="description">
-              <p>Determines whether a date falls during a leap year. Leap years include all
-years divisible by 4, with the exception of years divisible by 100 but not
-divisible by 400 (got that?). That is, 2004 is a leap year, as is</p>
-<ol><li>
-<p>But while 2000 is a leap year (divisible by 400), 1900 is not</p>
-</li></ol>
-
-<p>(divisible by 100 but not 400).</p>
-            </div>
-          
-          
-          
-          
-          
-            
-            <div class="sourcecode">
-              
-              <p class="source-link">
-                Source: 
-                <a href="javascript:toggleSource('method-c-leap_year-3F_source')" id="l_method-c-leap_year-3F_source">show</a>
-                
-                  | <a href="https://github.com/brymck/rupee/blob/c64c7ec6d064c3f279c47029abb82215af1a1efb/lib/rupee/day_count.rb#L72" target="_blank" class="github_url">on GitHub</a>
-                
-              </p>
-              <div id="method-c-leap_year-3F_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/day_count.rb, line 72</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">leap_year?</span>(<span class="ruby-identifier">date</span>)  <span class="ruby-comment"># :doc:</span>
-  <span class="ruby-identifier">year</span> = <span class="ruby-identifier">date</span>.<span class="ruby-identifier">year</span>
-  <span class="ruby-identifier">year</span> <span class="ruby-operator">%</span> <span class="ruby-number">4</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">year</span> <span class="ruby-operator">%</span> <span class="ruby-number">100</span> <span class="ruby-operator">!=</span> <span class="ruby-number">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">year</span> <span class="ruby-operator">%</span> <span class="ruby-number">400</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span>)
-<span class="ruby-keyword">end</span></pre>
-              </div>
-            </div>
-            
-          </div>
                   
       <div class="sectiontitle">Instance Public methods</div>
       
         <div class="method">
-          <div class="title method-title" id="method-i-factor">
+          <div class="title method-title" id="method-i-period">
             
-              <a name="method-i-factor"></a><b>factor</b>(from, to)
+              <a name="method-i-period"></a><b>period</b>(from, to)
             
           </div>
           
           
             <div class="description">
-              
+              <p>Calculates the period in years between the <tt>from</tt> and <tt>true</tt>
+dates</p>
             </div>
           
           
@@ -429,14 +359,14 @@ divisible by 400 (got that?). That is, 2004 is a leap year, as is</p>
               
               <p class="source-link">
                 Source: 
-                <a href="javascript:toggleSource('method-i-factor_source')" id="l_method-i-factor_source">show</a>
+                <a href="javascript:toggleSource('method-i-period_source')" id="l_method-i-period_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/c64c7ec6d064c3f279c47029abb82215af1a1efb/lib/rupee/day_count.rb#L26" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/d872d87b0763ae1592fcb705a58471cf29e37bc1/lib/rupee/day_count.rb#L28" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
-              <div id="method-i-factor_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/day_count.rb, line 26</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">factor</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>)
+              <div id="method-i-period_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/rupee/day_count.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">period</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>)
   <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span> <span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>
 <span class="ruby-keyword">end</span></pre>
               </div>

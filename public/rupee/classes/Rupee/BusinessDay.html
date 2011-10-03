@@ -129,7 +129,7 @@ calculated payment date fall on a non-working day</p>
 month = date.month
 
 while calendar.day_off?(date) &amp;&amp; date.month == month
-date -= 86_400
+date -= 1
 end</td>
           </tr>
           
@@ -147,7 +147,7 @@ end</td>
 month = date.month
 
 while calendar.day_off?(date) &amp;&amp; date.month == month
-date += 86_400
+date += 1
 end</td>
           </tr>
           
@@ -176,7 +176,7 @@ end</td>
             <td>=</td>
             <td class="attr-value">BusinessDay.new &quot;Roll to previous business day&quot; do |date, calendar|
 while calendar.day_off?(date)
-date -= 86_400
+date -= 1
 end</td>
           </tr>
           
@@ -191,7 +191,7 @@ end</td>
             <td>=</td>
             <td class="attr-value">BusinessDay.new &quot;Roll to following business day&quot; do |date, calendar|
 while calendar.day_off?(date)
-date += 86_400
+date += 1
 end</td>
           </tr>
           
@@ -216,14 +216,6 @@ end</td>
             </td>
             <td class='attr-name'>block</td>
             <td class='attr-desc'><p>The formula for calculated the next business day</p></td>
-          </tr>
-        
-          <tr valign='top'>
-            <td class='attr-rw'>
-              [R]
-            </td>
-            <td class='attr-name'>calendar</td>
-            <td class='attr-desc'><p>The calendar used for calculating holidays and days off</p></td>
           </tr>
         
           <tr valign='top'>
@@ -271,18 +263,14 @@ off</p>
                 Source: 
                 <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/8d7c388c97dfb7666164c04ba1e02c6868e4d26c/lib/rupee/business_day.rb#L26" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/d872d87b0763ae1592fcb705a58471cf29e37bc1/lib/rupee/business_day.rb#L24" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/business_day.rb, line 26</span>
+                <pre><span class="ruby-comment"># File lib/rupee/business_day.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">description</span>, <span class="ruby-identifier">opts</span> = {}, &amp;<span class="ruby-identifier">block</span>)
-  <span class="ruby-identifier">opts</span> = { <span class="ruby-value">:calendar</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:us</span> }.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">opts</span>
-
   <span class="ruby-ivar">@description</span> = <span class="ruby-identifier">description</span>
   <span class="ruby-ivar">@block</span> = <span class="ruby-identifier">block</span>
-
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">calendar</span>=(<span class="ruby-identifier">opts</span>[<span class="ruby-value">:calendar</span>])
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>
@@ -294,7 +282,7 @@ off</p>
         <div class="method">
           <div class="title method-title" id="method-i-next_day">
             
-              <a name="method-i-next_day"></a><b>next_day</b>(date)
+              <a name="method-i-next_day"></a><b>next_day</b>(date, calendar)
             
           </div>
           
@@ -315,13 +303,13 @@ given</p>
                 Source: 
                 <a href="javascript:toggleSource('method-i-next_day_source')" id="l_method-i-next_day_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/8d7c388c97dfb7666164c04ba1e02c6868e4d26c/lib/rupee/business_day.rb#L41" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/d872d87b0763ae1592fcb705a58471cf29e37bc1/lib/rupee/business_day.rb#L31" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-next_day_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/business_day.rb, line 41</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">next_day</span>(<span class="ruby-identifier">date</span>)
-  <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span> <span class="ruby-identifier">date</span>, <span class="ruby-ivar">@calendar</span>
+                <pre><span class="ruby-comment"># File lib/rupee/business_day.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">next_day</span>(<span class="ruby-identifier">date</span>, <span class="ruby-identifier">calendar</span>)
+  <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span> <span class="ruby-identifier">date</span>, <span class="ruby-identifier">calendar</span>
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>
