@@ -102,6 +102,14 @@ conventions, etc.</p>
             <td class='attr-rw'>
               [R]
             </td>
+            <td class='attr-name'>business_day</td>
+            <td class='attr-desc'><p>The security’s business day convention</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
             <td class='attr-name'>calendar</td>
             <td class='attr-desc'><p>The calendar used for determining holidays</p></td>
           </tr>
@@ -143,6 +151,24 @@ conventions, etc.</p>
 
 <p>Configuration options</p>
 <ul><li>
+<p><tt>:business_day</tt> - The security's business day convention, used to
+determine when the next business day is relative to the calendar in use
+(default is :modified_following)</p>
+<ul><li>
+<p><tt>:actual</tt> - The actual day, regardless of whether it's a business
+day</p>
+</li><li>
+<p><tt>:following</tt> - The following business day</p>
+</li><li>
+<p><tt>:modified_following</tt> - The following business day unless it occurs
+in the following month, in which case use the previous business day</p>
+</li><li>
+<p><tt>:modified_previous</tt> - The previous business day unless it occurs in
+the previous month, in which case use the following business day</p>
+</li><li>
+<p><tt>:previous</tt> - The previous business day</p>
+</li></ul>
+</li><li>
 <p><tt>:calendar</tt> - The calendar to use for determining holidays and days
 off (default is <tt>:us</tt>)</p>
 <ul><li>
@@ -178,6 +204,17 @@ off (default is <tt>:us</tt>)</p>
 </li><li>
 <p><tt>:act_act</tt> - Act/Act</p>
 </li></ul>
+
+<p>require “rupee”</p>
+
+<p># A typical pay-fixed bond bond = <a
+href="Custom.html#method-c-new">Rupee::Custom.new</a></p>
+
+<p># A typical yen LIBOR security bond = <a
+href="Custom.html#method-c-new">Rupee::Custom.new</a> :calendar =&gt;
+:japan, :currency =&gt; :yen,</p>
+
+<pre>:day_count =&gt; :act_365</pre>
 </li></ul>
             </div>
           
@@ -192,15 +229,23 @@ off (default is <tt>:us</tt>)</p>
                 Source: 
                 <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                 
-                  | <a href="https://github.com/brymck/rupee/blob/8a9fb78ed5b9500fd7702fbf166f4271740596fd/lib/rupee/custom.rb#L36" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/brymck/rupee/blob/8d7c388c97dfb7666164c04ba1e02c6868e4d26c/lib/rupee/custom.rb#L60" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/rupee/custom.rb, line 36</span>
+                <pre><span class="ruby-comment"># File lib/rupee/custom.rb, line 60</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">opts</span> = {})
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">calendar</span>  = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:calendar</span>]  <span class="ruby-operator">||</span> <span class="ruby-value">:us</span>
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">currency</span>  = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:currency</span>]  <span class="ruby-operator">||</span> <span class="ruby-value">:usd</span>
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">day_count</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:day_count</span>] <span class="ruby-operator">||</span> <span class="ruby-value">:thirty_360</span>
+  <span class="ruby-identifier">opts</span> = {
+    <span class="ruby-value">:business_day</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:modified_following</span>,
+    <span class="ruby-value">:calendar</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:us</span>,
+    <span class="ruby-value">:currency</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:usd</span>,
+    <span class="ruby-value">:day_count</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:thirty_360</span>
+  }.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">opts</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">business_day</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:business_day</span>]
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">calendar</span>     = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:calendar</span>]
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">currency</span>     = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:currency</span>]
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">day_count</span>    = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:day_count</span>]
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>
