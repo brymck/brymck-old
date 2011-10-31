@@ -8,8 +8,6 @@
       = nav_item   t(".journal"),       journal_path
       = nav_item   t(".subscribe"),     subscribe_path
       = nav_item   t(".market"),        market_path
-      = nav_item   t(".neighborhoods"), neighborhoods_path
-      = nav_item   t(".apartments"),    apartments_path
       - if logged_in?
         = nav_item t(".logout"),        logout_path, :"data-nopjax" => true
       - else

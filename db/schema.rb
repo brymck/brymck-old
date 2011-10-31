@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110821101342) do
+ActiveRecord::Schema.define(:version => 20111031064825) do
 
   create_table "addresses", :force => true do |t|
     t.string  "country"
@@ -24,35 +24,6 @@ ActiveRecord::Schema.define(:version => 20110821101342) do
   end
 
   add_index "addresses", ["location_id"], :name => "index_addresses_on_location_id"
-
-  create_table "apartments", :force => true do |t|
-    t.integer  "zip"
-    t.string   "country",                                         :default => "日本",  :null => false
-    t.string   "prefecture",                                      :default => "東京都", :null => false
-    t.string   "city"
-    t.string   "ward"
-    t.string   "town"
-    t.integer  "district"
-    t.integer  "block"
-    t.integer  "house"
-    t.integer  "neighborhood_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "room_number"
-    t.string   "url"
-    t.integer  "rent"
-    t.integer  "key_money_months"
-    t.integer  "rooms"
-    t.boolean  "living_room"
-    t.boolean  "dining_room"
-    t.boolean  "kitchen"
-    t.date     "construction_date"
-    t.text     "memo"
-    t.integer  "management_fee"
-    t.decimal  "living_area",       :precision => 5, :scale => 2
-  end
-
-  add_index "apartments", ["neighborhood_id"], :name => "index_apartments_on_neighborhood_id"
 
   create_table "business_hours", :force => true do |t|
     t.string  "opening"
@@ -215,24 +186,6 @@ ActiveRecord::Schema.define(:version => 20110821101342) do
   add_index "metrics", ["name"], :name => "index_metrics_on_name"
   add_index "metrics", ["source_id"], :name => "index_metrics_on_source_id"
 
-  create_table "neighborhood_translations", :force => true do |t|
-    t.integer  "neighborhood_id"
-    t.string   "locale"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "neighborhood_translations", ["neighborhood_id"], :name => "index_eb0049394cc6a27e611915698ca0b6987557aa81"
-
-  create_table "neighborhoods", :force => true do |t|
-    t.string "name"
-    t.float  "lat"
-    t.float  "lng"
-    t.string "cached_slug"
-    t.text   "memo"
-  end
-
   create_table "portfolio_translations", :force => true do |t|
     t.integer   "portfolio_id"
     t.string    "locale"
@@ -314,16 +267,6 @@ ActiveRecord::Schema.define(:version => 20110821101342) do
   end
 
   add_index "quotes_sources", ["quote_id", "source_id"], :name => "index_quotes_sources_on_quote_id_and_source_id", :unique => true
-
-  create_table "ratings", :force => true do |t|
-    t.integer  "year",            :null => false
-    t.integer  "value",           :null => false
-    t.integer  "neighborhood_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "ratings", ["neighborhood_id"], :name => "index_ratings_on_neighborhood_id"
 
   create_table "slugs", :force => true do |t|
     t.string    "name"
