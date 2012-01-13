@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111031064825) do
+ActiveRecord::Schema.define(:version => 20120113111324) do
 
   create_table "addresses", :force => true do |t|
     t.string  "country"
@@ -42,17 +42,17 @@ ActiveRecord::Schema.define(:version => 20111031064825) do
   add_index "business_hours", ["location_id"], :name => "index_business_hours_on_location_id"
 
   create_table "code", :force => true do |t|
-    t.string    "title"
-    t.text      "description"
-    t.string    "download"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "source"
-    t.integer   "importance",  :default => 0, :null => false
-    t.string    "cached_slug"
+    t.string   "title"
+    t.text     "description"
+    t.string   "download"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "source"
+    t.integer  "importance",  :default => 0, :null => false
+    t.string   "slug"
   end
 
-  add_index "code", ["cached_slug"], :name => "index_code_on_cached_slug", :unique => true
+  add_index "code", ["slug"], :name => "index_code_on_cached_slug", :unique => true
 
   create_table "code_languages", :id => false, :force => true do |t|
     t.integer "code_id"
@@ -140,14 +140,14 @@ ActiveRecord::Schema.define(:version => 20111031064825) do
   add_index "language_translations", ["language_id"], :name => "index_language_translations_on_language_id"
 
   create_table "languages", :force => true do |t|
-    t.string    "name"
-    t.string    "url"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "cached_slug"
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
   end
 
-  add_index "languages", ["cached_slug"], :name => "index_languages_on_cached_slug", :unique => true
+  add_index "languages", ["slug"], :name => "index_languages_on_cached_slug", :unique => true
 
   create_table "location_translations", :force => true do |t|
     t.integer   "location_id"
@@ -161,7 +161,7 @@ ActiveRecord::Schema.define(:version => 20111031064825) do
 
   create_table "locations", :force => true do |t|
     t.string "name"
-    t.string "cached_slug"
+    t.string "slug"
   end
 
   create_table "metric_translations", :force => true do |t|
@@ -197,12 +197,12 @@ ActiveRecord::Schema.define(:version => 20111031064825) do
   add_index "portfolio_translations", ["portfolio_id"], :name => "index_portfolio_translations_on_portfolio_id"
 
   create_table "portfolios", :force => true do |t|
-    t.string "name",        :null => false
-    t.string "cached_slug"
+    t.string "name", :null => false
+    t.string "slug"
   end
 
-  add_index "portfolios", ["cached_slug"], :name => "index_portfolios_on_cached_slug", :unique => true
   add_index "portfolios", ["name"], :name => "index_portfolios_on_name"
+  add_index "portfolios", ["slug"], :name => "index_portfolios_on_cached_slug", :unique => true
 
   create_table "portfolios_quotes", :id => false, :force => true do |t|
     t.integer "portfolio_id", :null => false
@@ -223,16 +223,16 @@ ActiveRecord::Schema.define(:version => 20111031064825) do
   add_index "post_translations", ["post_id"], :name => "index_post_translations_on_post_id"
 
   create_table "posts", :force => true do |t|
-    t.string    "title"
-    t.text      "content"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.boolean   "personal",    :default => false
-    t.string    "cached_slug"
-    t.boolean   "published",   :default => false, :null => false
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "personal",   :default => false
+    t.string   "slug"
+    t.boolean  "published",  :default => false, :null => false
   end
 
-  add_index "posts", ["cached_slug"], :name => "index_posts_on_cached_slug", :unique => true
+  add_index "posts", ["slug"], :name => "index_posts_on_cached_slug", :unique => true
 
   create_table "posts_tags", :id => false, :force => true do |t|
     t.integer "post_id"
@@ -252,13 +252,13 @@ ActiveRecord::Schema.define(:version => 20111031064825) do
   add_index "quote_translations", ["quote_id"], :name => "index_quote_translations_on_quote_id"
 
   create_table "quotes", :force => true do |t|
-    t.string "name",        :null => false
-    t.string "ticker",      :null => false
-    t.string "cached_slug"
+    t.string "name",   :null => false
+    t.string "ticker", :null => false
+    t.string "slug"
   end
 
-  add_index "quotes", ["cached_slug"], :name => "index_quotes_on_cached_slug", :unique => true
   add_index "quotes", ["name"], :name => "index_quotes_on_name"
+  add_index "quotes", ["slug"], :name => "index_quotes_on_cached_slug", :unique => true
   add_index "quotes", ["ticker"], :name => "index_quotes_on_ticker"
 
   create_table "quotes_sources", :id => false, :force => true do |t|
@@ -291,13 +291,13 @@ ActiveRecord::Schema.define(:version => 20111031064825) do
   add_index "source_translations", ["source_id"], :name => "index_source_translations_on_source_id"
 
   create_table "sources", :force => true do |t|
-    t.string "name",        :null => false
-    t.string "cached_slug"
-    t.string "url",         :null => false
+    t.string "name", :null => false
+    t.string "slug"
+    t.string "url",  :null => false
   end
 
-  add_index "sources", ["cached_slug"], :name => "index_sources_on_cached_slug", :unique => true
   add_index "sources", ["name"], :name => "index_sources_on_name"
+  add_index "sources", ["slug"], :name => "index_sources_on_cached_slug", :unique => true
   add_index "sources", ["url"], :name => "index_sources_on_url", :unique => true
 
   create_table "subscribers", :force => true do |t|
@@ -327,10 +327,10 @@ ActiveRecord::Schema.define(:version => 20111031064825) do
 
   create_table "tags", :force => true do |t|
     t.string "name"
-    t.string "cached_slug"
+    t.string "slug"
   end
 
-  add_index "tags", ["cached_slug"], :name => "index_tags_on_cached_slug", :unique => true
   add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
+  add_index "tags", ["slug"], :name => "index_tags_on_cached_slug", :unique => true
 
 end

@@ -4,7 +4,6 @@ class Language < ActiveRecord::Base
   has_and_belongs_to_many :code
   friendly_id :name, use: :slugged
   translates :url
-  prevent_no_slug
 end
 
 
