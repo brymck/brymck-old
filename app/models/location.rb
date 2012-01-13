@@ -1,8 +1,9 @@
 class Location < ActiveRecord::Base
+  extend FriendlyId
   has_many :business_hours, dependent: :destroy
   has_one :address,         dependent: :destroy
   translates :name
-  has_friendly_id :english_name, use_slug: true, allow_nil: true
+  friendly_id :english_name, use: :slugged
   prevent_no_slug
   validates_presence_of :name
   accepts_nested_attributes_for :business_hours, reject_if: lambda { |a| a[:opening].blank? }, allow_destroy: true

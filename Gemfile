@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.1.0'
+gem 'rails'
 
 gem 'awesome_nested_set'
 gem 'breadcrumbs'
@@ -10,14 +10,19 @@ gem 'globalize3'
 gem 'gravatar_image_tag'
 gem 'haml'
 gem 'jquery-rails'
-gem 'omniauth', '>= 0.1.6' # 1.2MB
+gem 'omniauth'             # 1.2MB
+gem 'omniauth-facebook'
+gem 'omniauth-github'
+gem 'omniauth-linkedin'
+gem 'omniauth-openid'
+gem 'omniauth-twitter'
 gem 'RedCloth'
 gem 'rupee'
 gem 'sanitize'             # 2.8MB
 
 group :assets do           # 3.3MB
-  gem 'sass-rails', '~> 3.1.0'
-  gem 'coffee-rails', '~> 3.1.0'
+  gem 'sass-rails'
+  gem 'coffee-rails'
   gem 'uglifier'
 end
 

@@ -6,6 +6,10 @@ module PreventNoSlug
       end
     end
 
+    def slug
+      cached_slug
+    end
+
     private
 
     def fix_nil_slugs

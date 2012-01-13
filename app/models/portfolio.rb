@@ -1,4 +1,6 @@
 class Portfolio < ActiveRecord::Base
+  extend FriendlyId
+
   # Relationships
   has_and_belongs_to_many :quotes, uniq: true
 
@@ -8,7 +10,7 @@ class Portfolio < ActiveRecord::Base
 
   # Gems
   translates :name
-  has_friendly_id :english_name, use_slug: true, allow_nil: true
+  friendly_id :english_name, use: :slugged
   prevent_no_slug
 
   def lookup

@@ -1,8 +1,10 @@
 class Language < ActiveRecord::Base
+  extend FriendlyId
   default_scope order("name")
   has_and_belongs_to_many :code
-  has_friendly_id :name, use_slug: true, allow_nil: true
+  friendly_id :name, use: :slugged
   translates :url
+  prevent_no_slug
 end
 
 

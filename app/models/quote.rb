@@ -2,6 +2,8 @@ require 'net/http'
 require 'uri'
 
 class Quote < ActiveRecord::Base
+  extend FriendlyId
+
   # Relationships
   has_and_belongs_to_many :sources,    uniq: true
   has_and_belongs_to_many :portfolios, uniq: true
@@ -11,7 +13,7 @@ class Quote < ActiveRecord::Base
 
   # Gems
   translates :name
-  has_friendly_id :ticker, use_slug: true, allow_nil: true
+  friendly_id :ticker, use: :slugged
   prevent_no_slug
 
   PRICE_REGEX = '<div class="price">[^<]+<span class="amount">([0-9.,-]+)<\/span>'

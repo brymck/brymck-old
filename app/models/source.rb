@@ -1,4 +1,6 @@
 class Source < ActiveRecord::Base
+  extend FriendlyId
+
   # Relationships
   has_and_belongs_to_many :quotes, uniq: true
   has_many :metrics
@@ -9,7 +11,7 @@ class Source < ActiveRecord::Base
 
   # Gems
   translates :name
-  has_friendly_id :name, use_slug: true, allow_nil: true
+  friendly_id :name, use: :slugged
   prevent_no_slug
 end
 

@@ -1,9 +1,10 @@
 class Post < ActiveRecord::Base
+  extend FriendlyId
   translates :title, :content
   has_and_belongs_to_many :tags, uniq: true
   has_many :comments
   validates_presence_of :title, :content
-  has_friendly_id :english_title, use_slug: true, allow_nil: true
+  friendly_id :english_title, use: :slugged
   prevent_no_slug
 
   class << self
