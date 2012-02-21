@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221172653) do
+ActiveRecord::Schema.define(:version => 20120221173220) do
 
   create_table "code", :force => true do |t|
     t.string   "title_en"
@@ -41,17 +41,6 @@ ActiveRecord::Schema.define(:version => 20120221172653) do
   end
 
   add_index "code_tags", ["code_id", "tag_id"], :name => "index_code_tags_on_code_id_and_tag_id", :unique => true
-
-  create_table "code_translations", :force => true do |t|
-    t.integer   "code_id"
-    t.string    "locale"
-    t.string    "title"
-    t.text      "description"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-  end
-
-  add_index "code_translations", ["code_id"], :name => "index_code_translations_on_code_id"
 
   create_table "comments", :force => true do |t|
     t.string   "name_en"
