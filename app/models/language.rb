@@ -1,9 +1,8 @@
 class Language < ActiveRecord::Base
-  extend FriendlyId
-  default_scope order("name")
+  default_scope order("name_en")
   has_and_belongs_to_many :code
-  friendly_id :name, use: :slugged
-  translates :url
+  translateable :name, :url
+  slug_as_param
 end
 
 

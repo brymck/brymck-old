@@ -1,11 +1,9 @@
 class Post < ActiveRecord::Base
-  extend FriendlyId
-  translates :title, :content
   has_and_belongs_to_many :tags, uniq: true
   has_many :comments
   validates_presence_of :title, :content
-  friendly_id :english_title, use: :slugged
-  prevent_no_slug
+  translateable :title, :content
+  slug_as_param
 
   class << self
     def blog
@@ -19,15 +17,6 @@ class Post < ActiveRecord::Base
 
   def publish!
     update_attribute :published, true
-  end
-
-  def english_title
-    translation = translations.find_by_locale("en")
-    if translation.nil?
-      title || attributes[:title]
-    else
-      translation.title
-    end
   end
 
   def status

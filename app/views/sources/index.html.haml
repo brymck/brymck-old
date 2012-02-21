@@ -1,7 +1,0 @@
-- if admin?
-  = link_to t(:new), new_source_path
-- last_id = @sources.last.id
-- @sources.each do |source|
-  = render partial: "source", locals: { source: source }
-  - unless source.id == last_id
-    %hr

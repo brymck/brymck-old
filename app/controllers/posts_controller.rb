@@ -32,13 +32,13 @@ class PostsController < ApplicationController
   end
 
   def mail_preview
-    @post = Post.find(params[:id])
+    @post = Post.find_by_slug(params[:id])
     @subscriber = Subscriber.find(params[:subscriber_id])
     @subscribers = Subscriber.active_list
   end
 
   def mail
-    @post = Post.find(params[:id])
+    @post = Post.find_by_slug(params[:id])
     Subscriber.active_list.each do |subscriber|
       Notify.post(
         to: subscriber.header,
@@ -52,7 +52,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find_by_slug(params[:id])
     if @post.personal?
       authorize_friends
       breadcrumbs.add t("meta.posts.journal.title"), journal_path
@@ -67,7 +67,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.find_by_slug(params[:id])
     breadcrumbs.add t("meta.posts.journal.title"), journal_path if @post.personal?
     breadcrumbs.add @post.title, post_path(@post)
     breadcrumbs.add t("meta.posts.edit.title"), edit_post_path(@post)
@@ -89,7 +89,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
+    @post = Post.find_by_slug(params[:id])
 
     respond_to do |format|
       if @post.update_attributes(params[:post].except(:tags))
@@ -103,13 +103,13 @@ class PostsController < ApplicationController
   end
 
   def publish
-    @post = Post.find(params[:id])
+    @post = Post.find_by_slug(params[:id])
     @post.publish!
     redirect_to posts_path
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    @post = Post.find_by_slug(params[:id])
     @post.destroy
 
     redirect_to posts_url

@@ -1,9 +1,0 @@
-%h2= @location.name
-.left= google_map @location
-.push-1{:"data-pjax" => "#page"}
-  - if admin?
-    %p= link_to t(:edit), edit_location_path(@location)
-  %p= link_to @location.address.to_s(delim: "<br>"), "http://maps.google.com/maps?q=#{@location.address}", :"data-nopjax" => true
-  %ul.no-bullet
-    - business_hours_in_words(@location).each do |hour|
-      %li= hour

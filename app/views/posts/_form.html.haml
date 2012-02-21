@@ -23,7 +23,7 @@
   .field.inline.clear
     = f.label :tags
     %br
-    = f.text_field :tags, value: @post.tags.collect { |tag| tag.english_name }.join(", ")
+    = f.text_field :tags, value: @post.tags.collect { |tag| tag.name_en }.join(", ")
   .actions.clear
     = f.submit
     %input.preview_button{type: :button, value: t(".preview")}

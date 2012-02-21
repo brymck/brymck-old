@@ -7,7 +7,7 @@ class TagsController < ApplicationController
   end
 
   def show
-    @tag = Tag.find(params[:id])
+    @tag = Tag.find_by_slug(params[:id])
     breadcrumbs.add @tag.name.titlecase, tag_path(@tag) unless @tag.name.nil?
     @title = @tag.name
   end
@@ -23,7 +23,7 @@ class TagsController < ApplicationController
   end
 
   def edit
-    @tag = Tag.find(params[:id])
+    @tag = Tag.find_by_slug(params[:id])
     breadcrumbs.add @tag.name.titlecase, tag_path(@tag) unless @tag.name.nil?
     breadcrumbs.add t("meta.tags.edit.title"), edit_tag_path(@tag)
   end
@@ -43,7 +43,7 @@ class TagsController < ApplicationController
   end
 
   def update
-    @tag = Tag.find(params[:id])
+    @tag = Tag.find_by_slug(params[:id])
 
     respond_to do |format|
       if @tag.update_attributes(params[:tag])
@@ -57,7 +57,7 @@ class TagsController < ApplicationController
   end
 
   def destroy
-    @tag = Tag.find(params[:id])
+    @tag = Tag.find_by_slug(params[:id])
     @tag.destroy
 
     respond_to do |format|

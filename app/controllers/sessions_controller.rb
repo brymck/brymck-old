@@ -1,20 +1,14 @@
 class SessionsController < ApplicationController
   def new
-    session[:locale] = params[:locale]
-    breadcrumbs.add t("meta.sessions.new.title"), login_path
-  end
-
-  def create
-    auth = request.env["omniauth.auth"]
-    session.merge!(
-      'email'    => auth['user_info']['email'] || auth['extra']['user_hash']['email'] || '',
-      'name'     => auth['user_info']['name']  || auth['extra']['user_hash']['name']  || '',
-      'provider' => auth['provider'],
-      'uid'      => auth['uid']
-    )
-    determine_admin_status
-    Notify.login(auth, session, request).deliver
-    redirect_to get_referer, :notice => t(:logged_in, get_locale_and_scope)
+    if params[:password]
+      if Digest::MD5.hexdigest("#{ENV["SALT"]}#{params[:password]}") == ENV["BRYMCK_PASS"]
+        session.merge! :admin => true, :friend => true
+        redirect_to get_referer, :notice => t(:logged_in, get_locale_and_scope)
+      end
+    else
+      session[:locale] = params[:locale]
+      breadcrumbs.add t("meta.sessions.new.title"), login_path
+    end
   end
 
   def friend
@@ -30,7 +24,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.merge!('admin' => false, 'uid' => nil)
+    session.merge! :admin => false, :uid => nil
     redirect_to get_referer, :notice => t(:logged_out, get_locale_and_scope)
   end
 
@@ -39,23 +33,6 @@ class SessionsController < ApplicationController
   end
 
   private
-
-  def determine_admin_status
-    if (case session['provider']
-        when 'facebook'
-          session['uid'] == '2724737'
-        when 'google'
-          session['uid'] == 'https://www.google.com/accounts/o8/id?id=AItOawkjEi8xQ_3R_kE5BZzAqS82QTo9SKqaJsE'
-        when 'twitter'
-          session['uid'] == '32799321'
-        else
-          false
-       end)
-      session.merge! 'admin' => true, 'friend' => true
-    else
-      session['admin'] = false
-    end
-  end
 
   def get_referer
     referer, session[:referer] = session[:referer], nil

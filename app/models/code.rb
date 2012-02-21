@@ -1,21 +1,11 @@
 class Code < ActiveRecord::Base
   extend FriendlyId
   default_scope order: 'code.importance DESC, code.created_at DESC'
-  translates :title, :description
   has_and_belongs_to_many :tags, uniq: true
   has_and_belongs_to_many :languages
   validates :title, presence: true
-  friendly_id :english_title, use: :slugged
-  prevent_no_slug
-
-  def english_title
-    translation = translations.find_by_locale("en")
-    if translation.nil?
-      title || attributes[:title]
-    else
-      translation.title
-    end
-  end
+  translateable :title, :description
+  slug_as_param
 end
 
 

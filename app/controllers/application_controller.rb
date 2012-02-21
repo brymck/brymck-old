@@ -48,15 +48,15 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    !session[:uid].nil?
+    !!session[:admin]
   end
 
   def admin?
-    logged_in? && session[:admin]
+    !!session[:admin]
   end
 
   def friend?
-    session[:friend] == true
+    !!session[:friend]
   end
 
   def preferred_locale

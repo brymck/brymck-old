@@ -1,10 +1,10 @@
 class Comment < ActiveRecord::Base
   acts_as_nested_set
   belongs_to :post
-  translates :name, :content
   validates :name, :presence => true
   validates :content, :presence => true
   validates :post_id, :presence => true
+  translateable :name, :content
 end
 
 

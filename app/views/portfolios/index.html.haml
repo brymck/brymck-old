@@ -1,5 +1,0 @@
-- if admin?
-  = link_to t(:new), new_portfolio_path
-= link_to t(:lookup), portfolios_path, class: :quote_lookup
-- @portfolios.each do |portfolio|
-  = render partial: "portfolio", locals: { portfolio: portfolio }

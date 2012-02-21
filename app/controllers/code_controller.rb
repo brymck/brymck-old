@@ -12,7 +12,7 @@ class CodeController < ApplicationController
   end
 
   def show
-    @code = Code.find(params[:id])
+    @code = Code.find_by_slug(params[:id])
     @title = @code.title
     breadcrumbs.add @title, code_path(@code)
   end
@@ -28,7 +28,7 @@ class CodeController < ApplicationController
   end
 
   def edit
-    @code = Code.find(params[:id])
+    @code = Code.find_by_slug(params[:id])
     breadcrumbs.add @code.title, code_path(@code)
     breadcrumbs.add t("meta.code.edit.title"), edit_code_path(@code)
   end
@@ -49,7 +49,7 @@ class CodeController < ApplicationController
 
   def update
     params[:code][:language_ids] ||= []
-    @code = Code.find(params[:id])
+    @code = Code.find_by_slug(params[:id])
 
     respond_to do |format|
       if @code.update_attributes(params[:code])
@@ -63,7 +63,7 @@ class CodeController < ApplicationController
   end
 
   def destroy
-    @code = Code.find(params[:id])
+    @code = Code.find_by_slug(params[:id])
     @code.destroy
 
     respond_to do |format|

@@ -1,7 +1,0 @@
-.span-18
-  %ul.horizontal
-    - %w(linkedin facebook google github).each do |service|
-      %li
-        = link_to image_tag("#{service}_128.png", :size => "128x128"), t(".#{service}.url")
-        %br
-        %h4.center.quiet= t ".#{service}.text"

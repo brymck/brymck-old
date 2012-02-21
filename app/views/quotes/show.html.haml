@@ -1,8 +1,0 @@
-- if admin?
-  = link_to t(:edit), edit_quote_path(@quote)
-%h2= @quote.name
-%p= @quote.ticker
-%h3= t(".sources")
-%ul
-  - @quote.sources.each do |source|
-    %li= link_to source.name, source

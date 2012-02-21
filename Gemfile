@@ -10,17 +10,12 @@ gem 'globalize3'
 gem 'gravatar_image_tag'
 gem 'haml'
 gem 'jquery-rails'
-gem 'omniauth'             # 1.2MB
-gem 'omniauth-facebook'
-gem 'omniauth-github'
-gem 'omniauth-linkedin'
-gem 'omniauth-openid'
-gem 'omniauth-twitter'
+gem "recaptcha", :require => "recaptcha/rails"
 gem 'RedCloth'
 gem 'rupee'
-gem 'sanitize'             # 2.8MB
+gem 'sanitize'
 
-group :assets do           # 3.3MB
+group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
@@ -31,11 +26,7 @@ group :production do
 end
 
 group :production, :development do
-  # gem 'aws-s3'
-  platforms :mswin, :mingw do 
-    # gem 'eventmachine', git: "git://github.com/eventmachine/eventmachine"
-  end
-  gem 'thin'               # 4.8MB
+  gem 'thin'
 end
 
 group :development do

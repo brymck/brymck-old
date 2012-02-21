@@ -12,7 +12,7 @@ class LanguagesController < ApplicationController
   end
 
   def show
-    @language = Language.find(params[:id])
+    @language = Language.find_by_slug(params[:id])
     @title = @language.name
     breadcrumbs.add @title, language_path(@language)
   end
@@ -28,7 +28,7 @@ class LanguagesController < ApplicationController
   end
 
   def edit
-    @language = Language.find(params[:id])
+    @language = Language.find_by_slug(params[:id])
     breadcrumbs.add @language.name, language_path(@language)
     breadcrumbs.add t("meta.languages.edit.title"), edit_language_path(@language)
   end
@@ -49,7 +49,7 @@ class LanguagesController < ApplicationController
 
   def update
     params[:language][:code_ids] ||= []
-    @language = Language.find(params[:id])
+    @language = Language.find_by_slug(params[:id])
 
     respond_to do |format|
       if @language.update_attributes(params[:language])
@@ -63,7 +63,7 @@ class LanguagesController < ApplicationController
   end
 
   def destroy
-    @language = Language.find(params[:id])
+    @language = Language.find_by_slug(params[:id])
     @language.destroy
 
     respond_to do |format|

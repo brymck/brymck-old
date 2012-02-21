@@ -5,11 +5,6 @@ Brymck::Application.routes.draw do
       resources :languages
     end
 
-    scope "/market" do
-      match "/" => "portfolios#home", as: :market
-      resources :metrics, :portfolios, :quotes, :sources
-    end
-
     match "subscribe" => "subscribers#new"
     match "unsubscribe/:id/:hash" => "subscribers#unsubscribe", as: :unsubscribe
     resources :subscribers, except: :new do
@@ -22,7 +17,7 @@ Brymck::Application.routes.draw do
     end
 
     # Generic resources
-    resources :code, :comments, :locations, :tags
+    resources :code, :comments, :tags
 
     # Post resources
     resources :posts do
@@ -38,7 +33,6 @@ Brymck::Application.routes.draw do
     match "feed(/:hash)" => "posts#feed", as: :feed
 
     # Static pages
-    match "contact" => "pages#contact"
     match "resume" => "pages#resume"
     match "sitemap" => "pages#sitemap"
     match "journal" => "posts#journal"
@@ -46,13 +40,9 @@ Brymck::Application.routes.draw do
     # Authentication
     match "login" => "sessions#new"
     match "friend" => "sessions#friend"
+    match "logout" => "sessions#destroy"
     match "friend/verify" => "sessions#verify_friend", as: :verify_friend
   end
-
-  # Authentication
-  match "/auth/:provider/callback" => "sessions#create", as: :auth
-  match "/auth/failure" => "sessions#failure"
-  match "/logout" => "sessions#destroy"
 
   # Default path for each locale
   match '/:locale' => 'posts#home', as: :home
