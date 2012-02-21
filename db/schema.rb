@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221170404) do
+ActiveRecord::Schema.define(:version => 20120221172653) do
 
   create_table "code", :force => true do |t|
     t.string   "title_en"
@@ -53,17 +53,6 @@ ActiveRecord::Schema.define(:version => 20120221170404) do
 
   add_index "code_translations", ["code_id"], :name => "index_code_translations_on_code_id"
 
-  create_table "comment_translations", :force => true do |t|
-    t.integer   "comment_id"
-    t.string    "locale"
-    t.string    "name"
-    t.text      "content"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-  end
-
-  add_index "comment_translations", ["comment_id"], :name => "index_comment_translations_on_comment_id"
-
   create_table "comments", :force => true do |t|
     t.string   "name_en"
     t.string   "email"
@@ -78,16 +67,6 @@ ActiveRecord::Schema.define(:version => 20120221170404) do
     t.text     "content_ja"
   end
 
-  create_table "language_translations", :force => true do |t|
-    t.integer   "language_id"
-    t.string    "locale"
-    t.string    "url"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-  end
-
-  add_index "language_translations", ["language_id"], :name => "index_language_translations_on_language_id"
-
   create_table "languages", :force => true do |t|
     t.string   "name_en"
     t.string   "url_en"
@@ -99,17 +78,6 @@ ActiveRecord::Schema.define(:version => 20120221170404) do
   end
 
   add_index "languages", ["slug"], :name => "index_languages_on_cached_slug", :unique => true
-
-  create_table "post_translations", :force => true do |t|
-    t.integer   "post_id"
-    t.string    "locale"
-    t.string    "title"
-    t.text      "content"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-  end
-
-  add_index "post_translations", ["post_id"], :name => "index_post_translations_on_post_id"
 
   create_table "posts", :force => true do |t|
     t.string   "title_en"
@@ -146,16 +114,6 @@ ActiveRecord::Schema.define(:version => 20120221170404) do
   add_index "subscribers", ["email"], :name => "index_subscribers_on_email", :unique => true
   add_index "subscribers", ["name"], :name => "index_subscribers_on_name"
   add_index "subscribers", ["test"], :name => "index_subscribers_on_test"
-
-  create_table "tag_translations", :force => true do |t|
-    t.integer   "tag_id"
-    t.string    "locale"
-    t.string    "name"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-  end
-
-  add_index "tag_translations", ["tag_id"], :name => "index_tag_translations_on_tag_id"
 
   create_table "tags", :force => true do |t|
     t.string "name_en"
