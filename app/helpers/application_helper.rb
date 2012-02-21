@@ -12,8 +12,10 @@ module ApplicationHelper
     safe = opts[:safe] || false
     html = RedCloth.new(text).to_html
     html = Sanitize.clean(html, Sanitize::Config::BASIC) unless opts[:safe]
-    html.gsub!(/<pre( lang="(.+?)")?><code[^>]+>(.+?)<\/code><\/pre>/m) do
-      CodeRay.scan($3, $2).div(:css => :class)
+    html.gsub!(/<pre( lang="(.+)")?><code[^>]*>(.*?)<\/code><\/pre>/m) do
+      match = $3
+      match.gsub! /&gt;/, ">"
+      CodeRay.scan(match, :ruby).div(:css => :class)
     end
     raw html
   end

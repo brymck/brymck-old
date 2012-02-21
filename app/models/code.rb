@@ -1,5 +1,4 @@
 class Code < ActiveRecord::Base
-  extend FriendlyId
   default_scope order: 'code.importance DESC, code.created_at DESC'
   has_and_belongs_to_many :tags, uniq: true
   has_and_belongs_to_many :languages
