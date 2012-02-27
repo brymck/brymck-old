@@ -1,7 +1,11 @@
+pre, code, tt {
+  font-family: 'Menlo', 'Monaco', 'Courier New', 'Terminal', monospace !important;
+  line-height: 1em;
+}
+
 .CodeRay {
   background-color: #fff;
   border: 1px solid #ccc;
-  font-family: 'Menlo', 'Monaco', 'Courier New', 'Terminal', monospace;
   color: #000;
   overflow: auto;
 }
