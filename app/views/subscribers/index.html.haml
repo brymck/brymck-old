@@ -8,6 +8,7 @@
         %th= t(".#{field}")
       %th{colspan: 3}
   %tbody
+    - logger.info "#{Subscriber.methods.grep /path/}"
     - @subscribers.each do |subscriber|
       %tr
         %td= link_to subscriber.name, subscriber

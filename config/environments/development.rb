@@ -24,4 +24,7 @@ Brymck::Application.configure do
 
   # Do not compress assets
   config.assets.compress = false
+
+  config.logger = Logger.new(STDOUT)
+  config.log_level = :warn
 end

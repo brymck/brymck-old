@@ -17,7 +17,7 @@ describe PostsController do
 
   describe "when not logged in" do
     it "should allow access to 'show'" do
-      get :show, :id => @post.id
+      get :show, :id => @post.to_param
       response.should be_success
     end
     
@@ -32,7 +32,7 @@ describe PostsController do
     end
 
     it "should deny access to 'edit'" do
-      get :edit, :id => @post.id
+      get :edit, :id => @post.to_param
       response.should redirect_to(login_path)
     end
 
@@ -47,7 +47,7 @@ describe PostsController do
     end
 
     it "should deny access to destroy" do
-      delete :destroy, :id => @post.id
+      delete :destroy, :id => @post.to_param
       response.should redirect_to(login_path)
     end
   end
@@ -69,7 +69,7 @@ describe PostsController do
     end
 
     it "should allow access to 'show'" do
-      get :show, :id => @post.id
+      get :show, :id => @post.to_param
       response.should be_success
     end
     
@@ -84,7 +84,7 @@ describe PostsController do
     end
 
     it "should deny access to 'edit'" do
-      get :edit, :id => @post.id
+      get :edit, :id => @post.to_param
       response.should redirect_to(login_path)
     end
 
@@ -99,7 +99,7 @@ describe PostsController do
     end
 
     it "should deny access to destroy" do
-      delete :destroy, :id => @post.id
+      delete :destroy, :id => @post.to_param
       response.should redirect_to(login_path)
     end
   end
@@ -120,7 +120,7 @@ describe PostsController do
     end
 
     it "should allow access to 'edit'" do
-      get :edit, :id => @post.id
+      get :edit, :id => @post.to_param
       response.should be_success
     end
 
@@ -149,13 +149,13 @@ describe PostsController do
       it "destroys the requested post" do
         post = Post.create! valid_attributes.except :tags
         expect {
-          delete :destroy, id: post.id.to_s
+          delete :destroy, id: post.to_param.to_s
         }.to change(Post, :count).by(-1)
       end
 
       it "redirects to the testings list" do
         post = Post.create! valid_attributes.except :tags
-        delete :destroy, id: post.id.to_s
+        delete :destroy, id: post.to_param.to_s
         response.should redirect_to(posts_url)
       end
     end

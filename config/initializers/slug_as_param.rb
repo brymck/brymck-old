@@ -11,4 +11,3 @@ module ActiveRecord
     extend SlugAsParam
   end
 end
-

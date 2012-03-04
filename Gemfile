@@ -5,7 +5,6 @@ gem 'rails'
 gem 'awesome_nested_set'
 gem 'breadcrumbs'
 gem 'coderay'
-gem 'globalize3'
 gem 'gravatar_image_tag'
 gem 'haml'
 gem 'jquery-rails'
@@ -30,7 +29,9 @@ end
 
 group :development do
   gem 'annotate'
+  gem 'heroku'
   gem 'rails-erd'
+  gem 'taps'
 end
 
 group :development, :test do

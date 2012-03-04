@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  before_create :add_slug
   has_and_belongs_to_many :tags, uniq: true
   has_many :comments
   validates_presence_of :title, :content
@@ -34,6 +35,10 @@ class Post < ActiveRecord::Base
   def final?
     # No luck with alias
     published?
+  end
+
+  def add_slug
+    self.slug ||= content_en.downcase.gsub(/\s+/, "-")
   end
 end
 
