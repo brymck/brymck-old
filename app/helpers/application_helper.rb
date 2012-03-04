@@ -15,6 +15,7 @@ module ApplicationHelper
     html.gsub!(/<pre( lang="(.+)")?><code[^>]*>(.*?)<\/code><\/pre>/m) do
       match = $3
       match.gsub! /&gt;/, ">"
+      match.gsub! /&amp;/, "&"
       CodeRay.scan(match, :ruby).div(:css => :class)
     end
     raw html
