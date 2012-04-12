@@ -2,14 +2,14 @@ source 'http://rubygems.org'
 
 gem 'rails'
 
+gem 'albino'
 gem 'awesome_nested_set'
 gem 'breadcrumbs'
-gem 'coderay'
 gem 'gravatar_image_tag'
 gem 'haml'
 gem 'jquery-rails'
-gem "recaptcha", :require => "recaptcha/rails"
-gem 'RedCloth'
+gem 'recaptcha', :require => 'recaptcha/rails'
+gem 'redcarpet'
 gem 'rupee'
 gem 'sanitize'
 

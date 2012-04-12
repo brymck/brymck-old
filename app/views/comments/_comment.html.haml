@@ -9,6 +9,6 @@
         = link_to t(:edit), edit_comment_path(comment)
         |
         = link_to t(:destroy), comment, :confirm => t(:confirm), :method => :delete
-  ~ textile comment.content
+  ~ markdown comment.content
   %footer
     = link_to t(".reply_to_this"), "#reply", :class => "reply", :"data-id" => comment.id, :"data-name" => comment.name

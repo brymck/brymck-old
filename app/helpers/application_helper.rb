@@ -1,24 +1,13 @@
 # coding: UTF-8
-require 'coderay'
-
 module ApplicationHelper
   FLASH_CLASSES = {
     :notice => :success,
     :alert  => :alert
   }
 
-  def textile(text, opts = {})
+  def markdown(text, opts = {})
     return nil if text.nil?
-    safe = opts[:safe] || false
-    html = RedCloth.new(text).to_html
-    html = Sanitize.clean(html, Sanitize::Config::BASIC) unless opts[:safe]
-    html.gsub!(/<pre( lang="(.+)")?><code[^>]*>(.*?)<\/code><\/pre>/m) do
-      match = $3
-      match.gsub! /&gt;/, ">"
-      match.gsub! /&amp;/, "&"
-      CodeRay.scan(match, :ruby).div(:css => :class)
-    end
-    raw html
+    raw RENDERER.render(text)
   end
   
   def t_meta_interpolation(name, hash)
@@ -72,7 +61,9 @@ module ApplicationHelper
     computer_time = l time, :format => "%FT%T"
     human_time = l time.in_time_zone(local_time_zone), :format => :long
     
-    html  = %Q{<time datetime="#{computer_time}"#{opts[:pubdate] ? " pubdate" : ""}>#{human_time}</time>}
+    # pubdate not allowed in time tag at this point.
+    # #{opts[:pubdate] ? " pubdate" : ""}
+    html  = %Q{<time datetime="#{computer_time}"#{opts[:pubdate] ? "" : ""}>#{human_time}</time>}
     if opts[:show_distance_in_words]
       time_in_words = t :ago, :scope => :time, :time => distance_of_time_in_words(time, Time.now)
       html << %Q{ (#{time_in_words})}

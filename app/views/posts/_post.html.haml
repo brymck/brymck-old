@@ -10,7 +10,7 @@
         = link_to t(:edit), edit_post_path(post)
         |
         = link_to t(:mail), mail_preview_post_path(post, subscriber_id: 1)
-  ~ textile post.content, safe: true
+  ~ markdown post.content, safe: true
   - unless post.tags.empty?
     %aside
       %h3= t ".tags"
