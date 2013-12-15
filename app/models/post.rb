@@ -1,6 +1,5 @@
 class Post < ActiveRecord::Base
   before_create :add_slug
-  has_and_belongs_to_many :tags, uniq: true
   has_many :comments
   validates_presence_of :title, :content
   translateable :title, :content
@@ -42,7 +41,6 @@ class Post < ActiveRecord::Base
   end
 end
 
-
 # == Schema Information
 #
 # Table name: posts
@@ -55,5 +53,3 @@ end
 #  personal    :boolean         default(FALSE)
 #  cached_slug :string(255)
 #  published   :boolean         default(FALSE), not null
-#
-

@@ -49,8 +49,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params[:post].except(:tags))
-    parse_tags params[:post][:tags] { |tag| @post.tags << tag }
+    @post = Post.new(params[:post])
 
     respond_to do |format|
       if @post.save
@@ -67,7 +66,7 @@ class PostsController < ApplicationController
     @post = Post.find_by_slug(params[:id])
 
     respond_to do |format|
-      if @post.update_attributes(params[:post].except(:tags))
+      if @post.update_attributes(params[:post])
         format.html { redirect_to(@post, notice: t("messages.posts.updated")) }
         format.xml  { head :ok }
       else

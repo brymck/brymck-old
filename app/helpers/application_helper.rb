@@ -41,7 +41,7 @@ module ApplicationHelper
   end
 
   def link_button(body, url, opts = {})
-    opts = { class: 'btn btn-default', type: 'button' }
+    opts = { class: 'btn btn-default', type: 'button' }.merge(opts)
     link_to body, url, opts
   end
 
