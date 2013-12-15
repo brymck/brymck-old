@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails'
+gem 'rails', '~> 3.2.13'
 
 gem 'awesome_nested_set'
 gem 'breadcrumbs'
@@ -9,8 +9,7 @@ gem 'gravatar_image_tag'
 gem 'haml'
 gem 'jquery-rails'
 gem "recaptcha", :require => "recaptcha/rails"
-gem 'RedCloth'
-gem 'rupee'
+gem 'redcarpet'
 gem 'sanitize'
 
 group :assets do

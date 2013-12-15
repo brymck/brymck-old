@@ -1,6 +1,13 @@
 pre, code, tt {
   font-family: 'Menlo', 'Monaco', 'Courier New', 'Terminal', monospace !important;
-  line-height: 1em;
+}
+
+pre > code {
+  line-height: 1.2em;
+}
+
+code {
+  font-size: 87.5%;
 }
 
 .CodeRay {

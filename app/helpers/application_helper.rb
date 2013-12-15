@@ -1,26 +1,47 @@
-# coding: UTF-8
 require 'coderay'
+require 'redcarpet'
 
 module ApplicationHelper
   FLASH_CLASSES = {
     :notice => :success,
     :alert  => :alert
   }
+  RENDERER_OPTIONS = {
+    # autolink:            true,
+    filter_html:         true,
+    hard_wrap:           true,
+    # space_after_headers: true,
+    # prettify:            true
+  }
+  RENDER_OPTIONS = {
+    fenced_code_blocks: true,
+    no_intra_emphasis:  true,
+    autolink:           true,
+    strikethrough:      true,
+    lax_html_blocks:    true,
+    superscript:        true
+  }
 
-  def textile(text, opts = {})
-    return nil if text.nil?
-    safe = opts[:safe] || false
-    html = RedCloth.new(text).to_html
-    html = Sanitize.clean(html, Sanitize::Config::BASIC) unless opts[:safe]
-    html.gsub!(/<pre( lang="(.+)")?><code[^>]*>(.*?)<\/code><\/pre>/m) do
-      match = $3
-      match.gsub! /&gt;/, ">"
-      match.gsub! /&amp;/, "&"
-      CodeRay.scan(match, :ruby).div(:css => :class)
+  class MarkdownRenderer < Redcarpet::Render::HTML
+    def block_code(code, language)
+      CodeRay.highlight code, language
     end
-    raw html
   end
-  
+
+  def render_markup(text, opts = {})
+    return nil if text.nil?
+    renderer = MarkdownRenderer.new(RENDERER_OPTIONS)
+    html = Redcarpet::Markdown.new(renderer, RENDER_OPTIONS).render(text).html_safe
+    # html = Sanitize.clean(html, Sanitize::Config::BASIC) unless opts[:safe]
+    # html.gsub!(/<pre( lang="(.+)")?><code[^>]*>(.*?)<\/code><\/pre>/m) do
+    #   match = $3
+    #   match.gsub! /&gt;/, ">"
+    #   match.gsub! /&amp;/, "&"
+    #   CodeRay.scan(match, :ruby).div(:css => :class)
+    # end
+    # raw html
+  end
+
   def t_meta_interpolation(name, hash)
     instance_variable_set("@#{name}_interpolation", hash)
   end
@@ -71,7 +92,7 @@ module ApplicationHelper
     opts.merge!(:pubdate => true, :show_distance_in_words => true)
     computer_time = l time, :format => "%FT%T"
     human_time = l time.in_time_zone(local_time_zone), :format => :long
-    
+
     html  = %Q{<time datetime="#{computer_time}"#{opts[:pubdate] ? " pubdate" : ""}>#{human_time}</time>}
     if opts[:show_distance_in_words]
       time_in_words = t :ago, :scope => :time, :time => distance_of_time_in_words(time, Time.now)
@@ -85,5 +106,9 @@ module ApplicationHelper
 
   def local_time_zone
     ActiveSupport::TimeZone.new(t(:zone, :scope => :time))
+  end
+
+  def renderer
+    @renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, RENDER_OPTIONS)
   end
 end
