@@ -1,4 +1,6 @@
-= link_to t(:new), new_path if admin?
+- if admin?
+  .btn-group
+    = link_button t(:new), new_path
 - last_id = items.last.id
 - items.each do |item|
   = render partial: partial, locals: { item: item }
