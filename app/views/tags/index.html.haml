@@ -1,5 +1,0 @@
-= link_to t(:new), new_tag_path if admin?
-%ul#tags.horizontal{:"data-pjax" => "#page"}
-  - @tags.each do |tag|
-    - if tag.count > 0 or admin?
-      %li!= "#{link_to tag.name, tag} (#{tag.count})"

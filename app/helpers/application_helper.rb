@@ -3,8 +3,8 @@ require 'redcarpet'
 
 module ApplicationHelper
   FLASH_CLASSES = {
-    :notice => :success,
-    :alert  => :alert
+    :notice => 'alert alert-success',
+    :alert  => 'alert'
   }
   RENDERER_OPTIONS = {
     # autolink:            true,
@@ -37,13 +37,12 @@ module ApplicationHelper
     renderer = MarkdownRenderer.new(RENDERER_OPTIONS)
     html = Redcarpet::Markdown.new(renderer, RENDER_OPTIONS).render(text).html_safe
     # html = Sanitize.clean(html, Sanitize::Config::BASIC) unless opts[:safe]
-    # html.gsub!(/<pre( lang="(.+)")?><code[^>]*>(.*?)<\/code><\/pre>/m) do
-    #   match = $3
-    #   match.gsub! /&gt;/, ">"
-    #   match.gsub! /&amp;/, "&"
-    #   CodeRay.scan(match, :ruby).div(:css => :class)
-    # end
     # raw html
+  end
+
+  def link_button(body, url, opts = {})
+    opts = { class: 'btn btn-default', type: 'button' }
+    link_to body, url, opts
   end
 
   def t_meta_interpolation(name, hash)
@@ -66,15 +65,14 @@ module ApplicationHelper
   def render_flash(flash)
     html = ""
     flash.each do |key, message|
-      html << content_tag(:div, message, :class => FLASH_CLASSES[key])
+      html << content_tag(:div, message, class: FLASH_CLASSES[key])
     end
     raw html
   end
 
   def nav_item(label, path, opts = {})
     if current_page?(path)
-      opts = { :"data-href" => path }.merge opts
-      content_tag :li, content_tag(:span, label, opts)
+      content_tag :li, link_to(label, '#', opts), class: :active
     else
       content_tag :li, link_to(label, path, opts)
     end

@@ -11,25 +11,25 @@
   #reply_to.notice
     = raw t(".replying_to", :name => link_to("", "#", :id => "reply_name"))
     = raw t(:brackets, :content => link_to(t(:clear), "#", :id => "clear_reply_to"))
-  .field.inline
+  .form-group
     = f.label :name
-    = f.text_field :name, :value => @comment.name || session[:name]
-  .field.inline
+    = f.text_field :name, value: @comment.name || session[:name], class: 'form-control'
+  .form-group
     = f.label :email
-    = f.email_field :email, :value => @comment.email || session[:email]
+    = f.email_field :email, value: @comment.email || session[:email], class: 'form-control'
   - if edit_everything
-    .field.inline
+    .form-group
       = f.label :parent_id
-      = f.text_field :parent_id
-    .field.inline
+      = f.text_field :parent_id, class: 'form-control'
+    .form-group
       = f.label :created_at
-      = f.text_field :created_at
-  .field
+      = f.text_field :created_at, class: 'form-control'
+  .form-group
     = f.label :content
     %br
-    = f.text_area :content
+    = f.text_area :content, 'data-provide' => 'markdown'
   = recaptcha_tags
   = f.hidden_field :post_id, :value => @post.id
   = f.hidden_field(:parent_id, :value => nil) unless edit_everything
   .actions
-    = f.submit
+    = f.submit class: 'btn btn-default btn-lg'

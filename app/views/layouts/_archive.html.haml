@@ -1,0 +1,5 @@
+.col-md-3
+  .bs-sidebar.hidden-print.affix{role: :complementary}
+    %ul.nav.bs-sidenav
+      - items.each do |item|
+        = nav_item item.title, item

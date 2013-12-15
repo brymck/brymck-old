@@ -1,5 +1,5 @@
 window.delayRemoveSuccess = ->
-  $notices = $(".success").filter(":visible")
+  $notices = $(".alert-success").filter(":visible")
   setTimeout (-> $notices.slideUp "fast"), 5000
 
 $ ->

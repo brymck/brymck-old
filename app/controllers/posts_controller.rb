@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :authorize, except: [:feed, :home, :journal, :preview, :show]
+  before_filter :authorize, except: [:feed, :home, :journal, :show]
   before_filter :authorize_friends, only: :journal
 
   def home
@@ -24,31 +24,6 @@ class PostsController < ApplicationController
   def journal
     @posts = Post.journal.reverse[0..2]
     breadcrumbs.add t("meta.posts.journal.title"), journal_path
-  end
-
-  def preview
-    @post = Post.new params[:post]
-    @post.created_at = Time.now
-  end
-
-  def mail_preview
-    @post = Post.find_by_slug(params[:id])
-    @subscriber = Subscriber.find(params[:subscriber_id])
-    @subscribers = Subscriber.active_list
-  end
-
-  def mail
-    @post = Post.find_by_slug(params[:id])
-    Subscriber.active_list.each do |subscriber|
-      Notify.post(
-        to: subscriber.header,
-        title: @post.title,
-        content: RedCloth.new(@post.content).to_html,
-        post_link: post_url(@post),
-        unsubscribe_link: unsubscribe_url(subscriber, subscriber.hash)
-      ).deliver
-    end
-    redirect_to @post, notice: t("messages.posts.mailed")
   end
 
   def show

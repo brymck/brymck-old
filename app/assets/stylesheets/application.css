@@ -1,4 +1,8 @@
 /*
+ *= require bootstrap
+ *= require bootstrap-markdown.min
+ *= require docs
  *= require coderay
+ *= require main
  *= require_tree . 
 */

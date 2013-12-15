@@ -6,17 +6,15 @@
         - @code.errors.full_messages.each do |msg|
           %li= msg
   - %w{title importance download source}.each do |field|
-    .field
+    .form-group
       = f.label field.to_sym
-      %br
-      = f.text_field field.to_sym
-  .field
+      = f.text_field field.to_sym, class: 'form-control'
+  .form-group
     = f.label :description
-    %br
-    = f.text_area :description
+    = f.text_area :description, 'data-provide' => 'markdown'
   - Language.find(:all).each do |language|
     %div
       = check_box_tag "code[language_ids][]", language.id, @code.languages.include?(language)
       = language.name
   .actions
-    = f.submit
+    = f.submit class: 'btn btn-default btn-lg'

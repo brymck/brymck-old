@@ -1,0 +1,7 @@
+.col-md-9{role: :main}
+  = link_to t(:new), new_path if admin?
+  - last_id = items.last.id
+  - items.each do |item|
+    = render partial: partial, locals: { item: item }
+    - if item.id != last_id
+      %hr

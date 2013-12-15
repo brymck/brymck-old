@@ -5,30 +5,16 @@ Brymck::Application.routes.draw do
       resources :languages
     end
 
-    match "subscribe" => "subscribers#new"
-    match "unsubscribe/:id/:hash" => "subscribers#unsubscribe", as: :unsubscribe
-    resources :subscribers, except: :new do
-      member do
-        put :activate
-        put :deactivate
-        put :approve
-      end
-      match "environment/:env" => "subscribers#environment", as: :environment, on: :collection
-    end
-
     # Generic resources
-    resources :code, :comments, :tags
+    resources :code, :comments
 
     # Post resources
     resources :posts do
-      get :preview, on: :collection
       member do
         put :publish
-        match "mail_preview/:subscriber_id" => "posts#mail_preview", as: :mail_preview, via: :get
-        put :mail
       end
     end
-   
+
     # RSS feed
     match "feed(/:hash)" => "posts#feed", as: :feed
 

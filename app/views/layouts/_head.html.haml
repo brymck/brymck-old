@@ -4,11 +4,7 @@
   %meta{:name => "description", :content => t_meta(:description)}
   %meta{:name => "keywords",    :content => t_meta(:keywords)}
   = auto_discovery_link_tag :rss, feed_path
-  = stylesheet_link_tag "blueprint/screen", :media => "screen, projection"
-  = stylesheet_link_tag "blueprint/print", :media => "print"
   /[if lt IE 8]
-    = stylesheet_link_tag "blueprint/ie", :media => "screen, projection"
-  = stylesheet_link_tag "blueprint/plugins/fancy-type/screen", :media => "screen, projection"
   = stylesheet_link_tag "application"
   = csrf_meta_tag
   = javascript_include_tag "application_head"

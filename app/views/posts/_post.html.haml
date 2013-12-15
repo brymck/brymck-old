@@ -1,19 +1,12 @@
+- post ||= item
 - show_comments ||= false
 - show_admin_tools = true if show_admin_tools.nil?
 %article
   %header
     %h2= link_to post.title, post
     %p= time_tag post.created_at
-    - if show_admin_tools && admin?
-      %p
-        = link_to t(:edit), edit_post_path(post)
-        |
-        = link_to t(:mail), mail_preview_post_path(post, subscriber_id: 1)
+    = render partial: 'layouts/buttons', locals: { item: post, path: edit_post_path(post) }
   ~ render_markup post.content, safe: true
-  - unless post.tags.empty?
-    %aside
-      %h3= t ".tags"
-      %p!= post.tags.sort { |a, b| b.count <=> a.count }.map { |tag| link_to tag.name, tag }.join t :separator
   - if show_comments
     %aside>
       = content_tag :h3, t("layouts.sidebar.comments"), :id => "comments"

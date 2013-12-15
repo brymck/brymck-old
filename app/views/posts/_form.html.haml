@@ -1,4 +1,5 @@
 - edit_date ||= false
+.col-md-12
 = form_for(@post) do |f|
   - if @post.errors.any?
     #error_explanation
@@ -6,31 +7,20 @@
       %ul
         - @post.errors.full_messages.each do |msg|
           %li= msg
-
-  .field.inline
+  .form-group
     = f.label :title
-    = f.text_field :title, class: "preview_source"
-    = f.check_box :personal
-    = f.label :personal
-  .field.inline
+    = f.text_field :title, class: 'form-control'
+  .form-group
     = f.label :slug
-    = f.text_field :slug
+    = f.text_field :slug, class: 'form-control'
   - if edit_date
-    .field.inline
+    .form-group
       = f.label :created_at
-      = f.text_field :created_at
-  .field
+      = f.text_field :created_at, class: 'form-control'
+  .form-group
     = f.label :content
-    %br
-    = f.text_area :content, class: "span-20 preview_source"
-  .field.inline.clear
-    = f.label :tags
-    %br
-    = f.text_field :tags, value: @post.tags.collect { |tag| tag.name_en }.join(", ")
+    = f.text_area :content, 'data-provide' => 'markdown'
+  = f.label :personal
+  = f.check_box :personal
   .actions.clear
-    = f.submit
-    %input.preview_button{type: :button, value: t(".preview")}
-%hr
-.preview
-  %h3= t ".preview"
-  .content
+    = f.submit class: 'btn btn-default btn-lg'

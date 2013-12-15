@@ -1,8 +1,3 @@
-%h2= t ".archive"
-%ul
-  - Post.where(:personal => defined?(personal) ? personal : false).reverse.each do |post|
-    %li<
-      - if current_page?(post)
-        %span{:"data-href" => post_path(post)}= post.title
-      - else
-        = link_to post.title, post
+- personal ||= false
+- items = Post.where(personal: personal).reverse
+= render partial: 'layouts/archive', locals: { items: items }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221173220) do
+ActiveRecord::Schema.define(:version => 20131215111451) do
 
   create_table "code", :force => true do |t|
     t.string   "title_en"
@@ -34,13 +34,6 @@ ActiveRecord::Schema.define(:version => 20120221173220) do
   end
 
   add_index "code_languages", ["code_id", "language_id"], :name => "index_code_languages_on_code_id_and_language_id", :unique => true
-
-  create_table "code_tags", :id => false, :force => true do |t|
-    t.integer "code_id"
-    t.integer "tag_id"
-  end
-
-  add_index "code_tags", ["code_id", "tag_id"], :name => "index_code_tags_on_code_id_and_tag_id", :unique => true
 
   create_table "comments", :force => true do |t|
     t.string   "name_en"
@@ -81,36 +74,5 @@ ActiveRecord::Schema.define(:version => 20120221173220) do
   end
 
   add_index "posts", ["slug"], :name => "index_posts_on_cached_slug", :unique => true
-
-  create_table "posts_tags", :id => false, :force => true do |t|
-    t.integer "post_id"
-    t.integer "tag_id"
-  end
-
-  add_index "posts_tags", ["post_id", "tag_id"], :name => "index_posts_tags_on_post_id_and_tag_id", :unique => true
-
-  create_table "subscribers", :force => true do |t|
-    t.string    "name",                            :null => false
-    t.string    "email",                           :null => false
-    t.boolean   "approved",     :default => false, :null => false
-    t.boolean   "active",       :default => true,  :null => false
-    t.boolean   "unsubscribed", :default => false, :null => false
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.boolean   "test",         :default => false, :null => false
-  end
-
-  add_index "subscribers", ["email"], :name => "index_subscribers_on_email", :unique => true
-  add_index "subscribers", ["name"], :name => "index_subscribers_on_name"
-  add_index "subscribers", ["test"], :name => "index_subscribers_on_test"
-
-  create_table "tags", :force => true do |t|
-    t.string "name_en"
-    t.string "slug"
-    t.string "name_ja"
-  end
-
-  add_index "tags", ["name_en"], :name => "index_tags_on_name", :unique => true
-  add_index "tags", ["slug"], :name => "index_tags_on_cached_slug", :unique => true
 
 end

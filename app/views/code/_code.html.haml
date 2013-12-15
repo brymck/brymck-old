@@ -1,18 +1,9 @@
+- code ||= item
+- default_buttons = []
+- default_buttons << [t('.download'), code.download] if code.download?
+- default_buttons << [t('.source'), code.source] if code.source?
 %article
   %header
     %h2= link_to code.title, code
-    %section.links
-      = link_to t(".download"), code.download if code.download?
-      = "|" if code.source? && code.download?
-      = link_to t(".source"), code.source if code.source?
-    %section.languages
-      = t(".languages") + t(:colon)
-      %ul.horizontal.inline.comma-separated
-        - code.languages.each do |language|
-          %li= link_to language.name, language
-    - if admin?
-      %p
-        = link_to t(:edit), edit_code_path(code)
-        |
-        = link_to t(:destroy), code, :confirm => t(:confirm), :method => :delete
+    = render partial: 'layouts/buttons', locals: { defaults: default_buttons, item: code, path: edit_code_path(code) }
   ~ render_markup code.description, :safe => true

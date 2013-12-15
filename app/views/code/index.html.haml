@@ -1,11 +1,2 @@
-#code.span-17.colborder
-  = link_to t(:new), new_code_path if admin?
-  - last_id = @code.last.id
-  - @code.each do |code|
-    = render :partial => "code", :locals => { :code => code }
-    - unless code.id == last_id
-      %hr
-- content_for :archive do
-  .archive.delink-current
-    = render :partial => "archive"
-    %p{:"data-pjax" => "#page"}= link_to t(:view_by_language, :scope => :code), languages_path
+= render partial: 'archive'
+= render partial: 'all', locals: { items: @code }
