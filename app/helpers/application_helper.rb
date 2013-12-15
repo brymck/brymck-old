@@ -24,7 +24,11 @@ module ApplicationHelper
 
   class MarkdownRenderer < Redcarpet::Render::HTML
     def block_code(code, language)
-      CodeRay.highlight code, language
+      if language.nil?
+        code
+      else
+        CodeRay.highlight code, language
+      end
     end
   end
 

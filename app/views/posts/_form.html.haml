@@ -12,6 +12,9 @@
     = f.text_field :title, class: "preview_source"
     = f.check_box :personal
     = f.label :personal
+  .field.inline
+    = f.label :slug
+    = f.text_field :slug
   - if edit_date
     .field.inline
       = f.label :created_at
