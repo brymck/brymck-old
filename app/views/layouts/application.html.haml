@@ -15,8 +15,10 @@
           = render :partial => "layouts/sidebar"
     .container
       .row
-        = render_flash flash
-        = yield
-        = yield :archive
+        .col-md-3
+          = yield :archive
+        .col-md-9{role: :main}
+          = render_flash flash
+          = yield
     = render :partial => "layouts/footer"
     = javascript_include_tag :application
