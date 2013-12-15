@@ -20,7 +20,17 @@
   .form-group
     = f.label :content
     = f.text_area :content, 'data-provide' => 'markdown'
-  = f.label :personal
-  = f.check_box :personal
-  .actions.clear
-    = f.submit class: 'btn btn-default btn-lg'
+  .row
+    .col-md-3
+      .input-group
+        %span.input-group-addon
+          = f.check_box :personal
+        = f.label :personal, class: 'form-control'
+    .col-md-3
+      .input-group
+        %span.input-group-addon
+          = f.check_box :published
+        = f.label :published, class: 'form-control'
+  %hr
+  .form-group
+    = f.submit class: 'btn btn-default'
