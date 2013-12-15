@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_filter :authorize_friends, only: :journal
 
   def home
-    @posts = Post.blog.reverse[0..2]
+    @posts = Post.blog[0..2]
 
     respond_to do |format|
       format.html
@@ -17,12 +17,12 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.find(:all).reverse
+    @posts = Post.all
     breadcrumbs.add t("meta.posts.index.title"), posts_path
   end
 
   def journal
-    @posts = Post.journal.reverse[0..2]
+    @posts = Post.journal[0..2]
     breadcrumbs.add t("meta.posts.journal.title"), journal_path
   end
 

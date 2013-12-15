@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  default_scope order: 'posts.created_at DESC'
   before_create :add_slug
   has_many :comments
   validates_presence_of :title, :content
