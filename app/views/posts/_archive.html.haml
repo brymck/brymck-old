@@ -1,5 +1,5 @@
 - personal ||= false
 - conditions = { personal: personal }
 - conditions[:published] = true unless admin?
-- items = Post.where(conditions).reverse
+- items = Post.where(conditions).order(created_at: :desc)
 = render partial: 'layouts/archive', locals: { items: items }

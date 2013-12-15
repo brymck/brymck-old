@@ -1,2 +1,2 @@
-- items = Code.all
+- items = Code.order(created_at: :desc)
 = render partial: 'layouts/archive', locals: { items: items }
