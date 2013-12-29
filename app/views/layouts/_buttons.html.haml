@@ -3,5 +3,6 @@
   .btn-group
     - defaults.each do |button|
       = link_button *button
-    = link_button t(:edit), path
-    = link_button t(:destroy), item, confirm: t(:confirm), method: :delete
+    - if admin?
+      = link_button t(:edit), path
+      = link_button t(:destroy), item, confirm: t(:confirm), method: :delete
